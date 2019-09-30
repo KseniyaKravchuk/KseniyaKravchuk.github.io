@@ -8,16 +8,18 @@
     <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
     <div class="banner-container">
-        <h3>Pellentesque eleifend sed ipsum eu accumsan</h3>
-        <div class="about-product">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
-        </div>
-        <div class="note">*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</div>
-        <div class="button">
+        <div class="content-container invisible">
+            <h3>Pellentesque eleifend sed ipsum eu accumsan</h3>
+            <div class="about-product">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+            </div>
+            <div class="note">*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</div>
+            <div class="button">
             <span class="button-text">
                 Learn more...
             </span>
+            </div>
         </div>
         <video src="img_video/Video.mov" preload="auto" loop="loop" muted="muted" autoplay="autoplay"></video>
     </div>
@@ -45,10 +47,15 @@
             position: absolute;
             top: 0;
             left: 0;
-            transition: .8s linear;
+            transition: .5s linear;
         }
         .small-video {
             transform: matrix(0.5, 0, 0, 0.5, 174, -7);
+        }
+        .content-container {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
         }
         .button {
             width: 23%;
@@ -63,7 +70,7 @@
         }
         .button-text {
             position: absolute;
-            top: 30%;
+            top: 37%;
             left: 25%;
             width: 50%;
         }
@@ -92,15 +99,19 @@
             top: 90%;
             left: 54%;
         }
-
+        .invisible {
+            opacity: 0;
+        }
     </style>
 
     <script>
         const reduceVideo = function() {
             const video = document.getElementsByTagName('video');
+            const content = document.getElementsByClassName('content-container');
             video[0].classList.add('small-video');
+            content[0].classList.remove('invisible');
         };
-        setTimeout(reduceVideo, 3000)
+        setTimeout(reduceVideo, 2000)
     </script>
 </body>
 </html>
