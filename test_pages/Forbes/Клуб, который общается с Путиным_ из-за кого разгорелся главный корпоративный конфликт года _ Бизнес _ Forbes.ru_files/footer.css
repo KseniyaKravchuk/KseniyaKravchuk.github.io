@@ -1,0 +1,424 @@
+/*footer*/
+
+body#theme2018 .footer-content {
+    padding: 55px 32px 60px 32px;
+    border-top: 1px solid #c7c7c7;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+body#theme2018 .footer-content .name {
+    font-family: BaseFontBold, Arial, serif;
+    font-size: 18px;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0 0 10px 0;
+}
+body#theme2018 .footer-content .description {
+    max-width: 180px;
+    font-family: BaseFontBold, Arial, serif;
+    font-size: 16px;
+    line-height: 1.25em;
+    color: #676767;
+    margin: 0 0 20px 0;
+}
+body#theme2018 .footer-content .button-to-subscribe {
+    font-family: BaseFontBold, Arial, serif;
+    font-size: 16px;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #000;
+    padding-right: 20px;
+}
+body#theme2018 .footer-content .button-to-subscribe .arrow {
+    width: 16px;
+    position: relative;
+    top: 6px;
+}
+body#theme2018 .footer-content .button-to-subscribe .arrow:before,
+.footer-content .button-to-subscribe .arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -16px;
+    width: 8px;
+    border-top: 3px solid #000;
+}
+body#theme2018 .footer-content .button-to-subscribe .arrow:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 0;
+}
+body#theme2018 .footer-content .button-to-subscribe .arrow:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 5px;
+}
+body#theme2018 .footer .footer-subscription-magazine {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+body#theme2018 .footer .footer-subscription-magazine .footer-content__left {
+    max-width: 103px;
+}
+body#theme2018 .footer .footer-subscription-magazine .footer-content__left img,
+body#theme2018 .footer .footer-iphone-and-ipad .footer-content__left img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+body#theme2018 .footer .footer-iphone-and-ipad .footer-content__left {
+    max-width: 93px;
+}
+body#theme2018 .footer-content__right {
+    margin: 0 0 0 17px;
+}
+body#theme2018 .footer .footer-iphone-and-ipad {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+body#theme2018 .footer .footer-href-digital-version {
+    margin: 16px 0 0 0;
+}
+body#theme2018 .footer .footer-href-digital-version img {
+    max-width: 118px;
+    height: auto;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+body#theme2018 .footer .footer-href-digital-version .img-appstore {
+    margin: 0 10px 0 0;
+}
+body#theme2018 .footer .footer-contact .list {
+    text-align: right;
+}
+body#theme2018 .footer .footer-contact .list .item {
+    list-style: none;
+}
+body#theme2018 .footer .footer-contact .list .link {
+    display: inline-block;
+    font-family: BaseFontDemi, Arial, serif;
+    font-size: 12px;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0 0 7px 0;
+}
+body#theme2018 .footer-social {
+    background: #fafafa;
+    position: relative;
+}
+body#theme2018 .footer-social .wrap {
+    max-width: 485px;
+    padding: 45px 0;
+    margin: 0 auto;
+}
+body#theme2018 .footer-social .list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+body#theme2018 .footer-social .item {
+    width: 35px;
+    height: 30px;
+    margin-right: 10px;
+    list-style: none;
+}
+body#theme2018 .footer-social .link-fb {
+    background: url(/themes/forbes/img/newindex/social/facebook-black.svg);
+}
+body#theme2018 .footer-social .link-vk {
+    background: url(/themes/forbes/img/newindex/social/vk-black.svg);
+}
+body#theme2018 .footer-social .link-tw {
+    background: url(/themes/forbes/img/newindex/social/tw-black.svg);
+}
+body#theme2018 .footer-social .link-tg {
+    background: url(/themes/forbes/img/newindex/social/tg-black.svg);
+}
+body#theme2018 .footer-social .link-flip {
+    background: url(/themes/forbes/img/newindex/social/flip-black.svg);
+}
+body#theme2018 .footer-social .link-yt {
+    background: url(/themes/forbes/img/newindex/social/yt-black.svg);
+}
+body#theme2018 .footer-social .link-od {
+    background: url(/themes/forbes/img/newindex/social/od-black.svg);
+}
+body#theme2018 .footer-social .link-insta {
+    background: url(/themes/forbes/img/newindex/social/insta-black.svg);
+}
+body#theme2018 .footer-social .link-dzen {
+    background: url(/themes/forbes/img/newindex/social/dzen-black.svg);
+}
+body#theme2018 .footer-social .link-medium {
+    background: url(/themes/forbes/img/newindex/social/medium-black.svg);
+}
+body#theme2018 .footer-social .link-reddit {
+    background: url(/themes/forbes/img/newindex/social/reddit-black.svg);
+}
+body#theme2018 .footer-social .link-rss {
+    background: url(/themes/forbes/img/newindex/social/rss-black.svg);
+}
+body#theme2018 .footer-social .link-pinterest {
+    background: url(/themes/forbes/img/newindex/social/pinterest-black.svg);
+}
+body#theme2018 .footer-social .link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+body#theme2018 .footer-social .forbes-logo {
+    display: block;
+    width: 80px;
+    height: auto;
+    margin: 20px auto 0 auto;
+}
+body#theme2018 .footer .main-wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 110px 20px 0 20px;
+    background: #fff;
+    box-sizing: content-box;
+    position: relative;
+}
+@media screen and (max-width: 1024px) {
+    body#theme2018 .footer-content {
+        padding: 40px 0 66px 0;
+    }
+    body#theme2018 .footer .contact .list .link {
+        font-size: 10px;
+        margin: 0 0 10px 0;
+    }
+    body#theme2018 .footer .footer-subscription-magazine .footer-content__left {
+        max-width: 76px;
+    }
+    body#theme2018 .footer-content__right {
+        margin: 0 0 0 20px;
+    }
+    body#theme2018 .footer-content .name {
+        font-size: 13px;
+        margin: 0 0 5px 0;
+    }
+    body#theme2018 .footer-content .description {
+        max-width: 117px;
+        font-size: 11px;
+        line-height: 1.27em;
+        margin: 0 0 1px 0;
+    }
+    body#theme2018 .footer-content .button-to-subscribe {
+        font-size: 11px;
+        padding-right: 10px;
+    }
+    body#theme2018 .footer-content .button-to-subscribe .arrow {
+        top: 5px;
+    }
+    body#theme2018 .footer-content .button-to-subscribe .arrow:before, .footer-content .button-to-subscribe .arrow:after {
+        right: -8px;
+        width: 4px;
+        border-top: 1px solid #000;
+    }
+    body#theme2018 .footer-content .button-to-subscribe .arrow:after {
+        top: 3px;
+    }
+    body#theme2018 .footer .footer-iphone-and-ipad .footer-content__left {
+        max-width: 65px;
+    }
+    body#theme2018 .footer .footer-href-digital-version {
+        margin: 9px 0 0 0;
+    }
+    body#theme2018 .footer .footer-href-digital-version .img-appstore {
+        margin: 0;
+    }
+    body#theme2018 .footer .footer-href-digital-version img {
+        max-width: 101px;
+        margin: 0;
+    }
+    body#theme2018 .footer-social .wrap {
+        padding: 40px 0;
+        max-width: 596px;
+    }
+    body#theme2018 .footer-social .forbes-logo {
+        width: 65px;
+    }
+    body#theme2018 .footer .footer-contact .list {
+        text-align: left;
+    }
+    body#theme2018 .footer .footer-contact .list .link {
+        font-size: 10px;
+        margin: 0 0 10px 0;
+    }
+    body#theme2018 .footer .main-wrap {
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+    body#theme2018.ipad-fixed-width .footer .main-wrap {
+        max-width: 718px;
+        padding: 65px 25px 0 25px;
+    }
+    body#theme2018 .footer .main-wrap {
+        padding: 65px 25px 0 25px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body#theme2018 .footer .main-wrap {
+        max-width: 718px;
+        padding: 0 25px;
+    }
+}
+@media screen and (max-width: 730px) {
+    body#theme2018 .footer .footer-content__right {
+        margin: 0 10px;
+    }
+    body#theme2018 .footer .footer-href-digital-version img {
+        max-width: 80px;
+    }
+}
+@media screen and (max-width: 560px) {
+    body#theme2018 .footer-content {
+        padding: 37px 13px 33px 13px;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    body#theme2018 .footer .footer-subscription-magazine,
+    body#theme2018 .footer .footer-iphone-and-ipad {
+        width: 100%;
+    }
+    body#theme2018 .footer .footer-subscription-magazine .footer-content__left {
+        max-width: 70px;
+    }
+    body#theme2018 .footer .footer-content__right {
+        margin: 0 0 0 25px;
+    }
+    body#theme2018 .footer-content .name {
+        font-size: 14px;
+        margin: 0 0 6px 0;
+    }
+    body#theme2018 .footer-content .description {
+        font-size: 13px;
+        line-height: 1.3em;
+        margin: 0 0 6px 0;
+    }
+    body#theme2018 .footer-iphone-and-ipad {
+        margin: 35px 0 0 0;
+    }
+    body#theme2018 .footer-content .contact {
+        margin: 20px 0 0 0;
+    }
+    body#theme2018 .footer-contact .list .link {
+        font-size: 13px;
+        margin: 0 0 21px 0;
+    }
+    body#theme2018 .footer .footer-href-digital-version img {
+        max-width: 101px;
+    }
+    body#theme2018 .footer-social .wrap {
+        padding: 30px 0 37px 0;
+        max-width: none;
+    }
+    body#theme2018 .footer-social .forbes-logo {
+        width: 71px;
+        margin: 30px auto 0 auto;
+    }
+    body#theme2018 .footer-social .list {
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    body#theme2018 .footer-social .item {
+        width: 55px;
+        height: 50px;
+        margin: 0;
+    }
+    body#theme2018 .footer .footer-contact .list .link {
+        font-size: 13px;
+        margin: 0 0 21px 0;
+    }
+    body#theme2018 .footer-content .footer-contact {
+        margin: 20px 0 0 0;
+    }
+    body#theme2018 .footer .main-wrap {
+        max-width: 718px;
+        padding: 0 20px;
+    }
+    body#theme2018.ipad-fixed-width .footer .main-wrap {
+        max-width: 718px;
+        padding: 50px 25px 0 25px;
+    }
+    body#theme2018 .footer .main-wrap {
+        padding: 50px 25px 0 25px;
+    }
+}
+@media screen and (max-width: 385px) {
+    body#theme2018 .footer-social .list  {
+        -webkit-box-pack: left;
+        -webkit-justify-content: left;
+        -ms-flex-pack: left;
+        justify-content: left;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 366px) {
+    body#theme2018 .footer-social .list  {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    body#theme2018 .footer .footer-subscription-magazine .footer-content__left,
+    body#theme2018 .footer-iphone-and-ipad .footer-content__left {
+        max-width: none;
+        width: 90px;
+    }
+    body#theme2018 .footer-content .description {
+        max-width: none;
+    }
+}
+@media screen and (max-width: 320px) {
+    body#theme2018 .footer .footer-subscription-magazine .footer-content__left,
+    body#theme2018 .footer-iphone-and-ipad .footer-content__left {
+        width: 120px;
+    }
+}
+
+
+body#theme2018 .footer .pds {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+body#theme2018 .footer .pds .pds__link {
+    color: #000;
+    font-size: 12px;
+    text-decoration: none;
+}

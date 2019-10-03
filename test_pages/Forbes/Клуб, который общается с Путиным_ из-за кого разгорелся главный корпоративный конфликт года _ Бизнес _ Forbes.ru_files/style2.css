@@ -1,0 +1,614 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: ALSRubl;
+  src: url("fonts/rouble.ttf");
+}
+
+.rubznak {
+  font-family: ALSRubl, serif;
+}
+
+/* можно убрать, если в основном файле эти блоки не потеряются */
+/*.block-href-material .load_more {
+  width: 30%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: #10659E;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+*/
+/* можно убрать, если в основном файле эти блоки не потеряются */
+/*.block-href-material .load_more .pic {
+  background: url("https://cdn.forbes.ru/themes/forbes/img/all-material-arrow.png") center center no-repeat;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  height: 9px;
+  margin-top: 10px;
+}
+*/
+
+.main-rating-block a {
+  color: black;
+}
+
+.main-rating-block .block-rating-first  .block-rating-name {
+  padding: 20px 0 0 0;
+}
+
+.main-rating-block .block-rating-first .block-rating-name a {
+  font-family: BaseFontBold, Arial, serif;
+  font-size: 40px;
+  line-height: 44px;
+}
+
+.main-rating-block .block-rating-first img {
+  width: 100%;
+  height: auto;
+}
+.main-rating-block .block-other-ratings {
+  padding: 41px 0 0 0;
+}
+.main-rating-block .block-other-ratings:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.main-rating-block a.block-rating-pic{}
+.main-rating-block a.block-rating-pic img{
+  width: 100%;
+}
+.main-rating-block a.block-rating-pic .img-mob {
+  display: none;
+}
+
+.main-rating-block .block-other-ratings .block-rating-item{
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  padding-bottom: 40px;
+}
+.main-rating-block .block-other-ratings .block-rating-item:nth-child(n+3){
+  margin: 0;
+}
+.main-rating-block .block-other-ratings .block-rating-item:last-child:after{
+  clear: both;
+  content: '';
+}
+
+.main-rating-block .block-other-ratings .block-rating-name {
+  padding: 16px 0 0;
+  margin-bottom: -8px;
+}
+
+.main-rating-block .block-other-ratings .block-rating-name a {
+  font-family: BaseFontBold, Arial, serif;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.main-rating-block .block-other-ratings img{
+  width: 100%;
+  height: auto;
+}
+
+.page-taxonomy-term .pane-page-title {
+  border-top: solid 1px black;
+  padding: 30px 0 30px;
+}
+
+.page-taxonomy-term .pane-page-title h1 {
+  text-transform: uppercase;
+  font-family: BaseFontBold, Arial, serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#admin-menu {
+  z-index: 10000;
+}
+
+.node-type-rating .under-menu {
+  border-bottom: none;
+}
+
+
+ul.list .tid57, .page-popular .main-section-tab .categories .tid57 {
+  color: transparent;
+  background: url("https://cdn.forbes.ru/themes/forbes/img/forbes-life-logo-under-menu.svg") 0 0 no-repeat;
+  width: 76px;
+  height: 31px;
+}
+
+ul.list .tid423, .page-popular .main-section-tab .categories .tid423  {
+  color: transparent;
+  background: url("https://cdn.forbes.ru/themes/forbes/img/forbes-woman-logo-under-menu.svg") 0 0 no-repeat;
+  width: 103px;
+  height: 31px;
+}
+
+.node-type-profile .read-also-block-href:before {
+  display: block;
+  content: "Читайте также";
+  font-family: BaseFontBold, Arial, serif;
+  background-color: #D9D9D9;
+  font-size: 12px;
+  line-height: 9px;
+  text-transform: uppercase;
+  padding: 7px 19px 6px;
+  margin: -25px 0 30px;
+}
+
+.page-node .content .col-center {
+  background: white;
+}
+
+.lifewoman-right-banner {
+  /*float: right;
+  position: relative;*/
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  margin-top: 40px;
+
+}
+
+/*.page-life-woman .first-material {
+  width: calc(100% - 325px);
+}*/
+/*.page-life-woman .first-material a.text{
+  display: block;
+  font-family: BaseFontBold, Arial, serif;
+  font-size: 39px;
+  line-height: 44px;
+  color: #000;
+  margin-bottom: 65px;
+}*/
+/*.page-life-woman .first-material .date {
+  font-size: 11px;
+  margin-bottom: 2px;
+  color: #7A7A7A;
+} */
+/*.page-life-woman .item-material {
+  width: 32.156%;
+  padding-bottom: 32px;
+  padding-right: 0;
+  margin-right: 1.725%;
+  margin-bottom: 0;
+  float: left;
+}*/
+/*.page-life-woman .item-material:nth-of-type(4),
+.page-life-woman .item-material:nth-of-type(7),
+.page-life-woman .item-material:nth-of-type(3n+11)  {
+  margin-right: 0;
+}*/
+/*.page-life-woman .item-material:nth-of-type(5),
+.page-life-woman .item-material:nth-of-type(3n+12) {
+  clear: both;
+}*/
+.page-forbes-life .pane-page-content > .pane-content,
+.page-forbes-woman .pane-page-content > .pane-content,
+.page-forbes-club .pane-page-content > .pane-content {
+  position: relative;
+}
+.page-life-woman .item-material .pic,
+.page-life-woman .big-item-material .pic{
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+}
+.page-life-woman .item-material img,
+.page-life-woman .big-item-material img,
+.page-life-woman .first-material img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+.page-life-woman .item-material .date {
+  font-size: 11px;
+  color: #7A7A7A;
+  margin-bottom: 6px;
+}
+.page-life-woman .item-material a.text {
+  font-family: BaseFontBold, Arial, serif;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -.5px;
+  color: #000;
+  display: block;
+}
+.page-life-woman .last-block {
+  width: 100%;
+}
+.page-life-woman .big-item-material {
+  width: 100%;
+  margin: 22px 0 39px;
+}
+.page-life-woman .big-item-material .date {
+  font-family: BaseFontMedium, Arial, serif;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.page-life-woman .big-item-material a.text {
+  font-family: BaseFontBold, Arial, serif;
+  color: black;
+  display: block;
+  font-size: 39px;
+  line-height: 44px;
+  letter-spacing: -1px;
+}
+
+.page-life-woman .load_more {
+  clear: both;
+  padding: 10px 0 39px;
+}
+
+.page-life-woman .load_more>div:first-child {
+  border-top: solid 2px black;
+  padding: 43px 0 0;
+}
+.page-life-woman .load_more .pic {
+  margin: 13px auto 0;
+}
+
+
+h1.status-0, h2.status-0  {
+  background: #f88;
+}
+
+.with_video {
+  margin-top: 40px;
+}
+
+.pane-page-content .pane-title {
+  display: none;
+}
+
+.block-page-search form input[type="text"] {
+  height: 50px;
+  padding: 2px 5px 2px 50px;
+}
+
+.article-top img, .article-bottom img {
+  max-width: 100%;
+  height: auto !important;
+}
+.article-top p > img, .article-bottom p > img,
+.article-top p a img, .article-bottom p a img
+{
+  display: inline-block;
+}
+
+
+
+
+.drupal-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 0;
+  padding: 0 0 0 20px;
+  z-index: 100;
+  position: relative;
+}
+.drupal-menu>ul{
+  width:100%;
+  list-style:none;
+  font-weight:bold;
+  margin-bottom:10px;
+  position: absolute;
+}
+.drupal-menu>ul li{
+  float:left;
+  margin-right:10px;
+  position:relative;
+  display:block;
+}
+.drupal-menu>ul li a{
+  display:block;
+  padding:5px;
+  color:#fff;
+  background:#333;
+  text-decoration:none;
+
+  text-shadow:1px 1px 1px rgba(0,0,0,0.75); /* Тень текста, чтобы приподнять его на немного */
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:5px;
+}
+.drupal-menu>ul li a:hover{
+  color:#fff;
+  background:rgba(83, 164, 195, 0.75);
+  text-decoration:underline;
+}
+
+/*--- ВЫПАДАЮЩИЕ ПУНКТЫ ---*/
+.drupal-menu>ul ul{
+  list-style:none;
+  position:absolute;
+  left:-9999px; /* Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
+  opacity:0; /* Устанавливаем начальное состояние прозрачности */
+  -webkit-transition: 0.25s linear opacity; /* В Webkit выпадающие пункты будут проявляться */
+  transition: 0.25s linear opacity; /* выпадающие пункты будут проявляться */
+}
+.drupal-menu>ul ul li{
+  padding-top:1px; /* Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
+  float:none;
+  /*background:url(dot.gif);*/
+}
+.drupal-menu>ul ul a{
+  white-space:nowrap; /* Останавливаем перенос текста и создаем многострочный выпадающий пункт */
+  display:block;
+}
+.drupal-menu>ul li:hover ul{ /* Выводим выпадающий пункт при наведении курсора */
+  left:0; /* Приносим его обратно на экран, когда нужно */
+  opacity:1; /* Делаем непрозрачным */
+}
+.drupal-menu>ul li:hover a{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
+  background:rgba(83, 164, 195, 0.75);
+  text-decoration:underline;
+}
+.drupal-menu>ul li:hover ul a{ /* Изменяем некоторые стили верхнего уровня при выводе выпадающего пункта */
+  text-decoration:none;
+  -webkit-transition:-webkit-transform 0.075s linear;
+}
+.drupal-menu>ul li:hover ul li a:hover{ /* Устанавливаем стили для выпадающих пунктов, когда курсор наводится на конкретный пункт */
+  background:#333;
+  background:rgba(51,51,51,0.75); /* Будет полупрозрачным */
+  text-decoration:underline;
+  -moz-transform:scale(1.05);
+  -webkit-transform:scale(1.05);
+}
+
+
+
+.invite-buttons {
+   margin: 10px 0 15px;
+}
+.result-invite-buttons {
+  margin: 0 0 15px;
+}
+.result-invite-buttons:empty {
+  margin: 0;
+}
+.invite-buttons-this {
+  padding: 0 10px;
+  margin: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.invite-buttons-this:first-child {
+  margin-right: 20px;
+}
+.page-node .content-in-wide .col-center-wide {
+  background: none;
+}
+
+
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .lifewoman-right-banner {
+    margin-top: 33px;
+  }
+  .page-life-woman .first-material {
+    width: 100%;
+  }
+  .page-life-woman .item-material:nth-child(1),
+  .page-life-woman .item-material:nth-child(2) {
+    width: calc(100% - 325px);
+  }
+  .page-life-woman .item-material:nth-child(3) {
+    width: 100%;
+    padding-right: 325px;
+  }
+  .page-life-woman .big-item-material {
+    margin: 0 0 22px;
+  }
+  .page-life-woman .big-item-material a.text {
+    font-size: 27px;
+    line-height: 32px;
+  }
+  /*.page-life-woman .item-material:nth-child(3n+10){
+    margin-right: 0;
+  }
+  .page-life-woman .item-material:nth-of-type(4) {
+    margin-right: 1.725%;
+  }
+  .page-life-woman .item-material:nth-of-type(5){
+    clear: none;
+  }
+  .page-life-woman .item-material:nth-of-type(6){
+    margin-right: 0;
+  }
+  .page-life-woman .item-material:nth-of-type(3n+11) {
+    clear: both;
+    margin-right: 1.725%;
+  }
+  .page-life-woman .item-material:nth-of-type(3n+12) {
+    clear: none;
+  }*/
+
+  .page-taxonomy-term .pane-page-title {
+    padding: 24px 0;
+  }
+  .page-taxonomy-term .pane-page-title h1 {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .main-rating-block .block-rating-first .block-rating-name {
+    padding: 10px 0 0 0;
+  }
+  .main-rating-block .block-rating-first .block-rating-name a {
+    font-size: 25px;
+    line-height: 26px;
+  }
+  .main-rating-block .block-other-ratings .block-rating-name {
+    padding: 10px 0 0;
+  }
+  .main-rating-block .block-other-ratings .block-rating-name a {
+    font-size: 13px;
+    line-height: 18px;
+    display: inline-block;
+  }
+  .main-rating-block .block-other-ratings {
+    padding: 21px 0 0 0;
+  }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 414px) {
+  .page-taxonomy-term .pane-page-title {
+    border: none;
+    padding: 25px 0 22px;
+  }
+  .page-taxonomy-term .pane-page-title h1 {
+    font-size: 13px;
+    line-height: 15px;
+    display: block;
+  }
+  .page-taxonomy-term .pane-page-title h1:after {
+    content: '';
+    display: block;
+    position: relative;
+    bottom: -5px;
+    width: 75%;
+    height: 4px;
+    background-color: #ffa800;
+  }
+
+  .page-taxonomy-term .main-rating-block {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+  .main-rating-block .block-rating-first .block-rating-name {
+    padding: 12px 0 0 0;
+  }
+  .main-rating-block .block-rating-first .block-rating-name a {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.5px;
+    display: inline-block;
+  }
+
+  .main-rating-block .block-other-ratings .block-rating-name {
+    padding: 12px 0 25px;
+    margin-bottom: 0;
+  }
+  .main-rating-block .block-other-ratings .block-rating-item {
+    width: 100%;
+    margin: 0;
+  }
+  .main-rating-block .block-other-ratings .block-rating-name a {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.5px;
+    display: inline-block;
+  }
+
+  .lifewoman-right-banner {
+    display: none;
+  }
+
+  .page-life-woman .first-material {
+    width: 100%;
+  }
+
+  .page-life-woman  .first-material a.text {
+    font-size: 21px;
+    line-height: 26px;
+    margin-top: 14px;
+    margin-bottom: 30px;
+  }
+
+  .page-life-woman .first-material .date {
+    font-size: 11px;
+    margin-bottom: 2px;
+    position: relative;
+    float: right;
+    margin-top: -26px;
+    padding: 0 10px;
+    background-color: #fff;
+    color: #7A7A7A;
+  }
+
+  .page-life-woman .pane-content .item-material {
+    padding-bottom: 30px;
+    width: 48.59%;
+    /*margin-right: 2.82%;*/
+  }
+  .page-life-woman .pane-content .main-forbes-video {
+    width: 100%;
+  }
+  .page-life-woman .big-item-material {
+    margin: 0 0 22px;
+  }
+
+  .page-life-woman .pane-content .big-item-material a.text{
+    font-size: 21px;
+    line-height: 26px;
+  }
+
+  .page-life-woman .pane-content .item-material a.text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .main-rating-block .block-other-ratings {
+    padding: 25px 0 0 0;
+  }
+  /*.page-life-woman  .item-material:nth-child(3), .page-life-woman  .item-material:nth-child(5),
+  .page-life-woman  .item-material:nth-child(7), .page-life-woman  .item-material:nth-child(2n+10)  {
+    margin-right: 0;
+  }
+
+  .page-life-woman .item-material:nth-of-type(4) {
+    clear: both;
+  }
+  .page-life-woman .item-material:nth-of-type(5){
+    clear: none;
+  }
+  .page-life-woman .item-material:nth-of-type(3n+12) {
+    clear: none;
+  } */
+  .main-rating-block a.block-rating-pic .img-desk {
+    display: none;
+  }
+  .main-rating-block a.block-rating-pic .img-mob {
+    display: block;
+  }
+}
+
+
+.forbes-banner {
+  -webkit-animation-name: slideInUp;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.forbes-banner .forbes-banner-close {
+  display: none;
+}
+.forbes-banner.forbes-banner-fixed {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+}
+.forbes-banner.forbes-banner-fixed .forbes-banner-close {
+  display: block;
+  float: right;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 2px;
+  cursor: pointer;
+  opacity: 0.3;
+  width: auto;
+  position: absolute;
+  left: auto;
+  right: 0;
+}
+.forbes-banner.forbes-banner-fixed .forbes-banner-close:hover {
+  opacity: 1;
+}
+
+

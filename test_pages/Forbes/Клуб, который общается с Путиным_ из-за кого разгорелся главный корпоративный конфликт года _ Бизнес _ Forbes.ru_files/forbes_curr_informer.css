@@ -1,0 +1,64 @@
+/* forbes currency informer */
+
+.forbes_currencies{
+  width: 36%;
+  height: 46px;
+  margin: 9px 13.99% 0 0;
+  color: #8d8d8d;
+  font-size: 12px;
+  line-height: 20px;
+  float: right;
+}
+
+.header-menu .forbes_currencies {
+  font-size: 12px;
+}
+
+.header-menu-mobile .forbes_currencies {
+  font-size: 1.65em;
+  line-height: 1.4em;
+}
+
+.forbes_currencies .dollevr{
+  float: left;
+  width: 40%;
+}
+
+.forbes_currencies .dollevr > div {
+  margin: 1px 0;
+}
+
+.forbes_currencies .curr_list{
+  overflow: hidden;
+  height: 44px;
+}
+
+.forbes_currencies .curr_list .curr_item{
+  margin: 1px 0;
+}
+.forbes_currencies .dollevr > div:after,
+.forbes_currencies .curr_list .curr_item:after {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 7px;
+  margin: 0 0 1px 5px;
+  background: transparent url("https://cdn.forbes.ru/themes/forbes/img/green-arrow-up.svg") no-repeat;
+  background-size: contain;
+}
+.forbes_currencies .dollevr > div.red:after,
+.forbes_currencies .curr_list .curr_item.red:after {
+  background: transparent url("https://cdn.forbes.ru/themes/forbes/img/red-arrow-down.svg") no-repeat;
+}
+
+.forbes_currencies .curr_list .curr_item span{
+  margin-right: 4px;
+}
+
+.forbes_currencies .curr_list_arr{
+  background: url(https://cdn.forbes.ru/themes/forbes/img/arrow_bott.png) 32% bottom no-repeat;
+  height: 10px;
+  cursor: pointer;
+}
+
+

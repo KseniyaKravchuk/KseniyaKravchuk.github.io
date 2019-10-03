@@ -1,0 +1,116 @@
+/**
+ * Cбор метрик загрузки страницы
+ *
+ */
+
+!function() {
+    var t = window.performance && window.performance.timing;
+    if (!t) {
+        return;
+    }
+
+    /**
+     * Набор метрик Navigation Timing API для отправки
+     * @type {Array}
+     */
+    var measures = [{
+            name: "redirectionTime",
+            end: "redirectEnd",
+            start: "redirectStart",
+            send: "now"
+        }, {
+            name: "networkLatency",
+            end: "responseEnd",
+            start: "fetchStart",
+            send: "now"
+        }, {
+            name: "completePageLoading",
+            end: "loadEventEnd",
+            start: "responseEnd",
+            send: "load"
+        }, {
+            name: "domLoading",
+            end: "domContentLoadedEventEnd",
+            start: "responseEnd",
+            send: "DOMContentLoaded"
+        }, {
+            name: "domainLookup",
+            end: "domainLookupEnd",
+            start: "domainLookupStart",
+            send: "now"
+        }
+    ];
+
+    /**
+     * Дополнительные параметры для отправки
+     * @type {Object}
+     */
+    var params = {
+        "uri": window.location.href,
+        "pid": (new Date()).getTime(),
+        "uid": "nocookies-" + Math.floor(Math.random()*1e16).toString(16)
+    };
+
+    /**
+     * Возвращает сериализованную строку с метриками "a=xxx&b=yyy"
+     * @param  {Object} measures
+     * @return {String}
+     */
+    function serializeMeasures(measures) {
+        return measures.map(function(m) {
+            return m.name + "=" + (t[m.end] - t[m.start]);
+        }).join("&");
+    }
+
+    /**
+     * Возвращает сериализованную строку с дополнительными параметрами "&a=xxx&b=yyy"
+     * @return {String}
+     */
+    function serializeParams() {
+        return Object.keys(params).reduce(function(prev, cur) {
+            return prev + "&" + cur + "=" + encodeURIComponent(params[cur]);
+        }, "");
+    }
+
+    /**
+     * Отправляет get-запрос с метриками
+     * @param  {String} query Набор get-параметров, закодированых в query-строку
+     * @return {undefined}
+     */
+    function sendMeasures(query) {
+        var request = new XMLHttpRequest();
+        request.open("GET", window.location.protocol + "//trbna.com/qq" + "?" + query, true);
+        request.send();
+    }
+
+
+
+    function filterBySend(value) {
+        return function(el) {
+            return el.send == value;
+        };
+    }
+
+    var re = new RegExp('(?:^|;)\\s?(suid[a]?)=(.*?)(?:;|$)','gi');
+    var match;
+    var ids = {};
+    while ((match = re.exec(document.cookie)) !== null) {
+        ids[match[1]] = match[2];
+    }
+    if (ids.suid) {
+        params.uid = ids.suid;
+    } else if(ids.suida) {
+        params.uid = ids.suida;
+    }
+    window.Sports = window.Sports || {};
+    window.Sports.measure_params = params;
+    [{obj: window, e: "load"}, {obj: document, e: "DOMContentLoaded"}].forEach(function(el) {
+        el.obj.addEventListener(el.e, function() {
+            setTimeout(function() {
+                sendMeasures(serializeMeasures(measures.filter(filterBySend(el.e))) + serializeParams());
+            }, 0);
+        });
+    });
+    sendMeasures(serializeMeasures(measures.filter(filterBySend("now"))) + serializeParams());
+
+}();

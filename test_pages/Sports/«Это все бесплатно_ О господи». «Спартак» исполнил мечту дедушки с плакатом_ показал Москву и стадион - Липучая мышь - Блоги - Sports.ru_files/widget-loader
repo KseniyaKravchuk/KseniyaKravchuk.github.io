@@ -1,0 +1,79 @@
+
+        (function(w, d, n, an, arc, links) {
+            if (!w[n]) {
+                w[n] = {};
+            }
+            w[n].loadedBundles = {};
+            w[n].baseUrl = 'https://zen.yandex.ru/';
+            w[n].countryCode = 'ru';
+            
+        
+            function renderWidget(cfg) {
+                var cfgVer = cfg.version ? parseInt(cfg.version, 10) : undefined;
+                var expVer = -1;    
+                var supportedSize = !cfg.size || cfg.size === 'l';
+                var supportedOrient = !cfg.orientation || cfg.orientation === 'horizontal';
+                var verNotSet = !Boolean(cfgVer);
+                
+                var needSwitch = verNotSet && supportedSize && supportedOrient;
+                
+                var targetVer = '';
+                var targetCb = '';
+                
+                if (needSwitch) {
+                    targetVer = 'version1';
+                    targetCb = 'renderWidgetV1';
+                } else {
+                    targetVer = cfgVer ? 'version' + cfgVer : 'version1';
+                    targetCb = cfgVer ? 'renderWidgetV' + cfgVer : 'renderWidgetV1';
+                }
+
+                if (w[n].loadedBundles[targetVer] && window[n][targetCb]) {
+                    window[n][targetCb](cfg);
+                } else {
+                    if (!window[arc]) {
+                        window[arc] = [];
+                    }
+                
+                    var cbInfo = {};
+                    cbInfo.version = targetVer === 'version1' ? 1 : 2;
+                    cbInfo.callback = function () {window[n][targetCb](cfg);};
+                    window[arc].push(cbInfo);
+                
+                    var script = d.createElement('script');
+                    script.async = true;
+                    script.charset = 'UTF-8';
+                    script.src = links[targetVer];
+                    d.head.appendChild(script);
+                }
+            }
+        
+            if (typeof d !== 'undefined') {
+                if (!window[n]) {
+                    window[n] = {};
+                }
+            
+                if (!window[n].renderWidget) {
+                    window[n].renderWidget = renderWidget;
+                }
+                
+                const callbacks = window[an];
+                if (callbacks && Array.isArray(callbacks)) {
+                    var maxCalls = callbacks.length;
+                    callbacks.forEach(function (callback, idx) {
+                        if (idx < maxCalls) {
+                            callback.call(window[n]);
+                        }
+                    });
+                    callbacks.splice(0, maxCalls);
+                }
+            }
+        })(
+            window, 
+            document, 
+            "YandexZen", 
+            "yandexZenAsyncCallbacks", 
+            "yandexZenAsyncWidgetRenderCallbacks",
+            {version1: '//yastatic.net/s3/zen-lib/2.203.0/widget/widget.chromium.ru.bundle.js', version2: '//yastatic.net/s3/zen-lib/2.204.1/widget-2/widget-2.chromium.ru.bundle.js'},
+        );
+    
