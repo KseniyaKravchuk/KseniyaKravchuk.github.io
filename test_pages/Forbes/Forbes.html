@@ -98,7 +98,33 @@
     <!--[if IE 9]>
     <link rel="prefetch" href="//cdn.forbes.ru/"/>
     <![endif]-->
+    <script>
+        var isMobile =  /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+        var dWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        function isAdsMobile() {
+            if (isMobile == true && dWidth <= 736) {//* iPhone 4-5-6+
+                return true;
+            } else if (isMobile == true && dWidth > 736) {// iPad
+                return false;
+            } else {// desktop
+                return false;
+            }
+        }
 
+        window.mob = isAdsMobile();
+        var tablet = !!((isMobile == true && dWidth > 736));
+        var device = function(){
+            if (mob) {
+                return 'mobile';
+            } else if (tablet) {
+                return 'tablet';
+            } else {
+                return 'pc';
+            }
+        };
+        device = device();
+        console.log('is mob =', mob, '\nis tablet =', tablet, '\nis device =', device);
+    </script>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-param" content="_csrf-frontend">
@@ -3753,60 +3779,12 @@
                 <!--Площадка: Forbes / * / *-->
                 <!--Тип баннера: 1000x90js новый-->
                 <!--Расположение: <верх страницы>-->
-                <div id="adfox_544818186" >
+                <div id="adfox_54481816" >
                     <img src="./Клуб, который общается с Путиным_ из-за кого разгорелся главный корпоративный конфликт года _ Бизнес _ Forbes.ru_files/3144181_5.ddd57e74a48afba4d24592e1d1e7a4adv2.jpg"
                         style="width: 100%; height: auto; border: 0px; vertical-align: middle; max-width: 1200px;">
 
                 </div>
-                <div id="adfox_mob_544818186" data-u-banner="b-top-1" data-banner-type="top-header-mob"
-                     class="banner-x90"></div>
-                <script>
-                    if (mob == false && window.Ya) {
-                        var widthW = $(window).width();
-                        var mainImageHide = false;
-                        if (widthW < 1537 && widthW > 560) {
-                            $('.main-news-top__wrap-img').hide();
-                            mainImageHide = true;
-                        }
-                        window.Ya.adfoxCode.create({
-                            ownerId: 162070,
-                            containerId: 'adfox_544818186',
-                            params: {
-                                pp: 'g',
-                                ps: 'lyw',
-                                p2: 'evgu',
-                                puid1: '',
-                                puid2: '',
-                                pk: '',
-                                pke: '1'
-                            },
-                            onLoad: function (data) {
-                            },
-                            onRender: function () {
-                                $('.forbes-dark-theme').removeClass('forbes-dark-theme--no-banner');
-                                if (mainImageHide) {
-                                    $('.main-news-top__wrap-img').hide();
-                                }
-                            },
-                            onError: function (error) {
-                                $('.main-news').addClass('main-news--no-banner');
-                            },
-                            onStub: function () {
-                                $('.main-news').addClass('main-news--no-banner');
-                            }
-                        });
-                    }
-                </script>
-
-                <style>
-                    #adfox_mob_544818186 > div {
-                        margin: 0 auto !important;
-                    }
-                </style><!--ADVEND-->
-
-
-
-
+                <div id="adfox_mob_544818186"></div>
 
                 <style>
                     #adfox_631588690 > div {
