@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Carousel</title>
+    <title>Carousel_desktop</title>
 </head>
 <body>
     <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
@@ -12,7 +12,11 @@
             <div class="slider" style="left: 0%;">
                 <div class="slides slide1"></div>
                 <div class="slides slide2">
-                    <video id="video-slide" src="img_video/Video.mov" preload="auto" loop="loop" muted="muted"></video>
+                    <video id="video-slide" src="img_video/Video1.mp4" preload="auto" loop="loop" muted="muted"></video>
+                    <div class="mute-button-wrapper">
+                        <div class="mute-button-bg"></div>
+                        <div class="mute-button mute"></div>
+                    </div>
                 </div>
                 <div class="slides slide3">
                     <h2>Pellentesque eleifend sed ipsum eu accumsan</h2>
@@ -50,13 +54,12 @@
             width: 100%;
         }
         body {
-            width: 800px;
+            width: 80%;
             margin: 0 auto;
             font: normal 14px sans-serif;
         }
         .banner-container {
             width: 100%;
-            height: 450px;
             background: #dffcc5;
             position: relative;
         }
@@ -77,6 +80,35 @@
             width: 33.33%;
             height: 100%;
             float: left;
+        }
+        .mute-button-wrapper {
+            position: absolute;
+            top: 5%;
+            left: 64%;
+            width: 2%;
+        }
+        .mute-button-bg {
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            opacity: .4;
+            border-radius: 50%;
+        }
+        .mute-button {
+            position: absolute;
+            top: 19%;
+            right: 19%;
+            width: 62%;
+            height: 62%;
+            cursor: pointer;
+        }
+        .mute {
+            background: url(img_video/speaker1.svg) 50% 50% no-repeat;
+            background-size: contain;
+        }
+        .unmute {
+            background: url(img_video/speaker2.svg) 50% 50% no-repeat;
+            background-size: contain;
         }
         video {
             width: 100%;
@@ -161,14 +193,15 @@
         .button-text {
             position: absolute;
             top: 32%;
-            left: 23%;
-            width: 60%;
+            left: 0%;
+            width: 100%;
+            font-size: 2.3vw;
         }
         h2 {
             position: absolute;
             top: 1%;
             left: 68%;
-            font-size: 26px;
+            font-size: 3vw;
             width: 30%;
             text-align: center;
         }
@@ -181,7 +214,7 @@
         }
         .about-product p {
             text-indent: 10px;
-            font-size: 18px;
+            font-size: 2vw;
         }
         .note {
             width: 50%;
@@ -189,6 +222,7 @@
             position: absolute;
             top: 90%;
             left: 69%;
+            font-size: 1.3vw;
         }
     </style>
 
@@ -197,8 +231,8 @@
         let currentSlide = 1;
         let slider;
         let video;
+        let button;
         let timelines = [];
-
 
         const findTimelines = () => {
             for (let i=1; i<=steps; i++) {
@@ -247,9 +281,7 @@
                         //clearTimeout(timeoutId);
                         setTimeout(autoPlay, 100, currentSlide)
                     }, 6000);
-
             }}
-
         };
         const startArrowsWork = () => {
             const left_arrow = document.getElementById('navigation-prev');
@@ -288,12 +320,46 @@
             clearTimeout(timeoutId);
             setTimeout(autoPlay, 100, currentSlide)
         };
+        const getContainerSize = function() {
+            const bannerContainer = document.getElementsByClassName('banner-container')[0];
+            if (bannerContainer) {
+                const widthElem = parseInt(getComputedStyle(document.body, null).width);
+                bannerContainer.style.width = widthElem + 'px';
+                bannerContainer.style.height = widthElem*0.5625 + 'px';
+            }
+        };
+        const getSize = function() {
+            const muteButton = document.getElementsByClassName('mute-button-wrapper')[0];
+            if (muteButton) {
+                const widthElem = muteButton.clientWidth;
+                muteButton.style.height = widthElem + 'px';
+            }
+        };
+        const toggleButton = function() {
+            if (video.muted){
+                video.muted = false;
+                button.classList.remove('mute');
+                button.classList.add('unmute')
+            } else {
+                video.muted = true;
+                button.classList.remove('unmute');
+                button.classList.add('mute')
+            }
+        };
         window.onload = function(){
             video = document.getElementById('video-slide');
             slider = document.getElementsByClassName('slider')[0];
+            button = document.getElementsByClassName('mute-button')[0];
+            button.addEventListener('mouseup', toggleButton);
+            getContainerSize();
+            getSize();
             findTimelines();
             autoPlay(currentSlide);
             startArrowsWork();
+            document.body.onresize = function() {
+                getContainerSize();
+                getSize();
+            };
         }
     </script>
 
