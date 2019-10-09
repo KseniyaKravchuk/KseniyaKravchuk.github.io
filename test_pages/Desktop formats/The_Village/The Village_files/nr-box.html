@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://cdn01.nativeroll.tv/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>/**
+     * nr-box - 1.11.78 - 2019-10-02 09:25
+     * Copyright © 2019 Seedr Team http://seedr.ru/
+     */
+    !function (n) {
+        function t(r) {
+            if (e[r]) return e[r].exports;
+            var o = e[r] = {exports: {}, id: r, loaded: !1};
+            return n[r].call(o.exports, o, o.exports, t), o.loaded = !0, o.exports
+        }
+
+        var e = {};
+        t.m = n, t.c = e, t.p = "", t(0)
+    }([function (n, t, e) {
+        "use strict";
+
+        function r(n, t) {
+            parent.postMessage({initiator: u, id: n, result: t}, f)
+        }
+
+        var o = function () {
+            function n(n, t) {
+                var e = [], r = !0, o = !1, i = void 0;
+                try {
+                    for (var u, c = n[Symbol.iterator](); !(r = (u = c.next()).done) && (e.push(u.value), !t || e.length !== t); r = !0) ;
+                } catch (n) {
+                    o = !0, i = n
+                } finally {
+                    try {
+                        !r && c.return && c.return()
+                    } finally {
+                        if (o) throw i
+                    }
+                }
+                return e
+            }
+
+            return function (t, e) {
+                if (Array.isArray(t)) return t;
+                if (Symbol.iterator in Object(t)) return n(t, e);
+                throw new TypeError("Invalid attempt to destructure non-iterable instance")
+            }
+        }();
+        e(1);
+        var i = e(2), u = "nr-box", c = function () {
+            return location.search.slice(1).split("&").reduce(function (n, t) {
+                var e = t.split("="), r = o(e, 2), i = r[0], u = r[1];
+                return n[decodeURIComponent(i)] = decodeURIComponent(u), n
+            }, {})
+        }(), f = c.origin;
+        history && "function" == typeof history.replaceState && history.replaceState(null, null, "/"), window.addEventListener("message", function (n) {
+            var t = n.data, e = t.initiator, o = t.type, c = t.id, f = t.params;
+            if (e === u) return i[o] ? void Promise.resolve(f).then(i[o]).then(function (n) {
+                r(c, {resolve: n})
+            }).catch(function (n) {
+                r(c, {reject: String(n)})
+            }) : void r(c, {reject: "unknown method"})
+        }), r(0, {resolve: "ready"})
+    }, function (n, t) {
+        (function (n) {
+            "use strict";
+            var t = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (n) {
+                return typeof n
+            } : function (n) {
+                return n && "function" == typeof Symbol && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n
+            };
+            "function" != typeof Promise && function (n) {
+                !function (n) {
+                    function t(r) {
+                        if (e[r]) return e[r].exports;
+                        var o = e[r] = {exports: {}, id: r, loaded: !1};
+                        return n[r].call(o.exports, o, o.exports, t), o.loaded = !0, o.exports
+                    }
+
+                    var e = {};
+                    t.m = n, t.c = e, t.p = "", t(0)
+                }({
+                    0: function (n, t, e) {
+                        (function (n) {
+                            var t = e(80);
+                            try {
+                                (n || {}).Promise = t, window.Promise = t
+                            } catch (n) {
+                            }
+                        }).call(t, function () {
+                            return this
+                        }())
+                    }, 80: function (n, e) {
+                        (function (e) {
+                            !function () {
+                                function r() {
+                                    return rn[q][B] || D
+                                }
+
+                                function o(n) {
+                                    return n && "object" == (void 0 === n ? "undefined" : t(n))
+                                }
+
+                                function i(n) {
+                                    return "function" == typeof n
+                                }
+
+                                function u(n, t) {
+                                    return n instanceof t
+                                }
+
+                                function c(n) {
+                                    return u(n, O)
+                                }
+
+                                function f(n, t, e) {
+                                    if (!t(n)) throw p(e)
+                                }
+
+                                function a() {
+                                    try {
+                                        return I.apply(R, arguments)
+                                    } catch (n) {
+                                        return nn.e = n, nn
+                                    }
+                                }
+
+                                function s(n, t) {
+                                    return I = n, R = t, a
+                                }
+
+                                function l(n, t) {
+                                    function e() {
+                                        for (var e = 0; e < o;) t(r[e], r[e + 1]), r[e++] = T, r[e++] = T;
+                                        o = 0, r.length > n && (r.length = n)
+                                    }
+
+                                    var r = H(n), o = 0;
+                                    return function (n, t) {
+                                        r[o++] = n, r[o++] = t, 2 === o && rn.nextTick(e)
+                                    }
+                                }
+
+                                function d(n, t) {
+                                    var e, r, o, c, f = 0;
+                                    if (!n) throw p(V);
+                                    var a = n[rn[q][z]];
+                                    if (i(a)) r = a.call(n); else {
+                                        if (!i(n.next)) {
+                                            if (u(n, H)) {
+                                                for (e = n.length; f < e;) t(n[f], f++);
+                                                return f
+                                            }
+                                            throw p(V)
+                                        }
+                                        r = n
+                                    }
+                                    for (; !(o = r.next()).done;) if ((c = s(t)(o.value, f++)) === nn) throw i(r[J]) && r[J](), c.e;
+                                    return f
+                                }
+
+                                function p(n) {
+                                    return new TypeError(n)
+                                }
+
+                                function v(n) {
+                                    return (n ? "" : W) + (new O).stack
+                                }
+
+                                function h(n, t) {
+                                    var e = "on" + n.toLowerCase(), r = L[e];
+                                    A && A.listeners(n).length ? n === Z ? A.emit(n, t._v, t) : A.emit(n, t) : r ? r({
+                                        reason: t._v,
+                                        promise: t
+                                    }) : rn[n](t._v, t)
+                                }
+
+                                function y(n) {
+                                    return n && n._s
+                                }
+
+                                function m(n) {
+                                    if (y(n)) return new n(tn);
+                                    var t, e, r;
+                                    return t = new n(function (n, o) {
+                                        if (t) throw p();
+                                        e = n, r = o
+                                    }), f(e, i), f(r, i), t
+                                }
+
+                                function _(n, t) {
+                                    return function (e) {
+                                        U && (n[Q] = v(!0)), t === M ? S(n, e) : j(n, t, e)
+                                    }
+                                }
+
+                                function w(n, t, e, r) {
+                                    return i(e) && (t._onFulfilled = e), i(r) && (n[K] && h(Y, n), t._onRejected = r), U && (t._p = n), n[n._c++] = t, n._s !== $ && on(n, t), t
+                                }
+
+                                function g(n) {
+                                    if (n._umark) return !0;
+                                    n._umark = !0;
+                                    for (var t, e = 0, r = n._c; e < r;) if (t = n[e++], t._onRejected || g(t)) return !0
+                                }
+
+                                function x(n, t) {
+                                    function e(n) {
+                                        return r.push(n.replace(/^\s+|\s+$/g, ""))
+                                    }
+
+                                    var r = [];
+                                    return U && (t[Q] && e(t[Q]), function n(t) {
+                                        t && N in t && (n(t._next), e(t[N] + ""), n(t._p))
+                                    }(t)), (n && n.stack ? n.stack : n) + ("\n" + r.join("\n")).replace(en, "")
+                                }
+
+                                function b(n, t) {
+                                    return n(t)
+                                }
+
+                                function j(n, t, e) {
+                                    var r = 0, o = n._c;
+                                    if (n._s === $) for (n._s = t, n._v = e, t === G && (U && c(e) && (e.longStack = x(e, n)), un(n)); r < o;) on(n, n[r++]);
+                                    return n
+                                }
+
+                                function S(n, t) {
+                                    if (t === n && t) return j(n, G, p(X)), n;
+                                    if (t !== P && (i(t) || o(t))) {
+                                        var e = s(k)(t);
+                                        if (e === nn) return j(n, G, e.e), n;
+                                        i(e) ? (U && y(t) && (n._next = t), y(t) ? C(n, t, e) : rn.nextTick(function () {
+                                            C(n, t, e)
+                                        })) : j(n, M, t)
+                                    } else j(n, M, t);
+                                    return n
+                                }
+
+                                function k(n) {
+                                    return n.then
+                                }
+
+                                function C(n, t, e) {
+                                    var r = s(e, t)(function (e) {
+                                        t && (t = P, S(n, e))
+                                    }, function (e) {
+                                        t && (t = P, j(n, G, e))
+                                    });
+                                    r === nn && t && (j(n, G, r.e), t = P)
+                                }
+
+                                var T, I, R, P = null,
+                                    E = "object" == ("undefined" == typeof window ? "undefined" : t(window)),
+                                    L = E ? window : e, A = L.process, F = L.console, U = !1, H = Array, O = Error,
+                                    G = 1, M = 2, $ = 3, q = "Symbol", z = "iterator", B = "species",
+                                    D = q + "(" + B + ")", J = "return", K = "_uh", N = "_pt", Q = "_st",
+                                    V = "Invalid argument", W = "\nFrom previous ",
+                                    X = "Chaining cycle detected for promise", Y = "rejectionHandled",
+                                    Z = "unhandledRejection", nn = {e: P}, tn = function () {
+                                    }, en = /^.+\/node_modules\/yaku\/.+\n?/gm, rn = n.exports = function (n) {
+                                        var t, e = this;
+                                        if (!o(e) || e._s !== T) throw p("Invalid this");
+                                        if (e._s = $, U && (e[N] = v()), n !== tn) {
+                                            if (!i(n)) throw p(V);
+                                            (t = s(n)(_(e, M), _(e, G))) === nn && j(e, G, t.e)
+                                        }
+                                    };
+                                rn.default = rn, function (n, t) {
+                                    for (var e in t) n[e] = t[e]
+                                }(rn.prototype, {
+                                    then: function (n, t) {
+                                        if (void 0 === this._s) throw p();
+                                        return w(this, m(rn.speciesConstructor(this, rn)), n, t)
+                                    }, catch: function (n) {
+                                        return this.then(T, n)
+                                    }, finally: function (n) {
+                                        function t(t) {
+                                            return rn.resolve(n()).then(function () {
+                                                return t
+                                            })
+                                        }
+
+                                        return this.then(t, t)
+                                    }, _c: 0, _p: P
+                                }), rn.resolve = function (n) {
+                                    return y(n) ? n : S(m(this), n)
+                                }, rn.reject = function (n) {
+                                    return j(m(this), G, n)
+                                }, rn.race = function (n) {
+                                    var t = this, e = m(t), r = function (n) {
+                                        j(e, M, n)
+                                    }, o = function (n) {
+                                        j(e, G, n)
+                                    }, i = s(d)(n, function (n) {
+                                        t.resolve(n).then(r, o)
+                                    });
+                                    return i === nn ? t.reject(i.e) : e
+                                }, rn.all = function (n) {
+                                    function t(n) {
+                                        j(o, G, n)
+                                    }
+
+                                    var e, r = this, o = m(r), i = [];
+                                    return e = s(d)(n, function (n, u) {
+                                        r.resolve(n).then(function (n) {
+                                            i[u] = n, --e || j(o, M, i)
+                                        }, t)
+                                    }), e === nn ? r.reject(e.e) : (e || j(o, M, []), o)
+                                }, rn.Symbol = L[q] || {}, s(function () {
+                                    Object.defineProperty(rn, r(), {
+                                        get: function () {
+                                            return this
+                                        }
+                                    })
+                                })(), rn.speciesConstructor = function (n, t) {
+                                    var e = n.constructor;
+                                    return e ? e[r()] || t : t
+                                }, rn.unhandledRejection = function (n, t) {
+                                    F && F.error("Uncaught (in promise)", U ? t.longStack : x(n, t))
+                                }, rn.rejectionHandled = tn, rn.enableLongStackTrace = function () {
+                                    U = !0
+                                }, rn.nextTick = E ? function (n) {
+                                    setTimeout(n)
+                                } : A.nextTick, rn._s = 1;
+                                var on = l(999, function (n, t) {
+                                    var e, r;
+                                    return r = n._s !== G ? t._onFulfilled : t._onRejected, r === T ? void j(t, n._s, n._v) : (e = s(b)(r, n._v), e === nn ? void j(t, G, e.e) : void S(t, e))
+                                }), un = l(9, function (n) {
+                                    g(n) || (n[K] = 1, h(Z, n))
+                                })
+                            }()
+                        }).call(e, function () {
+                            return this
+                        }())
+                    }
+                })
+            }.call("object" === ("undefined" == typeof window ? "undefined" : t(window)) && window || "object" === ("undefined" == typeof self ? "undefined" : t(self)) && self || "object" === (void 0 === n ? "undefined" : t(n)) && n || {})
+        }).call(t, function () {
+            return this
+        }())
+    }, function (n, t) {
+        "use strict";
+
+        function e(n) {
+            var t = n.key;
+            return localStorage.getItem(t)
+        }
+
+        function r(n) {
+            var t = n.key, e = n.data;
+            localStorage.setItem(t, e)
+        }
+
+        function o(n) {
+            var t = document.createElement("img");
+            t.onerror = t.onload = function () {
+                return document.body.removeChild(t)
+            }, t.classList.add("pixel"), t.src = n, document.body.appendChild(t)
+        }
+
+        n.exports = {storageGet: e, storageSet: r, sendPixel: o}
+    }]);
+    </script>
+</head>
+<body></body>
+</html>
