@@ -6610,7 +6610,134 @@ window.Sports.ssr.navigation = true;</script>
                                     что-то пожевать». Причем еще весной у него не было никакой спартаковской атрибутики,
                                     на матче даже не получилось купить шарф («Мне и так пришлось тысяченку занимать на
                                     случай, если не буду успевать на автовокзал и придется брать такси»). </p>
-                                <h2>После того матча к Валентину Николаевичу приезжали болельщики: дарили атрибутику и
+
+                                <div class="hpmd-content-banner">
+                                    <video id="hpmd-video"
+                                           src="img/Video1.mp4"
+                                           preload="auto"
+                                           muted="muted"
+                                           autoplay="autoplay"></video>
+                                    <div class="hpmd-mute-button mute"></div>
+                                </div>
+
+                                <style>
+                                    #top-ad-wrapper {
+                                        background-color: #212121 !important;
+                                    }
+                                    body {
+                                        background-color: #212121 !important;
+                                    }
+                                    .hpmd-content-banner {
+                                        width: 100%;
+                                        position: relative;
+                                        margin: 0 auto;
+                                    }
+                                    .hpmd-content-banner::before {
+                                        content: '';
+                                        display: block;
+                                        padding-top: 56.25%;
+                                    }
+                                    #hpmd-video {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                    }
+                                    .hpmd-mute-button {
+                                        width: 7%;
+                                        position: absolute;
+                                        top: 3%;
+                                        right: 2%;
+                                        cursor: pointer;
+                                    }
+                                    .hpmd-mute-button::before {
+                                        content: '';
+                                        display: block;
+                                        padding-top: 100%;
+                                        background: rgba(0,0,0,.4);
+                                        border-radius: 100%;
+                                    }
+                                    .hpmd-mute-button.mute::after {
+                                        content: '';
+                                        position: absolute;
+                                        top: 15%;
+                                        left: 15%;
+                                        width: 70%;
+                                        padding-top: 70%;
+                                        background: url(img/speaker1.svg) 50% 50% no-repeat;
+                                        background-size: contain;
+                                    }
+                                    .hpmd-mute-button.unmute::after {
+                                        content: '';
+                                        position: absolute;
+                                        top: 15%;
+                                        left: 15%;
+                                        width: 70%;
+                                        padding-top: 70%;
+                                        background: url(img/speaker2.svg) 50% 50% no-repeat;
+                                        background-size: contain;
+                                    }
+                                </style>
+
+                                <script>
+                                    window.addEventListener('load', function() {
+                                        var video = document.getElementById('hpmd-video');
+                                        var bannerContainer = document.querySelector('.hpmd-content-banner');
+                                        var volumeButton = document.querySelector('.hpmd-mute-button');
+
+                                        function visible(element) {
+                                            var targetPosition = {
+                                                    top: window.pageYOffset + element.getBoundingClientRect().top,
+                                                    left: window.pageXOffset + element.getBoundingClientRect().left,
+                                                    right: window.pageXOffset + element.getBoundingClientRect().right,
+                                                    bottom: window.pageYOffset + element.getBoundingClientRect().bottom
+                                                },
+                                                windowPosition = {
+                                                    top: window.pageYOffset,
+                                                    left: window.pageXOffset,
+                                                    right: window.pageXOffset + document.documentElement.clientWidth,
+                                                    bottom: window.pageYOffset + document.documentElement.clientHeight
+                                                };
+
+                                            if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+                                                targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+                                                targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+                                                targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+                                                video.play();
+                                            }
+                                        }
+
+                                        function toggleButton() {
+                                            if (video.muted) {
+                                                video.muted = false;
+                                                volumeButton.classList.remove('mute');
+                                                volumeButton.classList.add('unmute')
+                                            } else {
+                                                video.muted = true;
+                                                volumeButton.classList.remove('unmute');
+                                                volumeButton.classList.add('mute')
+                                            }
+                                        }
+
+                                        function getVideoStyle() {
+                                            bannerContainer.style.display = 'none';
+                                        }
+
+                                        window.addEventListener('scroll', function() {
+                                            visible(bannerContainer);
+                                        });
+                                        visible(bannerContainer);
+                                        video.addEventListener('ended', function() {
+                                            setTimeout(getVideoStyle, 1000);
+                                        });
+                                        volumeButton.addEventListener('click', toggleButton);
+                                    })
+                                </script>
+
+
+
+                                <h2 style="margin-top: 25px;">После того матча к Валентину Николаевичу приезжали болельщики: дарили атрибутику и
                                     деньги. «Оренбург» и «Спартак» объединились и отправили дедушку в Москву </h2>
                                 <p>С начала лета болельщика узнают в родном селе. </p>
                                 <p>«Вышел на базар, знакомая говорит: «Валентин, мы тебя видели», – рассказывает
