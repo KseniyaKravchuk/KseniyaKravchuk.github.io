@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>HPMD Network: тестирование баннеров</title>
+    <style><!--
+
+    html, body {
+        padding: 0;
+        border: 0;
+    }
+
+    html {
+        margin: 0;
+    }
+
+    body {
+        margin: 16px;
+        background: #eaeaea;
+        color: #7c7c7c;
+        font-family: sans-serif;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 130%;
+    }
+
+    .header {
+        font-size: 16px;
+        margin-bottom: 9px;
+        text-align: center;
+        font-weight: bold;
+        color: #2c3638;
+    }
+
+    .subheader {
+        font-size: 14px;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+
+    .hglt {
+        color: #2c3638;
+    }
+
+    .last {
+        font-weight: bold;
+    }
+
+    #logo {
+        float: left;
+        width: 33%;
+        max-width: 200px;
+        height: auto;
+        margin: 0 15px 15px 0;
+    }
+
+    #events {
+        border: solid 1px #00bff3;
+        background: #fff;
+        padding: 12px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    #events:empty:after {
+        content: "Нет событий";
+        color: #ba4242;
+        text-align: center;
+        display: block;
+    }
+
+    #wrapper {
+        padding: 16px;
+        background: #fff;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 0 24px;
+        font-size: 16px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        background: #fff;
+        border: solid 1px #eaeaea;
+        color: #9c9c9c;
+        cursor: pointer;
+    }
+
+    .button.active {
+        border-color: #00bff3;
+        background: #00bff3;
+        color: #fff;
+    }
+
+    a {
+        color: #00bff3;
+        text-decoration: none;
+    }
+
+    .interstitial {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    .interstitial .button, .ex-button {
+        padding: 6px 24px;
+        background: #00bff3;
+        color: #fff;
+    }
+
+    .ex-button-wrap {
+        display: block;
+        margin: 12px;
+    }
+
+    #unsupported-device {
+        display: none;
+        margin-top: 20px;
+        border: solid 2px #bf0000;
+        color: #bf0000;
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+    }
+
+    --></style>
+    <script>var hpmd = [];
+    (function (a, d, b) {
+        b = d.createElement(a);
+        b.async = 1;
+        b.src = "//" + location.host.replace(/^misc/, "banner") + "/client/50.min.js";
+        a = d.getElementsByTagName(a)[0];
+        a.parentNode.insertBefore(b, a)
+    })("script", document);</script>
+    <script><!--
+
+    window.addEventListener('error', function (event) {
+        hpmd.registerException(event);
+    }, false);
+    try {
+        hpmd.push(function () {
+            hpmd.getBannerInfo(function (banner, errorInfo) {
+                try {
+                    if (banner.format == "interstitial") {
+                        document.getElementById('next-page').innerHTML = '<a href="' + location.href.split('#')[0] + '?p=2" class="button">Запустить баннер</a>';
+                        document.getElementById('next-page').className = 'interstitial';
+                    }
+                } catch (e) {
+                }
+                try {
+                    if (banner.unsupported) {
+                        document.querySelector('#unsupported-device').style.display = 'block';
+                    }
+                } catch (e) {
+                }
+            });
+        });
+    } catch (e) {
+    }
+
+    //--></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div class="header">HPMD Network</div>
+    <div class="subheader">Тестирование баннеров</div>
+</div>
+
+<div id="unsupported-device">
+    <b>Ваше устройство не поддерживается этим форматом</b><br/><br/>
+    Баннер может работать некорректно, или&nbsp;не&nbsp;работать вовсе.
+</div>
+
+<script><!--
+
+if (location.href.indexOf('?p=2') > 0) {
+    document.write('<p><span class="last hglt">Вторая страница демо-стенда.</span></p>');
+} else {
+    document.write('<p><span class="last hglt">Первая страница демо-стенда.</span> Вы можете кликнуть по ссылке ниже, чтобы протестировать переход на другие страницы:<br />				 <span id="next-page"><a href="' + location.href.split('#')[0] + '?p=2">вторая страница &rarr;</a></span></p>');
+    document.write('<p><a href="#" onclick="window.scrollTop = 10000; document.documentElement.scrollTop = 10000; document.body.scrollTop = 10000; return false;">пролистать до конца &darr;</a></p>');
+}
+
+for (var i = 0; i < 10; i++) {
+    document.write('<p>Ut ornare posuere lorem, et vulputate sapien bibendum ut. Sed viverra sapien mi, id molestie metus faucibus nec. Mauris tempus leo eget purus euismod, vitae elementum leo egestas. Mauris aliquet dui lorem, at ultrices arcu consequat a. Duis eget neque libero. Nullam posuere aliquet nulla sed ultricies. Vestibulum tempus massa id vulputate interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt vitae dui nec ornare. Fusce turpis tellus, lacinia nec velit et, porta tristique sem. Sed vestibulum ut metus nec semper. Proin ornare mauris vel malesuada pretium. Ut efficitur non lacus nec sollicitudin.</p>');
+}
+//--></script>
+<p>
+    <span class="last hglt">Последний абзац страницы.</span>
+    Этот абзац должен быть доступен полностью; обратное означает, что баннер препятствует полноценному использованию
+    интерфейса сайта, и дизайн-концепция должна быть пересмотрена. <span class="hglt">Конец контента.</span>
+</p>
+
+</body>
+</html>

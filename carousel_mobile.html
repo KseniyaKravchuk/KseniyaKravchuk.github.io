@@ -299,9 +299,7 @@
                         }
                         setTimeout(autoPlay, 100, currentSlide)
                     }, 6000);
-
                 }}
-
         };
         const startArrowsWork = () => {
             const left_arrow = document.getElementById('navigation-prev');
@@ -340,6 +338,7 @@
             clearTimeout(timeoutId);
             setTimeout(autoPlay, 100, currentSlide)
         };
+
         const getContainerSize = function() {
             const bannerContainer = document.getElementsByClassName('banner-container')[0];
             if (bannerContainer) {
