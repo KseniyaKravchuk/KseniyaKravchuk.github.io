@@ -21,15 +21,15 @@
     <!-- Часть, которая содержит кругляши -->
     <div class="hpmdn-teaser">
         <div class="hpmdn-img hpmdn-img-bg hpmdn-img-art1 hpmdn-teaser-slider-wrap">
-            <div class="hpmdn-teaser-slider" style="left: 14.9%;">
+            <div class="hpmdn-teaser-slider">
                 <div id="slide1" data-slide="1" class="hpmdn-teaser__slide hpmdn-teaser__slide1"
-                     style="width: 16.4%; padding-bottom: 16.4%; top: 50%; left: 3%; position: absolute;
+                     style="width: 20%; padding-bottom: 20%; top: 50%; left: 13%; position: absolute;
                      background: url(&quot;./banner/b9bf71c14701c9964b21e4c3110037e4/img-461388606.jpeg&quot;) 50% 50% / cover no-repeat;"></div>
                 <div id="slide2" data-slide="2"  class="hpmdn-teaser__slide hpmdn-teaser__slide2"
-                     style="width: 16.4%; padding-bottom: 16.4%; top: 50%; left: 22.4%; position: absolute;
+                     style="width: 20%; padding-bottom: 20%; top: 50%; left: 36%; position: absolute;
                      background: url(&quot;./banner/b9bf71c14701c9964b21e4c3110037e4/img-530008935.jpeg&quot;) 50% 50% / cover no-repeat;"></div>
                 <div id="slide3" data-slide="3"  class="hpmdn-teaser__slide hpmdn-teaser__slide3"
-                     style="width: 16.4%; padding-bottom: 16.4%; top: 50%; left: 41.8%; position: absolute;
+                     style="width: 20%; padding-bottom: 20%; top: 50%; left: 59%; position: absolute;
                      background: url(&quot;./banner/b9bf71c14701c9964b21e4c3110037e4/img-2056867678.jpeg&quot;) 50% 50% / cover no-repeat;"></div>
             </div>
         </div>
@@ -486,7 +486,9 @@
         padding-bottom: 34.69%;
         overflow: hidden;
         border-radius: 100%;
-        border: .4vw solid rgba(252, 101, 64, 0.9);
+        /*border: .4vw solid rgba(252, 101, 64, 0.9);*/
+        box-shadow: 0 0 0 6px #fff, 0 0 0 12px rgba(252, 101, 64, 0.9);
+
         margin-right: 3%;
         -webkit-transform: translate3d(0%, -50%, 0);
         transform: translate3d(0%, -50%, 0);
@@ -1100,9 +1102,8 @@
         border-radius: 6px;
         width: 33%;
         height: 68%;
-        background: #ffffff;
+        background: rgba(255,255,255,0.4);
         cursor: pointer;
-        opacity: .4;
     }
     .timeline1 {
         left: 0%
@@ -1114,8 +1115,7 @@
         left: 67%
     }
     .timeline-animate {
-        background: #ffffff;
-        opacity: 1;
+        background: rgba(255,255,255,1);
         transition: width 6s linear;
     }
     .timeline-invisible {
@@ -1140,7 +1140,8 @@
         var popup = document.querySelector('.hpmdn-popup');
         var stories = [].slice.call(document.querySelectorAll('.hpmdn-stories-item'));
         var closeButton = document.querySelector('.hpmdn-popup-close');
-        let timelines = [];
+        var timelines = [];
+        var animStarted = false;
 
         function findTimelines() {
             for (let i=1; i<=steps; i++) {
@@ -1167,8 +1168,13 @@
         let timeoutId;
 
         function autoPlay(step) {
+            // if (animStarted) {
+            //     stories[step].classList.add('hpmdn-active');
+            // }
+
             if (step<4) {
                 animateTimeline(timelines[step - 1]);
+                console.log(step)
                 if (step < 3) {
                     timeoutId = setTimeout(function () {
                         currentSlide++;
@@ -1194,7 +1200,11 @@
                     popup.classList.add('hpmdn-popup-open');
                     if (story.dataset.storyId === currentSlide) {
                         story.classList.add('hpmdn-active');
-                        autoPlay(currentSlide)
+                        animStarted = true;
+                        setTimeout(function(){
+                            autoPlay(currentSlide);
+                            animStarted = true;
+                        }, 100)
                     }
                 })
             }
