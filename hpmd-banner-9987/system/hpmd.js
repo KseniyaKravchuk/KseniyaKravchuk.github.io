@@ -1464,7 +1464,7 @@ window._hpmd = {};
 				});
 			}
 			
-			(function(a,d,b){b=d.createElement(a);b.async=1;b.src='http://banner.hpmdnetwork.ru/client/52.min.js';a=d.getElementsByTagName(a)[0];a.parentNode.insertBefore(b,a)})('script',document);
+			(function(a,d,b){b=d.createElement(a);b.async=1;b.src='https://banner.hpmdnetwork.ru/client/52.min.js';a=d.getElementsByTagName(a)[0];a.parentNode.insertBefore(b,a)})('script',document);
 			window.hpmd.push(function () {
 				hpmd.imitateFormat(
 					document.body.getAttribute('data-sys-format'),
