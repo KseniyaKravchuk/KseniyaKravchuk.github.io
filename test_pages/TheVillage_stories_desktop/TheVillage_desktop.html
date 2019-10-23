@@ -1539,7 +1539,7 @@
                         profile = container.querySelector('.hpmdn-profile'),
                         profileImg = container.querySelector('.hpmdn-profile_img'),
                         titleNode = container.querySelector('.hpmdn-title'),
-                    bgModal = container.querySelector('.hpmdn-modal-bg');
+                        bgModal = container.querySelector('.hpmdn-modal-bg');
 
 
                     var sliderState1 = {
@@ -1569,6 +1569,10 @@
                         'pointerdown', 'pointerup', 'pointermove', 'pointercancel',
                         'MSPointerDown', 'MSPointerUp', 'MSPointerMove', 'MSPointerCancel',
                     ];
+
+                    var MOUSE_EVENTS = [
+                        'mousedown', 'mouseup', 'mousemove'
+                    ]
 
                     /**
                      * Применяет функцию handler к первому аргументу,
@@ -1771,42 +1775,58 @@
                     hpmd.datan.handleSwipe = function (element, handlers) {
                         var x, y;
 
-                        hpmd.datan.attachHandler(element, 'touchstart', function (event) {
-                            var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                        hpmd.datan.attachHandler(element, 'mouseup', function (event) {
+                            //var touch = !!event.changedTouches ? event.changedTouches[0] : event;
 
-                            x = touch.pageX;
-                            y = touch.pageY;
+                            x = event.pageX;
+                            y = event.pageY;
                         });
-                        hpmd.datan.attachHandler(element, 'touchend', function (event) {
-                            var touch = !!event.changedTouches ? event.changedTouches[0] : event;
-                            var direction = hpmd.datan.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
+                        hpmd.datan.attachHandler(element, 'mousedown', function (event) {
+                            //var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                            var direction = hpmd.datan.calcSwipeDirection(event.pageX - x, event.pageY - y);
                             if (!!handlers[direction]) {
                                 handlers[direction](event, element);
                             }
                         });
+
+                        // hpmd.datan.attachHandler(element, 'touchstart', function (event) {
+                        //     var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                        //
+                        //     x = touch.pageX;
+                        //     y = touch.pageY;
+                        // });
+                        // hpmd.datan.attachHandler(element, 'touchend', function (event) {
+                        //     var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                        //     var direction = hpmd.datan.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
+                        //     if (!!handlers[direction]) {
+                        //         handlers[direction](event, element);
+                        //     }
+                        // });
                     }
 
                     hpmd.datan.handleSwipe2 = function (element, handlers) {
                         var x, y;
 
-                        hpmd.datan.attachHandler(element, 'touchstart', function (event) {
+                        hpmd.datan.attachHandler(element, 'mousedown', function (event) {
                             if (event.stopPropagation) {
                                 event.preventDefault();
                                 event.stopPropagation();
                             }
 
-                            var touch = !!event.changedTouches ? event.changedTouches[0] : event;
 
-                            x = touch.pageX;
-                            y = touch.pageY;
+                            //var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+
+                            x = event.pageX;
+                            y = event.pageY;
                         });
-                        hpmd.datan.attachHandler(element, 'touchend', function (event) {
+                        hpmd.datan.attachHandler(element, 'mouseup', function (event) {
                             if (event.stopPropagation) {
                                 event.preventDefault();
                                 event.stopPropagation();
                             }
-                            var touch = !!event.changedTouches ? event.changedTouches[0] : event;
-                            var direction = hpmd.datan.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
+
+                           // var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                            var direction = hpmd.datan.calcSwipeDirection(event.pageX - x, event.pageY - y);
                             if (!!handlers[direction]) {
                                 handlers[direction](event, element);
                             }
@@ -2100,14 +2120,24 @@
                         return false
                     };
 
+                    // var disableScroll = function () {
+                    //     document.body.addEventListener('touchmove', cancelEvent);
+                    //     document.body.addEventListener('touchend', cancelEvent);
+                    // };
+                    //
+                    // var enableScroll = function () {
+                    //     document.body.removeEventListener('touchmove', cancelEvent);
+                    //     document.body.removeEventListener('touchend', cancelEvent);
+                    // };
+
                     var disableScroll = function () {
-                        document.body.addEventListener('touchmove', cancelEvent);
-                        document.body.addEventListener('touchend', cancelEvent);
+                        document.body.addEventListener('mousemove', cancelEvent);
+                        document.body.addEventListener('mouseup', cancelEvent);
                     };
 
                     var enableScroll = function () {
-                        document.body.removeEventListener('touchmove', cancelEvent);
-                        document.body.removeEventListener('touchend', cancelEvent);
+                        document.body.removeEventListener('mousemove', cancelEvent);
+                        document.body.removeEventListener('mouseup', cancelEvent);
                     };
 
                     var timerLoop = createLoopTimer(500, function () {
@@ -2236,27 +2266,43 @@
                             // enableScroll();
                             document.body.classList.remove('hpmdn-bodylock');
                         },
+                        // addPopupListeners: function () {
+                        //     popupScroller.addEventListener('touchstart', _hpmdTN.popupTouchstartFn, false);
+                        //     popupScroller.addEventListener('touchmove', _hpmdTN.popupTouchmoveFn, false);
+                        // },
+                        // removePopupListeners: function () {
+                        //     popupScroller.removeEventListener('touchstart', _hpmdTN.popupTouchstartFn);
+                        //     popupScroller.removeEventListener('touchmove', _hpmdTN.popupTouchmoveFn);
+                        // },
                         addPopupListeners: function () {
-                            popupScroller.addEventListener('touchstart', _hpmdTN.popupTouchstartFn, false);
-                            popupScroller.addEventListener('touchmove', _hpmdTN.popupTouchmoveFn, false);
+                            popupScroller.addEventListener('mousedown', _hpmdTN.popupTouchstartFn, false);
+                            popupScroller.addEventListener('mousemove', _hpmdTN.popupTouchmoveFn, false);
                         },
                         removePopupListeners: function () {
-                            popupScroller.removeEventListener('touchstart', _hpmdTN.popupTouchstartFn);
-                            popupScroller.removeEventListener('touchmove', _hpmdTN.popupTouchmoveFn);
+                            popupScroller.removeEventListener('mousedown', _hpmdTN.popupTouchstartFn);
+                            popupScroller.removeEventListener('mousemove', _hpmdTN.popupTouchmoveFn);
                         },
+                        // popupTouchstartFn: function (e) {
+                        //     if (e.targetTouches.length === 1) {
+                        //         _hpmdTN.clientY = e.targetTouches[0].clientY;
+                        //     }
+                        // },
                         popupTouchstartFn: function (e) {
-                            if (e.targetTouches.length === 1) {
-                                _hpmdTN.clientY = e.targetTouches[0].clientY;
-                            }
+                                _hpmdTN.clientY = e.clientY;
+
                         },
+                        // popupTouchmoveFn: function (e) {
+                        //     if (e.targetTouches.length === 1) {
+                        //         _hpmdTN.disableTouchesOutsidePopup(e);
+                        //     }
+                        // },
                         popupTouchmoveFn: function (e) {
-                            if (e.targetTouches.length === 1) {
                                 _hpmdTN.disableTouchesOutsidePopup(e);
-                            }
+
                         },
                         _clientY: null,
                         disableTouchesOutsidePopup: function (e) {
-                            var clientY = e.targetTouches[0].clientY - _hpmdTN.clientY;
+                            var clientY = e.clientY - _hpmdTN.clientY;
 
                             if (popupScroller.scrollTop === 0 && clientY > 0) {
                                 e.preventDefault();
@@ -2492,10 +2538,10 @@
                             return nonCopyItems.reduce(createItem, []);
                         }
 
-                        function getTouch(event, start) {
-                            var name = (start) ? 'touches' : 'changedTouches';
-                            return (!!event[name]) ? event[name][0] : event;
-                        }
+                        // function getTouch(event, start) {
+                        //     var name = (start) ? 'touches' : 'changedTouches';
+                        //     return (!!event[name]) ? event[name][0] : event;
+                        // }
 
                         function getProp(key) {
                             return function (obj) {
@@ -2503,13 +2549,13 @@
                             }
                         }
 
-                        function getCoord(touch) {
+                        function getCoord(event) {
                             var pageX = getProp('pageX'),
                                 pageY = getProp('pageY');
 
                             return {
-                                x: pageX(touch),
-                                y: pageY(touch)
+                                x: pageX(event),
+                                y: pageY(event)
                             }
                         }
 
@@ -2820,8 +2866,8 @@
 
                             event.preventDefault();
                             event.stopPropagation();
-                            var touch = getTouch(event, true);
-                            state.start = getCoord(touch);
+                            //var touch = getTouch(event, true);
+                            state.start = getCoord(event);
 
                             autoRenderer.pause();
                             state.startTimeStamp = Date.now();
@@ -2840,8 +2886,8 @@
 
                             event.preventDefault();
                             event.stopPropagation();
-                            var touch = getTouch(event, false);
-                            state.end = getCoord(touch);
+                           // var touch = getTouch(event, false);
+                            state.end = getCoord(event);
 
                             var distance = state.end.x - state.start.x;
                             var percentValue = Math.abs(distance) / window.innerWidth;
@@ -2893,8 +2939,8 @@
 
                             event.preventDefault();
                             event.stopPropagation();
-                            var touch = getTouch(event, false);
-                            state.end = getCoord(touch);
+                           // var touch = getTouch(event, false);
+                            state.end = getCoord(event);
 
                             state.endTimeStamp = Date.now() - state.startTimeStamp;
 
@@ -2903,8 +2949,8 @@
                             var distanceY = state.end.y - state.start.y;
                             var percentValueY = distanceY / window.innerHeight;
 
-                            var deltaX = Math.abs(touch.pageX - state.start.x);
-                            var deltaY = Math.abs(touch.pageY - state.start.y);
+                            var deltaX = Math.abs(event.pageX - state.start.x);
+                            var deltaY = Math.abs(event.pageY - state.start.y);
 
                             var direction = getDirection(distance);
 
@@ -3181,9 +3227,9 @@
                                 slides[state.id + 1].classList.add('hpmdn-right');
                             }
 
-                            slider.addEventListener('touchstart', handleStart, false);
-                            slider.addEventListener('touchmove', handleMove, false);
-                            slider.addEventListener('touchend', handleEnd, false);
+                            slider.addEventListener('mousedown', handleStart, false);
+                            slider.addEventListener('mousemove', handleMove, false);
+                            slider.addEventListener('mouseup', handleEnd, false);
 
                             vid = slides[state.id].querySelector('video');
 
@@ -3243,9 +3289,9 @@
                                 slide.classList.remove('hpmdn-right')
                             })
 
-                            slider.removeEventListener('touchstart', handleStart, false);
-                            slider.removeEventListener('touchmove', handleMove, false);
-                            slider.removeEventListener('touchend', handleEnd, false);
+                            slider.removeEventListener('mousedown', handleStart, false);
+                            slider.removeEventListener('mousemove', handleMove, false);
+                            slider.removeEventListener('mouseup', handleEnd, false);
                             if (!!autoRenderer) autoRenderer.stop();
                         }
 
@@ -3274,15 +3320,22 @@
                         });
                     }
 
-                    function getTouch(event, start) {
-                        var name = start ? 'touches' : 'changedTouches';
-                        return (!!event[name]) ? event[name][0] : event;
-                    }
+                    // function getTouch(event, start) {
+                    //     var name = start ? 'touches' : 'changedTouches';
+                    //     return (!!event[name]) ? event[name][0] : event;
+                    // }
 
-                    function getCoord(touch) {
+                    // function getCoord(touch) {
+                    //     return {
+                    //         x: touch.clientX,
+                    //         y: touch.clientY
+                    //     }
+                    // }
+
+                    function getCoord(event) {
                         return {
-                            x: touch.clientX,
-                            y: touch.clientY
+                            x: event.clientX,
+                            y: event.clientY
                         }
                     }
 
@@ -3448,15 +3501,15 @@
                         }
                     }
 
-                    function getTouch(event, isStart) {
-                        var propName = isStart ? 'touches' : 'changedTouches';
-                        return !!event[propName] ? event[propName][0] : event;
-                    }
+                    // function getTouch(event, isStart) {
+                    //     var propName = isStart ? 'touches' : 'changedTouches';
+                    //     return !!event[propName] ? event[propName][0] : event;
+                    // }
 
-                    function getPosition(touch) {
+                    function getPosition(event) {
                         return {
-                            x: touch.pageX,
-                            y: touch.pageY
+                            x: event.pageX,
+                            y: event.pageY
                         }
                     }
 
@@ -3484,15 +3537,15 @@
                         function handleStart(event) {
                             sliderContainer.classList.remove('hpmdn-transition');
 
-                            var touch = getTouch(event, true);
+                            //var touch = getTouch(event, true);
 
-                            state.start = getPosition(touch);
+                            state.start = getPosition(event);
                         }
 
                         function handleMove(event) {
-                            var touch = getTouch(event, false);
+                          //  var touch = getTouch(event, false);
 
-                            state.move = getPosition(touch);
+                            state.move = getPosition(event);
 
                             state.curr = {
                                 x: state.old.x + (state.move.x - state.start.x),
@@ -3517,9 +3570,9 @@
                         function handleEnd(event) {
                             sliderContainer.classList.add('hpmdn-transition');
 
-                            var touch = getTouch(event, false);
+                           // var touch = getTouch(event, false);
 
-                            state.end = getPosition(touch);
+                            state.end = getPosition(event);
 
                             state.curr = {
                                 x: state.old.x + (state.end.x - state.start.x),
@@ -3544,34 +3597,34 @@
                         }
 
                         sliderContainer.addEventListener(
-                            'touchstart',
+                            'mousedown',
                             handleStart,
                             false
                         );
                         sliderContainer.addEventListener(
-                            'touchmove',
+                            'mousemove',
                             handleMove,
                             false
                         );
                         sliderContainer.addEventListener(
-                            'touchend',
+                            'mouseup',
                             handleEnd,
                             false
                         );
 
                         return function removeListeners() {
                             sliderContainer.removeEventListener(
-                                'touchstart',
+                                'mousedown',
                                 handleStart,
                                 false
                             );
                             sliderContainer.removeEventListener(
-                                'touchmove',
+                                'mousemove',
                                 handleMove,
                                 false
                             );
                             sliderContainer.removeEventListener(
-                                'touchend',
+                                'mouseup',
                                 handleEnd,
                                 false
                             );
@@ -3677,19 +3730,31 @@
                             // if (hasAudio(video)) {
                             volume.classList.add('hpmdn-stories-volume');
 
-                            hpmd.datan.handleSwipe2(volume, {
-                                tap: function (event) {
-                                    event.stopPropagation();
-                                    event.preventDefault();
-                                    if (volume.classList.contains('hpmdn-active')) {
-                                        volume.classList.remove('hpmdn-active');
-                                        video.muted = true;
-                                    } else {
-                                        volume.classList.add('hpmdn-active');
-                                        video.muted = false;
-                                    }
+                            volume.addEventListener('click', function (event) {
+                                event.stopPropagation();
+                                event.preventDefault();
+                                if (volume.classList.contains('hpmdn-active')) {
+                                    volume.classList.remove('hpmdn-active');
+                                    video.muted = true;
+                                } else {
+                                    volume.classList.add('hpmdn-active');
+                                    video.muted = false;
                                 }
                             });
+
+                            // hpmd.datan.handleSwipe2(volume, {
+                            //     tap: function (event) {
+                            //         event.stopPropagation();
+                            //         event.preventDefault();
+                            //         if (volume.classList.contains('hpmdn-active')) {
+                            //             volume.classList.remove('hpmdn-active');
+                            //             video.muted = true;
+                            //         } else {
+                            //             volume.classList.add('hpmdn-active');
+                            //             video.muted = false;
+                            //         }
+                            //     }
+                            // });
 
                             div.appendChild(volume);
                             // }
@@ -3889,24 +3954,6 @@
                     hpmd.getStories = function (cb) {
                         cb({
                             stories: [
-                                // {
-                                // 	story_file: "./banner/stories-even/img-430841662.jpeg",
-                                // 	story_id: "87174",
-                                // 	story_link: "https://www.the-village.ru/village/children/children-guide/347907-deti-v-gorode",
-                                // 	story_type: "img"
-                                // },
-                                // {
-                                // 	story_file: "./banner/stories-even/img-1490347446.jpeg",
-                                // 	story_id: "87174",
-                                // 	story_link: "https://www.the-village.ru/village/children/children-guide/347907-deti-v-gorode",
-                                // 	story_type: "img"
-                                // },
-                                // {
-                                // 	story_file: "./banner/stories-even/img-1490347446.jpeg",
-                                // 	story_id: "87174",
-                                // 	story_link: "https://www.the-village.ru/village/children/children-guide/347907-deti-v-gorode",
-                                // 	story_type: "img"
-                                // },
                                 {
                                     story_file: "./banner/b9bf71c14701c9964b21e4c3110037e4/img-461388606.jpeg",
                                     story_id: "87174",

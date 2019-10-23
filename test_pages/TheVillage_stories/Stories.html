@@ -1516,6 +1516,15 @@
                     profileImg = container.querySelector('.hpmdn-profile_img'),
                     titleNode = container.querySelector('.hpmdn-title');
 
+                    wrapper.addEventListener('touchmove', function(e){
+                        console.log('touchmove', e)
+                    })
+                    wrapper.addEventListener('touchstart', function(e){
+                        console.log('touchstart', e)
+                    })
+                    wrapper.addEventListener('touchend', function(e){
+                        console.log('touchend', e)
+                    })
 
                 var sliderState1 = {
                     start: {
@@ -1748,12 +1757,17 @@
 
                     hpmd.datan.attachHandler(element, 'touchstart', function (event) {
                         var touch = !!event.changedTouches ? event.changedTouches[0] : event;
-
+                        console.log(event)
+                        console.log(event.changedTouches)
+                        console.log(touch)
                         x = touch.pageX;
                         y = touch.pageY;
                     });
                     hpmd.datan.attachHandler(element, 'touchend', function (event) {
                         var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+                        console.log(event)
+                        console.log(event.changedTouches)
+                        console.log(touch)
                         var direction = hpmd.datan.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
                         if (!!handlers[direction]) {
                             handlers[direction](event, element);
@@ -3465,7 +3479,7 @@
 
                     function handleMove(event) {
                         var touch = getTouch(event, false);
-
+                        console.log(handleMove)
                         state.move = getPosition(touch);
 
                         state.curr = {
