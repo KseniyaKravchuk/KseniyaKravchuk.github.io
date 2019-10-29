@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel_desktop</title>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <div class="banner-container">
+        <div id="slider-box">
+            <div class="slider" style="left: 0%;">
+                <div class="slides slide1"></div>
+                <div class="slides slide2">
+                    <video id="video-slide" src="../img_video/Video1.mp4" preload="auto" loop="loop" muted="muted"></video>
+                    <div class="mute-button-wrapper">
+                        <div class="mute-button-bg"></div>
+                        <div class="mute-button mute"></div>
+                    </div>
+                </div>
+                <div class="slides slide3">
+                    <h2>Pellentesque eleifend sed ipsum eu accumsan</h2>
+                    <div class="about-product">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+                    </div>
+                    <div class="note">*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</div>
+                    <div class="button">
+            <span class="button-text">
+                Learn more...
+            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="navigation-prev"></div>
+        <div id="navigation-next"></div>
+        <div class="timelines-box">
+            <div class="timelines timeline1"></div>
+            <div class="timelines timeline1 timeline-invisible"></div>
+
+            <div class="timelines timeline2"></div>
+            <div class="timelines timeline2 timeline-invisible"></div>
+
+            <div class="timelines timeline3"></div>
+            <div class="timelines timeline3 timeline-invisible"></div>
+        </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+
+    <style>
+        html {
+            width: 100%;
+        }
+        body {
+            width: 80%;
+            margin: 0 auto;
+            font: normal 14px sans-serif;
+        }
+        .banner-container {
+            width: 100%;
+            background: #dffcc5;
+            position: relative;
+        }
+        #slider-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .slider {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            top: 0;
+            transition: left .5s linear;
+        }
+        .slides {
+            width: 33.33%;
+            height: 100%;
+            float: left;
+        }
+        .mute-button-wrapper {
+            position: absolute;
+            top: 5%;
+            left: 64%;
+            width: 2%;
+        }
+        .mute-button-bg {
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            opacity: .4;
+            border-radius: 50%;
+        }
+        .mute-button {
+            position: absolute;
+            top: 19%;
+            right: 19%;
+            width: 62%;
+            height: 62%;
+            cursor: pointer;
+        }
+        .mute {
+            background: url(../img_video/speaker1.svg) 50% 50% no-repeat;
+            background-size: contain;
+        }
+        .unmute {
+            background: url(../img_video/speaker2.svg) 50% 50% no-repeat;
+            background-size: contain;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+        }
+        .slide1 {
+            background: url("../img_video/img1.jpg") 50% 50% no-repeat;
+            background-size: cover;
+        }
+        .slide3 {
+            background: url("../img_video/img22.jpg") 50% 50% no-repeat;
+            background-size: cover;
+        }
+        #navigation-prev {
+            background: url("../img_video/navigate_before.svg") 50% 50% no-repeat;
+            background-size: contain;
+            width: 8%;
+            height: 20%;
+            position: absolute;
+            top: 40%;
+            left: 0;
+            cursor: pointer;
+        }
+        #navigation-next {
+            background: url("../img_video/navigate_next.svg") 50% 50% no-repeat;
+            background-size: contain;
+            width: 8%;
+            height: 20%;
+            position: absolute;
+            top: 40%;
+            right: 0;
+            cursor: pointer;
+        }
+        .timelines-box {
+            position: absolute;
+            bottom: 1%;
+            left: .5%;
+            width: 99%;
+            height: 3%;
+        }
+        .timelines {
+            position: absolute;
+            border-radius: 6px;
+            width: 33%;
+            height: 68%;
+            background: #ffffff;
+            cursor: pointer;
+            opacity: .4;
+        }
+        .timeline1 {
+            left: 0%
+        }
+        .timeline2 {
+            left: 33.5%
+        }
+        .timeline3 {
+            left: 67%
+        }
+        .timeline-animate {
+            background: #ffffff;
+            opacity: 1;
+            transition: width 6s linear;
+        }
+        .timeline-invisible {
+            width: 0!important;
+        }
+        .timeline-visible {
+            opacity: 1;
+        }
+        .button {
+            font-size: 145%;
+            width: 8%;
+            height: 9%;
+            position: absolute;
+            top: 71%;
+            left: 79%;
+            text-align: center;
+            border-radius: 4px;
+            padding: 10px;
+            background: #869e74;
+        }
+        .button-text {
+            position: absolute;
+            top: 32%;
+            left: 0%;
+            width: 100%;
+            font-size: 2.3vw;
+        }
+        h2 {
+            position: absolute;
+            top: 1%;
+            left: 68%;
+            font-size: 3vw;
+            width: 30%;
+            text-align: center;
+        }
+        .about-product {
+            width: 26%;
+            height: 70px;
+            position: absolute;
+            top: 26%;
+            left: 71%;
+        }
+        .about-product p {
+            text-indent: 10px;
+            font-size: 2vw;
+        }
+        .note {
+            width: 50%;
+            height: 10%;
+            position: absolute;
+            top: 90%;
+            left: 69%;
+            font-size: 1.3vw;
+        }
+    </style>
+
+    <script>
+        const steps = 3;
+        let currentSlide = 1;
+        let slider;
+        let video;
+        let button;
+        let timelines = [];
+
+        const findTimelines = () => {
+            for (let i=1; i<=steps; i++) {
+                timelines.push(document.getElementsByClassName('timeline'+i)[1])
+            }
+            return timelines
+        };
+
+        const clearTimeline = (timeline) => {
+            timeline.classList.add('timeline-invisible');
+            timeline.classList.remove('timeline-animate');
+        };
+        const animateTimeline = (timeline) => {
+            timeline.classList.remove('timeline-invisible');
+            timeline.classList.add('timeline-animate');
+        };
+        const fillTimeline = (timeline) => {
+            timeline.classList.toggle("timeline-invisible", false);
+            timeline.classList.add('timeline-visible');
+            timeline.classList.remove('timeline-animate');
+        };
+        let timeoutId;
+        const autoPlay = (step) => {
+            if (step<4) {
+                if (step===2) {
+                    video.play();
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                animateTimeline(timelines[step-1]);
+                if (step<3) {
+                    timeoutId = setTimeout(function() {
+                        slider.style.left = -step*100 + '%';
+                        currentSlide++;
+                        autoPlay(step+1);
+                    }, 6000)
+                }
+                if (currentSlide === 3) {
+                    setTimeout(function(){
+                        slider.style.left = '0%';
+                        currentSlide = 1;
+                        for (let i=0; i<steps; i++) {
+                            clearTimeline(timelines[i]);
+                        }
+                        //clearTimeout(timeoutId);
+                        setTimeout(autoPlay, 100, currentSlide)
+                    }, 6000);
+            }}
+        };
+        const startArrowsWork = () => {
+            const left_arrow = document.getElementById('navigation-prev');
+            const right_arrow = document.getElementById('navigation-next');
+            left_arrow.addEventListener('mouseup', showPrevSlide);
+            right_arrow.addEventListener('mouseup', showNextSlide);
+        };
+        const showPrevSlide = () => {
+            if (currentSlide === 1) {
+                slider.style.left = '-200%';
+                currentSlide = 3;
+                for (let i=0; i<steps-1; i++) {
+                    fillTimeline(timelines[i]);
+                }
+            } else {
+                slider.style.left = -(currentSlide-2)*100+'%';
+                currentSlide--;
+                clearTimeline(timelines[currentSlide-1]);
+                clearTimeline(timelines[currentSlide]);
+            }
+            clearTimeout(timeoutId);
+            setTimeout(autoPlay, 100, currentSlide)
+        };
+        const showNextSlide = () => {
+            if (currentSlide === 3) {
+                slider.style.left = '0%';
+                currentSlide = 1;
+                for (let i=0; i<steps; i++) {
+                    clearTimeline(timelines[i]);
+                }
+            } else {
+                slider.style.left = -currentSlide*100+'%';
+                currentSlide++;
+                fillTimeline(timelines[currentSlide-2]);
+            }
+            clearTimeout(timeoutId);
+            setTimeout(autoPlay, 100, currentSlide)
+        };
+        const getContainerSize = function() {
+            const bannerContainer = document.getElementsByClassName('banner-container')[0];
+            if (bannerContainer) {
+                const widthElem = parseInt(getComputedStyle(document.body, null).width);
+                bannerContainer.style.width = widthElem + 'px';
+                bannerContainer.style.height = widthElem*0.5625 + 'px';
+            }
+        };
+        const getSize = function() {
+            const muteButton = document.getElementsByClassName('mute-button-wrapper')[0];
+            if (muteButton) {
+                const widthElem = muteButton.clientWidth;
+                muteButton.style.height = widthElem + 'px';
+            }
+        };
+        const toggleButton = function() {
+            if (video.muted){
+                video.muted = false;
+                button.classList.remove('mute');
+                button.classList.add('unmute')
+            } else {
+                video.muted = true;
+                button.classList.remove('unmute');
+                button.classList.add('mute')
+            }
+        };
+        window.onload = function(){
+            video = document.getElementById('video-slide');
+            slider = document.getElementsByClassName('slider')[0];
+            button = document.getElementsByClassName('mute-button')[0];
+            button.addEventListener('mouseup', toggleButton);
+            getContainerSize();
+            getSize();
+            findTimelines();
+            autoPlay(currentSlide);
+            startArrowsWork();
+            document.body.onresize = function() {
+                getContainerSize();
+                getSize();
+            };
+        }
+    </script>
+
+</body>
+</html>

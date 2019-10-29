@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="src/granim.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Gradient</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <canvas id="canvas-basic"></canvas>
+
+    <style>
+        #canvas-basic {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 30%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        // ['#0575E6', '#00F260'],
+        //     ['#00F260', '#0575E6'],
+        //     ['#362ff0', '#29ccc3']
+
+        var canvas = document.getElementById('canvas-basic');
+        // canvas.width = window.width;
+        // canvas.height = window.height;
+
+        var granimInstance = new Granim({
+            element: '#canvas-basic',
+            transitionSpeed: 3000,
+            direction: 'diagonal',
+            isPausedWhenNotInView: true,
+            states : {
+                "default-state": {
+                    gradients: [
+                        ['#25c6ca', '#7a58da'],
+                        ['#a045d4', '#189ef2'],
+                        ['#322ff1', '#26a0d4']
+                    ]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

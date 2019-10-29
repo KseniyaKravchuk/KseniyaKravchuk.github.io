@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immersion_desktop</title>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <div class="banner-container">
+        <div class="content-container invisible">
+            <h3>Pellentesque eleifend sed ipsum eu accumsan</h3>
+            <div class="about-product">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</p>
+            </div>
+            <div class="note">*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna.</div>
+            <div class="button">
+            <span class="button-text">
+                Learn more...
+            </span>
+            </div>
+        </div>
+        <video src="../img_video/Video1.mp4" preload="auto" loop="loop" muted="muted" autoplay="autoplay"></video>
+        <div class="mute-button-wrapper">
+            <div class="mute-button-bg"></div>
+            <div class="mute-button mute"></div>
+        </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+
+    <style>
+        html {
+            width: 100%;
+        }
+        body {
+            width: 80%;
+            margin: 0 auto;
+            font: normal 14px sans-serif;
+        }
+        .banner-container {
+            width: 100%;
+            background: #dffcc5;
+            position: relative;
+        }
+        .mute-button-wrapper {
+            position: absolute;
+            top: 5%;
+            right: 2%;
+            width: 7%;
+        }
+        .mute-button-bg {
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            opacity: .4;
+            border-radius: 50%;
+        }
+        .mute-button {
+            position: absolute;
+            top: 19%;
+            right: 19%;
+            width: 62%;
+            height: 62%;
+            cursor: pointer;
+        }
+        .mute {
+            background: url(../img_video/speaker1.svg) 50% 50% no-repeat;
+            background-size: contain;
+        }
+        .unmute {
+            background: url(../img_video/speaker2.svg) 50% 50% no-repeat;
+            background-size: contain;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .5s linear;
+        }
+        .small-video {
+            transform: matrix(0.45, 0, 0, 0.45, 174, -7);
+            /*transform: scale(0.5, 0.5) translate(42%, -12%);*/
+        }
+        .content-container {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+        .button {
+            width: 23%;
+            height: 9%;
+            position: absolute;
+            top: 80%;
+            left: 6%;
+            text-align: center;
+            border-radius: 4px;
+            padding: 10px;
+            background: #9bb881;
+            cursor: pointer;
+        }
+        .button-text {
+            position: absolute;
+            top: 32%;
+            left: 0;
+            width: 100%;
+            font-size: 2vw;
+        }
+        h3 {
+            position: absolute;
+            top: 1%;
+            left: 0%;
+            width: 100%;
+            text-align: center;
+            font-size: 2.5vw;
+        }
+        .about-product {
+            width: 40%;
+            height: 70px;
+            position: absolute;
+            top: 26%;
+            left: 4%;
+            font-size: 1.5vw;
+        }
+        .about-product p {
+            text-indent: 10px;
+        }
+        .note {
+            width: 50%;
+            height: 10%;
+            position: absolute;
+            bottom: 3%;
+            right: 2%;
+            font-size: 1.5vw;
+        }
+        .invisible {
+            opacity: 0;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            const video = document.getElementsByTagName('video')[0];
+            const button = document.getElementsByClassName('mute-button')[0];
+            const muteButton = document.getElementsByClassName('mute-button-wrapper')[0];
+            const bannerContainer = document.getElementsByClassName('banner-container')[0];
+            const toggleButton = function() {
+                if (video.muted){
+                    video.muted = false;
+                    button.classList.remove('mute');
+                    button.classList.add('unmute')
+                } else {
+                    video.muted = true;
+                    button.classList.remove('unmute');
+                    button.classList.add('mute')
+                }
+            };
+            const getSize = function() {
+                if (muteButton) {
+                    const widthElem = muteButton.clientWidth;
+                    muteButton.style.height = widthElem + 'px';
+                }
+            };
+            const getContainerSize = function() {
+                if (bannerContainer) {
+                    const widthElem = parseInt(getComputedStyle(document.body, null).width);
+                    bannerContainer.style.width = widthElem + 'px';
+                    bannerContainer.style.height = widthElem*0.5625 + 'px';
+                }
+            };
+            const getClassForBanner = function() {
+                const width = bannerContainer.clientWidth;
+                const height = bannerContainer.clientHeight;
+                video.style.width = '45%';
+                video.style.height = '45%';
+                video.style.left = (0.5*width)*100/width + '%';
+                video.style.top = (0.28*height-7)*100/height + '%';
+                video.classList.remove('small-video');
+            };
+            getContainerSize();
+            getSize();
+
+            button.addEventListener('mouseup', toggleButton);
+            const reduceVideo = function() {
+                const content = document.getElementsByClassName('content-container');
+                video.classList.add('small-video');
+                content[0].classList.remove('invisible');
+                getClassForBanner();
+            };
+            setTimeout(reduceVideo, 2000);
+            document.body.onresize = function() {
+                getContainerSize();
+                getSize();
+            };
+        };
+    </script>
+</body>
+</html>
