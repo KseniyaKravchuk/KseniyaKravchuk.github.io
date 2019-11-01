@@ -19,7 +19,7 @@
  */
 /* 1. Common styles */
 body {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -35,12 +35,30 @@ header, section {
 }
 header {
   position: relative;
+  /*background: url("../i/bg-header.png") 50% 100% no-repeat;*/
+  /*background-size: cover;*/
+  background-image: linear-gradient(to bottom right, #5230ed, #28cdc3);
+}
+.WaveCover_waveCover___ITZhM {
+  width: 100%;
+  /*height: var(--wave-height);*/
+  z-index: 1;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  color: #1c1c1c;
+  transform: rotate(180deg);
+  position: absolute;
+  bottom: -1px;
 }
 header nav {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
+}
+footer {
+  background: url("../i/bg-footer.png") 50% 0% no-repeat;
+  background-size: cover;
 }
 nav {
   width: 100%;
@@ -80,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-margin-after: 0;
   margin: 0;
   font-weight: 700;
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
 }
 h1, h2 {
   font-size: 58px;
@@ -98,6 +116,9 @@ h1.small, h2.small {
 h3 {
   font-size: 42px;
   line-height: 52px;
+}
+h4 {
+  font-size: 30px;
 }
 b, strong {
   font-weight: 700;
@@ -266,12 +287,18 @@ b, strong {
 }
 /* 2. Common responsive styles */
 /* Smaller than 1200px */
+
+
+
 @media (max-width: 1199.98px) {
   header[class^="pt-"], section[class^="pt-"], header[class*=" pt-"], section[class*=" pt-"] {
     padding-top: 80px;
   }
-  header[class^="pb-"], section[class^="pb-"], header[class*=" pb-"], section[class*=" pb-"] {
+  section[class^="pb-"], section[class*=" pb-"] {
     padding-bottom: 80px;
+  }
+  header[class^="pb-"], header[class*=" pb-"] {
+    padding-bottom: 120px;
   }
   h1 br, h2 br, h3 br, .text-adaptive br {
     display: none;
@@ -4639,9 +4666,175 @@ b, strong {
   }
 }
 
+
 .bg-spot-1 {
   background: url("../i/spot-1.png") 50% 50% no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
+  padding-top: 70px;
   padding-right: 70px;
-  padding-left: 70px;
+  padding-bottom: 70px!important;
+  padding-left: 112px;
+}
+
+.bg-spot-2 {
+  background: url("../i/spot-2.png") 50% 50% no-repeat;
+  background-size: 100% 100%;
+  padding-top: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px!important;
+  padding-left: 112px;
+}
+.bg-spot-3 {
+  background: url("../i/spot-3.png") 50% 50% no-repeat;
+  background-size: 100% 100%;
+  padding-top: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px!important;
+  padding-left: 150px;
+}
+.bg-spot-4 {
+  background: url("../i/spot-1.png") 50% 50% no-repeat;
+  background-size: 100% 100%;
+  padding-top: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px!important;
+  padding-left: 112px;
+}
+.main-container {
+  height: 790px;
+  width: 790px;
+  flex: 1 1 80%;
+  margin: 0 auto;
+}
+.cards-box {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: repeat(3, 250px);
+  grid-template-columns: repeat(3, 250px);
+  grid-gap: 20px;
+}
+.card-item {
+  position: relative;
+  /*display: flex;            */
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  border-radius: 17px;
+  color: #ffffff;
+  font-family: "Arial Black";
+  font-size: 27px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  transition: transform .6s linear;
+}
+.front {
+  transform: perspective(600px) rotateY(0deg);
+}
+.back {
+  transform: perspective(600px) rotateY(180deg);
+}
+.card-item:hover > .front {
+  transform: perspective(600px) rotateY(-180deg);
+}
+.card-item:hover > .back {
+  transform: perspective(600px) rotateY(0deg);
+}
+/*Immersion card*/
+.card-item.immersion-card {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+.card-item.immersion-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(124deg, #04afdb 38%, #42c665 67%);
+}
+.card-item.immersion-card .back {
+  background: url("../i/VideoFormats/immersion.gif") 50% 50% no-repeat;
+  background-size: cover;
+}
+/*Branding card*/
+.card-item.branding-card {
+  grid-row: span 2;
+  grid-column: 1 / span 1; /*колонка, в которую вставляем / из скольки колонок состоит элемент*/
+}
+.card-item.branding-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(170deg, #04afdb 18%, #42c665 96%);
+}
+.card-item.branding-card .back {
+  background: url("../i/VideoFormats/branding.gif") 50% 50% no-repeat;
+  background-size: cover;
+}
+/*Stories card*/
+.card-item.stories-card {
+  grid-row: 1 / span 2;
+  grid-column: 3 / span 1;
+}
+.card-item.stories-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(153deg, #a93bd5 15%, #f61442 93%);
+}
+.card-item.stories-card .back {
+  background: url("../i/VideoFormats/stories.gif") 50% 50% no-repeat;
+  background-size: cover;
+}
+/*Carousel card*/
+.card-item.carousel-card {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+.card-item.carousel-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(156deg, #a93bd5 16%, #f61442 83%);
+}
+.card-item.carousel-card .back {
+  background: url("../i/VideoFormats/carousel.gif") 50% 50% no-repeat;
+  background-size: cover;
+}
+/*In-stream card*/
+.card-item.instream-card {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+.card-item.instream-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #0e4cf6, #664bf4 47%, #66c2cb);
+}
+.card-item.instream-card .back {
+  background: url("../i/VideoFormats/instream.gif") 50% 50% no-repeat;
+  background-size: cover;
+}
+/*Out-stream card*/
+.card-item.outstream-card {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+.card-item.outstream-card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top right, #04afdb, #42c665);
+}
+.card-item.outstream-card .back {
+  background: url("../i/VideoFormats/outstream.gif") 50% 50% no-repeat;
+  background-size: cover;
 }

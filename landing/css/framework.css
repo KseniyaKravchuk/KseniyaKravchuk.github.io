@@ -164,11 +164,11 @@
   background-color: #1eae9e;
 }
 .btn.action-2 {
-  background-color: #482be7;
-  color: #fff;
+  background-color: #bae50a;
+  color: #000;
 }
 .btn.action-2:hover {
-  background-color: #3217c8;
+  background-color: #cef336;
 }
 .btn.action-3 {
   background-color: #e93a7d;
@@ -9539,6 +9539,9 @@ input[type=radio] + label:before {
 }
 .color-white {
   color: #fff;
+}
+.color-black {
+  color: #000;
 }
 .color-white.link:hover {
   color: rgba(255, 255, 255, 0.7);
