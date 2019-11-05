@@ -98,14 +98,34 @@
 	</div>
 	<div class="WaveCover_waveCover___ITZhM">
 		<svg width="1440px" height="25px" viewBox="0 0 1440 25" preserveAspectRatio="none">
-			<g id="wave" data-svg-origin="0 0" transform="matrix(1,0,0,1,-2780,0)" style="">
+			<g id="wave" data-svg-origin="0 0" style="">
 				<path fill="white" d="M 0 12.5 q 360 -25 720 0 t 720 0 t 720 0 t 720 0 t 720 0 t 720 0 V 0 H 0 V 12.5"></path>
 			</g>
 		</svg>
 	</div>
 </header>
 
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		var wave = document.getElementById('wave');
+		var i = -2955;
 
+		function getStyle() {
+			if (i < -75) {
+				return i += 10;
+			} else if (i >= -75) {
+				i = -2955;
+			}
+
+		}
+		function setAttribute() {
+			getStyle();
+			return wave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
+		}
+
+		setInterval(setAttribute, 40)
+	})
+</script>
 <!-- Content 2 -->
 
 <section class="content_2 bg-light pt-105 pb-95">

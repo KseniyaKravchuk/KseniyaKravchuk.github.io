@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Format cards</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="cards-box">
+            <div id="immersion" class="card-item immersion-card">
+                <div class="front">immersion </div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/immersion.mp4"
+                           id="vid-immersion"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+            <div id="branding" class="card-item branding-card">
+                <div class="front">branding</div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/branding.mp4"
+                           id="vid-branding"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+            <div id="carousel" class="card-item carousel-card">
+                <div class="front">carousel</div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/carousel.mp4"
+                           id="vid-carousel"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+            <div id="stories" class="card-item stories-card">
+                <div class="front">stories</div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/stories.mp4"
+                           id="vid-stories"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+            <div id="in-stream" class="card-item instream-card">
+                <div class="front">in-stream</div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/instream.mp4"
+                           id="vid-in-stream"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+            <div id="out-stream" class="card-item outstream-card">
+                <div class="front">out-stream</div>
+                <div class="back">
+                    <video src="src/VideoFormats_video/outstream.mp4"
+                           id="vid-out-stream"
+                           preload="auto"
+                           loop="loop"
+                           muted="muted"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .main-container {
+            height: 790px;
+            width: 790px;
+            padding: 3%;
+            flex: 1 1 80%;
+            margin: 0 auto;
+        }
+        .cards-box {
+            display: grid;
+            height: 100%;
+            width: 100%;
+            grid-template-rows: repeat(3, 250px);
+            grid-template-columns: repeat(3, 250px);
+            grid-gap: 20px;
+        }
+        .card-item {
+            position: relative;
+            border-radius: 17px;
+            color: #ffffff;
+            font-family: "Arial Black";
+            font-size: 27px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .front,
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            transition: transform .6s linear;
+        }
+        .front {
+            transform: perspective(600px) rotateY(0deg);
+        }
+        .back {
+            transform: perspective(600px) rotateY(180deg);
+        }
+        /*.card-item:hover > .front {*/
+        /*    transform: perspective(600px) rotateY(-180deg);*/
+        /*}*/
+        /*.card-item:hover > .back {*/
+        /*    transform: perspective(600px) rotateY(0deg);*/
+        /*}*/
+        /*Immersion card*/
+        .card-item.immersion-card {
+            grid-row: span 1;
+            grid-column: span 2;
+        }
+        .card-item.immersion-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(124deg, #04afdb 38%, #42c665 67%);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+        }
+        /*Branding card*/
+        .card-item.branding-card {
+            grid-row: span 2;
+            grid-column: 1 / span 1; /*колонка, в которую вставляем / из скольки колонок состоит элемент*/
+        }
+        .card-item.branding-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(170deg, #04afdb 18%, #42c665 96%);
+        }
+
+        /*Stories card*/
+        .card-item.stories-card {
+            grid-row: 1 / span 2;
+            grid-column: 3 / span 1;
+        }
+        .card-item.stories-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(153deg, #a93bd5 15%, #f61442 93%);
+        }
+
+        /*Carousel card*/
+        .card-item.carousel-card {
+            grid-row: span 1;
+            grid-column: span 1;
+        }
+        .card-item.carousel-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(156deg, #a93bd5 16%, #f61442 83%);
+        }
+
+        /*In-stream card*/
+        .card-item.instream-card {
+            grid-row: span 1;
+            grid-column: span 1;
+        }
+        .card-item.instream-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #0e4cf6, #664bf4 47%, #66c2cb);
+        }
+
+        /*Out-stream card*/
+        .card-item.outstream-card {
+            grid-row: span 1;
+            grid-column: span 1;
+        }
+        .card-item.outstream-card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to top right, #04afdb, #42c665);
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var cardBox = document.querySelector('.cards-box');
+            var videos = findVideo();
+            var count = 0;
+            
+            function findVideo() {
+                return [].slice.call(cardBox.querySelectorAll('video'))
+            }
+
+            function findCard() {
+                return [].slice.call(cardBox.querySelectorAll('.front'))
+            }
+
+            function checkLoadingItem() {
+                console.log(videos)
+                for (var i = 0; i < videos.length; i++) {
+                    console.log(videos.length)
+                    videos[i].addEventListener('canplaythrough', function(e) {
+                        e.target.removeEventListener(e.type, arguments.callee);
+                        console.log(count)
+                        count++;
+                    })
+                }
+            }
+
+            function addStyle() {
+                var style = document.createElement('style');
+                style.innerHTML = ".card-item:hover > .front {transform: perspective(600px) rotateY(-180deg);}" +
+                    ".card-item:hover > .back {transform: perspective(600px) rotateY(0deg);}";
+                cardBox.after(style);
+            }
+
+            function cardHover(e) {
+                document.getElementById('vid-' + e.target.parentNode.id).play()
+            }
+
+            function cardFree(e) {
+                setTimeout(function() {
+                    e.target.pause();
+                    e.target.currentTime = 0;
+                }, 600)
+            }
+
+            function addEvents() {
+                findCard().forEach(card =>  card.addEventListener('mouseover', cardHover));
+                videos.forEach(video => {
+                    video.addEventListener('mouseout', cardFree)
+                })
+            }
+
+            function checkLoadingAll() {
+                if (count === videos.length) {
+                    console.log('Loadind...', videos);
+                    addEvents()
+                    addStyle()
+                } else {
+                    setTimeout(checkLoadingAll, 100)
+                }
+            }
+            checkLoadingItem()
+            checkLoadingAll()
+        })
+    </script>
+</body>
+</html>
