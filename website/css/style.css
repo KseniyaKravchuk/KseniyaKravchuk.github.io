@@ -33,6 +33,7 @@ body.dev {
 nav, header, section, footer {
   position: relative;
 }
+
 header, section {
   overflow: hidden;
   background-repeat: no-repeat;
@@ -46,8 +47,10 @@ header nav {
   z-index: 1000;
 }
 
-header {
-  background-image: linear-gradient(to bottom right, #5230ed, #28cdc3);
+header, footer {
+  animation: flow 15s ease infinite;
+  background-size: 400% 400%;
+  background-image: linear-gradient(to bottom right, #4b0e8d,  #791ddc, #06dfd9);
 }
 nav {
   width: 100%;
@@ -4432,7 +4435,7 @@ b, strong {
 /*wave style*/
 .header-wave {
   width: 100%;
-  /*height: var(--wave-height);*/
+  height: 25px;
   z-index: 1;
   margin-top: -1px;
   margin-bottom: -3px;
@@ -4442,6 +4445,23 @@ b, strong {
   bottom: -1px;
 }
 
+svg {
+  width: 100%;
+}
+
+/*.header-wave > svg {*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*}*/
+
+/*:not(svg) {*/
+/*  transform-origin: 0px 0px;*/
+/*}*/
+
+/*svg:not(:root) {*/
+/*  overflow: hidden;*/
+/*}*/
 /*gradient text*/
 .gradient-text {
   animation: flow 15s ease-in-out infinite;
@@ -4474,4 +4494,31 @@ b, strong {
 .img-poster {
   width: 100%;
   height: auto;
+}
+
+.call-to-action-header::before {
+  content: '';
+  display: block;
+  padding-top: 50%;
+}
+
+.footer-wave {
+  width: 100%;
+  height: 25px;
+  z-index: 1;
+  margin-top: -1px;
+  margin-bottom: -3px;
+  color: #1c1c1c;
+  position: absolute;
+  top: 0px;
+}
+
+.format-block {
+  width: 100%;
+}
+
+.format-block::after {
+  content: '';
+  display: block;
+  padding-top: 100%;
 }

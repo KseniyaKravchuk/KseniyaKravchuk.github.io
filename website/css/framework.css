@@ -9660,13 +9660,22 @@ input[type=radio] + label:before {
   background-color: #eaeaed;
 }
 .bg-blue {
-  background-color: #2619a5;
+   background-color: #2619a5;
+ }
+.bg-light-blue {
+  background-color: #4e23eb;
 }
 .bg-purple {
-  background-color: #8707a8;
+   background-color: #8707a8;
+ }
+.bg-light-purple {
+  background-color: #a71dcb;
 }
 .bg-mint {
   background-color: #1fc6a8;
+}
+.bg-light-mint {
+  background-color: #5edbc3;
 }
 .bg-action-1 {
   background-color: #565af6;

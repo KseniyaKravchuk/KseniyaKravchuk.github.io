@@ -1,19 +1,21 @@
 //header animation
 document.addEventListener('DOMContentLoaded', function(){
-	var wave = document.getElementById('wave');
-	var i = -2955;
+	var HWave = document.getElementById('h-wave');
+	var FWave = document.getElementById('f-wave');
+	var i = -2880;
 
 	function getStyle() {
-		return (i < -75) ? (i += 10) : i = -2955;
+		return (i < -25) ? (i += 10) : i = -2880;
 	}
 
 	function setAttribute() {
 		getStyle();
-		return wave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
+		HWave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
+		FWave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
 	}
 
 	setInterval(setAttribute, 40)
-})
+});
 
 
 // Scroll.js
