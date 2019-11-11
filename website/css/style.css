@@ -48,9 +48,9 @@ header nav {
 }
 
 header, footer {
-  animation: flow 15s ease infinite;
+  animation: flow-bg 12s ease-in infinite;
   background-size: 400% 400%;
-  background-image: linear-gradient(to bottom right, #4b0e8d,  #791ddc, #06dfd9);
+  background-image: linear-gradient(.13turn, #03256C 10%, #4C2A85 30%, #266DD3 40%, #03256C 80%);
 }
 nav {
   width: 100%;
@@ -253,11 +253,7 @@ b, strong {
 .container {
   position: relative;
 }
-.header-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 ::-moz-selection {
   background: #f4b37a;
   color: #fff;
@@ -4442,10 +4438,14 @@ b, strong {
   color: #1c1c1c;
   transform: rotate(180deg);
   position: absolute;
-  bottom: -1px;
+  bottom: 0px;
 }
 
 svg {
+  width: 100%;
+}
+
+.w-100-percent {
   width: 100%;
 }
 
@@ -4464,13 +4464,18 @@ svg {
 /*}*/
 /*gradient text*/
 .gradient-text {
-  animation: flow 15s ease-in-out infinite;
-  background: linear-gradient(45deg, #2c1aa7 25%, #8b8f1c 50%, #fb7901 75%, #a60d86);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: #2c1aa7;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .gradient-text {
+    animation: flow 15s ease-in-out infinite;
+    background: linear-gradient(45deg, #2c1aa7 25%, #8b8f1c 50%, #fb7901 75%, #a60d86);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @keyframes flow {
@@ -4484,6 +4489,19 @@ svg {
     background-position: 0 50%;
   }
 }
+
+@keyframes flow-bg {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
 
 .circle {
   width: 40px;
