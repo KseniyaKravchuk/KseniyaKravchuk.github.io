@@ -1,21 +1,34 @@
 //header animation
-document.addEventListener('DOMContentLoaded', function(){
-	var HWave = document.getElementById('h-wave');
-	var FWave = document.getElementById('f-wave');
-	var i = -2880;
+(function() {
+	document.addEventListener('DOMContentLoaded', function(){
+		const HWave = document.getElementById('h-wave');
+		const FWave = document.getElementById('f-wave');
+		let i = -2880;
+		const fps = 30;
 
-	function getStyle() {
-		return (i < -25) ? (i += 10) : i = -2880;
-	}
+		function getStyle() {
+			return (i < -25) ? (i += 10) : i = -2880;
+		}
 
-	function setAttribute() {
-		getStyle();
-		HWave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
-		FWave.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
-	}
+		function setAttribute(element) {
+			if (element) {
+				element.setAttribute('transform', 'matrix(1, 0, 0, 1,' + i + ', 0)')
+			}
+		}
 
-	setInterval(setAttribute, 40)
-});
+		function waveAnimation() {
+			setTimeout(function(){
+				getStyle();
+				setAttribute(HWave);
+				setAttribute(FWave);
+				requestAnimationFrame(waveAnimation);
+			}, 1000/fps)
+		}
+
+		waveAnimation()
+	});
+})();
+
 
 
 // Scroll.js
@@ -46,13 +59,13 @@ function SF_scripts(){
 	// open menu on mobile
 
 	function showMenuBtn(){
-		if($(window).width()<1199.98){
+		if($(window).width()<1185){
 			$(".open_menu").addClass("d-block");
-			$("header nav").addClass("d-none");
+			$(".logo-nav").addClass("d-none");
 			$(".navigation_mobile").removeClass("opened");
 		}else{
 			$(".open_menu").removeClass("d-block");
-			$("header nav").removeClass("d-none");
+			$(".logo-nav").removeClass("d-none");
 			$(".navigation_mobile").removeClass("opened");
 		}
 	}

@@ -6,19 +6,19 @@ if (!empty($_POST))
 		/* SETTINGS */
 
 		// email "subject"
-		$title = 'New message from my Landing page';
+		$title = 'Новое сообщение с сайта Double Screen';
 		// email field "From" - name of sender (e.g. your first & last name)
-		$from_name = "John Jonson";
+		$from_name = "Double Screen";
 		// email field "From" - email of sender (e.g. "robot@domain.com")
-		$from_email = "robot@domain.com";
+		$from_email = "noreply@doublescreen.ru";
 		// Email to receive message - PUT YOUR EMAIL HERE
-		$to = "my@email.com";
+		$to = "v.hotchenkov@hpmd.ru";
 		// MailChimp integration: Your API key 
 		//(leave string empty if you don't want to use MailChimp integration or get your API key there: https://mailchimp.com/help/about-api-keys/)
-		$MailChimpAPIkey = '';
+		$MailChimpAPIkey = '381240cac900262eca804f3a261151fa-us4';
 		// MailChimp integration: ID of list where your subscribers will be added to
 		//(leave string empty if you don't want to use MailChimp integration or get ID of list there: https://us3.admin.mailchimp.com/lists/)
-		$MailChimpListID = '';
+		$MailChimpListID = '4f2face08c';
 		
 		/* END OF SETTINGS */
 		
