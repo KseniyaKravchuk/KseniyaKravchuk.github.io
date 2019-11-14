@@ -5545,9 +5545,3 @@ svg {
 .format-block {
     width: 100%;
 }
-
-.format-img::after {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
