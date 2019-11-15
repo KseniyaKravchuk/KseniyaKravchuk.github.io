@@ -5546,17 +5546,18 @@ svg {
     top: 0px;
 }
 
-.format-block {
+.format-block,
+.format-part {
     width: 100%;
 }
 
-.format-block::before {
+.format-part::before {
     content: '';
     display: block;
     padding-top: 100%;
 }
 
-.format-block::after {
+.format-part::after {
     content: '';
     position: absolute;
     width: 90%;
