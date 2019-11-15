@@ -334,10 +334,6 @@ b, strong {
         padding-bottom: 80px;
     }
 
-    h1 br, h2 br, h3 br, .text-adaptive br {
-        display: none;
-    }
-
     h1, h2 {
         font-size: 52px;
         line-height: 62px;
@@ -5539,7 +5535,7 @@ svg {
     width: 100%;
     height: 25px;
     z-index: 1;
-    margin-top: -1px;
+    margin-top: 0px;
     margin-bottom: -3px;
     color: #1c1c1c;
     position: absolute;
@@ -5593,6 +5589,12 @@ svg {
     background: url(../i/formats-instream.png) 50% 50% no-repeat;
     background-size: contain;
 }
+
+#bm {
+    max-width: 480px;
+    height: 100%;
+}
+
 
 
 
