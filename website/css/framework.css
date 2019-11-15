@@ -469,7 +469,7 @@
 }
 
 .input.border-gray {
-    border: 2px solid #eaeaed;
+    border: 2px solid rgba(0,0,0,0.2);
 }
 
 .input.border-light {
@@ -538,6 +538,18 @@
 
 .input.placeholder-white:-ms-input-placeholder {
     color: #fff;
+}
+
+.input.placeholder-grey::-moz-placeholder {
+    color: rgba(0,0,0,0.2);
+}
+
+.input.placeholder-grey::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.2);
+}
+
+.input.placeholder-grey:-ms-input-placeholder {
+    color: rgba(0,0,0,0.2);
 }
 
 .input.placeholder-transparent-white::-moz-placeholder {
