@@ -79,6 +79,10 @@ a:hover, button:hover {
     text-decoration: none;
 }
 
+.more:hover {
+    color: #ebff00;
+}
+
 a:active, button:active, a:focus, button:focus {
     text-decoration: none;
     outline: none;
@@ -117,8 +121,8 @@ h1, h2 {
 }
 
 h1.big, h2.big {
-    font-size: 72px;
-    line-height: 86px;
+    font-size: 62px;
+    line-height: 68px;
 }
 
 h1.small, h2.small {
@@ -341,7 +345,7 @@ b, strong {
 
     h1.big, h2.big {
         font-size: 62px;
-        line-height: 72px;
+        line-height: 68px;
     }
 
     h1.small, h2.small {
@@ -5545,4 +5549,49 @@ svg {
 .format-block {
     width: 100%;
 }
+
+.format-block::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.format-block::after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+}
+
+/*.img-poster-story::before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    padding-top: 100%;*/
+/*}*/
+
+.img-poster-story::after {
+    content: '';
+    top: 5%;
+    left: 5%;
+    background: url(../i/formats-stories.png) 50% 50% no-repeat;
+    background-size: contain;
+}
+
+.img-poster-outstream::after {
+    content: '';
+    bottom: 0%;
+    left: 5%;
+    background: url(../i/formats-outstream.png) 50% 50% no-repeat;
+    background-size: contain;
+}
+
+.img-poster-instream::after {
+    content: '';
+    bottom: 0%;
+    left: 5%;
+    background: url(../i/formats-instream.png) 50% 50% no-repeat;
+    background-size: contain;
+}
+
+
 
