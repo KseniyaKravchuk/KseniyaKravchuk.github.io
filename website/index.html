@@ -22,15 +22,50 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="css/style.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet"/>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WKSQNPZ');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
-<!-- Header 2 -->
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKSQNPZ"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<header class="pt-150 pb-120 bg-dark main-header header_2">
+<!-- Navigation Mobile type 2 -->
+<a class="open_menu color-main bg-light radius_full"><i class="fas fa-bars lh-40"></i></a>
+<div class="navigation_mobile bg-light type2">
+	<a class="close_menu color-main"><i class="fas fa-times"></i></a>
+	<div class="px-40 pt-60 pb-60 text-center inner">
+		<div>
+            <a href="index.html" class="f-heading f-22 link color-main mb-20">Домой</a>
+        </div>
+		<div>
+            <a href="formats.html" class="f-heading f-22 link color-main mb-20">Форматы</a>
+        </div>
+		<div>
+            <a href="contacts.html" class="f-heading f-22 link color-main mb-20">Контакты</a>
+        </div>
+	</div>
+</div>
 
+<header class="pt-190 pb-120 bg-dark main-header header_2">
     <nav class="header_menu_2 transparent pt-30 pb-30 mt-20">
         <div class="container px-xl-0">
             <div class="row justify-content-between align-items-baseline">
@@ -58,16 +93,16 @@
                 data-aos="fade-down"
                 data-aos-delay="200">
                 Получите максимум
-                <br>
+                <br />
                 от вашего видео
             </h1>
-            <div class="mw-620 mx-auto mt-35 f-22 color-white text-center w-100-percent">
+            <div class="mw-620 mx-auto mt-35 f-22 color-white text-center w-100-percent br-hide">
                     <span data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-                     Интерактивная реклама с фокусом <br/> на вовлеченность аудитории
+                     Интерактивная реклама с фокусом <br /> на вовлеченность аудитории
                     </span>
             </div>
             <span data-aos-duration="500" data-aos="fade-down" data-aos-delay="500">
-					<a href="formats.html" class="mt-50 btn lg action-2">Посмотреть форматы</a>
+					<a href="#contact_form" class="mt-50 btn lg action-2">Связаться с нами</a>
 				</span>
         </div>
     </div>
@@ -93,7 +128,7 @@
                 <h2>Форматы, с которыми хочется <span class="gradient-text">взаимодействовать</span></h2>
             </div>
             <div class="col-xl-7 col-lg-9 col-md-10" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-                <div class="mt-35 f-20 medium color-black op-7 text-adaptive">
+                <div class="mt-35 f-22 medium color-black text-adaptive">
                     Мы объединили технологии и креатив на одной платформе, чтобы вывести контакт пользователя с брендом
                     на новый уровень.
                 </div>
@@ -103,7 +138,7 @@
 </section>
 
 <!-- Коротко о форматах. Story-Ads. -->
-<section class="pt-100 pb-100 bg-blue content_26">
+<section class="pt-95 pb-90 bg-blue content_26">
     <div class="container px-xl-0">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-11">
@@ -116,14 +151,14 @@
                         </div>
                     </div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                    <div class="col-md-5 d-flex">
                         <div class="mt-15 inner" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-                            <h2 class="f-40 color-mint">Story-Ads</h2>
-                            <div class="mt-15 mb-20 f-20 color-white">
+                            <h2 class="f-40 color-mint text-adaptive">Story-Ads</h2>
+                            <div class="mt-15 mb-20 f-20 color-white text-adaptive">
                                 Пространство для ваших историй. <br/> Любимые форматы из социальных сетей на площадках
                                 наших партнёров.
                             </div>
-                            <a href="formats.html" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
+                            <a href="formats.html#story" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
                                 <span class="mr-10">Подробнее</span>
                                 <i class="fas fa-arrow-right lh-36 f-14"></i>
                             </a>
@@ -136,7 +171,7 @@
 </section>
 
 <!-- Коротко о форматах. Out-stream. -->
-<section class="pt-100 pb-100 bg-purple content_26">
+<section class="pt-95 pb-90 bg-purple content_26">
     <div class="container px-xl-0">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-11">
@@ -149,17 +184,17 @@
                         </div>
                     </div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                    <div class="col-md-5 d-flex">
                         <div class="mt-15 inner"
                              data-aos-duration="600"
                              data-aos="fade-down"
                              data-aos-delay="0">
-                            <h2 class="f-40 color-yellow">Out-stream 2.0</h2>
-                            <div class="mt-15  mb-20 f-20 color-white">
+                            <h2 class="f-40 color-yellow text-adaptive">Out-stream 2.0</h2>
+                            <div class="mt-15  mb-20 f-20 color-white text-adaptive">
                                 Свежий взгляд на out-stream. <br/> Интерактивные форматы, в которых сочетаются видео,
                                 графика и текст.
                             </div>
-                            <a href="formats.html" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
+                            <a href="formats.html#outstream" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
                                 <span class="mr-10">Подробнее</span>
                                 <i class="fas fa-arrow-right lh-36 f-14"></i>
                             </a>
@@ -172,7 +207,7 @@
 </section>
 
 <!-- Коротко о форматах. In-stream. -->
-<section class="pt-100 pb-100 bg-mint content_26">
+<section class="pt-95 pb-90 bg-mint content_26">
     <div class="container px-xl-0">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-11">
@@ -185,13 +220,16 @@
                         </div>
                     </div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-5 d-flex align-items-center justify-content-center">
-                        <div class="inner" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-                            <h2 class="f-40 color-blue">In-Stream</h2>
-                            <div class="mt-15 mb-20 f-20 color-white">
+                    <div class="col-md-5 d-flex">
+                        <div class="mt-15 inner" 
+                             data-aos-duration="600" 
+                             data-aos="fade-down" 
+                             data-aos-delay="0">
+                            <h2 class="f-40 color-blue text-adaptive">In-Stream</h2>
+                            <div class="mt-15 mb-20 f-20 color-white text-adaptive">
                                 Классика видеорекламы. <br/> Привычные прероллы и мидроллы на лицензионных площадках.
                             </div>
-                            <a href="formats.html" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
+                            <a href="formats.html#instream" class="pb-5 a-btn sm more color-white f-16 border-bottom-yellow">
                                 <span class="mr-10">Подробнее</span>
                                 <i class="fas fa-arrow-right lh-36 f-14"></i>
                             </a>
@@ -243,11 +281,11 @@
 <!--</section>-->
 
 <!-- Принципы нашей работы -->
-<section class="pt-105 pb-30 bg-light color-black feature_8">
+<section class="pt-90 pb-30 bg-light color-black feature_8">
     <div class="container px-xl-0">
         <div class="row">
-            <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600" class="mb-40 col-md-5 col-lg-4 d-flex align-items-center aos-init aos-animate">
-                <h2 class="mb-50 small aos-init aos-animate" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+            <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600" class="col-md-5 col-lg-4 d-flex align-items-center aos-init aos-animate">
+                <h2 class="mb-30 small aos-init aos-animate" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
                     Принципы <br>
                     нашей работы
                 </h2>
@@ -296,9 +334,9 @@
                     <div data-aos-duration="600"
                          data-aos="fade-down"
                          data-aos-delay="900"
-                         class="col-md-12 col-lg-5 d-flex aos-init aos-animate pt-80">
+                         class="col-md-12 col-lg-5 d-flex aos-init aos-animate pt-60">
                         <div class="inner">
-                            <div class="f-20 bold title">
+                            <div class="key-idea aos-init aos-animate">
                                 Мы верим, что интерактивная реклама может притягивать взгляды.
                             </div>
                         </div>
@@ -372,7 +410,7 @@
 <!--</section>-->
 
 <!-- Наши форматы -->
-<section class="pt-35 pb-60 bg-light call_to_action_15">
+<section class="pt-15 pb-60 bg-light call_to_action_15">
     <div class="container px-xl-0">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-10">
@@ -381,7 +419,7 @@
                      data-aos-delay="300"
                      class="px-40 pt-40 pb-35 radius20 bg-blue aos-init aos-animate">
                     <div class="row justify-content-center">
-                        <div class="col-10 col-lg-5 col-md-6 mb-40">
+                        <div class="col-12 col-lg-5 col-md-6 mb-40">
                             <h2 class="mt-10 mb-25 small color-yellow aos-init aos-animate"
                                 data-aos-duration="600"
                                 data-aos="fade-down"
@@ -410,7 +448,7 @@
                         <div data-aos-duration="600"
                              data-aos="fade-down"
                              data-aos-delay="300"
-                             class="col-10 col-lg-5 col-md-5 d-flex justify-content-center align-items-center aos-init aos-animate">
+                             class="col-11 col-lg-5 col-md-5 d-flex justify-content-center align-items-center aos-init aos-animate">
                             <img src="i/formats.png" srcset="i/formats.png" class="img-poster radius10" alt="">
                         </div>
                     </div>
@@ -421,12 +459,12 @@
 </section>
 
 <!-- форма обратной связи -->
-<section class="pt-80 pb-100 bg-light text-center contact_2">
+<section class="pt-60 pb-90 bg-light text-center contact_2" id="contact_form">
     <div class="container px-xl-0">
         <form action="form-handler.php" method="post">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
-                    <h2 class="mt-20 mb-40 color-black small"
+                    <h2 class="mt-20 mb-40 small color-black"
                         data-aos-duration="600"
                         data-aos="fade-down"
                         data-aos-delay="300">
@@ -435,7 +473,7 @@
                     <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
                         <textarea name="message"
                                   placeholder="Ваше сообщение"
-                                  class="mb-30 input w-full lg radius10 border-gray focus-action-1 color-heading placeholder-grey text-left"
+                                  class="mb-30 input w-full lg radius10 border-heading focus-action-1 color-heading placeholder-heading text-left"
                                   required></textarea>
                     </div>
                 </div>
@@ -447,14 +485,14 @@
                     <input type="email"
                            name="email"
                            placeholder="Ваш e-mail"
-                           class="mb-30 input w-full lg border-gray focus-action-1 color-heading placeholder-grey text-center text-sm-left"
+                           class="mb-30 input w-full lg border-heading focus-action-1 color-heading placeholder-heading text-center text-sm-left"
                            required/>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5"
                      data-aos-duration="600"
                      data-aos="fade-down"
                      data-aos-delay="1200">
-                    <button class="mb-30 btn lg w-full action-1">Отправить</button>
+                    <button class="mb-30 btn lg w-full action-1 px-35-important">Отправить</button>
                 </div>
             </div>
         </form>
@@ -462,12 +500,12 @@
 </section>
 
 <!-- Footer -->
-<footer class="pt-100 pb-70 bg-dark color-white text-center footer_8">
+<footer class="pt-100 pb-50 bg-dark color-white text-center footer_8">
     <div class="footer-wave">
-        <svg width="1440px" height="60px" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <svg width="1440px" height="25px" viewBox="0 0 1440 25" preserveAspectRatio="none">
             <g id="f-wave" data-svg-origin="0 0" style="">
                 <path fill="white"
-                      d="M 0 30 q 360 -60 720 0 t 720 0 t 720 0 t 720 0 t 720 0 t 720 0 V 0 H 0 V 30"></path>
+                      d="M 0 12.5 q 360 -25 720 0 t 720 0 t 720 0 t 720 0 t 720 0 t 720 0 V 0 H 0 V 12.5"></path>
             </g>
         </svg>
     </div>

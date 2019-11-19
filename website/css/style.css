@@ -121,9 +121,9 @@ h1, h2 {
 }
 
 h1.big, h2.big {
-    font-size: 62px;
-    line-height: 68px;
-}
+    font-size: 72px;
+    line-height: 86px;
+  }
 
 h1.small, h2.small {
     font-size: 42px;
@@ -341,8 +341,8 @@ b, strong {
 
     h1.big, h2.big {
         font-size: 62px;
-        line-height: 68px;
-    }
+        line-height: 72px;
+      }
 
     h1.small, h2.small {
         font-size: 36px;
@@ -5480,22 +5480,6 @@ svg {
     width: 100%;
 }
 
-/*gradient text*/
-.gradient-text {
-    color: #fb7901;
-}
-
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-    .gradient-text {
-        animation: flow 15s ease-in-out infinite;
-        background: linear-gradient(45deg, #2c1aa7 25%, #8b8f1c 50%, #fb7901 75%, #a60d86);
-        background-size: 300%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
-
 @keyframes flow {
     0% {
         background-position: 0 50%;
@@ -5535,8 +5519,7 @@ svg {
     width: 100%;
     height: 25px;
     z-index: 1;
-    margin-top: 0px;
-    margin-bottom: -3px;
+    margin-top: -3px;
     color: #1c1c1c;
     position: absolute;
     top: 0px;

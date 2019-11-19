@@ -25,7 +25,7 @@
 			}, 1000/fps)
 		}
 
-		waveAnimation()
+		waveAnimation();
 
         var animation = bodymovin.loadAnimation({
             container: document.getElementById('bm'),
@@ -67,15 +67,25 @@ function SF_scripts(){
 	// open menu on mobile
 
 	function showMenuBtn(){
-		if($(window).width()<1185){
+		if($(window).width()<1199.98){
 			$(".open_menu").addClass("d-block");
 			$(".logo-nav").addClass("d-none");
+			$("header nav").addClass("d-none");
 			$(".navigation_mobile").removeClass("opened");
 		}else{
 			$(".open_menu").removeClass("d-block");
 			$(".logo-nav").removeClass("d-none");
+			$("header nav").removeClass("d-none");
 			$(".navigation_mobile").removeClass("opened");
 		}
+		if($(window).width()<767.98) {
+			$(".format-name").removeClass("small");
+			$(".format-name").addClass("big");
+		} else {
+			$(".format-name").addClass("small");
+			$(".format-name").removeClass("big");
+		}
+
 	}
 
 	$(".open_menu").click(function(event){
