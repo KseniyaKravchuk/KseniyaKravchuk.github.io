@@ -1,8 +1,15 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var autoprefix = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const autoprefix = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const uglify = require('gulp-uglify');
+
+let main_files = [
+    './index.html',
+    './style.min.css',
+    './script.min.js'
+];
 
 //функция, которая преобразует стили sass в css и минимизирует файл
 function createStyle(done) {
@@ -11,6 +18,17 @@ function createStyle(done) {
             outputStyle: 'compressed'
         }))
         .pipe(autoprefix())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./'))
+        .pipe(browserSync.stream());
+    done();
+}
+
+function createScript(done) {
+    gulp.src('./src/js/script.js')
+        .pipe(uglify({
+            toplevel: true
+        }))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
@@ -30,8 +48,9 @@ function watchFiles() {
         port: 3000
     });
     gulp.watch('./src/css/style', createStyle);
-    gulp.watch('./index.html').on('change', browserSync.reload);
-    gulp.watch('./**/*.js').on('change', browserSync.reload);
+    gulp.watch('./src/js/script.js', createScript);
+
+    gulp.watch(main_files).on('change', browserSync.reload);
 }
 
 gulp.task('default', watchFiles);

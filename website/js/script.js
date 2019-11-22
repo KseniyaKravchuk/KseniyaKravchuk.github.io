@@ -32,8 +32,32 @@
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: 'data.json'
-        })
+            path: 'animation/main.json'
+        });
+
+		var storyAnimation = bodymovin.loadAnimation({
+			container: document.getElementById('story_anim'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: 'animation/stories.json'
+		});
+
+		var outstreamAnimation = bodymovin.loadAnimation({
+			container: document.getElementById('outstream_anim'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: 'animation/outstream.json'
+		});
+
+		var instreamAnimation = bodymovin.loadAnimation({
+			container: document.getElementById('instream_anim'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: 'animation/instream.json'
+		});
 	});
 })();
 
@@ -67,7 +91,7 @@ function SF_scripts(){
 	// open menu on mobile
 
 	function showMenuBtn(){
-		if($(window).width()<1199.98){
+		if ($(window).width() < 1199.98){
 			$(".open_menu").addClass("d-block");
 			$(".logo-nav").addClass("d-none");
 			$("header nav").addClass("d-none");
@@ -78,7 +102,7 @@ function SF_scripts(){
 			$("header nav").removeClass("d-none");
 			$(".navigation_mobile").removeClass("opened");
 		}
-		if($(window).width()<767.98) {
+		if ($(window).width() < 767.98) {
 			$(".format-name").removeClass("small");
 			$(".format-name").addClass("big");
 		} else {
