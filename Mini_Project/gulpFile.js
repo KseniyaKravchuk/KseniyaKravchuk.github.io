@@ -5,6 +5,7 @@ const autoprefix = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const pug = require('gulp-pug');
 
 let main_files = [
     './index.html',
@@ -20,7 +21,17 @@ let styleFiles = [
     './src/css/contact_style'
 ];
 
-//функция, которая преобразует стили sass в css и минимизирует файл
+function createHTML(done) {
+    gulp.src('./pug_files/*.pug')
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest('./build'));
+    done();
+}
+
+//функция, которая собирает все файлы стилей в один,
+// преобразует стили sass в css и минимизирует файл
 function createStyle(done) {
     gulp.src(styleFiles)
         .pipe(concat('style'))
@@ -29,22 +40,25 @@ function createStyle(done) {
         }))
         .pipe(autoprefix())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('build'))
         .pipe(browserSync.stream());
     done();
 }
 
+//функция, которвя минимизирует js файл
 function createScript(done) {
     gulp.src('./src/js/script.js')
         .pipe(uglify({
             toplevel: true
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('build'))
         .pipe(browserSync.stream());
     done();
 }
 
+//функция, которая запускает сервер, следит за изменениями в файлах проекта
+//и обновляет браузер автоматически (если в файлах произошли изменения)
 function watchFiles() {
     browserSync.init({
         server: {
@@ -59,3 +73,6 @@ function watchFiles() {
 
 gulp.task('default', watchFiles);
 gulp.task('style', createStyle);
+gulp.task('script', createScript);
+gulp.task('pug', createHTML);
+gulp.task('createProject', gulp.series(createStyle, createScript, createHTML));

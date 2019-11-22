@@ -3,7 +3,7 @@
   margin: 20px;
 
   .map {
-    background: url('src/i/map.jpg') 50% 50% no-repeat;
+    background: url('i/map.jpg') 50% 50% no-repeat;
     width: 600px;
     height: 300px;
   }
