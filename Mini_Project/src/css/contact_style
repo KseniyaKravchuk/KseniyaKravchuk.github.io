@@ -1,0 +1,22 @@
+.container-contacts {
+  display: flex;
+  margin: 20px;
+
+  .map {
+    background: url('src/i/map.jpg') 50% 50% no-repeat;
+    width: 600px;
+    height: 300px;
+  }
+
+  .info {
+    margin: 30px;
+
+    span {
+      font-weight: bold;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  }
+}

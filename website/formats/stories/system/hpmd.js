@@ -273,7 +273,7 @@ window._hpmd = {};
     //          + 'Вам необходимо:'
     //          + '<ul>'
     //          + '<li>'
-    //          + '<p><span>Добавить необходимые HTML-тэги</span><span><br /></span><span>Элементы заглушки добавляются внутрь элемента </span><span class="mono">#hpmd-splash</span><span>.</span><span><br /></span><span>Элементы основного контента ― внутрь элемента </span><span class="mono">#hpmd-popup-contents</span><span>.</span><span><br /></span><span>(Вы также можете задать этим элементам фоновую картинку, не добавляя новых элементов, в таблице стилей.)</span><span><br /></span><span><br /></span><span>Используйте только идентификаторы и классы, начинающиеся с </span><span class="mono">hpmd-</span><span>.</span><span><br /></span><span>Не используйте тэги </span><span class="mono">&lt;a&gt;</span><span>, </span><span class="mono">&lt;style&gt;</span><span>, </span><span class="mono">&lt;script&gt;</span><span>, </span><span class="mono">&lt;link&gt;</span><span>, </span><span class="mono">&lt;meta&gt;</span><span>, </span><span class="mono">&lt;head&gt;</span><span>, </span><span class="mono">&lt;body&gt;</span><span>, </span><span class="mono">&lt;html&gt;</span><span>, </span><span class="mono">&lt;plaintext&gt;</span><span>, </span><span class="mono">&lt;noscript&gt;</span><span> в HTML-коде баннера.</span><span><br /></span><span>Не задавайте обработчики событий (например, атрибуты </span><span class="mono">onclick</span><span>) в HTML-коде. Вместо этого назначайте обработчики динамически в JS-коде.</span><span><br /></span><span><br /></span><span>Необходимо сохранить элемент </span><span class="mono">#hpmd-popup-close</span><span>.</span><span><br /></span><span><br /></span><span>Не используйте атрибуты </span><span class="mono">onclick</span><span>, </span><span class="mono">onmousedown</span><span> и т.д. Вместо этого следует использовать </span><span class="mono">touch</span><span>- и </span><span class="mono">pointer</span><span>-события и добавлять обработчики событий динамически, внутри JS-кода.</span><span><br /><br /></span></p>'
+    //          + '<p><span>Добавить необходимые HTML-тэги</span><span><br /></span><span>Элементы заглушки добавляются внутрь элемента </span><span class="mono">#hpmd-splash</span><span>.</span><span><br /></span><span>Элементы основного контента ― внутрь элемента </span><span class="mono">#hpmd-popup-contents</span><span>.</span><span><br /></span><span>(Вы также можете задать этим элементам фоновую картинку, не добавляя новых элементов, в таблице стилей.)</span><span><br /></span><span><br /></span><span>Используйте только идентификаторы и классы, начинающиеся с </span><span class="mono">hpmd-</span><span>.</span><span><br /></span><span>Не используйте тэги </span><span class="mono">&lt;a&gt;</span><span>, </span><span class="mono">&lt;main_style&gt;</span><span>, </span><span class="mono">&lt;script&gt;</span><span>, </span><span class="mono">&lt;link&gt;</span><span>, </span><span class="mono">&lt;meta&gt;</span><span>, </span><span class="mono">&lt;head&gt;</span><span>, </span><span class="mono">&lt;body&gt;</span><span>, </span><span class="mono">&lt;html&gt;</span><span>, </span><span class="mono">&lt;plaintext&gt;</span><span>, </span><span class="mono">&lt;noscript&gt;</span><span> в HTML-коде баннера.</span><span><br /></span><span>Не задавайте обработчики событий (например, атрибуты </span><span class="mono">onclick</span><span>) в HTML-коде. Вместо этого назначайте обработчики динамически в JS-коде.</span><span><br /></span><span><br /></span><span>Необходимо сохранить элемент </span><span class="mono">#hpmd-popup-close</span><span>.</span><span><br /></span><span><br /></span><span>Не используйте атрибуты </span><span class="mono">onclick</span><span>, </span><span class="mono">onmousedown</span><span> и т.д. Вместо этого следует использовать </span><span class="mono">touch</span><span>- и </span><span class="mono">pointer</span><span>-события и добавлять обработчики событий динамически, внутри JS-кода.</span><span><br /><br /></span></p>'
     //          + '</li>'
     //          + '<li>'
     //          + '<p><span>Дополнить имеющуюся таблицу стилей</span><span><br /></span><span>Отредактируйте или удалите фоновую картинку у расхлопа в правилах <span class="mono">.hpmd-portrait #hpmd-popup-contents</span> и <span class="mono">.hpmd-landscape #hpmd-popup-contents</span> и добавьте любые правила, необходимые баннеру.<br /><br />Начинайте ссылки на картинки с .</span><span class="mono">/banner/</span><span>, включая точку и прямой слэш. Например, ссылка на картинку </span><span class="mono">visual.jpg</span><span>, находящуюся в подпапке </span><span class="mono">banner/img</span><span>, должна выглядеть так: </span><span class="mono">./banner/img/visual.jpg</span><span>.</span><span><br /></span><span><br /></span><span>Не используйте media queries для определения ориентации устройства; вместо этого воспользуйтесь классами </span><span class="mono">.hpmd-portrait</span><span> и </span><span class="mono">.hpmd-landscape</span><span>, которые автоматически назначаются корневому элементу баннера. (В JS-коде используйте вызов </span><span class="mono">hpmd.data.isPortrait()</span><span>.)</span><span><br /></span><span><br /></span><span>Никогда не используйте абсолютные размеры (</span><span class="mono">px</span><span>, </span><span class="mono">pt</span><span>, </span><span class="mono">ex</span><span>, </span><span class="mono">em</span><span> и т.д.), всегда используйте относительные. Всегда задавайте размер элементам </span><span class="mono">&lt;img /&gt;</span><span>. Используйте адаптивную верстку; баннер должен верно отображаться при любых настройках viewport, а также на всех экранах с соотношением сторон от 1:1 до 1:3.</span><span><br /></span><span><br /></span><span>Воспользуйтесь функцией </span><span class="mono">onViewportUpdate</span><span> в JS-коде, если таблицы стилей недостаточно; она вызывается при каждом изменении размера экрана или ориентации и предназначена для того, чтобы рассчитать правильные размеры элементов или адаптировать верстку к текущему размеру экрана.</span><span><br /><br /></span></p>'
@@ -291,7 +291,7 @@ window._hpmd = {};
     //          + '<p><span>Прошить глубину просмотра видео / прослушивания аудио</span><span><br /></span><span>Если в баннере просматривается видео или прослушивается аудио, сообщите о глубине просмотра системе следующим вызовом:</span><span><br /></span><span class="mono">hpmd.trackEvent("video-progress", { weight: time_in_seconds });</span><span><br /></span><span>Вместо </span><span class="mono">video-progress</span><span> выберите уникальный идентификатор на ваше усмотрение, по аналогии с предыдущим шагом. Вместо </span><span class="mono">time_in_seconds</span><span> передайте текущее положение ― целое число в секундах.</span><span><br /></span><span>Этот вызов следует делать при старте, паузе и окончании воспроизведения, а так же каждые 5 секунд в течение воспроизведения.</span><span><br /><br /></span></p>'
     //          + '</li>'
     //          + '</ul>'
-    //          + '<p><strong id="docs-internal-guid-bb499fce-8c16-5455-fb72-5130cd47cd63" style="font-weight: normal;"><span>Добавить пиксель на показ</span><span><br /></span><span>В самом начале JavaScript-кода замените ссылку </span><span class="mono">http://www.hpmdnetwork.ru/pixel.gif</span><span> на URL правильного пикселя. </span><span>Если пикселя на показ для баннера нет</span><span>, удалите фрагмент кода, вызывающий пиксель, целиком.</span></strong></p>'
+    //          + '<p><strong id="docs-internal-guid-bb499fce-8c16-5455-fb72-5130cd47cd63" main_style="font-weight: normal;"><span>Добавить пиксель на показ</span><span><br /></span><span>В самом начале JavaScript-кода замените ссылку </span><span class="mono">http://www.hpmdnetwork.ru/pixel.gif</span><span> на URL правильного пикселя. </span><span>Если пикселя на показ для баннера нет</span><span>, удалите фрагмент кода, вызывающий пиксель, целиком.</span></strong></p>'
     //      + '</div>'
     //  ,
     //  'curtain-en':
@@ -926,7 +926,7 @@ window._hpmd = {};
     //  ,
     // };
     // TODO: fill correct EN descriptions
-    // formatDescriptions['nativescroller-en'] = '<span style="font-weight: bold; color: red;">TODO: fill description!</span>' + formatDescriptions['native-en'];
+    // formatDescriptions['nativescroller-en'] = '<span main_style="font-weight: bold; color: red;">TODO: fill description!</span>' + formatDescriptions['native-en'];
     
     var lang = "";
     var t = function (ru, en) {
@@ -1022,7 +1022,7 @@ window._hpmd = {};
         //      || element.classList.length > 0
         //      // banner CSS node:
         //      || !(element = document.body.children[1])
-        //      || element.tagName.toLowerCase() != 'style'
+        //      || element.tagName.toLowerCase() != 'main_style'
         //      || element.attributes.length > 0
         //      || element.classList.length > 0
         //      // banner JS node:
@@ -1088,7 +1088,7 @@ window._hpmd = {};
         //          case "title":
         //          case "meta":
         //          case "script":
-        //          case "style":
+        //          case "main_style":
         //          case "link":
         //          case "plaintext":
         //          case "noscript":
@@ -1113,8 +1113,8 @@ window._hpmd = {};
         //                  case "swipe":
         //                      if (attribute.indexOf('hpmd-') != 0 && attribute.indexOf('hpmdb-') != 0) {
         //                          showFailure(t(
-        //                              "<b>Для форматов «тизер» и «Swipe-баннер», все идентификаторы HTML-элементов должны начинаться с &quot;hpmd-&quot;.</b><br /><br />Этот идентификатор использовать нельзя: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
-        //                              "<b>For «Teaser» and «Swipe banner» formats, all HTML identifiers must be prefixed with &quot;hpmd-&quot;.</b><br /><br />This identifier is not permitted: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
+        //                              "<b>Для форматов «тизер» и «Swipe-баннер», все идентификаторы HTML-элементов должны начинаться с &quot;hpmd-&quot;.</b><br /><br />Этот идентификатор использовать нельзя: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
+        //                              "<b>For «Teaser» and «Swipe banner» formats, all HTML identifiers must be prefixed with &quot;hpmd-&quot;.</b><br /><br />This identifier is not permitted: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
         //                          ));
         //                          return;
         //                      }
@@ -1122,8 +1122,8 @@ window._hpmd = {};
         //                  case "fullscreen":
         //                      if (attribute.indexOf('hpmdf-') != 0) {
         //                          showFailure(t(
-        //                              "<b>Для формата «Fullscreen», все идентификаторы HTML-элементов должны начинаться с &quot;hpmdf-&quot;.</b><br /><br />Этот идентификатор использовать нельзя: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
-        //                              "<b>For «Fullscreen» format, all HTML identifiers must be prefixed with &quot;hpmdf-&quot;.</b><br /><br />This identifier is not permitted: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
+        //                              "<b>Для формата «Fullscreen», все идентификаторы HTML-элементов должны начинаться с &quot;hpmdf-&quot;.</b><br /><br />Этот идентификатор использовать нельзя: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
+        //                              "<b>For «Fullscreen» format, all HTML identifiers must be prefixed with &quot;hpmdf-&quot;.</b><br /><br />This identifier is not permitted: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
         //                          ));
         //                          return;
         //                      }
@@ -1139,8 +1139,8 @@ window._hpmd = {};
         //                  case "swipe":
         //                      if (attribute.indexOf('hpmd-') != 0 && attribute.indexOf('hpmdb-') != 0) {
         //                          showFailure(t(
-        //                              "<b>Для форматов «тизер» и «Swipe-баннер», все классы HTML-элементов должны начинаться с &quot;hpmd-&quot;.</b><br /><br />Этот класс использовать нельзя: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
-        //                              "<b>For «Teaser» and «Swipe banner» formats, all HTML classes must be prefixed with &quot;hpmd-&quot;.</b><br /><br />This class name is not permitted: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
+        //                              "<b>Для форматов «тизер» и «Swipe-баннер», все классы HTML-элементов должны начинаться с &quot;hpmd-&quot;.</b><br /><br />Этот класс использовать нельзя: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
+        //                              "<b>For «Teaser» and «Swipe banner» formats, all HTML classes must be prefixed with &quot;hpmd-&quot;.</b><br /><br />This class name is not permitted: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
         //                          ));
         //                          return;
         //                      }
@@ -1148,8 +1148,8 @@ window._hpmd = {};
         //                  case "fullscreen":
         //                      if (attribute.indexOf('hpmdf-') != 0) {
         //                          showFailure(t(
-        //                              "<b>Для формата «Fullscreen», все классы HTML-элементов должны начинаться с &quot;hpmdf-&quot;.</b><br /><br />Этот класс использовать нельзя: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
-        //                              "<b>For «Fullscreen» format, all HTML classes must be prefixed with &quot;hpmdf-&quot;.</b><br /><br />This class name is not permitted: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
+        //                              "<b>Для формата «Fullscreen», все классы HTML-элементов должны начинаться с &quot;hpmdf-&quot;.</b><br /><br />Этот класс использовать нельзя: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
+        //                              "<b>For «Fullscreen» format, all HTML classes must be prefixed with &quot;hpmdf-&quot;.</b><br /><br />This class name is not permitted: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
         //                          ));
         //                          return;
         //                      }
@@ -1157,8 +1157,8 @@ window._hpmd = {};
         //                  case "native":
         //                      if (attribute.indexOf('hpmdn-') != 0) {
         //                          showFailure(t(
-        //                              "<b>Для формата «Нативный баннер», все классы HTML-элементов должны начинаться с &quot;hpmdn-&quot;.</b><br /><br />Этот класс использовать нельзя: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
-        //                              "<b>For «Native banner» format, all HTML classes must be prefixed with &quot;hpmdn-&quot;.</b><br /><br />This class name is not permitted: <span style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
+        //                              "<b>Для формата «Нативный баннер», все классы HTML-элементов должны начинаться с &quot;hpmdn-&quot;.</b><br /><br />Этот класс использовать нельзя: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.',
+        //                              "<b>For «Native banner» format, all HTML classes must be prefixed with &quot;hpmdn-&quot;.</b><br /><br />This class name is not permitted: <span main_style='white-space: nowrap; font-family: monospace;'>" + attribute + '</span>.'
         //                          ));
         //                          return;
         //                      }
@@ -1170,8 +1170,8 @@ window._hpmd = {};
         //      for (var i = 0; i < node.attributes.length; i++) {
         //          if (node.attributes[i].name.toLowerCase().indexOf('on') == 0) {
         //              showFailure(t(
-        //                  "<b>Не используйте обработчики событий в HTML-коде</b><br /><br />Вместо атрибута <span style='white-space: nowrap; font-family: monospace;'>" + node.attributes[i].name + '</span>, пожалуйста, назначьте обработчик события в JavaScript-коде.',
-        //                  "<b>Please do not use event handlers in HTML code</b><br /><br />Instead of <span style='white-space: nowrap; font-family: monospace;'>" + node.attributes[i].name + '</span> attribute, please use JavaScript to assign event handler.'
+        //                  "<b>Не используйте обработчики событий в HTML-коде</b><br /><br />Вместо атрибута <span main_style='white-space: nowrap; font-family: monospace;'>" + node.attributes[i].name + '</span>, пожалуйста, назначьте обработчик события в JavaScript-коде.',
+        //                  "<b>Please do not use event handlers in HTML code</b><br /><br />Instead of <span main_style='white-space: nowrap; font-family: monospace;'>" + node.attributes[i].name + '</span> attribute, please use JavaScript to assign event handler.'
         //              ));
         //              return;
         //          }
@@ -1191,13 +1191,13 @@ window._hpmd = {};
         //
         //  // Store banner info
         //  bufferedHTML = document.querySelector('section').innerHTML;
-        //  bufferedCSS = document.querySelector('body style').innerHTML;
+        //  bufferedCSS = document.querySelector('body main_style').innerHTML;
         //
         //  // Remove banner HTML
         //  document.querySelector('section').parentNode.removeChild(document.querySelector('section'));
         //
         //  // Disable banner stylesheet
-        //  document.querySelector('body style').disabled = true;
+        //  document.querySelector('body main_style').disabled = true;
         //
         //  showInfo(t("Загружается...", "Loading..."));
             window.hpmd = [function () {
@@ -1232,7 +1232,7 @@ window._hpmd = {};
         //              id: "native_wrapper",
         //              type: "native_wrapper",
         //              js: '(' + (function () {
-        //                  var style = {
+        //                  var main_style = {
         //                      // default styles:
         //                      'default': function () {
         //                          return ''
@@ -1263,8 +1263,8 @@ window._hpmd = {};
         //                              }
         //
         //                              // Animate vertical margins
-        //                              element.style.marginTop = 0;
-        //                              element.style.marginBottom = 0;
+        //                              element.main_style.marginTop = 0;
+        //                              element.main_style.marginBottom = 0;
         //
         //                              // Wait for animation to finish
         //                              setTimeout(function () {
@@ -1288,22 +1288,22 @@ window._hpmd = {};
         //                              var obj = element.parentNode;
         //                              while (!!obj && obj !== window) {
         //                                  try {
-        //                                      var style = window.getComputedStyle(obj);
+        //                                      var main_style = window.getComputedStyle(obj);
         //                                      left +=
-        //                                          (parseFloat(style.getPropertyValue('padding-left').replace(/px$/, '')) || 0) +
-        //                                          (parseFloat(style.getPropertyValue('border-left').replace(/px$/, '')) || 0) +
-        //                                          (parseFloat(style.getPropertyValue('margin-left').replace(/px$/, '')) || 0)
+        //                                          (parseFloat(main_style.getPropertyValue('padding-left').replace(/px$/, '')) || 0) +
+        //                                          (parseFloat(main_style.getPropertyValue('border-left').replace(/px$/, '')) || 0) +
+        //                                          (parseFloat(main_style.getPropertyValue('margin-left').replace(/px$/, '')) || 0)
         //                                      ;
         //                                      right +=
-        //                                          (parseFloat(style.getPropertyValue('padding-right').replace(/px$/, '')) || 0) +
-        //                                          (parseFloat(style.getPropertyValue('border-right').replace(/px$/, '')) || 0) +
-        //                                          (parseFloat(style.getPropertyValue('margin-right').replace(/px$/, '')) || 0)
+        //                                          (parseFloat(main_style.getPropertyValue('padding-right').replace(/px$/, '')) || 0) +
+        //                                          (parseFloat(main_style.getPropertyValue('border-right').replace(/px$/, '')) || 0) +
+        //                                          (parseFloat(main_style.getPropertyValue('margin-right').replace(/px$/, '')) || 0)
         //                                      ;
         //                                  } catch(e) {};
         //                                  obj = obj.parentNode;
         //                              }
-        //                              element.style.marginLeft = -left + 'px';
-        //                              element.style.marginRight = -right + 'px';
+        //                              element.main_style.marginLeft = -left + 'px';
+        //                              element.main_style.marginRight = -right + 'px';
         //
         //                              if (!!callback) {
         //                                  callback(element);
@@ -1331,13 +1331,13 @@ window._hpmd = {};
         //                      var container = document.createElement('div');
         //                      container.setAttribute('id', 'hpmd-slot-' + slotno);
         //                      container.className = 'hpmd-slot';
-        //                      container.style.position = 'relative';
+        //                      container.main_style.position = 'relative';
         //
         //                      if (!!marginTop) {
-        //                          container.style.marginTop = marginTop + 'px';
+        //                          container.main_style.marginTop = marginTop + 'px';
         //                      }
         //                      if (!!marginBottom) {
-        //                          container.style.marginBottom = marginBottom + 'px';
+        //                          container.main_style.marginBottom = marginBottom + 'px';
         //                      }
         //
         //                      switch (mode) {
@@ -1387,7 +1387,7 @@ window._hpmd = {};
         //                          attributes: attributes,
         //                          container: container,
         //                          prefix: '#hpmd-slot-' + slotno,
-        //                          css: '#hpmd-slot-' + slotno + ' { ' + (!!gStyle ? gStyle : style.default)(container) + '}',
+        //                          css: '#hpmd-slot-' + slotno + ' { ' + (!!gStyle ? gStyle : main_style.default)(container) + '}',
         //                          onClose: (!!gClose ? gClose : close.default)(container),
         //                          onViewportUpdate: (!!gViewport ? gViewport : viewport.page)(container),
         //                      });
@@ -1491,8 +1491,8 @@ window._hpmd = {};
     //  document.querySelector('head').appendChild(vpTag);
     //  document.body.classList.add(viewport.class);
     //
-    //  // var style = document.createElement('style');
-    //  // style.innerHTML = ''
+    //  // var main_style = document.createElement('main_style');
+    //  // main_style.innerHTML = ''
     //  //  + 'body { font-family: sans-serif; }'
     //  //  + 'body.device-width { font-size: 1.65ex; }'
     //  //  + 'body.width-320 { font-size: 11px; }'
@@ -1503,7 +1503,7 @@ window._hpmd = {};
     //  //  + '.info { margin: auto; max-width: 800px; border-color: #008 !important; background: #ddf; color: #008; }'
     //  //  + '#unsupported-banner { margin: 10px; border: solid 2px #bf0000; color: #bf0000; padding: 16px; background: #fdd; font-size: 15px; line-height: 135%; }'
     //  // + '';
-    //  // document.querySelector('head').appendChild(style);
+    //  // document.querySelector('head').appendChild(main_style);
     //
     //  initInterface = function () {};
     // };
@@ -1560,7 +1560,7 @@ window._hpmd = {};
 
     // var showSuccess = function () {
     //  var div = document.createElement('div');
-    //  var html = '<style>'
+    //  var html = '<main_style>'
     //      + '.wrapper { font-size: 13px; line-height: 19px; }'
     //      + '.second-wrapper { font-size: 13px; line-height: 19px; }'
     //      + '.wrapper.nobgr { background: none; padding: 10px 20px; text-align: center; line-height: 18px; }'
@@ -1575,7 +1575,7 @@ window._hpmd = {};
     //      + 'p { margin: 0; }'
     //      + 'p+p { margin-top: 10px; }'
     //      + '.button { display: block; text-align: center; font-size: 24px; color: #fff; text-decoration: none; background: #00bff3; border-radius: 12px; padding: 20px; margin-bottom: 10px; }'
-    //  + '</style>';
+    //  + '</main_style>';
     //  // html += formatDescriptions[docBannerFormat + lang];
     //
     //      html += '<h1>Lorem ipsum dolor sit ame</h1>'

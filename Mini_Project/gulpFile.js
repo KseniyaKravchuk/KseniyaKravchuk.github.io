@@ -4,16 +4,26 @@ const sass = require('gulp-sass');
 const autoprefix = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 
 let main_files = [
     './index.html',
+    './view.html',
+    './contacts',
     './style.min.css',
     './script.min.js'
 ];
 
+let styleFiles = [
+    './src/css/style',
+    './src/css/views_style',
+    './src/css/contact_style'
+];
+
 //функция, которая преобразует стили sass в css и минимизирует файл
 function createStyle(done) {
-    gulp.src('./src/css/style')
+    gulp.src(styleFiles)
+        .pipe(concat('style'))
         .pipe(sass({
             outputStyle: 'compressed'
         }))
@@ -35,11 +45,6 @@ function createScript(done) {
     done();
 }
 
-function browserReload(done) {
-    browserSync.reload();
-    done();
-}
-
 function watchFiles() {
     browserSync.init({
         server: {
@@ -47,10 +52,10 @@ function watchFiles() {
         },
         port: 3000
     });
-    gulp.watch('./src/css/style', createStyle);
+    gulp.watch('./src/css/main_style', createStyle);
     gulp.watch('./src/js/script.js', createScript);
-
     gulp.watch(main_files).on('change', browserSync.reload);
 }
 
 gulp.task('default', watchFiles);
+gulp.task('style', createStyle);

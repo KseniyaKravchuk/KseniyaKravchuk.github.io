@@ -122,7 +122,7 @@ function SF_scripts(){
 		}
 	});
 
-	// Function to add style to form, when user clicks to input inside it
+	// Function to add main_style to form, when user clicks to input inside it
 
 	function focusForm(formID){
 		var form = $("#"+formID);

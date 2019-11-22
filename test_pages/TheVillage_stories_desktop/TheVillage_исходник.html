@@ -252,7 +252,7 @@
     <!--
     <script>
         $(document).ready(function () {
-        $('head').append('<style>.regatta-link { position: absolute; width: 65px;bottom:-6px; height: 23px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/hXP-yCkd5ql81TWTyKlpew.png") center no-repeat; background-size: contain;}</style>');
+        $('head').append('<main_style>.regatta-link { position: absolute; width: 65px;bottom:-6px; height: 23px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/hXP-yCkd5ql81TWTyKlpew.png") center no-repeat; background-size: contain;}</main_style>');
 
         var cmobile = $('body').hasClass('mobile');
 
@@ -361,11 +361,11 @@
 
     <!-- START Citizens -->
     <!--
-    <style>body:not(.mobile):not(.tablet) .widget.widget-quotations { display: none };</style>
+    <main_style>body:not(.mobile):not(.tablet) .widget.widget-quotations { display: none };</main_style>
 
     <script>
       $(document).ready(function () {
-        $('head').append('<style>.citizens-link { position: absolute; width: 112px; height: 90px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/-U0OMrOxzfGD0WVIj4UjyA.gif") center no-repeat; background-size: contain; top: 10px; right: 180px; } body:not(.mobile) .citizens-cover {background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/SPT4-gJB4OMHkW7ef-tPKg.jpg") center no-repeat; background-size: contain; height: 325px; width: 100%; display: block; margin-bottom: 21px} body.mobile .citizens-cover-mobile {position: absolute; width: 320px; left: 0; top: 0; height: 217px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/ikIQbvUefEPxsGThbcYr2g.png") center no-repeat; background-size: contain;}</style>');
+        $('head').append('<main_style>.citizens-link { position: absolute; width: 112px; height: 90px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/-U0OMrOxzfGD0WVIj4UjyA.gif") center no-repeat; background-size: contain; top: 10px; right: 180px; } body:not(.mobile) .citizens-cover {background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/SPT4-gJB4OMHkW7ef-tPKg.jpg") center no-repeat; background-size: contain; height: 325px; width: 100%; display: block; margin-bottom: 21px} body.mobile .citizens-cover-mobile {position: absolute; width: 320px; left: 0; top: 0; height: 217px; background: url("https://cdn.the-village.ru/the-village.ru/post_image-image/ikIQbvUefEPxsGThbcYr2g.png") center no-repeat; background-size: contain;}</main_style>');
 
         var cmobile = $('body').hasClass('mobile');
 
@@ -405,7 +405,7 @@
                         LAM.Config.BANNER_BRANDING = true;
                         $('.row-banner-top').css({background: 'none', height: '150px', position: 'static'});
                         $('.row-banner-top .row-cont').css('display', 'none');
-                        /* $('body').append('<a href="' + data.bundleParams.reference + '" target="_blank" style="position: fixed; left:0; top:0; height: 100%; width: calc(50% - 510px); text-decoration: none; z-index:10;"></a><a href="' + data.bundleParams.reference + '" target="_blank" style="position: fixed; right:0; top:0; height: 100%; width: calc(50% - 510px); text-decoration: none; z-index:10;"></a>'); */
+                        /* $('body').append('<a href="' + data.bundleParams.reference + '" target="_blank" main_style="position: fixed; left:0; top:0; height: 100%; width: calc(50% - 510px); text-decoration: none; z-index:10;"></a><a href="' + data.bundleParams.reference + '" target="_blank" main_style="position: fixed; right:0; top:0; height: 100%; width: calc(50% - 510px); text-decoration: none; z-index:10;"></a>'); */
                         $('body').addClass('branding-layout').removeClass('responsive');
                         $('.header').removeClass('row-colored');
                         $('.news-block').remove();
