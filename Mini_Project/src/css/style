@@ -1,4 +1,4 @@
-$primary-color: #82699d;
+$primary-color: #6a718d;
 
 * {
   margin: 0;
@@ -25,6 +25,12 @@ header {
   .logo {
     display: flex;
     align-items: center;
+
+    &-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
     &-img {
       width: 40px;
@@ -106,6 +112,96 @@ header {
       margin-bottom: 10px;
     }
   }
+}
+
+.parallax-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  margin: 20px 0;
+
+  .back {
+    z-index: 0;
+    width: 140px;
+    height: 140px;
+  }
+  .middle {
+    z-index: 1;
+    width: 190px;
+    height: 190px;
+  }
+  .front {
+    z-index: 2;
+    width: 240px;
+    height: 240px;
+  }
+  .parallax-item {
+    position: absolute;
+  }
+  .parallax-bicycle {
+    background: url("i/bicycle.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 5px;
+    left: 190px;
+  }
+  .parallax-building {
+    background: url("i/building.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 225px;
+    left: 450px;
+  }
+  .parallax-party_20 {
+    background: url("i/party-20.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 800px;
+  }
+  .parallax-cat {
+    background: url("i/cat.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 240px;
+    left: 50px;
+  }
+  .parallax-marketing {
+    background: url("i/marketing.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .parallax-party_12 {
+    background: url("i/party-12.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 70px;
+    left: 600px;
+  }
+  .parallax-party {
+    background: url("i/party.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    left: 400px;
+  }
+  .parallax-bus {
+    background: url("i/bus.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+  }
+  .parallax-tag {
+    background: url("i/tag.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 180px;
+    left: 700px;
+  }
+
 }
 
 footer {

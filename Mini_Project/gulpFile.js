@@ -6,21 +6,40 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const pug = require('gulp-pug');
+const del = require('del');
 
 let main_files = [
-    './index.html',
-    './view.html',
-    './contacts',
-    './style.min.css',
-    './script.min.js'
+    './build/index.html',
+    './build/view.html',
+    './build/contacts.html',
+    './build/style.min.css',
+    './build/script.min.js'
 ];
 
+//все файлы стилей
 let styleFiles = [
     './src/css/style',
     './src/css/views_style',
     './src/css/contact_style'
 ];
 
+//все файлы pug
+let HtmlFiles = [
+   './pug_files/layout/main.pug',
+   './pug_files/modules/footer.pug',
+   './pug_files/modules/header.pug',
+   './pug_files/index.pug',
+   './pug_files/views.pug',
+   './pug_files/contacts.pug'
+];
+
+//функция, которая удаляет из папки build все файлы, кроме папки i (папки с картинками)
+function clearFolder(done) {
+    del(['./build/**/*', '!./build/i']);
+    done()
+}
+
+//функция, которая собирает HTML-файлы из pug
 function createHTML(done) {
     gulp.src('./pug_files/*.pug')
         .pipe(pug({
@@ -62,12 +81,13 @@ function createScript(done) {
 function watchFiles() {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./build"
         },
         port: 3000
     });
-    gulp.watch('./src/css/main_style', createStyle);
+    gulp.watch(styleFiles, createStyle);
     gulp.watch('./src/js/script.js', createScript);
+    gulp.watch(HtmlFiles, createHTML);
     gulp.watch(main_files).on('change', browserSync.reload);
 }
 
@@ -75,4 +95,5 @@ gulp.task('default', watchFiles);
 gulp.task('style', createStyle);
 gulp.task('script', createScript);
 gulp.task('pug', createHTML);
-gulp.task('createProject', gulp.series(createStyle, createScript, createHTML));
+gulp.task('delete', clearFolder);
+gulp.task('createProject', gulp.series(clearFolder, createStyle, createScript, createHTML));
