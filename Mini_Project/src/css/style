@@ -116,7 +116,7 @@ header {
 
 .parallax-container {
   width: 100%;
-  height: 500px;
+  height: 600px;
   position: relative;
   margin: 20px 0;
 
