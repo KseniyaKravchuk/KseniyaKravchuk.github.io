@@ -1,0 +1,72 @@
+@mixin parallax-item($name, $top, $left) {
+  background: url("i/" + $name + ".png") 50% 50% no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+.parallax-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  margin: 20px 0;
+
+  .back {
+    z-index: 0;
+    width: 140px;
+    height: 140px;
+  }
+
+  .middle {
+    z-index: 1;
+    width: 190px;
+    height: 190px;
+  }
+
+  .front {
+    z-index: 2;
+    width: 240px;
+    height: 240px;
+  }
+
+  .parallax-item {
+    position: absolute;
+  }
+
+  .parallax-bicycle {
+    @include parallax-item(bicycle, 5px, 190px);
+  }
+
+  .parallax-building {
+    @include parallax-item(building, 225px, 450px);
+  }
+
+  .parallax-party_20 {
+    @include parallax-item(party-20, 60px, 800px);
+  }
+
+  .parallax-cat {
+    @include parallax-item(cat, 240px, 50px);
+  }
+
+  .parallax-marketing {
+    @include parallax-item(marketing, 10px, 10px);
+  }
+
+  .parallax-party_12 {
+    @include parallax-item(party-12, 70px, 600px);
+  }
+
+  .parallax-party {
+    @include parallax-item(party, 20px, 400px);
+  }
+
+  .parallax-bus {
+    @include parallax-item(bus, 100px, 150px);
+  }
+
+  .parallax-tag {
+    @include parallax-item(tag, 180px, 700px);
+  }
+}

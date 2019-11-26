@@ -18,9 +18,10 @@ let main_files = [
 
 //все файлы стилей
 let styleFiles = [
-    './src/css/style',
-    './src/css/views_style',
-    './src/css/contact_style'
+    './src/css/style.scss',
+    './src/css/views_style.scss',
+    './src/css/contact_style.scss',
+    './src/css/parallax.scss'
 ];
 
 //все файлы pug

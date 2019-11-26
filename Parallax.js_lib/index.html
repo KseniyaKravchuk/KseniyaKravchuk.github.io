@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <title>Parallax</title>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur.
+    </p>
+    <div id="parallax_container">
+        <img class="envelop1" data-depth="0.2" src="img/envelop.png" alt="">
+        <img class="envelop2" data-depth="0.2" src="img/envelop.png" alt="">
+        <img class="buttonPlay1" data-depth="0.2" src="img/buttonPlay.png" alt="">
+        <img class="buttonPlay2" data-depth="0.2" src="img/buttonPlay.png" alt="">
+        <img class="context" data-depth="0.4" src="img/context.png" alt="">
+        <img class="story" data-depth="0.6" src="img/story.png" alt="">
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet,
+        consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit amet, consectetur. Lorem ipsum dolor sit
+        amet, consectetur. Lorem ipsum dolor sit amet, consectetur.
+    </p>
+
+    <style>
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .envelop1 {
+            margin-top: 30%;
+            margin-left: 75%;
+        }
+        .envelop2 {
+            margin-top: 51%;
+            margin-left: -2%;
+        }
+        .buttonPlay1 {
+            margin-top: 10%;
+            margin-left: -7%;
+        }
+        .buttonPlay2 {
+            margin-top: 38%;
+            margin-left: 71%;
+        }
+        .context {
+            margin-top: 8%;
+            margin-left: 32%;
+        }
+        .story {
+            margin-top: 35%;
+            margin-left: 44%;
+        }
+       #parallax_container {
+           width: 30%;
+           margin: 0 auto;
+       }
+        #parallax_container::after {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        @media (max-width: 1000px) {
+            #parallax_container {
+                width: 40%;
+            }
+        }
+        @media (max-width: 880px) {
+            #parallax_container {
+                width: 50%;
+            }
+        }
+        @media (max-width: 680px) {
+            #parallax_container {
+                width: 60%;
+            }
+        }
+        @media (max-width: 480px) {
+            #parallax_container {
+                width: 70%;
+            }
+        }
+    </style>
+
+    <script>
+        var scene = document.getElementById('parallax_container');
+        var parallaxInstance = new Parallax(scene, {
+            relativeInput: true
+        });
+    </script>
+</body>
+</html>

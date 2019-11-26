@@ -1,0 +1,5 @@
+- var parallaxItems = [{position: 'back', img: 'bicycle', speed: '20'}, {position: 'back', img: 'building', speed: '20'},{position: 'back', img: 'party_20', speed: '20'}, {position: 'middle', img: 'cat', speed: '40'}, {position: 'middle', img: 'marketing', speed: '40'}, {position: 'middle', img: 'party_12', speed: '40'}, {position: 'front', img: 'party', speed: '70'}, {position: 'front', img: 'bus', speed: '70'}, {position: 'front', img: 'tag', speed: '70'}]
+
+.parallax-container
+    for i in parallaxItems
+        div(class='parallax-item ' + i.position + ' parallax-' + i.img data-speed=i.speed)
