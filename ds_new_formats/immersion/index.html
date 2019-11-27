@@ -1,0 +1,1034 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><script type="text/javascript" src="./system/hpmd.js"></script></head><body data-format="nativevideo" data-lang="ru" data-sys-format="native" data-sys-subformat="video">
+
+<!-- == HTML =========================================================================================== -->
+<section>
+		<!-- Обертка баннера.
+		     Этот элемент задает высоту баннера. -->
+		<div class="hpmdn-wrapper">
+			<!-- Обертка для видео и активный кликовый элемент
+			     после завершения видео -->
+			<div class="hpmdn-video-wrapper">
+				<!-- Контейнер видео -->
+				<div class="hpmdn-banner-container">
+					<div class="hpmdn-content-container">
+						<div class="hpmdn-logo"></div>
+						<div class="hpmdn-list"></div>
+						<div class="hpmdn-bottom">
+							<div class="hpmdn-bottom_card"></div>
+							<div class="hpmdn-bottom_text"></div>
+							<div class="hpmdn-bottom_btn hpmdn-link"></div>
+						</div>
+					</div>
+					
+					<div class="hpmdn-video-container">
+						<!-- Непосредственно видеоплейер -->
+						<div class="hpmdn-player">
+							<!-- TODO: замените код видеоплейера на новый -->
+							<div class="hpmdn-000000-player">
+								<div class="hpmdn-000000-preloader"></div>
+							</div>
+							<div class="hpmdn-bigPlayButton hpmdn-hidden"></div>
+							<!-- Прогресс-бар -->
+							<div class="hpmdn-progress">
+								<div class="hpmdn-active-progress"></div>
+							</div>
+							<!-- Кнопка переключения звука -->
+							<div class="hpmdn-volume hpmdn-off"></div>
+							<!-- конец кода видеоплейера -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<!-- /HTML -->
+
+<!-- == CSS ============================================================================================ -->
+<style>
+	
+	/* стили от фила*/
+		.hpmdn-hidden{
+			display: none !important;
+		}
+		.hpmdn-player .hpmdn-bigPlayButton{
+			display: block;
+			position: absolute;
+			background-image: url('./banner/img/desktop_img/replay.png');
+			background-size: 35%;
+			background-color: rgba(255,255,255, 0.6);
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+		}
+		.hpmdn-player .hpmdn-bigPlayButton:hover{
+			opacity: 0.8;
+		}
+		.hpmdn-player .hpmdn-bigPlayButton:active{
+			opacity: 0.6;
+		}
+	
+		.hpmdn-bottom {
+			width: 100%;
+			height: 25%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			background: rgb(28, 28, 28);
+		}
+		.hpmdn-logo {
+			width: 32.6%;
+			height: 19.81%;
+			position: absolute;
+			top: 4.44%;
+			left: 4.6875%;
+			background: url('./banner/img/desktop_img/logo.png') no-repeat 0% 50%;
+			background-size: contain;
+		}
+		.hpmdn-list {
+			width: 37.91%;
+			height: 24.44%;
+			position: absolute;
+			top: 34.07%;
+			left: 4.479%;
+			background: url('./banner/img/desktop_img/list.png') no-repeat 0% 50%;
+			background-size: contain;
+		}
+		.hpmdn-bottom_btn {
+			width: 24.6875%;
+			height: 42.96%;
+			position: absolute;
+			top: 28.88%;
+			cursor: pointer;
+			left: 73.125%;
+			background: url('./banner/img/desktop_img/click_btn.png') no-repeat 50% 50%;
+			background-size: contain;
+		}
+	
+		.hpmdn-bottom_text {
+			width: 36.66%;
+			height: 48.88%;
+			position: absolute;
+			top: 27.4%;
+			left: 33.33%;
+			background: url('./banner/img/desktop_img/bottom_text.png') no-repeat 50% 50%;
+			background-size: contain;
+		}
+	
+		.hpmdn-bottom_card {
+			width: 43.85%;
+			height: 220%;
+			position: absolute;
+			bottom: -45.04%;
+			left: -5%;
+			background: url('./banner/img/desktop_img/card.png') no-repeat 50% 50%;
+			background-size: contain;
+		}
+	
+		.hpmdn-banner-container {
+			font-size: 14px !important;
+			width: 100%;
+			height: 100%;
+			background: rgb(248, 226, 16);
+			position: relative;
+		}
+	
+		/* Кнопка переключения звука */
+		.hpmdn-volume {
+			/* Помещаем кнопку звука над всеми остальными элементами баннера */
+			position: absolute;
+			/* Размещаем над видеоплейером */
+			z-index: 10000;
+			/* Небольшая полупрозрачность */
+			opacity: .85;
+			
+			/* Задаем размеры кнопке.
+			 * Высота и ширина = 15% ширины видео.
+			 */
+			bottom: 5%;
+			right: 2%;
+			border-radius: 100%;
+			width: 9%;
+			height: 9%;
+			cursor: pointer;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: 60% auto;
+			/*background-color: rgba(0,0,0,0.4);*/
+		}
+		/* Иконка выключенного звука */
+		.hpmdn-volume.hpmdn-off {
+			background-image: url(./banner/img/volume-off.png);
+		}
+		/* Иконка включенного звука */
+		.hpmdn-volume.hpmdn-on {
+			background-image: url(./banner/img/volume-on.png);
+		}
+	
+		.hpmdn-banner-container .hpmdn-player {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index:2;
+			transition: .5s linear;
+		}
+		.hpmdn-banner-container .hpmdn-player canvas{
+			background-color: #000;
+		}
+		.hpmdn-banner-container .hpmdn-small-video {
+			transform: matrix(0.45, 0, 0, 0.45, 174, -7);
+			/*transform: scale(0.5, 0.5) translate(42%, -12%);*/
+		}
+	
+		.hpmdn-banner-container .hpmdn-content-container {
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+		}
+	
+		.hpmdn-banner-container .button {
+			width: 23%;
+			height: 9%;
+			position: absolute;
+			top: 80%;
+			left: 6%;
+			text-align: center;
+			border-radius: 4px;
+			padding: 10px;
+			background: #9bb881;
+			cursor: pointer;
+		}
+	
+		.hpmdn-banner-container .button-text {
+			position: absolute;
+			top: 32%;
+			left: 0;
+			width: 100%;
+			font-size: 1.8em;
+		}
+	
+		.hpmdn-banner-container h3 {
+			position: absolute;
+			top: 1%;
+			left: 0%;
+			width: 100%;
+			text-align: center;
+			font-size: 2em;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+	
+		.hpmdn-banner-container .about-product {
+			width: 40%;
+			height: 70px;
+			position: absolute;
+			top: 26%;
+			left: 4%;
+			font-size: 2em;
+		}
+	
+		.hpmdn-banner-container .about-product p {
+			text-indent: 10px;
+		}
+	
+		.hpmdn-banner-container .note {
+			width: 50%;
+			height: 10%;
+			position: absolute;
+			bottom: 3%;
+			right: 2%;
+			font-size: 1.35em;
+		}
+		
+		/* Обертка баннера */
+		.hpmdn-wrapper {
+			/* Создаем возможность позиционировать родительские элементы
+			 * относительно поля баннера */
+			position: relative;
+			
+			/* Скрываем лишнее.
+			 * 
+			 * Если какой-то из элементов будет выступать вправо или вниз,
+			 * это может разрушить верстку площадки из-за неверного вычисления
+			 * браузером ширины контента.
+			 * 
+			 * Чтобы избежать проблем, ограничиваем баннер областью попапа:
+			 */
+			overflow: hidden;
+			
+			/* Растягиваем на всю ширину контейнера: */
+			width: 100%;
+			height: 100%;
+			/* Основной визуал, появляющийся после завершения проигрывания видео,
+			 * и цвет полей вокруг него в ландшафтной ориентации */
+			/*background: #000 url(banner/img/visual.jpg) 50% 50% no-repeat;*/
+			background-size: contain;
+		}
+		.hpmdn-video-wrapper{
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		/* Скрытое состояние плейера */
+		.hpmdn-video-wrapper.hpmdn-inactive {
+			position: relative;
+			opacity: 0.0;
+			left: -500%;
+		}
+		/* Обертка для видео */
+		@media all and (orientation:landscape) {
+			
+			.hpmdn-video-wrapper {
+				/* Размер полей по бокам обертки */
+				padding: 0%;  
+				/* Цвет полей */
+				background: #000;
+			}
+		}
+		
+		/* Обертка для плейера */
+		.hpmdn-video-container {
+			/* Относительно этого блока позиционируются контролы
+			 * видеоплейера
+			 */
+			position: absolute;
+			top: 0px;
+			left:0px;
+			height: 100%;
+			width: 100%;
+			
+			/* Анимация скрытия плейера после завершения видео */
+			opacity: 1.0;
+			margin-left: 0;
+			transition: opacity .3s, left .3s .3s;
+			-webkit-transition: opacity .3s, left .3s .3s;
+			-moz-transition: opacity .3s, left .3s .3s;
+			-ms-transition: opacity .3s, left .3s .3s;
+			-o-transition: opacity .3s, left .3s .3s;
+		}
+		
+		/* Кнопка переключения звука */
+		.hpmdn-banner-container .hpmdn-mute-button-wrapper {
+			position: absolute;
+			top: 5%;
+			right: 2%;
+			width: 12%;
+			z-index: 10000;
+		}
+
+		.hpmdn-banner-container .hpmdn-mute-button-bg {
+			width: 100%;
+			height: 100%;
+			background: #000000;
+			opacity: .4;
+			border-radius: 50%;
+		}
+		.hpmdn-banner-container .hpmdn-mute-button {
+			position: absolute;
+			top: 19%;
+			right: 19%;
+			width: 62%;
+			height: 62%;
+			cursor: pointer;
+		}
+		
+		/* Полоса прогресса видео */
+		.hpmdn-progress {
+			/* Позиционируем относительно контейнера видео */
+			position: absolute;
+			/* Прибиваем к нижнему краю */
+			left: 0;
+			right: 0;
+			bottom: 0;
+			/* Высота полосы прогресса = 0.8% ширины */
+			padding-top: 0.8%;
+			/* Размещаем над видеоплейером */
+			z-index: 10000;
+			/* Черная заливка для неактивной части полосы */
+			background: #000;
+		}
+		/* Активная (прошедшая) часть полосы прогресса */
+		.hpmdn-active-progress {
+			/* Позиционируем относительно родителя ― блока полосы прогресса */
+			position: absolute;
+			/* Прибиваем к левому краю */
+			left: 0;
+			top: 0;
+			bottom: 0;
+			/* Прогресс задается шириной этого элемента. Изначальное состояние = 0% прогресса */
+			width: 0;
+			/* Серая заливка для активной части полосы */
+			background: rgba(235, 255, 0, .8);
+			
+			/* Анимация прогресса */
+			transition: width .5s;
+			-webkit-transition: width .5s;
+			-moz-transition: width .5s;
+			-ms-transition: width .5s;
+			-o-transition: width .5s;
+		}
+		
+		/* Кнопка перехода на сайт */
+		/* Активное состояние кнопки перехода */
+		.hpmdn-link.hpmdn-active {
+			/* Высота кнопки = 20% ширины */
+			padding-top: 20%;
+			/* Анимация появления/скрытия кнопки */
+			opacity: .85;
+		}
+		
+		/* TODO: замените стили видеоплейера на новые */
+		.hpmdn-000000-player {
+			position: relative;
+			cursor: pointer;
+			
+			width: 100%;
+			height: auto;
+		}
+		
+		@keyframes hpmdn-000000-preloader {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		@-webkit-keyframes hpmdn-000000-preloader {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		
+		.hpmdn-000000-player .hpmdn-000000-preloader {
+			background: url(./banner/vid-000000/preloader.png) 50% 50% no-repeat;
+			background-size: auto 35%;
+			transform-origin: 50% 50%;
+			-webkit-transform-origin: 50% 50%;
+			animation: hpmdn-000000-preloader 2s linear infinite;
+			-webkit-animation: hpmdn-000000-preloader 2s linear infinite;
+			position: absolute;
+			z-index: 0;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0.0;
+			transition: opacity .3s;
+			-webkit-transition: opacity .3s;
+		}
+		.hpmdn-000000-player.hpmdn-000000-tablet .hpmdn-000000-preloader {
+			background-size: auto 15%;
+		}
+		
+		.hpmdn-000000-player .hpmdn-000000-preloader.hpmdn-000000-active {
+			opacity: 1.0;
+		}
+		/* Конец таблицы стилей видеоплейера */
+</style>
+<!-- /CSS -->
+
+<!-- == JS ============================================================================================= -->
+<script>_hpmd.testBanner(function () {
+		/* Подключение видеоплейера */
+		
+		hpmd.player = (function(c,h,g,k,m){var n=h.requestAnimationFrame||h.webkitRequestAnimationFrame||h.msRequestAnimationFrame||h.mozRequestAnimationFrame||h.oRequestAnimationFrame||function(a){setTimeout(a,13)};"tablet"==hpmd.getSegment("device_type")&&hpmd.getContainer().querySelector("."+c.prefix+c.path+"-player").classList.add(c.prefix+c.path+"-tablet");var f={},a={t:!1,c:!1,b:null,h:null,canvas:null,r:null,A:null,q:0,m:!1,w:!1,a:null,H:!1,k:function(){function l(){a.H&&a.start()}function p(){a.H=a.c;a.stop()}
+		a.h=hpmd.getContainer().querySelector("."+c.prefix+c.path+"-player");a.h.style.paddingTop=100*c.height/c.width+"%";a.canvas=g.createElement("canvas");a.canvas.width=c.width;a.canvas.height=c.height;a.r=a.canvas.getContext("2d");a.canvas.style.width="100%";a.canvas.style.height="100%";a.canvas.style.left=0;a.canvas.style.top=0;a.canvas.style.position="absolute";a.h.appendChild(a.canvas);a.A=hpmd.getContainer().querySelector("."+c.prefix+c.path+"-player ."+c.prefix+c.path+"-preloader");e.k();b.k();
+		a.C(e);h[k]("pagehide",p);h[k]("pageshow",l);g[k]("visibilitychange",function(){g.hidden?p():l()})},N:function(a){var b=g.createElement("img");b.setAttribute("src","./banner/vid-"+c.path+"/"+a);b.style.position="absolute";b.style.left="-10000px";b.style.top="-10000px";b.style.width="1px";b.style.height="1px";try{g.body.appendChild(b)}catch(d){}},G:!1,O:function(){a.G||(a.N("preloader.png"),a.G=!0)},Q:function(){a.stop();n(function(){a.start()})},I:function(b){a.F();var c=0;a.b.d=function(){c++;2==
+		c&&(a.n(),b&&b(),a.b.d=a.d);a.d()}},C:function(c){a.b&&(a.b.stop(),a.b.d=function(){});a.b=c;c!=e&&a.c?(a.m=!0,a.I(function(){a.m=!1})):(a.m&&(a.n(),a.m=!1),a.b.d=a.d);a.w=c==b&&!a.c;null!==a.a&&a.b.seek();a.c&&a.b.start()},F:function(){a.q++;1==a.q&&a.A.classList.add(c.prefix+c.path+"-active")},n:function(){a.q--;0==a.q&&a.A.classList.remove(c.prefix+c.path+"-active")},i:function(){e.i();b.i();a.a=-1;a.t=!1},start:function(){a.c||(a.t&&a.i(),a.c=!0,a.b.start(),a.w&&(a.w=!1,a.I()))},stop:function(){a.c&&
+		(a.c=!1,a.b.stop())},d:function(){a.B();f.onBeat&&f.onBeat()},v:function(){a.c=!1;a.t=!0;a.L();f.onFinished&&f.onFinished()},L:function(){a.r.clearRect(0,0,c.width,c.height)},B:function(b,e){a.O();"undefined"==typeof b?a.a++:a.a=b;if(d.K(a.a)){d.u=function(){};var f=a.a-d.o(a.a)*d.j;try{a.r.drawImage(d.buffer[d.o(a.a)],f%c.cols*c.width,c.height*~~(f/c.cols),c.width,c.height,0,0,c.width,c.height)}catch(k){}e&&a.c&&a.b.start()}else{var h=a.a,g=a.c;d.u=function(){g&&a.n();a.B(h,!0)};g&&a.F();a.b.stop()}},
+		seek:function(b){a.a=~~(b*c.e);a.b.seek()}},e={f:null,g:null,a:0,k:function(){},start:function(){e.g=!0;e.f=Date.now();e.l()},stop:function(){e.g=!1},l:function(){n(e.frame)},frame:function(){if(e.g){var b=Date.now()-e.f;if(b>1E3/c.e&&(e.d(),e.f=b>2500/c.e?Date.now():e.f+1E3/c.e,e.a++,e.a>=c.frames-1)){e.stop();a.v();return}e.l()}},seek:function(){e.a=a.a;e.f=Date.now()},i:function(){e.seek(-1);e.a=-1},d:function(){}},b={audio:null,D:!1,a:-1,f:null,g:null,k:function(){b.audio=g.createElement("audio");
+		for(var l=0;l<c.audio.length;l++){var d=g.createElement("source");d.setAttribute("src",c.audio[l]);b.audio.appendChild(d)}b.audio[k]("progress",function(){b.D=!0;b.audio[m]("progress",arguments.callee)});b.audio[k]("ended",function(){b.stop();a.v()});b.audio.muted=!0;a.h.appendChild(b.audio)},start:function(){b.audio.play();b.g=!0;b.f=Date.now();b.l()},stop:function(){b.audio.pause();b.g=!1},l:function(){n(b.frame)},frame:function(){if(b.g){var d=~~(b.audio.currentTime*c.e);d>a.a&&(a.a=d-1,b.d());
+		b.l()}},seek:function(){function d(){b.a=a.a;b.f=Date.now();var e=a.a/c.e;e>=b.audio.duration?(a.n(),b.stop(),a.v()):(b.audio.currentTime=e,b.audio.muted=!1)}if(b.D)try{d()}catch(e){b.audio[k]("playing",function(){b.audio[m]("playing",arguments.callee);b.audio[k]("canplaythrough",function(){b.audio[m]("canplaythrough",arguments.callee);b.audio[k]("progress",function(){for(var e=0;e<b.audio.seekable.length;e++)if(b.audio.seekable.start(e)<=a.a/c.e&&b.audio.seekable.end(e)>=a.a/c.e){a.h.removeChild(b.audio);
+		a.h.appendChild(b.audio);d();b.audio.play();b.audio[m]("progress",arguments.callee);break}})})})}else b.audio.duration<.5*c.frames/c.e?b.audio.addEventListener("durationchange",function(){d();b.audio.removeEventListener("durationchange",arguments.callee)}):b.audio.addEventListener("progress",function(){d();b.audio.removeEventListener("progress",arguments.callee)})},i:function(){b.a=-1},d:function(){}},d={buffer:{},s:-1,p:-1,j:c.rows*c.cols,J:Math.ceil(c.frames/(c.rows*c.cols)),o:function(a){return~~(a/
+		d.j)},P:function(a){return a*d.j+d.j-1},K:function(a){for(var b=d.o(a+c.buffer),e=d.p+1;e<=b;e++)d.M(e);for(b=b-~~(c.buffer/d.j)-1;"undefined"==typeof d.buffer[b]&&-1<b;)delete d.buffer[b],b--;return!!d.buffer[d.o(a)]},M:function(a){if(!(a>=d.J)){d.p=Math.max(a,d.p);var b=new Image;b.onload=b.onerror=function(){for(d.buffer[a]=this;d.buffer[d.s+1];)d.s++;d.s==d.p&&d.u()};b.src=c.images+a+".jpg";d.buffer[a]=!1}},u:function(){}};f.play=a.start;f.pause=a.stop;f.getCurrentTime=function(){return a.a/c.e};
+		f.getState=function(){return a.c};f.setAudio=function(c){c&&a.b!=b?a.C(b):c||a.b==e||a.C(e)};f.getAudio=function(){return a.b==b};f.showPoster=function(){a.B(0)};f.seek=function(b){a.seek(b)};f.rewind=function(){a.i()};f.setCurrentTime=f.seek;f.getDuration=function(){return(c.frames-1)/c.e};f.getAspect=function(){return c.width/c.height};a.k();return f})({prefix:"hpmdn-",path:"000000",e:12,frames:121,width:360,height:203,rows:2,cols:2,buffer:12,images:"./banner/vid-000000/frames/",audio:/iPhone|iPad|iPod/.exec(navigator.userAgent)?["./banner/vid-000000/audio.aac","./banner/vid-000000/audio.m4a"]:["./banner/vid-000000/audio.m4a","./banner/vid-000000/audio.aac"]},window,document,"addEventListener","removeEventListener");
+		
+		var player = hpmd.player;
+		
+		// Сохраняем ссылку на контейнер баннера
+		var container = hpmd.getContainer();
+		// Сохраняем ссылку на «обертку» баннера
+		var wrapper = container.querySelector('.hpmdn-wrapper');
+		
+		var video_wrapper = wrapper.querySelector('.hpmdn-video-container');
+		/**
+		 * Совместимая с vendor-префиксами ссылка на функцию
+		 * requestAnimationFrame()
+		 * 
+		 * @var Function
+		 */
+		var animationFrame = function (callback) {
+			(
+				window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame ||
+				window.msRequestAnimationFrame ||
+				window.mozRequestAnimationFrame ||
+				function (handler) {
+					setTimeout(handler, 13);
+				}
+			)(callback);
+		};
+		
+		
+		/**
+		 * Управляется ли устройство iOS
+		 * 
+		 * @return bool
+		 */
+		hpmd.data.isIOs = function () {
+			return hpmd.getSegment("os") == "iOS";
+		}
+		
+		/**
+		 * Управляется ли устройство Android
+		 * 
+		 * @return bool
+		 */
+		hpmd.data.isAndroid = function () {
+			return hpmd.getSegment("os") == "Android";
+		}
+		
+		/**
+		 * Управляется ли устройство Windows Phone
+		 * 
+		 * @return bool
+		 */
+		hpmd.data.isWP = function () {
+			return hpmd.getSegment("os") == "Windows";
+		}
+		
+		/**
+		 * Определяет направление свайпа по смещению
+		 * точки прикосновения
+		 * 
+		 * Смещение вправо и вниз ― положительное,
+		 * влево и вверх ― отрицательное.
+		 * 
+		 * @param number deltax Смещение в пикселях по горизонтали вправо
+		 * @param number deltay Смещение в пикселях по вертикали вниз
+		 * 
+		 * @return string "tap", "left", "right", "up", "down"
+		 */
+		hpmd.data.calcSwipeDirection = function (deltax, deltay) {
+			if (deltax == 0) {
+				if (deltay == 0) {
+					// смещения нет, произошел тап
+					return "tap";
+				} else {
+					// смещение есть, зададим deltay равным единице,
+					// чтобы избежать деления на ноль
+					deltay = 1;
+				}
+			}
+			if (Math.abs(deltax) < 10 && Math.abs(deltay) < 10) {
+				// смещение меньше 10 пикселей, произошел тап
+				return "tap";
+			}
+			if (Math.abs(deltay / deltax) > .5) {
+				// наклон кривой к горизонтали больше 45°,
+				// это вертикальный свайп,
+				if (deltay < 0) {
+					// смещение вверх
+					return "up";
+				} else {
+					// смещение вниз
+					return "down";
+				}
+			} else {
+				// наклон кривой к горизонтали меньше 45°,
+				// это горизонтальный свайп,
+				if (deltax < 0) {
+					// смещение влево
+					return "left";
+				} else {
+					// смещение вправо
+					return "right";
+				}
+			}
+		}
+		
+		/**
+		 * Регистрирует обработчик события
+		 * 
+		 * @param DOMElement element DOM-элемент
+		 * @param string event Название события (напр., "touchstart"))
+		 * @param Function handler Обработчик события
+		 */
+		hpmd.data.attachHandler = function (element, event, handler) {
+			if (hpmd.data.isWP()) {
+				switch (event) {
+					case "touchstart":
+						hpmd.data.attachHandler(element, 'MSPointerDown', handler);
+						hpmd.data.attachHandler(element, 'pointerdown', handler);
+						break;
+					case "touchmove":
+						hpmd.data.attachHandler(element, 'MSPointerMove', handler);
+						hpmd.data.attachHandler(element, 'pointermove', handler);
+						break;
+					case "touchend":
+						hpmd.data.attachHandler(element, 'MSPointerUp', handler);
+						hpmd.data.attachHandler(element, 'pointerup', handler);
+						break;
+					case "touchcancel":
+						hpmd.data.attachHandler(element, 'MSPointerCancel', handler);
+						hpmd.data.attachHandler(element, 'pointercancel', handler);
+						break;
+				}
+			}
+			
+			element.addEventListener(event, handler, false);
+		}
+		/**
+		 * Удаляет обработчик события
+		 * 
+		 * @param DOMElement element DOM-элемент
+		 * @param string event Название события (напр., "touchstart"))
+		 * @param Function handler Обработчик события
+		 */
+		hpmd.data.detachHandler = function (element, event, handler) {
+			if (hpmd.data.isWP()) {
+				switch (event) {
+					case "touchstart":
+						hpmd.data.detachHandler(element, 'MSPointerDown', handler);
+						hpmd.data.detachHandler(element, 'pointerdown', handler);
+						break;
+					case "touchmove":
+						hpmd.data.detachHandler(element, 'MSPointerMove', handler);
+						hpmd.data.detachHandler(element, 'pointermove', handler);
+						break;
+					case "touchend":
+						hpmd.data.detachHandler(element, 'MSPointerUp', handler);
+						hpmd.data.detachHandler(element, 'pointerup', handler);
+						break;
+					case "touchcancel":
+						hpmd.data.detachHandler(element, 'MSPointerCancel', handler);
+						hpmd.data.detachHandler(element, 'pointercancel', handler);
+						break;
+				}
+			}
+			
+			element.removeEventListener(event, handler, false);
+		}
+		/**
+		 * Обрабатывает жесты пользователя
+		 * 
+		 * Эта функция служит для обработки свайпов в четырех направлениях
+		 * (влево, вправо, вверх, вниз) и «тапа» по любому элементу.
+		 * 
+		 * В качестве первого аргумента передается DOM-элемент;
+		 * в качестве второго аргумента передается объект, содержащий
+		 * некоторые (или все) из следующих ключей:
+		 * - left
+		 * - right
+		 * - down
+		 * - up
+		 * - tap
+		 * 
+		 * Значения ключей должны быть функциями.
+		 * 
+		 * При обнаружении свайпа в определенном направлении вызывается
+		 * соответствующая функция; в качестве аргументов ей передается
+		 * экземпляр события touchend и ссылка на исходный DOM-элемент.
+		 * 
+		 * Например:
+		 * hpmd.data.handleSwipe(document.getElementById('hpmd-my-node'), {
+		 *    up: function () {
+		 *       alert("Swipe up!");
+		 *    },
+		 *    down: function () {
+		 *       alert("Swipe down!");
+		 *    },
+		 *    tap: function (event, element) {
+		 *       alert("Tapped on " + element + "!");
+		 *    },
+		 * });
+		 * 
+		 * @param DOMElement element
+		 * @param object handlers
+		 */
+		hpmd.data.handleSwipe = function(element, handlers) {
+			var x, y;
+			
+			hpmd.data.attachHandler(element, 'touchstart', function (event) {
+				var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+				
+				x = touch.pageX;
+				y = touch.pageY;
+			});
+			hpmd.data.attachHandler(element, 'touchend', function (event) {
+				var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+				var direction = hpmd.data.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
+				if (!!handlers[direction]) {
+					handlers[direction](event, element);
+				}
+			});
+		}
+		
+		/**
+		 * Список DOM-элементов, принадлежащих баннеру
+		 * 
+		 * @var object of DOMElement
+		 */
+		hpmd.data.nodes = {};
+		
+		/**
+		 * Обрабатывает DOM-элемент, принадлежащий баннеру.
+		 * 
+		 * Если ID имеет префикс "hpmd-", сохраняет ссылку на элемент в объекте
+		 * hpmd.data.nodes для быстрого доступа; ключом является ID элемента без префикса.
+		 * 
+		 * Элементы с классом "hpmd-teaser" считаются тизерами; им присваиваются
+		 * необходимые обработчики ошибок.
+		 * 
+		 * После завершения функция рекурсивно обрабатывает все дочерние элементы.
+		 * 
+		 * @param DOMElement node
+		 */
+		hpmd.data.processNode = function (node) {
+			// Проверяем ID.
+			var attribute;
+			var idPrefix;
+		
+			if (!!node.getAttribute && !!(attribute = node.getAttribute('id')) && !!(idPrefix = attribute.match(/hpmd[a-z]*[-]/gi))) {
+				
+				idPrefix = idPrefix[0];
+		
+				// Нашли префикс "hpmdn-", сохраняем на будущее.
+				hpmd.data.nodes[attribute.substring(idPrefix.length, 1000)] = node;
+			}
+			
+			// Обрабатываем дочерние элементы.
+			for (var i = 0; i < node.children.length; i++) {
+				hpmd.data.processNode(node.children[i]);
+			}
+		};
+		/**
+		 * Полностью убирает все элементы баннера со страницы.
+		 */
+		hpmd.data.destroy = function () {
+			/* Отключите здесь любые обработчики событий,
+				* которые были включены при запуске или в процессе
+				* работы баннера.
+				*/
+			
+			// Удаляем все HTML-элементы баннера.
+			for (var k in hpmd.data.nodes) {
+				if (hpmd.data.nodes.hasOwnProperty(k)) {
+					try {
+						hpmd.data.nodes[k].parentNode.removeChild(hpmd.data.nodes[k]);
+					} catch (e) {}
+				}
+			}
+		};
+		/**
+		 * Закрывает баннер
+		 */
+		hpmd.data.closeBanner = function () {
+			if (player.getState()) {
+				// Если воспроизведение видео еще происходит,
+				// отправляем информацию о конечной глубине просмотра...
+				hpmd.trackEvent("video-progress", { weight: Math.round(player.getCurrentTime()) });
+				// ...и останавливаем воспроизведение.
+				player.pause();
+			}
+			// $(Полностью убираем баннер со страницы.|Completely removing the ad from the page.)
+			setTimeout(hpmd.data.destroy, 300);
+		}
+		
+		
+		/**
+		 * Загружает картинки по URL из переданного массива в кэш браузера
+		 * 
+		 * @param string[] images Список URL загружаемых картинок
+		 * @param Function callback Функция обратного вызова по завершении загрузки
+		 */
+		var preloadImages = function (images, callback) {
+			var loaded = 0, imageObjects = [];
+			var handler = function () {
+				loaded++;
+				if (loaded == images.length && !!callback) {
+					callback();
+				}
+			};
+			for (var i = 0; i < images.length; i++) {
+				imageObjects[i] = new Image();
+				imageObjects[i].onload = handler;
+				imageObjects[i].onerror = handler;
+				imageObjects[i].src = images[i];
+			}
+		};
+		
+		/**
+		 * Выводим первый кадр видео
+		 */
+		player.showPoster();
+		/**
+	 * При клике на иконку переключения звука ― включаем
+	 * или выключаем звук, и регистрируем соответствующее событие
+	 */
+	var volumeButton = wrapper.querySelector('.hpmdn-volume');
+	var soundControllerByClickTap = function () {
+		(function () {
+			if (player.getAudio()) {
+				// звук включен, выключаем
+				player.setAudio(false);
+				volumeButton.classList.add('hpmdn-off');
+				volumeButton.classList.remove('hpmdn-on');
+			} else {
+				// звук выключен, включаем и сообщаем об этом системе
+				player.setAudio(true);
+				hpmd.trackEvent("sound-on");
+				volumeButton.classList.remove('hpmdn-off');
+				volumeButton.classList.add('hpmdn-on');
+			}
+		})();
+	};
+	if (hpmd.getSegment('device_type') != 'desktop')
+	{
+		hpmd.data.handleSwipe(volumeButton, {
+			tap: function(event) {
+				soundControllerByClickTap();
+				// Прекращаем обработку события
+				event.stopPropagation();
+			}
+		});
+		
+		/**
+		 * При нажатии на кнопку перехода ― открываем ссылку
+		 */
+		hpmd.data.handleSwipe(wrapper.querySelector('.hpmdn-link'), {
+			tap: function(event) {
+				hpmd.data.closeBanner();
+				hpmd.link();
+			
+				// Прекращаем обработку события
+				event.stopPropagation();
+			}
+		});
+		
+		hpmd.data.handleSwipe(wrapper.querySelector('.hpmdn-bigPlayButton'),{
+			tap: function(event) {
+				hpmd.data.playerMustPlay = true;
+				player.play();
+				wrapper.querySelector('.hpmdn-bigPlayButton').classList.add('hpmdn-hidden');
+				// Прекращаем обработку события
+				event.stopPropagation();
+			}
+		});
+	}
+	else
+	{
+		volumeButton.addEventListener('click', function(event){
+			soundControllerByClickTap();
+			event.stopPropagation();
+		});
+		wrapper.querySelector('.hpmdn-link').addEventListener('click', function(event){
+			hpmd.data.closeBanner();
+			hpmd.link();
+			// Прекращаем обработку события
+			event.stopPropagation();
+		});
+		wrapper.querySelector('.hpmdn-bigPlayButton').addEventListener('click', function(event){
+			hpmd.data.playerMustPlay = true;
+			wrapper.querySelector('.hpmdn-bigPlayButton').classList.add('hpmdn-hidden');
+			player.play();
+			// Прекращаем обработку события
+			event.stopPropagation();
+		})
+	}
+		
+		/**
+		 * При нажатии на свободное поле баннера ― ставим плейер на паузу
+		 * и выводим кнопку переxода на сайт; при повторном нажатии возвращаем
+		 * все в исxодное состояние.
+		 */
+		/*
+		hpmd.data.handleSwipe(wrapper, {
+			tap: function(event) {
+				if (playerMustPlay) {
+					playerMustPlay = false;
+					hpmd.trackEvent("video-progress", { weight: Math.ceil(.01 + player.getCurrentTime()) });
+					player.pause();
+					wrapper.querySelector('.hpmdn-link').classList.add('hpmdn-active');
+					hpmd.trackEvent("pause");
+				} else {
+					playerMustPlay = true;
+					player.play();
+					wrapper.querySelector('.hpmdn-link').classList.remove('hpmdn-active');
+					hpmd.trackEvent("continue");
+					hpmd.trackEvent("video-progress", { weight: Math.ceil(.01 + player.getCurrentTime()) });
+				}
+				
+				// Прекращаем обработку события
+				event.stopPropagation();
+			}
+		});
+		*/
+		
+		/**
+		 * Не позволяем событию нажатия на .hpmdn-video-container
+		 * быть обработанным на элементе .hpmdn-wrapper, пока видео
+		 * не доиграло до конца
+		 */
+		/*
+		hpmd.data.handleSwipe(wrapper.querySelector('.hpmdn-video-wrapper'), {
+			tap: function(event) {
+				if (!event.target.classList.contains('hpmdn-inactive')) {
+					event.stopPropagation();
+				}
+			}
+		});
+		*/
+		/**
+		 * При нажатии на корневой элемент баннера ― открываем ссылку
+		 */
+		/*
+		hpmd.data.handleSwipe(wrapper, {
+			tap: function(event) {
+				hpmd.data.closeBanner();
+				hpmd.link();
+			}
+		});
+		*/
+		var
+			activeProgressNode = wrapper.querySelector('.hpmdn-active-progress'),
+			duration = player.getDuration();
+			
+		/**
+		 * При завершении видео скрываем весь плейер, открывая основной визуал.
+		 */
+		hpmd.player.onFinished = function () {
+			hpmd.player.seek(0);
+			hpmd.data.playerMustPlay = false;
+			activeProgressNode.style.width ='0%';
+			wrapper.querySelector('.hpmdn-bigPlayButton').classList.remove('hpmdn-hidden');
+			hpmd.player.showPoster();
+
+			//wrapper.querySelector('.hpmdn-video-wrapper').classList.add('hpmdn-inactive');
+			hpmd.trackEvent("video-progress", { weight: Math.ceil(.01 + player.getDuration()) });
+			hpmd.trackEvent("video-finished");
+		};
+		
+		hpmd.player.onBeat = function () {
+			var current = player.getCurrentTime();		
+			// Обновляем полосу прогресса
+			activeProgressNode.style.width = (100 * current / duration) + '%';
+			// Заставляем браузер перерисовать полосу прогресса
+			hpmd.data.tmp = activeProgressNode.clientWidth;
+		};
+		
+		hpmd.player.onPlay = function(){
+			hpmd.data.playerMustPlay = true;
+		};
+		hpmd.player.onPause = function(){
+			
+		};
+			
+		hpmd.ready(function () {
+			hpmd.data.processNode(container.parentNode);
+			/* Показ засчитался */
+			hpmd.trackEvent("video-progress", { weight: Math.ceil(.01 + hpmd.player.getCurrentTime()) });
+		});
+		
+		
+		hpmd.initImmertionLogic = function(){
+			var video = container.querySelector('.hpmdn-player'),
+				bannerContainer = container;
+		
+			var getClassForBanner = function () {
+				var width = bannerContainer.clientWidth;
+				var height = bannerContainer.clientHeight;
+				video.style.width = '45%';
+				video.style.height = '45%';
+				video.style.left = (0.5 * width) * 100 / width + '%';
+				video.style.top = (0.23 * height - 7) * 100 / height + '%';
+				video.classList.remove('hpmdn-small-video');
+			};
+
+			var reduceVideo = function () {
+				video.classList.add('hpmdn-small-video');
+				getClassForBanner();
+			};
+			var setMuteButtonSize = function () {
+				(function () {
+					if (volumeButton) {
+						var widthElem = volumeButton.clientWidth;
+						volumeButton.style.height = widthElem + 'px';
+					}
+				})();
+			};
+			var setContainerSize = function(){
+				(function () {
+					if (container) {
+						var widthElem = parseInt(getComputedStyle(container.parentNode, null).width);
+						container.style.width = widthElem + 'px';
+						container.style.height = widthElem * 0.5625 + 'px';
+					}
+				})();
+			};
+			setContainerSize();
+			// setMuteButtonSize();
+			window.addEventListener('resize',function () {
+				setContainerSize();
+				// setMuteButtonSize();
+			});
+
+			hpmd.playerData = hpmd.playerData || {} ;
+			hpmd.playerData.isPlaying = false;
+			hpmd.data.playerMustPlay = true;
+			//даем время для подгонки размеров
+			setTimeout(function(){
+				hpmd.setOnVisibilityChange(function(event)
+				{
+					if ( !hpmd.data.playerMustPlay )
+					{
+						return false;
+					}
+					if (event.visibility < 2 && hpmd.playerData.isPlaying )
+					{
+						hpmd.player.pause();
+						hpmd.playerData.isPlaying = false;
+					}
+					else if ( event.visibility >= 2 && !hpmd.playerData.isPlaying )
+					{
+						hpmd.player.play();
+						hpmd.playerData.isPlaying = true;
+						
+						if ( !hpmd.playerData.isFirstVisibleFired ) 
+						{
+							hpmd.playerData.isFirstVisibleFired = true;
+							setTimeout(reduceVideo, 1000);
+						}
+					}
+				});
+			}, 100);
+			
+		};
+		var images = [
+			'./banner/img/desktop_img/replay.png',
+			'./banner/img/desktop_img/logo.png',
+			'./banner/img/desktop_img/list.png',
+			'./banner/img/desktop_img/click_btn.png',
+			'./banner/img/desktop_img/bottom_text.png',
+			'./banner/img/desktop_img/card.png',
+			'./banner/img/volume-off.png',
+			'./banner/img/volume-on.png'
+		]
+		preloadImages(images, function(){
+			hpmd.initImmertionLogic();			
+		});
+		
+});</script>
+<!-- /JS -->
+<!-- =================================================================================================== -->
+
+</body></html>
