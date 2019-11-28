@@ -50,6 +50,9 @@
 		.hpmdn-hidden{
 			display: none !important;
 		}
+		.hpmdn-player {
+			overflow: hidden;
+		}
 		.hpmdn-player .hpmdn-bigPlayButton{
 			display: block;
 			position: absolute;
@@ -58,6 +61,7 @@
 			background-color: rgba(255,255,255, 0.6);
 			background-position: center;
 			background-repeat: no-repeat;
+			cursor: pointer;
 			width: 100%;
 			height: 100%;
 			top: 0px;
@@ -178,7 +182,7 @@
 			transition: .5s linear;
 		}
 		.hpmdn-banner-container .hpmdn-player canvas{
-			background-color: #000;
+			/*background-color: #000;*/
 		}
 		.hpmdn-banner-container .hpmdn-small-video {
 			transform: matrix(0.45, 0, 0, 0.45, 174, -7);
@@ -350,7 +354,7 @@
 			/* Размещаем над видеоплейером */
 			z-index: 10000;
 			/* Черная заливка для неактивной части полосы */
-			background: #000;
+			/*background: #000;*/
 		}
 		/* Активная (прошедшая) часть полосы прогресса */
 		.hpmdn-active-progress {
@@ -385,7 +389,7 @@
 		/* TODO: замените стили видеоплейера на новые */
 		.hpmdn-000000-player {
 			position: relative;
-			cursor: pointer;
+			/*cursor: pointer;*/
 			
 			width: 100%;
 			height: auto;
@@ -820,6 +824,7 @@
 				hpmd.data.playerMustPlay = true;
 				player.play();
 				wrapper.querySelector('.hpmdn-bigPlayButton').classList.add('hpmdn-hidden');
+				volumeButton.classList.remove('hpmdn-hidden');
 				// Прекращаем обработку события
 				event.stopPropagation();
 			}
@@ -840,6 +845,7 @@
 		wrapper.querySelector('.hpmdn-bigPlayButton').addEventListener('click', function(event){
 			hpmd.data.playerMustPlay = true;
 			wrapper.querySelector('.hpmdn-bigPlayButton').classList.add('hpmdn-hidden');
+			volumeButton.classList.remove('hpmdn-hidden');
 			player.play();
 			// Прекращаем обработку события
 			event.stopPropagation();
@@ -911,6 +917,7 @@
 			hpmd.data.playerMustPlay = false;
 			activeProgressNode.style.width ='0%';
 			wrapper.querySelector('.hpmdn-bigPlayButton').classList.remove('hpmdn-hidden');
+			volumeButton.classList.add('hpmdn-hidden');
 			hpmd.player.showPoster();
 
 			//wrapper.querySelector('.hpmdn-video-wrapper').classList.add('hpmdn-inactive');

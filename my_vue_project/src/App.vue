@@ -1,21 +1,26 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your App"/>
-    <TextBox name="Jone" msg="Lorem ipsum dolor sit amet, consectetur adipisicing elit."/>
-    <TextBox name="Bob" msg="Animi consequuntur delectus nesciunt, quae sint temporibus!"/>
+    <h1>Shopping list</h1>
+    <ShoppingList v-bind:items="items"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TextBox from "./components/TextBox";
-
+import ShoppingList from '@/components/ShoppingList'
 export default {
   name: 'app',
+  data() {
+    return {
+      items: [
+        {id: 1, name: 'Гречка', completed: false},
+        {id: 2, name: 'Курица', completed: false},
+        {id: 3, name: 'Овощи', completed: false},
+      ]
+    }
+  },
   components: {
-    TextBox,
-    HelloWorld
+    ShoppingList
   }
 }
 </script>
