@@ -5533,15 +5533,12 @@ svg {
     width: 100%;
     height: 25px;
     z-index: 1;
-    margin-top: -3px;
+    margin-top: -2.6px;
     color: #1c1c1c;
     position: absolute;
     top: 0px;
 }
 
-#footer_wave {
-    overflow: visible!important;
-}
 
 .format-block,
 .format-part {
@@ -5598,8 +5595,3 @@ svg {
     max-width: 480px;
     height: 100%;
 }
-
-
-
-
-
