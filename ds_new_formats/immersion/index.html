@@ -56,9 +56,10 @@
 		.hpmdn-player .hpmdn-bigPlayButton{
 			display: block;
 			position: absolute;
-			background-image: url('./banner/img/desktop_img/replay.png');
+			background-image: url('./banner/img/desktop_img/re-play.png');
 			background-size: 35%;
-			background-color: rgba(255,255,255, 0.6);
+			background-color: rgba(0,0,0,0.1);
+			opacity: 0.9;
 			background-position: center;
 			background-repeat: no-repeat;
 			cursor: pointer;
@@ -68,10 +69,10 @@
 			left: 0px;
 		}
 		.hpmdn-player .hpmdn-bigPlayButton:hover{
-			opacity: 0.8;
+			opacity: 1;
 		}
 		.hpmdn-player .hpmdn-bigPlayButton:active{
-			opacity: 0.6;
+			opacity: 0.8;
 		}
 	
 		.hpmdn-bottom {
@@ -152,17 +153,26 @@
 			/* Задаем размеры кнопке.
 			 * Высота и ширина = 15% ширины видео.
 			 */
-			bottom: 5%;
+			bottom: 6%;
 			right: 2%;
-			border-radius: 100%;
-			width: 9%;
-			height: 9%;
+			width: 10%;
+			min-width: 30px;
+			max-width: 60px;
+			height: 10%;
 			cursor: pointer;
 			background-position: center center;
 			background-repeat: no-repeat;
-			background-size: 60% auto;
+			background-size: contain;
+			/*background-size: 60% auto;*/
 			/*background-color: rgba(0,0,0,0.4);*/
 		}
+
+		/*@media (max-width:768px) {*/
+		/*	.hpmdn-volume {*/
+		/*		width: 18%;*/
+		/*		height: 18%;*/
+		/*	}*/
+		/*}*/
 		/* Иконка выключенного звука */
 		.hpmdn-volume.hpmdn-off {
 			background-image: url(./banner/img/volume-off.png);
@@ -1021,7 +1031,7 @@
 			
 		};
 		var images = [
-			'./banner/img/desktop_img/replay.png',
+			'./banner/img/desktop_img/re-play.png',
 			'./banner/img/desktop_img/logo.png',
 			'./banner/img/desktop_img/list.png',
 			'./banner/img/desktop_img/click_btn.png',
