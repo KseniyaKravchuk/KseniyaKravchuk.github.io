@@ -1,8 +1,10 @@
 <template>
     <li>
-        <input type="checkbox">
-        <span>{{ item.name }}</span>
-        <button>Delete</button>
+        <span v-bind:class="{done: item.completed}">
+            <input type="checkbox" v-on:change="item.completed=!item.completed">
+            {{ item.name }}
+        </span>
+        <button v-on:click="$emit('remove-item', item.id)">Delete</button>
     </li>
 </template>
 
@@ -22,6 +24,8 @@ export default {
         border: 1px solid #000000;
         padding: 10px 0;
         margin-bottom: 10px;
+        display: flex;
+        justify-content: space-around;
     }
     .done {
         text-decoration: line-through;

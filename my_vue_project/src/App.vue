@@ -5,7 +5,8 @@
     </div>
     <div class="current_list">
       <h1>Shopping list</h1>
-      <ShoppingList v-bind:items="items"/>
+      <ShoppingList v-bind:items="items"
+                    @remove-item="removeItem"/>
     </div>
   </div>
 </template>
@@ -23,6 +24,11 @@ export default {
       ]
     }
   },
+  methods: {
+    removeItem(id) {
+      this.items = this.items.filter(i => i.id !== id)
+    }
+  },
   components: {
     ShoppingList
   }
@@ -36,8 +42,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   display: flex;
+  height: 100vh;
 }
   .all_lists {
     width: 40%;
