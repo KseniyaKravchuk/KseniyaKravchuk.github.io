@@ -5539,8 +5539,8 @@ svg {
     top: 0px;
 }
 
-#footer-wave {
-    overflow: visible;
+#footer_wave {
+    overflow: visible!important;
 }
 
 .format-block,
