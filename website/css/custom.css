@@ -88,8 +88,8 @@
     .header-wave{
         margin-bottom: -2px;
     }
-    .header-wave{
-        margin-bottom: -2px;
+    .footer-wave {
+        margin-top: -2px;
     }
     section[class^="pt-"], section[class*=" pt-"] {
         padding-top: 40px;
