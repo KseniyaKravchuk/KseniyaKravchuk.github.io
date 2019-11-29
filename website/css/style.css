@@ -5504,10 +5504,24 @@ svg {
     }
 }
 
-.circle {
+.rule-icon {
     width: 40px;
     height: 40px;
-    border-radius: 100%;
+}
+
+.rule-1 {
+    background: url("../i/rule1.png") 50% 50% no-repeat;
+    background-size: contain;
+}
+
+.rule-2 {
+    background: url("../i/rule2.png") 50% 50% no-repeat;
+    background-size: contain;
+}
+
+.rule-3 {
+    background: url("../i/rule3.png") 50% 50% no-repeat;
+    background-size: contain;
 }
 
 .img-poster {
