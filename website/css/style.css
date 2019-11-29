@@ -5539,6 +5539,10 @@ svg {
     top: 0px;
 }
 
+#footer-wave {
+    overflow: visible;
+}
+
 .format-block,
 .format-part {
     width: 100%;
