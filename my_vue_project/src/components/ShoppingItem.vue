@@ -1,6 +1,8 @@
 <template>
     <li>
-        {{ item.name }}
+        <input type="checkbox">
+        <span>{{ item.name }}</span>
+        <button>Delete</button>
     </li>
 </template>
 
@@ -14,3 +16,14 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    li {
+        border: 1px solid #000000;
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+    .done {
+        text-decoration: line-through;
+    }
+</style>

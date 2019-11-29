@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Shopping list</h1>
-    <ShoppingList v-bind:items="items"/>
+    <div class="all_lists">
+      <h1>All shopping lists</h1>
+    </div>
+    <div class="current_list">
+      <h1>Shopping list</h1>
+      <ShoppingList v-bind:items="items"/>
+    </div>
   </div>
 </template>
 
@@ -33,5 +37,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
 }
+  .all_lists {
+    width: 40%;
+    border-right: 1px solid #000000;
+  }
+  .current_list {
+    width: 60%;
+  }
 </style>

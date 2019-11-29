@@ -3205,7 +3205,7 @@
     background-color: #858585;
   }
   /*.opinions-omp-author-material::-webkit-scrollbar { width: 0; }
-  .opinions-omp-author-material { -ms-overflow-main_style: none; }*/
+  .opinions-omp-author-material { -ms-overflow-style: none; }*/
 
   .opinions-omp-show-more {
     font-size: 15px;
