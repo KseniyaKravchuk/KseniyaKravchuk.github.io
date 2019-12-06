@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+    <script async src="//acdn.adnxs.com/prebid/not-for-prod/1/prebid.js"></script>
+    <script>
+      var div_1_sizes = [
+        [1, 1]
+      ];
+
+      var PREBID_TIMEOUT = 1000;
+      var FAILSAFE_TIMEOUT = 3000;
+
+      var adUnits = [
+        {
+          code: '/114381332/test_prebid',
+          mediaTypes: {
+            banner: {
+              sizes: div_1_sizes
+            }
+          },
+          bids: [{
+            bidder: 'hpmdnetwork',
+            params: {
+              placementId: 349
+            }
+          }]
+        }
+      ];
+
+      // ======== DO NOT EDIT BELOW THIS LINE =========== //
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      googletag.cmd.push(function() {
+        googletag.pubads().disableInitialLoad();
+      });
+
+      var pbjs = pbjs || {};
+      pbjs.que = pbjs.que || [];
+
+      pbjs.que.push(function() {
+        pbjs.addAdUnits(adUnits);
+        pbjs.requestBids({
+          bidsBackHandler: initAdserver,
+          timeout: PREBID_TIMEOUT
+        });
+      });
+
+      function initAdserver() {
+        if (pbjs.initAdserverSet) return;
+        pbjs.initAdserverSet = true;
+        googletag.cmd.push(function() {
+          pbjs.que.push(function() {
+            pbjs.setTargetingForGPTAsync();
+            googletag.pubads().refresh();
+          });
+        });
+      }
+      // in case PBJS doesn't load
+      setTimeout(function() {
+        initAdserver();
+      }, FAILSAFE_TIMEOUT);
+
+      googletag.cmd.push(function() {
+        googletag.defineSlot('/114381332/test_prebid', div_1_sizes, 'div-1').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+
+
+    </script>
+    <link rel="stylesheet" href="style.min.css">
+    <title>Minto</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><a class="logo-link" href="index.html">
+          <div class="logo-img"></div>
+          <div class="logo-text">super minto</div></a></div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="views.html">Views</a></li>
+          <li><a href="contacts.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container-banner">
+      <h1>Lorem ipsum dolor sit amet, consectetur adipisicing</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, officia!</p>
+    </div>
+    <div class="container-quote">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam aliquid assumenda consectetur
+        consequatur debitis deleniti dolorem dolores eos excepturi exercitationem expedita fugit laboriosam laborum nam
+        natus necessitatibus nesciunt odio, officia provident quia reprehenderit sapiente tenetur ut, veritatis?
+        Architecto autem eius eum expedita minus modi nisi quisquam repellendus sequi temporibus.
+      </p>
+    </div>
+    <div class="container-main">
+      <div class="avatar"></div>
+      <div class="main-text">
+        <h3>Lorem ipsum dolor sit</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eius error esse illum ipsa iste iure
+          magnam nemo quae quidem repellat ullam, ut vel! Cupiditate fuga nemo odit unde voluptas! Accusamus
+          distinctio ducimus enim explicabo nobis temporibus. At deserunt ea eligendi eos eveniet fuga officia placeat
+          quisquam quod repellat. Dolor enim excepturi facilis modi nam nemo, quia? Aperiam distinctio odio omnis
+          possimus. Assumenda commodi earum eos laboriosam quasi. Aliquam, atque deleniti dolore, eaque facilis minus
+          natus numquam pariatur perferendis, possimus rerum saepe ullam! Assumenda atque cumque debitis delectus
+          dolore dolorem earum hic maxime minima optio quo repellat sit, suscipit voluptatum?
+        </p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax-item back parallax-bicycle" data-speed="20"></div>
+      <div class="parallax-item back parallax-building" data-speed="20"></div>
+      <div class="parallax-item back parallax-party_20" data-speed="20"></div>
+      <div class="parallax-item middle parallax-cat" data-speed="40"></div>
+      <div class="parallax-item middle parallax-marketing" data-speed="40"></div>
+      <div class="parallax-item middle parallax-party_12" data-speed="40"></div>
+      <div class="parallax-item front parallax-party" data-speed="70"></div>
+      <div class="parallax-item front parallax-bus" data-speed="70"></div>
+      <div class="parallax-item front parallax-tag" data-speed="70"></div>
+    </div>
+    <div id='div-1'>
+      <script type='text/javascript'>
+        googletag.cmd.push(function() {
+          googletag.display('div-1');
+        });
+      </script>
+    </div>
+    <footer><span>Copyright 2010 - All rights reserved</span></footer>
+    <script src="script.min.js"></script>
+  </body>
+</html>
