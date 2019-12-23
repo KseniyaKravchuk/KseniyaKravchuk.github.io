@@ -5539,7 +5539,6 @@ svg {
     top: 0px;
 }
 
-
 .format-block,
 .format-part {
     width: 100%;
@@ -5558,40 +5557,275 @@ svg {
     height: 90%;
 }
 
-/*.img-poster-story::before {*/
-/*    content: '';*/
-/*    display: block;*/
-/*    padding-top: 100%;*/
-/*}*/
-
-/*.img-poster-story::after {*/
-/*    content: '';*/
-/*    top: 5%;*/
-/*    left: 5%;*/
-/*    background: url(../i/formats-stories.png) 50% 50% no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.img-poster-outstream::after {*/
-/*    content: '';*/
-/*    bottom: 0%;*/
-/*    left: 5%;*/
-/*    background: url(../i/formats-outstream.png) 50% 50% no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.img-poster-instream::after {*/
-/*    content: '';*/
-/*    bottom: 0%;*/
-/*    left: 5%;*/
-/*    background: url(../i/formats-instream.png) 50% 50% no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
 #bm,
 #story_anim,
 #outstream_anim,
 #instream_anim {
     max-width: 480px;
     height: 100%;
+}
+
+.parallax-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.parallax-box::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.parallax-box .front {
+    z-index: 2;
+}
+
+.parallax-box .middle {
+    z-index: 1;
+}
+
+.parallax-stories {
+    width: 20%;
+    position: absolute!important;
+    top: 43%!important;
+    left: 34%!important;
+}
+
+.parallax-stories::before {
+    content: '';
+    display: block;
+    padding-top: 178%;
+}
+
+.parallax-stories::after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 178%;
+    background: url("../i/parallax/story.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-playButton {
+    width: 30%;
+    position: absolute!important;
+    top: 8%!important;
+    left: -1%!important;
+}
+
+.parallax-playButton2 {
+    width: 30%;
+    position: absolute!important;
+    top: 50%!important;
+    left: 52%!important;
+}
+
+.parallax-playButton::before,
+.parallax-playButton2::before{
+    content: '';
+    display: block;
+    padding-top: 67%;
+}
+
+.parallax-playButton::after,
+.parallax-playButton2::after {
+    content: '';
+    display: block;
+    padding-top: 67%;
+    width: 100%;
+    background: url("../i/parallax/buttonPlay.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-context {
+    width: 46%;
+    position: absolute!important;
+    top: 3%!important;
+    left: 25%!important;
+}
+
+.parallax-context::before {
+    content: '';
+    display: block;
+    padding-top: 78%;
+}
+
+.parallax-context::after {
+    content: '';
+    display: block;
+    padding-top: 78%;
+    width: 100%;
+    background: url("../i/parallax/context.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-envelop {
+    width: 30%;
+    position: absolute!important;
+    top: 45%!important;
+    left: 12%!important;
+}
+
+.parallax-envelop2 {
+    width: 30%;
+    position: absolute!important;
+    top: 11%!important;
+    left: 61%!important;
+}
+
+.parallax-envelop::before,
+.parallax-envelop2::before {
+    content: '';
+    display: block;
+    padding-top: 66%;
+}
+
+.parallax-envelop::after,
+.parallax-envelop2::after {
+    content: '';
+    display: block;
+    padding-top: 66%;
+    width: 100%;
+    background: url("../i/parallax/envelop.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-cross {
+    width: 2%;
+    position: absolute!important;
+    top: 42%!important;
+    left: 0%!important;
+}
+
+.parallax-cross::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.parallax-cross::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+    background: url("../i/parallax/cross.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-circle {
+    width: 6%;
+    position: absolute!important;
+    top: 62%!important;
+    left: 0%!important;
+}
+
+.parallax-circle::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.parallax-circle::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+    background: url("../i/parallax/circle.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-star {
+    width: 8%;
+    position: absolute!important;
+    top: 79%!important;
+    left: 85%!important;
+}
+
+.parallax-star::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.parallax-star::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+    background: url("../i/parallax/star.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-dot {
+    width: 1%;
+    position: absolute!important;
+    top: 1%!important;
+    left: 14%!important;
+
+}
+
+.parallax-dot2 {
+    width: 1%;
+    position: absolute!important;
+    top: 84%!important;
+    left: 5%!important;
+}
+
+.parallax-dot3 {
+    width: 1%;
+    position: absolute!important;
+    top: 42%!important;
+    left: 97%!important;
+}
+
+.parallax-dot::before,
+.parallax-dot2::before,
+.parallax-dot3::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.parallax-dot::after,
+.parallax-dot2::after,
+.parallax-dot3::after{
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+    background: url("../i/parallax/dot.png") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.parallax-container::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }

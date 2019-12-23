@@ -25,6 +25,11 @@
 			}, 1000/fps)
 		}
 
+		var scene = document.querySelector('.parallax-box');
+		var parallaxInstance = new Parallax(scene, {
+			relativeInput: true
+		});
+
 		waveAnimation();
 
         var animation = bodymovin.loadAnimation({

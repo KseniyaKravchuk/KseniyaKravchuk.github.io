@@ -344,9 +344,7 @@
     <meta name="description"
         content="Петербургский мастер Антон Синкевич — про цены, заказчиков и интерьеры — The Village" />
     <link rel="stylesheet" media="all"
-        href="https://cdn.the-village.ru/www.the-village.ru/gui/mobile-2f0e8a20ab45a3080672efc6d1c815466853b662b79cf189482febce01107ade.css" />
-    <link rel="stylesheet" media="all"
-        href="https://cdn.the-village.ru/www.the-village.ru/gui/style-pack-36-mobile-18417a01881c8600e828a59784b97fa45b75a7a39112f3a7a45feca0474a0956.css" />
+        href="./style.css" />
     <script type="text/javascript">
         if (typeof (console) === 'undefined') {
             window.console = {
@@ -387,17 +385,6 @@
             POST_WIDE: true,
             STYLE_PACK_ID: '36'
         };
-    </script>
-    <script
-        src="https://cdn.the-village.ru/www.the-village.ru/gui/mobile-4ddd563fa0ef0ada4771736836b6e5bf35397414e59227df9d0a54424787d4cd.js"></script>
-    <script type="text/javascript">
-        var I18n = I18n || {};
-        I18n.defaultLocale = 'ru';
-        I18n.locale = 'ru';
-        var dustContext = dust.makeBase(dust.handlers || {}).push(LAM.DustGlobals);
-        var WTF = {
-            FB_APP_ID: LAM.Config.FB_APP_ID
-        }
     </script>
     <script type="text/javascript">
         var AUTH = {
@@ -646,8 +633,7 @@
                                 </li>
                                 <li class="plus"><a href="#" id="franchise_14" class="j-cities-filter">Черное море</a>
                                 </li>
-                            </ul><span class="city-picker-toggle"
-                                onclick="$('.city-picker').toggleClass('city-picker-opened'); return false;"></span>
+                            </ul><span class="city-picker-toggle"></span>
                         </div>
                     </li>
                     <li class="sidebar-login"><a class="signup-link" href="/signup">Зарегистрироваться</a><a
@@ -662,10 +648,9 @@
                 </a>
                 <div class="topbar__name"></div>
                 <div class="sidemenu-toggle">
-                    <a href="#" class="show-sidebar" onclick="$('body').addClass('nav-opened'); return false;"></a>
-                    <a href="#" class="hide-sidebar" onclick="$('body').removeClass('nav-opened'); return false;"></a>
-                    <a href="#" class="hide-nav"
-                        onclick="$('body').removeClass('nav-opened'); $('.city-picker').removeClass('city-picker-opened'); return false;"></a>
+                    <a href="#" class="show-sidebar"></a>
+                    <a href="#" class="hide-sidebar"></a>
+                    <a href="#" class="hide-nav"></a>
                 </div>
             </div>
             <div class="wrap">
@@ -674,7 +659,7 @@
                 <script
                     src="https://cdn.the-village.ru/the-village.ru/editor/plugins/public.js?_dc=1_1570611939"></script>
                 <div class="is_article_start"></div>
-                <div class="post-cover big-picture" role="cover_fullscreen" style="visibility:hidden;">
+                <div class="post-cover big-picture" role="cover_fullscreen">
                     <div class="post-preview"
                         style="background-image: url('https://cdn.the-village.ru/the-village.ru/post-cover/8yj_fydYPGSKxDXOM1xRzQ-default.png');">
                     </div>
@@ -685,11 +670,6 @@
                         <p class="post-time">19 сентября в 12:00</p>
                     </div>
                 </div>
-                <script type="application/x-javascript">
-                    new LAM.Components.Cover({
-                        header_sel: '.topbar'
-                    });
-                </script>
                 <div class="banner">
                     <!--HPMD STORIES WIDGET START-->
                     <div id="hpmd-stories-widget">
@@ -1270,39 +1250,6 @@
                     </div>
                 </div>
                 <script>
-                    $('.stk-gallery').each(function (idx) {
-                        var carouselId = "carousel" + idx,
-                            carouselControlsTemplate = "<nav class='slick-nav'><div class='slick-counter'></nav>",
-                            $sliderEl = $(this);
-                        this.id = carouselId;
-                        $sliderEl.append(carouselControlsTemplate);
-                        $sliderEl.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-                            var i = (currentSlide ? currentSlide : 0) + 1;
-                            $sliderEl.find(".slick-counter").text(i + ' / ' + slick.slideCount);
-                        });
-                        $sliderEl.find(".stk-image-figure").on('click', function (event, slick, currentSlide, nextSlide) {
-                            $sliderEl.slick('slickNext');
-                        });
-                        $sliderEl.slick({
-                            slide: "#" + carouselId + " .stk-image-figure",
-                            appendArrows: "#" + carouselId + " .slick-nav",
-                            adaptiveHeight: true,
-                            speed: 150,
-                            prevArrow: '<div class="slick-prev"></div>',
-                            nextArrow: '<div class="slick-next"></div>',
-                        });
-                    });
-                    $(function () {
-                        new LAM.Components.ShareButtons({
-                            fbButton: '.hype-share .hype-share-button.fb',
-                            vkButton: '.hype-share .hype-share-button.vk',
-                            twButton: '.hype-share .hype-share-button.tw'
-                        });
-                    });
-                    new Comments();
-                    LAM.Utils.lazy_embeds();
-                </script>
-                <script>
                     LAM.Post = {
                         "title": "«Я строю домики на деревьях»\r\n",
                         "flow": "Личный опыт",
@@ -1361,9 +1308,6 @@
                 </div>
             </footer>
         </div>
-        <script>
-            LAM.Utils.mark_active();
-        </script>
         <!-- Счетчики -->
 
         <!-- START TNS tracking code -->
@@ -1412,33 +1356,6 @@
                 }
                 P(f)
             }
-            var A = {
-                init: function () {
-                    this.s = WebFontConfig.id;
-                    this.l = WebFontConfig.fonts;
-                    if (WebFontConfig.by_style) {
-                        this.a = 1
-                    } else {
-                        this.a = 0
-                    };
-                    if ((window.opr && opr.addons) || window.opera || (navigator.userAgent.indexOf(' OPR/') >= 0))
-                        this.b = "Opera";
-                    if (typeof InstallTrigger !== 'undefined')
-                        this.b = "Firefox";
-                    if (Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0)
-                        this.b = "Safari";
-                    if ((false) || (document.documentMode))
-                        this.b = "Explorer";
-                    if (!(document.documentMode) && window.StyleMedia)
-                        this.b = "Edge";
-                    if (window.chrome && window.chrome.webstore)
-                        this.b = "Chrome";
-                    F();
-                }
-            };
-            document.addEventListener("DOMContentLoaded", function () {
-                A.init();
-            });
 
             function mobilecheck() {
                 var check = false;

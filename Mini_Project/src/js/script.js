@@ -1,5 +1,7 @@
 function parallaxEffectScroll() {
+    console.log(pageYOffset)
     document.querySelectorAll('.parallax-item').forEach(function(item) {
+
         var speed = item.getAttribute('data-speed');
         item.style.transform = 'translateY(' + pageYOffset*speed/600 + 'px)';
     })
