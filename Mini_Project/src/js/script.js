@@ -1,5 +1,4 @@
 function parallaxEffectScroll() {
-    console.log(pageYOffset)
     document.querySelectorAll('.parallax-item').forEach(function(item) {
 
         var speed = item.getAttribute('data-speed');

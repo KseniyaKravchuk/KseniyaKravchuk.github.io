@@ -61,15 +61,26 @@
 	});
 
 	function parallaxEffectMove(event) {
-
 		document.querySelectorAll('.parallax-item').forEach(function(item) {
 			var speed = item.getAttribute('data-speed');
-
-			item.style.transform = 'translate(' + (event.clientX - window.innerWidth / 2)*speed/600 + 'px,' + event.clientY*speed/1000 + 'px)';
+			item.style.transform = 'translate(' + ((event.clientX - window.innerWidth / 2) * speed)/600 + 'px,' + event.clientY*speed/1000 + 'px)';
 		})
 	}
 
-	document.addEventListener('mousemove', parallaxEffectMove);
+	function parallaxEffectScroll() {
+		var parallaxContainerSizes = document.querySelector('.parallax-container').getBoundingClientRect()
+		if (parallaxContainerSizes.top <= window.innerWidth &&
+			parallaxContainerSizes.bottom > 0) {
+				document.querySelectorAll('.parallax-item').forEach(function(item) {
+
+					var speed = item.getAttribute('data-speed');
+					item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainerSizes.top)*speed/500 + 'px)';
+				})
+		}
+	}
+
+	// document.addEventListener('mousemove', parallaxEffectMove);
+	document.addEventListener('scroll', parallaxEffectScroll);
 })();
 
 
