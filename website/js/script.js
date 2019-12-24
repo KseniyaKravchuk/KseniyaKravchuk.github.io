@@ -25,11 +25,6 @@
 			}, 1000/fps)
 		}
 
-		var scene = document.querySelector('.parallax-box');
-		var parallaxInstance = new Parallax(scene, {
-			relativeInput: true
-		});
-
 		waveAnimation();
 
         var animation = bodymovin.loadAnimation({
@@ -64,6 +59,17 @@
 			path: 'animation/instream.json'
 		});
 	});
+
+	function parallaxEffectMove(event) {
+
+		document.querySelectorAll('.parallax-item').forEach(function(item) {
+			var speed = item.getAttribute('data-speed');
+
+			item.style.transform = 'translate(' + (event.clientX - window.innerWidth / 2)*speed/600 + 'px,' + event.clientY*speed/1000 + 'px)';
+		})
+	}
+
+	document.addEventListener('mousemove', parallaxEffectMove);
 })();
 
 

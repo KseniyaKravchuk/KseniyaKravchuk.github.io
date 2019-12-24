@@ -5589,9 +5589,9 @@ svg {
 
 .parallax-stories {
     width: 20%;
-    position: absolute!important;
-    top: 43%!important;
-    left: 34%!important;
+    position: absolute;
+    top: 35%;
+    left: 34%;
 }
 
 .parallax-stories::before {
@@ -5614,16 +5614,16 @@ svg {
 
 .parallax-playButton {
     width: 30%;
-    position: absolute!important;
-    top: 8%!important;
-    left: -1%!important;
+    position: absolute;
+    top: 8%;
+    left: -1%;
 }
 
 .parallax-playButton2 {
     width: 30%;
-    position: absolute!important;
-    top: 50%!important;
-    left: 52%!important;
+    position: absolute;
+    top: 50%;
+    left: 52%;
 }
 
 .parallax-playButton::before,
@@ -5648,9 +5648,9 @@ svg {
 
 .parallax-context {
     width: 46%;
-    position: absolute!important;
-    top: 3%!important;
-    left: 25%!important;
+    position: absolute;
+    top: 3%;
+    left: 25%;
 }
 
 .parallax-context::before {
@@ -5673,16 +5673,16 @@ svg {
 
 .parallax-envelop {
     width: 30%;
-    position: absolute!important;
-    top: 45%!important;
-    left: 12%!important;
+    position: absolute;
+    top: 45%;
+    left: 12%;
 }
 
 .parallax-envelop2 {
     width: 30%;
-    position: absolute!important;
-    top: 11%!important;
-    left: 61%!important;
+    position: absolute;
+    top: 11%;
+    left: 61%;
 }
 
 .parallax-envelop::before,
@@ -5707,9 +5707,9 @@ svg {
 
 .parallax-cross {
     width: 2%;
-    position: absolute!important;
-    top: 42%!important;
-    left: 0%!important;
+    position: absolute;
+    top: 42%;
+    left: 0%;
 }
 
 .parallax-cross::before {
@@ -5732,9 +5732,9 @@ svg {
 
 .parallax-circle {
     width: 6%;
-    position: absolute!important;
-    top: 62%!important;
-    left: 0%!important;
+    position: absolute;
+    top: 62%;
+    left: 0%;
 }
 
 .parallax-circle::before {
@@ -5757,9 +5757,9 @@ svg {
 
 .parallax-star {
     width: 8%;
-    position: absolute!important;
-    top: 79%!important;
-    left: 85%!important;
+    position: absolute;
+    top: 79%;
+    left: 85%;
 }
 
 .parallax-star::before {
@@ -5782,24 +5782,24 @@ svg {
 
 .parallax-dot {
     width: 1%;
-    position: absolute!important;
-    top: 1%!important;
-    left: 14%!important;
+    position: absolute;
+    top: 1%;
+    left: 14%;
 
 }
 
 .parallax-dot2 {
     width: 1%;
-    position: absolute!important;
-    top: 84%!important;
-    left: 5%!important;
+    position: absolute;
+    top: 84%;
+    left: 5%;
 }
 
 .parallax-dot3 {
     width: 1%;
-    position: absolute!important;
-    top: 42%!important;
-    left: 97%!important;
+    position: absolute;
+    top: 42%;
+    left: 97%;
 }
 
 .parallax-dot::before,
