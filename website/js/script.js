@@ -68,13 +68,15 @@
 	}
 
 	function parallaxEffectScroll() {
-		var parallaxContainerSizes = document.querySelector('.parallax-container').getBoundingClientRect()
-		if (parallaxContainerSizes.top <= window.innerWidth &&
-			parallaxContainerSizes.bottom > 0) {
+		var divider;
+		var parallaxContainer = document.querySelector('.parallax-container');
+		if (parallaxContainer.getBoundingClientRect().top <= window.innerHeight &&
+			parallaxContainer.getBoundingClientRect().bottom > 0) {
+			divider = window.innerWidth <= 500 ? 750 : 500;
 				document.querySelectorAll('.parallax-item').forEach(function(item) {
 
 					var speed = item.getAttribute('data-speed');
-					item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainerSizes.top)*speed/500 + 'px)';
+					item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainer.getBoundingClientRect().top)*speed/divider + 'px)';
 				})
 		}
 	}
