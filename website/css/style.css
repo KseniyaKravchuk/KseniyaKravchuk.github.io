@@ -326,11 +326,19 @@ b, strong {
 /* 2. Common responsive styles */
 /* Smaller than 1200px */
 @media (max-width: 1199.98px) {
-    header[class^="pt-"], section[class^="pt-"], header[class*=" pt-"], section[class*=" pt-"] {
+    /*header[class^="pt-"], section[class^="pt-"], header[class*=" pt-"], section[class*=" pt-"] {*/
+    /*    padding-top: 80px;*/
+    /*}*/
+
+    /*header[class^="pb-"], section[class^="pb-"], header[class*=" pb-"], section[class*=" pb-"] {*/
+    /*    padding-bottom: 80px;*/
+    /*}*/
+
+    header[class^="pt-"], header[class*=" pt-"] {
         padding-top: 80px;
     }
 
-    header[class^="pb-"], section[class^="pb-"], header[class*=" pb-"], section[class*=" pb-"] {
+    header[class^="pb-"], header[class*=" pb-"] {
         padding-bottom: 80px;
     }
 
