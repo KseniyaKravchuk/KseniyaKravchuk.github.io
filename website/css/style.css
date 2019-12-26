@@ -5510,18 +5510,15 @@ svg {
 }
 
 .rule-1 {
-    background: url("../i/rule1.png") 50% 50% no-repeat;
-    background-size: contain;
+    background: url("../i/rule1.svg") 50% / contain no-repeat;
 }
 
 .rule-2 {
-    background: url("../i/rule2.png") 50% 50% no-repeat;
-    background-size: contain;
+    background: url("../i/rule2.svg") 50% / contain no-repeat;
 }
 
 .rule-3 {
-    background: url("../i/rule3.png") 50% 50% no-repeat;
-    background-size: contain;
+    background: url("../i/rule3.svg") 50% / contain no-repeat;
 }
 
 .img-poster {
@@ -5565,6 +5562,12 @@ svg {
     height: 100%;
 }
 
+.parallax-container::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
 .parallax-box {
     width: 100%;
     height: 100%;
@@ -5573,7 +5576,13 @@ svg {
     left: 0;
 }
 
-.parallax-box::before {
+.parallax-box::before,
+.parallax-dot::before,
+.parallax-dot2::before,
+.parallax-dot3::before,
+.parallax-star::before,
+.parallax-circle::before,
+.parallax-cross::before {
     content: '';
     display: block;
     padding-top: 100%;
@@ -5600,16 +5609,30 @@ svg {
     padding-top: 178%;
 }
 
-.parallax-stories::after {
+.parallax-stories::after,
+.parallax-playButton::after,
+.parallax-playButton2::after,
+.parallax-context::after,
+.parallax-envelop::after,
+.parallax-envelop2::after,
+.parallax-cross::after,
+.parallax-circle::after,
+.parallax-star::after,
+.parallax-dot::after,
+.parallax-dot2::after,
+.parallax-dot3::after {
     content: '';
     display: block;
     width: 100%;
-    padding-top: 178%;
-    background: url("../i/parallax/story.png") 50% 50% no-repeat;
-    background-size: contain;
     position: absolute;
     top: 0%;
     left: 0%;
+}
+
+.parallax-stories::after {
+    content: '';
+    padding-top: 178%;
+    background: url("../i/parallax/story.png") 50% / contain no-repeat;
 }
 
 .parallax-playButton {
@@ -5636,14 +5659,8 @@ svg {
 .parallax-playButton::after,
 .parallax-playButton2::after {
     content: '';
-    display: block;
     padding-top: 67%;
-    width: 100%;
-    background: url("../i/parallax/buttonPlay.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/buttonPlay.png") 50% / contain no-repeat;
 }
 
 .parallax-context {
@@ -5661,14 +5678,8 @@ svg {
 
 .parallax-context::after {
     content: '';
-    display: block;
     padding-top: 78%;
-    width: 100%;
-    background: url("../i/parallax/context.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/context.png") 50% / contain no-repeat;
 }
 
 .parallax-envelop {
@@ -5695,14 +5706,8 @@ svg {
 .parallax-envelop::after,
 .parallax-envelop2::after {
     content: '';
-    display: block;
     padding-top: 66%;
-    width: 100%;
-    background: url("../i/parallax/envelop.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/envelop.png") 50% / contain no-repeat;
 }
 
 .parallax-cross {
@@ -5712,22 +5717,10 @@ svg {
     left: 0%;
 }
 
-.parallax-cross::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
 .parallax-cross::after {
     content: '';
-    display: block;
     padding-top: 100%;
-    width: 100%;
-    background: url("../i/parallax/cross.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/cross.png") 50% / contain no-repeat;
 }
 
 .parallax-circle {
@@ -5737,22 +5730,10 @@ svg {
     left: 0%;
 }
 
-.parallax-circle::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
 .parallax-circle::after {
     content: '';
-    display: block;
     padding-top: 100%;
-    width: 100%;
-    background: url("../i/parallax/circle.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/circle.png") 50% / contain no-repeat;
 }
 
 .parallax-star {
@@ -5762,22 +5743,10 @@ svg {
     left: 85%;
 }
 
-.parallax-star::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
 .parallax-star::after {
     content: '';
-    display: block;
     padding-top: 100%;
-    width: 100%;
-    background: url("../i/parallax/star.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/star.png") 50% / contain no-repeat;
 }
 
 .parallax-dot {
@@ -5785,7 +5754,6 @@ svg {
     position: absolute;
     top: -2%;
     left: 14%;
-
 }
 
 .parallax-dot2 {
@@ -5802,30 +5770,14 @@ svg {
     left: 97%;
 }
 
-.parallax-dot::before,
-.parallax-dot2::before,
-.parallax-dot3::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
 .parallax-dot::after,
 .parallax-dot2::after,
-.parallax-dot3::after{
+.parallax-dot3::after {
     content: '';
-    display: block;
     padding-top: 100%;
-    width: 100%;
-    background: url("../i/parallax/dot.png") 50% 50% no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    background: url("../i/parallax/dot.png") 50% / contain no-repeat;
 }
 
-.parallax-container::after {
-    content: '';
-    display: block;
-    padding-top: 100%;
+.content_28 img {
+    max-width: 90%;
 }

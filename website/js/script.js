@@ -60,28 +60,19 @@
 		});
 	});
 
-	function parallaxEffectMove(event) {
-		document.querySelectorAll('.parallax-item').forEach(function(item) {
-			var speed = item.getAttribute('data-speed');
-			item.style.transform = 'translate(' + ((event.clientX - window.innerWidth / 2) * speed)/600 + 'px,' + event.clientY*speed/1000 + 'px)';
-		})
-	}
-
 	function parallaxEffectScroll() {
 		var divider;
-		var parallaxContainer = document.querySelector('.parallax-container');
-		if (parallaxContainer.getBoundingClientRect().top <= window.innerHeight &&
-			parallaxContainer.getBoundingClientRect().bottom > 0) {
+		var parallaxContainerSize = document.querySelector('.parallax-container').getBoundingClientRect();
+		if (parallaxContainerSize.top <= window.innerHeight &&
+			parallaxContainerSize.bottom > 0) {
 			divider = window.innerWidth <= 500 ? 750 : 500;
-				document.querySelectorAll('.parallax-item').forEach(function(item) {
-
-					var speed = item.getAttribute('data-speed');
-					item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainer.getBoundingClientRect().top)*speed/divider + 'px)';
-				})
+			document.querySelectorAll('.parallax-item').forEach(function(item) {
+				var speed = item.getAttribute('data-speed');
+				item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainerSize.top)*speed/divider + 'px)';
+			})
 		}
 	}
 
-	// document.addEventListener('mousemove', parallaxEffectMove);
 	document.addEventListener('scroll', parallaxEffectScroll);
 })();
 
