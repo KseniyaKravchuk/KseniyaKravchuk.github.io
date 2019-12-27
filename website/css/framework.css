@@ -12569,6 +12569,10 @@ input[type=radio] + label:before {
     color: #5321da;
 }
 
+.color-lilac {
+    color: #8a00a8;
+}
+
 .color-heading {
     color: #bbb;
 }

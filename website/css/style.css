@@ -21,6 +21,7 @@
 /* 1. Common styles */
 body {
     font-family: Source Sans Pro;
+    height: 100vh;
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
@@ -44,7 +45,8 @@ header, section {
     background-size: cover;
 }
 
-header nav {
+.main-header nav,
+.contacts-header nav {
     position: absolute;
     top: 0;
     left: 0;
@@ -334,11 +336,17 @@ b, strong {
     /*    padding-bottom: 80px;*/
     /*}*/
 
-    header[class^="pt-"], header[class*=" pt-"] {
+    .main-header[class^="pt-"],
+    .main-header[class*=" pt-"],
+    .contacts-header[class*=" pt-"],
+    .contacts-header[class^="pt-"] {
         padding-top: 80px;
     }
 
-    header[class^="pb-"], header[class*=" pb-"] {
+    .main-header[class^="pb-"],
+    .main-header[class*=" pb-"],
+    .contacts-header[class^="pb-"],
+    .contacts-header[class*=" pb-"]{
         padding-bottom: 80px;
     }
 
@@ -5788,4 +5796,150 @@ svg {
 
 .content_28 img {
     max-width: 90%;
+}
+
+/*tabs*/
+.tab-container {
+    box-sizing: content-box;
+}
+
+.tab-content {
+    padding: 40px 0 40px 0;
+    display: flex;
+    width: 180%;
+    margin: 0% -36%;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s linear;
+}
+
+.pc-tab > input, .pc-tab section > div {
+    display: none;
+}
+
+.tab-nav {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tab-nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tab-img-pc {
+    max-width: 33%;
+}
+
+.tab-main-info,
+.tab-img-phone {
+    width: 33%;
+}
+
+.tab-main-info {
+    padding: 0 40px;
+}
+
+.tab-main-info img {
+    width: 60%;
+}
+
+.tab-img-pc,
+.tab-img-phone {
+    padding: 0;
+}
+
+.tab-img-pc img {
+    width: 100%;
+}
+
+.tab-img-phone img {
+    height: 100%;
+}
+
+#tab-instream:checked ~ section .tab-instream,
+#tab-stories1:checked ~ section .tab-stories1,
+#tab-stories2:checked ~ section .tab-stories2,
+#tab-carousel1:checked ~ section .tab-carousel1,
+#tab-carousel2:checked ~ section .tab-carousel2,
+#tab-immersion:checked ~ section .tab-immersion,
+#tab-branding:checked ~ section .tab-branding {
+    display: block;
+}
+#tab-instream:checked ~ nav .tab-instream,
+#tab-stories1:checked ~ nav .tab-stories1,
+#tab-stories2:checked ~ nav .tab-stories2,
+#tab-carousel1:checked ~ nav .tab-carousel1,
+#tab-carousel2:checked ~ nav .tab-carousel2,
+#tab-immersion:checked ~ nav .tab-immersion,
+#tab-branding:checked ~ nav .tab-branding {
+    color: red;
+}
+
+.pc-tab {
+    width: 100%;
+    margin: 0 auto;
+}
+.pc-tab ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.tab-nav ul li label {
+    padding: 5px 23px;
+    margin: 15px 0;
+    border-bottom: 2px solid #ffffff;
+}
+.pc-tab ul li label:hover {
+    border-bottom: 2px solid #ebff00;
+}
+.pc-tab ul li label:active {
+    background: #ffffff;
+}
+.pc-tab ul li:not(:last-child) label {
+    border-right-width: 0;
+}
+.pc-tab section {
+    clear: both;
+}
+
+#tab-instream:checked ~ nav .tab-instream label,
+#tab-stories1:checked ~ nav .tab-stories1 label,
+#tab-stories2:checked ~ nav .tab-stories2 label,
+#tab-carousel1:checked ~ nav .tab-carousel1 label,
+#tab-carousel2:checked ~ nav .tab-carousel2 label,
+#tab-immersion:checked ~ nav .tab-immersion label,
+#tab-branding:checked ~ nav .tab-branding label {
+    background: #23c8a8;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+}
+#tab-instream:checked ~ nav .tab-instream label:after,
+#tab-stories1:checked ~ nav .tab-stories1 label:after,
+#tab-stories2:checked ~ nav .tab-stories2 label:after,
+#tab-carousel1:checked ~ nav .tab-carousel1 label:after,
+#tab-carousel2:checked ~ nav .tab-carousel2 label:after,
+#tab-immersion:checked ~ nav .tab-immersion label:after,
+#tab-branding:checked ~ nav .tab-branding label:after{
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    left: 0;
+    bottom: -1px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.content {
+    flex: 1 0 auto;
+}
+footer {
+    flex: 0 0 auto;
 }

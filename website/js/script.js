@@ -61,19 +61,35 @@
 	});
 
 	function parallaxEffectScroll() {
-		var divider;
-		var parallaxContainerSize = document.querySelector('.parallax-container').getBoundingClientRect();
-		if (parallaxContainerSize.top <= window.innerHeight &&
-			parallaxContainerSize.bottom > 0) {
-			divider = window.innerWidth <= 500 ? 750 : 500;
-			document.querySelectorAll('.parallax-item').forEach(function(item) {
-				var speed = item.getAttribute('data-speed');
-				item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainerSize.top)*speed/divider + 'px)';
-			})
-		}
+
+			var divider;
+			var parallaxContainerSize = document.querySelector('.parallax-container').getBoundingClientRect();
+			if (parallaxContainerSize.top <= window.innerHeight &&
+				parallaxContainerSize.bottom > 0) {
+				divider = window.innerWidth <= 500 ? 750 : 500;
+				document.querySelectorAll('.parallax-item').forEach(function(item) {
+					var speed = item.getAttribute('data-speed');
+					item.style.transform = 'translateY(' + (window.innerHeight - parallaxContainerSize.top)*speed/divider + 'px)';
+				})
+			}
 	}
 
-	document.addEventListener('scroll', parallaxEffectScroll);
+	if (document.querySelector('.parallax-container')) {
+		document.addEventListener('scroll', parallaxEffectScroll);
+	}
+
+	var imgPC = document.querySelector('.tab-img-pc');
+	function moveComputer() {
+		document.querySelector('.tab-content').style.margin = '0% 0%'
+	}
+	function hideComputer() {
+		document.querySelector('.tab-content').style.margin = '0% -33%'
+	}
+
+	imgPC.addEventListener('mouseover', moveComputer);
+	imgPC.addEventListener('mouseout', hideComputer);
+
+
 })();
 
 
