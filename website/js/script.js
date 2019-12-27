@@ -86,8 +86,11 @@
 		document.querySelector('.tab-content').style.margin = '0% -33%'
 	}
 
-	imgPC.addEventListener('mouseover', moveComputer);
-	imgPC.addEventListener('mouseout', hideComputer);
+	if (imgPC) {
+		imgPC.addEventListener('mouseover', moveComputer);
+		imgPC.addEventListener('mouseout', hideComputer);
+	}
+
 
 
 })();
