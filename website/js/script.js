@@ -117,9 +117,9 @@
 	// window.addEventListener('click', styleElement)
 
 	//Scrollspy & Smooth Scroll Library
-	const navbar = document.querySelector('.navbar-formats');
-	const scrollspy = new VanillaScrollspy(navbar);
-	scrollspy.init();
+	// const navbar = document.querySelector('.navbar-formats');
+	// const scrollspy = new VanillaScrollspy(navbar);
+	// scrollspy.init();
 
 })();
 
