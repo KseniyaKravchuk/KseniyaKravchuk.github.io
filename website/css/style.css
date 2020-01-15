@@ -5831,13 +5831,16 @@ footer {
 /*    align-items: center;*/
 /*}*/
 .formats-nav {
+    padding: 10px 0;
     justify-content: center;
 }
+
 .formats-nav li {
     margin: 10px 15px;
 }
 .formats-nav a {
     color: #000000;
+    padding: 10px 15px;
 }
 .img_PC_phone {
     width: inherit;
@@ -5869,3 +5872,15 @@ footer {
     -webkit-background-clip: content-box;
     background-clip: content-box;
  }
+
+.navbar-formats {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.navbar-formats a.active {
+    background: #23c8a8;
+    color: #ffffff;
+
+    border-radius: 50px;
+}
+

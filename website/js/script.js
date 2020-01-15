@@ -78,39 +78,49 @@
 		document.addEventListener('scroll', parallaxEffectScroll);
 	}
 
-	var formats = [].slice.call(document.querySelectorAll('.format-container'));
-	var items_formats = formats.map(format => {
-		return {
-			name: format.id,
-			checked: false
-		}
-	});
-
-	console.log(items_formats)
-
-	// function doSomething(e) {
-	// 	console.log(e.target.dataset.id)
-	// }
+	// var formats = [].slice.call(document.querySelectorAll('.format-container'));
+	// var items_formats = formats.map(format => {
+	// 	return {
+	// 		name: format.id,
+	// 		checked: false
+	// 	}
+	// });
+	//
+	// console.log(items_formats)
+	//
+	//
 	// function checkElement(e) {
-	// 	var trueItem = false;
-	// 	if (!trueItem) {
+	// 	var count;
+	// 	for (var i = 0; i < items_formats.length; i++) {
+	// 		if (items_formats[i].name === e.target.dataset.id) {
+	// 			items_formats[i].checked = true;
+	// 			count = i;
+	// 		} else {
+	// 			items_formats[i].checked = false;
+	// 		}
+	// 	}
+	// 	return count
+	// }
+	// function styleElement(e) {
+	// 	var res = checkElement(e);
+	// 	if (res !== undefined) {
 	// 		for (var i = 0; i < items_formats.length; i++) {
-	// 			if (items_formats[i].name === e.target.dataset.id) {
-	// 				items_formats[i].checked = true;
-	// 				trueItem = true
+	// 			var item = document.querySelector(`a[data-id=${items_formats[i].name}]`);
+	// 			if (res === i) {
+	// 				item.classList.add('checked-format');
+	// 			} else {
+	// 				item.classList.remove('checked-format');
 	// 			}
 	// 		}
 	// 	}
-	// 	console.log(trueItem)
-	// 	console.log(items_formats)
-	// 	return trueItem
-	// }
-	// function styleElement(e) {
-	// 	if (checkElement(e)) {
-	//
-	// 	}
 	// }
 	// window.addEventListener('click', styleElement)
+
+	//Scrollspy & Smooth Scroll Library
+	const navbar = document.querySelector('.navbar-formats');
+	const scrollspy = new VanillaScrollspy(navbar);
+	scrollspy.init();
+
 })();
 
 

@@ -35,6 +35,8 @@
 
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/vanillajs-scrollspy.js"></script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -90,38 +92,41 @@
                 </div>
             </div>
         </header>
-        <ul class="formats-nav color-black list-unstyled d-flex bg-white">
-            <li>
-                <a data-id="instream" href="#instream">Instream</a>
-            </li>
-            <li>
-                <a data-id="stories1" href="#stories1">Stories 1</a>
-            </li>
-            <li>
-                <a data-id="stories2" href="#stories2">Stories 2</a>
-            </li>
-            <li>
-                <a href="#carousel1">Carousel 1</a>
-            </li>
-            <li>
-                <a href="#carousel2">Carousel 2</a>
-            </li>
-            <li>
-                <a href="#immersion">Immersion</a>
-            </li>
-            <li>
-                <a href="#branding">Video branding</a>
-            </li>
-        </ul>
+        <nav class="navbar-formats">
+            <ul class="formats-nav color-black list-unstyled d-flex bg-white">
+                <li>
+                    <a class="active" href="#instream">Instream</a>
+                </li>
+                <li>
+                    <a href="#stories1">Stories 1</a>
+                </li>
+                <li>
+                    <a href="#stories2">Stories 2</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="#carousel1">Carousel 1</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="#carousel2">Carousel 2</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="#immersion">Immersion</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="#branding">Video branding</a>-->
+<!--                </li>-->
+            </ul>
+        </nav>
+
     </div>
 
 
     <section class="formats-container pb-50">
-        <section class="pt-20 pb-20">
-            <div id="instream" class="format-container row">
+        <section id="instream"  class="pr-20 pt-20 pb-20">
+            <div class="format-container row">
                 <div class="col-6"></div>
                 <div class="col-6 pl-35">
-                    <h3 class="mb-30 color-black">Instream</h3>
+                    <h2 class="mb-30 color-black">Instream</h2>
                 </div>
             </div>
             <div class="row">
@@ -173,11 +178,13 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div id="stories1" class="format-container row">
+        <section id="stories1" class="pr-20 pt-20 pb-20">
+            <div class="format-container row">
                 <div class="col-6"></div>
                 <div class="col-6 pl-35">
-                    <h3 class="mb-30 color-black">Stories 1</h3>
+                    <h2 class="mb-30 color-black">Stories 1</h2>
                 </div>
             </div>
             <div class="row">
@@ -229,11 +236,13 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div id="stories2" class="format-container row">
+        <section id="stories2" class="pr-20 pt-20 pb-20">
+            <div class="format-container page row">
                 <div class="col-6"></div>
                 <div class="col-6 pl-35">
-                    <h3 class="mb-30 color-black">Stories 2</h3>
+                    <h2 class="mb-30 color-black">Stories 2</h2>
                 </div>
             </div>
             <div class="row">
@@ -285,6 +294,8 @@
                     </div>
                 </div>
             </div>
+        </section>
+
 
 <!--            <div id="carousel1" class="row">-->
 <!--                <h2>Carousel 1</h2>-->
@@ -303,7 +314,7 @@
 <!--                <p>Два в одном: брендирование страницы и Out-Stream видео.</p>-->
 <!--            </div>-->
         </section>
-    </section>
+
 </div>
 
 
