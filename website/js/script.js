@@ -78,48 +78,18 @@
 		document.addEventListener('scroll', parallaxEffectScroll);
 	}
 
-	// var formats = [].slice.call(document.querySelectorAll('.format-container'));
-	// var items_formats = formats.map(format => {
-	// 	return {
-	// 		name: format.id,
-	// 		checked: false
-	// 	}
-	// });
-	//
-	// console.log(items_formats)
-	//
-	//
-	// function checkElement(e) {
-	// 	var count;
-	// 	for (var i = 0; i < items_formats.length; i++) {
-	// 		if (items_formats[i].name === e.target.dataset.id) {
-	// 			items_formats[i].checked = true;
-	// 			count = i;
-	// 		} else {
-	// 			items_formats[i].checked = false;
-	// 		}
-	// 	}
-	// 	return count
-	// }
-	// function styleElement(e) {
-	// 	var res = checkElement(e);
-	// 	if (res !== undefined) {
-	// 		for (var i = 0; i < items_formats.length; i++) {
-	// 			var item = document.querySelector(`a[data-id=${items_formats[i].name}]`);
-	// 			if (res === i) {
-	// 				item.classList.add('checked-format');
-	// 			} else {
-	// 				item.classList.remove('checked-format');
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// window.addEventListener('click', styleElement)
+	const videoContainer = document.querySelector('.video-container');
+	const videoContainerPhone = document.querySelector('.video-container-phone');
 
-	//Scrollspy & Smooth Scroll Library
-	// const navbar = document.querySelector('.navbar-formats');
-	// const scrollspy = new VanillaScrollspy(navbar);
-	// scrollspy.init();
+	if (videoContainer) {
+		videoContainer.style.height = videoContainer.clientWidth * 0.54 + 'px';
+		videoContainerPhone.style.height = videoContainerPhone.clientWidth * 1.6 + 'px';
+		window.addEventListener('resize', changeSizes)
+	}
+
+	function changeSizes() {
+		videoContainer.style.height = videoContainer.clientWidth * 0.54 + 'px';
+	}
 
 })();
 
@@ -144,7 +114,7 @@ $(document).ready(function() {
 function SF_scripts(){
 
 	$(window).resize(function(){
-		resizeVideo();
+		// resizeVideo();
 		showMenuBtn();
 	});
 
@@ -333,7 +303,7 @@ function SF_scripts(){
 		});
 	}
 
-	resizeVideo();
+	// resizeVideo();
 
 	// Play video
 

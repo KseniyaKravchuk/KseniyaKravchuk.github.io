@@ -5823,13 +5823,7 @@ footer {
 .formats-container {
     margin-top: 220px;
 }
-/*formats*/
-/*.formats-container .format-container:target {*/
-/*    margin-top: 220px;*/
-/*}*/
-/*.format-container {*/
-/*    align-items: center;*/
-/*}*/
+
 .formats-nav {
     padding: 10px 0;
     justify-content: center;
@@ -5842,27 +5836,68 @@ footer {
     color: #000000;
     padding: 10px 15px;
 }
-.img_PC_phone {
-    width: inherit;
-    margin: 10px;
+
+.visual-phone {
+    position: absolute;
+    top: 42%;
+    left: 70%;
 }
+
+.banner-container {
+    width: 88%;
+    position: relative;
+}
+
+.video-container {
+    width: 47%;
+    position: absolute;
+    top: 22%;
+    left: 25.3%;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+    position: absolute;
+    top: -19%;
+}
+
+.banner-container-phone {
+    position: relative;
+    width: 70%;
+}
+
+.video-container-phone {
+    width: 78%;
+    position: absolute;
+    top: 20%;
+    left: 10.2%;
+    overflow: hidden;
+}
+
+.video-phone {
+    width: 214%;
+    position: absolute;
+    left: -56%;
+}
+
 .icon-credit-card {
-    background: url("../i/icon-credit-card.png") 50% 0% no-repeat;
+    background: url("../i/icon-credit-card.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
 .icon-sizes {
-    background: url("../i/icon-sizes.png") 50% 0% no-repeat;
+    background: url("../i/icon-sizes.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
 .icon-stopwatch {
-    background: url("../i/icon-stopwatch.png") 50% 0% no-repeat;
+    background: url("../i/icon-stopwatch.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
 .icon-settings {
-    background: url("../i/icon-settings.png") 50% 0% no-repeat;
+    background: url("../i/icon-settings.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 

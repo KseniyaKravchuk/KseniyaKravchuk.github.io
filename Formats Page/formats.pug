@@ -1,0 +1,51 @@
+extends layout/main
+
+mixin format(formatData)
+    section(class='pr-20.pt-20.pb-20' id= formatData.name)
+        .format-container.row
+            .col-6
+            .col-6.pl-35
+                h2.mb-30.color-black= formatData.name
+        .row
+            .col-6
+                img.img_PC_phone(src='i/phone&pc.png', alt='')
+            .col-6.pl-35
+                p.color-black.mb-30= formatData.description
+                .row.d-flex.align-items-baseline.color-black
+                    .col-md-12.col-lg-6
+                        .row.mt-20.mb-20
+                            .icon-credit-card.col-lg-2.col-md-1.px-0
+                            .col-9
+                                h5 Модель оплаты
+                                p= formatData.payment
+                            .col-1
+                        .row.mt-20.mb-20
+                            .icon-sizes.col-lg-2.col-md-1.px-0
+                            .col-9
+                                h5 Размер
+                                p= formatData.sizes
+                            .col-1
+                    .col-md-12.col-lg-6
+                        .row.mt-20.mb-20
+                            .icon-stopwatch.col-lg-2.col-md-1.px-0
+                            .col-9
+                                h5 Хронометраж
+                                p= formatData.time
+                            .col-1
+                        .row.mt-20.mb-20
+                            .icon-settings.col-lg-2.col-md-1.px-0
+                            .col-9
+                                h5 Доп.инфа
+                                p= formatData.info
+                            .col-1
+
+block variables
+    -
+        var aboutFormats = [{ name: "instream", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"},
+                            { name: "stories1", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"},
+                            { name: "stories2", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"}]
+
+block content
+    section.formats-container.pb-50
+        for i in aboutFormats
+            +format(i)

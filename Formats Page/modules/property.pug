@@ -1,0 +1,35 @@
+-
+    var prop1 = [
+    { pic: "icon-credit-card", name: "Модель оплаты", nameEn: "Payment" },
+    { pic: "icon-sizes", name: "Размер", nameEn: "Sizes" }]
+-
+    var prop2 = [
+    { pic: "icon-stopwatch", name: "Хронометраж", nameEn: "Time"},
+    { pic: "icon-settings", name: "Доп.инфа", nameEn: "Info" }]
+
+-
+    var description = {
+        Payment: "CPM, CRV",
+        Sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px",
+        Time: "От 6 до 30 секунд",
+        Info: "Что-то на пару строк. Дополнительная информация"
+    }
+
+mixin property(propertyData)
+    .row.mt-20.mb-20
+        div(class="col-lg-2 col-md-1 px-0 " + propertyData.pic)
+        .col-9
+            h5= propertyData.name
+            +propertyText(description)
+        .col-1
+mixin propertyText(descProperty)
+    p= descProperty.propertyData.nameEn
+
+.row.d-flex.align-items-baseline.color-black
+    .col-md-12.col-lg-6
+        +property(prop1[0])
+        +property(prop1[1])
+    .col-md-12.col-lg-6
+        +property(prop2[0])
+        +property(prop2[1])
+

@@ -1,0 +1,47 @@
+-
+    var mainMenu = [{link: 'index.html', name: 'Домой'},
+                    {link: 'formats.html', name: 'Форматы'},
+                    {link: 'contacts.html', name: 'Контакты'}]
+-
+    var formatMenu = [{link: '#instream', name: 'Instream', isActive: true},
+                    {link: '#stories1', name: 'Stories 1', isActive: false},
+                    {link: '#stories2', name: 'Stories 2', isActive: false}]
+
+.topbar
+    // Mobile Menu
+    a.open_menu.color-main.bg-light.radius_full
+        i.fas.fa-bars.lh-40
+    .navigation_mobile.bg-light.type2
+        a.close_menu.color-main
+            i.fas.fa-times
+        .px-40.pt-60.pb-60.text-center.inner
+            for i in mainMenu
+                div
+                    a.f-heading.f-22.link.color-main.mb-20(href= i.link)= i.name
+
+    // Menu
+    header.pt-50.pb-50.bg-dark.formats-header.header_2
+        .container
+            nav.header_menu_2.transparent
+                .container.px-xl-0
+                    .row.justify-content-between.align-items-baseline
+                        .col-md-4.d-flex.justify-content-center
+                            .logo-nav.color-white
+                                a.color-white.link(href='index.html') DOUBLE SCREEN
+                        .col-sm-12.col-xl-4.d-flex.justify-content-center.align-items-center
+                            a.link.color-white.f-18.mx-15.border-bottom-yellow(href='formats.html') Форматы
+                            a.link.color-white.f-18.mx-15(href='contacts.html') Контакты
+            .d-flex.align-items-center.justify-content-center.flex-column
+                .logo.color-white.d-block.d-xl-none.text-center.logo_mobile(data-aos-duration='600', data-aos='fade-down', data-aos-delay='100')
+                    | DOUBLE SCREEN
+    // Format Menu
+    nav.navbar-formats
+        ul.formats-nav.color-black.list-unstyled.d-flex.bg-white
+            for i in formatMenu
+                if (i.isActive)
+                    li
+                        a.active(href= i.link)= i.name
+                else
+                    li
+                        a(href= i.link)= i.name
+
