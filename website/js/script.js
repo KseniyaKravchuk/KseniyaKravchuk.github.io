@@ -78,17 +78,22 @@
 		document.addEventListener('scroll', parallaxEffectScroll);
 	}
 
-	const videoContainer = document.querySelector('.video-container');
-	const videoContainerPhone = document.querySelector('.video-container-phone');
+	const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
+	const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
 
 	if (videoContainer) {
-		videoContainer.style.height = videoContainer.clientWidth * 0.54 + 'px';
-		videoContainerPhone.style.height = videoContainerPhone.clientWidth * 1.6 + 'px';
+		for (let i = 0; i < videoContainer.length; i++) {
+			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.54 + 'px';
+			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
+		}
 		window.addEventListener('resize', changeSizes)
 	}
 
 	function changeSizes() {
-		videoContainer.style.height = videoContainer.clientWidth * 0.54 + 'px';
+		for (let i = 0; i < videoContainer.length; i++) {
+			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.54 + 'px';
+			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
+		}
 	}
 
 })();
