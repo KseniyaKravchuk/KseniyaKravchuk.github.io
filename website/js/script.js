@@ -91,7 +91,7 @@
 
 	function changeSizes() {
 		for (let i = 0; i < videoContainer.length; i++) {
-			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.54 + 'px';
+			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.56 + 'px';
 			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
 		}
 	}

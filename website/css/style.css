@@ -5821,7 +5821,7 @@ footer {
 }
 
 .formats-container {
-    margin-top: 220px;
+    margin-top: 150px;
 }
 
 .formats-nav {
@@ -5859,12 +5859,16 @@ footer {
 .video {
     width: 100%;
     position: absolute;
-    top: -19%;
+    top: 0%;
 }
 
 .banner-container-phone {
     position: relative;
     width: 70%;
+}
+
+.mobile-banner-container-phone {
+    width: 30%;
 }
 
 .video-container-phone {
@@ -5876,9 +5880,9 @@ footer {
 }
 
 .video-phone {
-    width: 214%;
+    width: 100%;
     position: absolute;
-    left: -56%;
+    left: 0%;
 }
 
 .icon-credit-card {
