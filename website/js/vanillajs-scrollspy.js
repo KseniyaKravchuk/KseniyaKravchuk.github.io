@@ -190,7 +190,7 @@ var VanillaScrollspy = function () {
         currLink = links[i];
         refElement = document.querySelector(currLink.getAttribute('href'));
 
-        if (refElement.offsetTop <= scrollPos && refElement.offsetTop + refElement.clientHeight > scrollPos) {
+        if (refElement.offsetTop - 70 <= scrollPos && refElement.offsetTop - 70 + refElement.clientHeight > scrollPos) {
           currLink.classList.add('active');
         } else {
           currLink.classList.remove('active');

@@ -61,7 +61,6 @@
 	});
 
 	function parallaxEffectScroll() {
-
 			var divider;
 			var parallaxContainerSize = document.querySelector('.parallax-container').getBoundingClientRect();
 			if (parallaxContainerSize.top <= window.innerHeight &&
@@ -83,7 +82,7 @@
 
 	if (videoContainer) {
 		for (let i = 0; i < videoContainer.length; i++) {
-			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.54 + 'px';
+			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.55 + 'px';
 			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
 		}
 		window.addEventListener('resize', changeSizes)
@@ -95,8 +94,12 @@
 			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
 		}
 	}
-
 })();
+
+window.onbeforeunload = function () {
+	window.scrollTo(0, 0);
+};
+
 
 
 

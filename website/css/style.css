@@ -56,17 +56,11 @@ header, section {
 .formats-header {
     background-size: 100% 100%;
     background-image: linear-gradient(.13turn, #03256C 10%, #4C2A85 30%, #266DD3 40%, #03256C 80%);
+    padding-top: 27px;
+    padding-bottom: 27px;
 }
 
-/* Smaller than 576px */
-@media (max-width: 575.98px) {
-    .formats-header {
-        padding-top: 27px;
-        padding-bottom: 27px;
-    }
-}
-
-.main-header, footer {
+.main-header, .formats-header,  footer {
     animation: flow-bg 12s ease-in infinite;
     background-size: 400% 400%;
     background-image: linear-gradient(.13turn, #03256C 10%, #4C2A85 30%, #266DD3 40%, #03256C 80%);
@@ -447,10 +441,10 @@ b, strong {
         line-height: 36px;
     }
 
-    h3 {
-        font-size: 26px;
-        line-height: 36px;
-    }
+    /*h3 {*/
+    /*    font-size: 26px;*/
+    /*    line-height: 36px;*/
+    /*}*/
 
     .text-adaptive.f-24 {
         font-size: 20px;
@@ -5839,9 +5833,11 @@ footer {
     white-space: nowrap;
 }
 
+.formats-nav::-webkit-scrollbar { width: 0; }
+
 
 /* Smaller than 576px */
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
     .formats-nav {
         justify-content: start;
     }
@@ -5850,7 +5846,7 @@ footer {
 .formats-nav li {
     margin: 10px 15px;
     display: inline-block;
-
+    transition: transform .5s linear;
 }
 .formats-nav a {
     color: #000000;
@@ -5859,8 +5855,8 @@ footer {
 
 .visual-phone {
     position: absolute;
-    top: 42%;
-    left: 70%;
+    top: 10%;
+    left: 69%;
 }
 
 .banner-container {
@@ -5884,7 +5880,7 @@ footer {
 
 .banner-container-phone {
     position: relative;
-    width: 70%;
+    width: 95%;
 }
 
 .mobile-banner-container-phone {
@@ -5892,17 +5888,17 @@ footer {
 }
 
 .video-container-phone {
-    width: 78%;
+    width: 79%;
     position: absolute;
     top: 20%;
-    left: 10.2%;
+    left: 9.8%;
     overflow: hidden;
 }
 
 .video-phone {
     width: 100%;
     position: absolute;
-    left: 0%;
+    left: 1%;
 }
 
 .icon-credit-card {
@@ -5939,7 +5935,6 @@ footer {
 .navbar-formats a.active {
     background: #23c8a8;
     color: #ffffff;
-
     border-radius: 50px;
 }
 
