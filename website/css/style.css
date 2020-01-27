@@ -51,6 +51,7 @@ header, section {
     top: 0;
     left: 0;
     z-index: 1000;
+    padding-top: 27px;
 }
 
 .formats-header {
@@ -5851,6 +5852,7 @@ footer {
 .formats-nav a {
     color: #000000;
     padding: 10px 15px;
+    border-radius: 50px;
 }
 
 .visual-phone {
