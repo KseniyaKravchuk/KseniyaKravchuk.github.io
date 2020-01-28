@@ -101,26 +101,17 @@
 	window.addEventListener('scroll', checkPosition);
 	var formats_menu = document.querySelector('.formats-nav');
 
-	let offset = 0;
 	function checkPosition(){
 		const activeElPosition = document.querySelector('.active').getBoundingClientRect();
-		console.log(activeElPosition)
-		console.log(window.innerWidth)
 		if (activeElPosition.x > window.innerWidth) {
-			console.log(window.innerWidth)
-			console.log(activeElPosition.x - window.innerWidth - activeElPosition.width)
 			formats_menu.scrollBy((offset+(activeElPosition.x - window.innerWidth + activeElPosition.width * 1.5)),0);
-			offset += (activeElPosition.x - window.innerWidth + activeElPosition.width * 1.5)
 		} else if (Math.ceil(activeElPosition.x + activeElPosition.width) >= window.innerWidth) {
 			formats_menu.scrollBy((offset+(activeElPosition.width * 1.5)),0);
-			offset += (activeElPosition.width * 1.5)
 		} else if (activeElPosition.x < 0) {
 			if (activeElPosition.x + activeElPosition.width <= 0) {
 				formats_menu.scrollBy((offset-(activeElPosition.width * 1.5)),0);
-				offset -= (activeElPosition.width * 1.5)
 			} else {
 				formats_menu.scrollBy((offset-(activeElPosition.width)),0);
-				offset -= (activeElPosition.width)
 			}
 		}
 	}
