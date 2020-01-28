@@ -112,7 +112,6 @@
 
 	function checkPosition(){
 		const activeElPosition = document.querySelector('.active').getBoundingClientRect();
-		console.log(activeElPosition)
 		if (activeElPosition.x > window.innerWidth) {
 			formats_menu.scrollBy(((activeElPosition.x - window.innerWidth + activeElPosition.width * 1.5)),0);
 		} else if (Math.ceil(activeElPosition.x + activeElPosition.width) >= window.innerWidth) {

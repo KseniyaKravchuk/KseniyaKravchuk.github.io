@@ -5878,6 +5878,7 @@ footer {
     width: 100%;
     position: absolute;
     top: 0%;
+    left: 0;
 }
 
 .banner-container-phone {
@@ -5927,7 +5928,7 @@ footer {
 
 .icon-sizes {
     background: url("../i/icon-sizes.png") 0% 0% no-repeat;
-    background-size: 70%;
+    background-size: 64%;
 }
 
 .icon-stopwatch {
