@@ -103,15 +103,16 @@
 
 	function checkPosition(){
 		const activeElPosition = document.querySelector('.active').getBoundingClientRect();
+		console.log(activeElPosition)
 		if (activeElPosition.x > window.innerWidth) {
-			formats_menu.scrollBy((offset+(activeElPosition.x - window.innerWidth + activeElPosition.width * 1.5)),0);
+			formats_menu.scrollBy(((activeElPosition.x - window.innerWidth + activeElPosition.width * 1.5)),0);
 		} else if (Math.ceil(activeElPosition.x + activeElPosition.width) >= window.innerWidth) {
-			formats_menu.scrollBy((offset+(activeElPosition.width * 1.5)),0);
+			formats_menu.scrollBy((activeElPosition.width * 1.5),0);
 		} else if (activeElPosition.x < 0) {
 			if (activeElPosition.x + activeElPosition.width <= 0) {
-				formats_menu.scrollBy((offset-(activeElPosition.width * 1.5)),0);
+				formats_menu.scrollBy((-(activeElPosition.width * 1.5)),0);
 			} else {
-				formats_menu.scrollBy((offset-(activeElPosition.width)),0);
+				formats_menu.scrollBy((-(activeElPosition.width)),0);
 			}
 		}
 	}
