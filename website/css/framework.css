@@ -12896,3 +12896,7 @@ input[type=radio] + label:before {
 .border-bottom-yellow {
     border-bottom: 2px solid #ebff00;
 }
+
+.border-bottom-transparent {
+    border-bottom: 2px solid transparent;
+}

@@ -5887,6 +5887,7 @@ footer {
 
 .mobile-banner-container-phone {
     width: 30%;
+    position: relative;
 }
 
 .video-container-phone {
@@ -5895,6 +5896,22 @@ footer {
     top: 20%;
     left: 9.8%;
     overflow: hidden;
+}
+
+.video-mobile-banner-container-phone {
+    width: 84.2%;
+    position: absolute;
+    top: 12%;
+    left: 7.8%;
+    overflow: hidden;
+}
+
+.video-mobban-phone {
+    width: 103%;
+    position: absolute;
+    left: -1.6%;
+    top: -13%;
+
 }
 
 .video-phone {
