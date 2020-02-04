@@ -27,6 +27,25 @@
 
 		waveAnimation();
 
+		const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
+		const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
+		const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
+
+		if (videoContainer) {
+			changeSizes()
+			window.addEventListener('resize', changeSizes)
+		}
+
+		function changeSizes() {
+			for (let i = 0; i < videoContainer.length; i++) {
+				videoContainer[i].style.height = videoContainer[i].clientWidth * 0.55 + 'px';
+				videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
+			}
+			for (let i = 0; i < videoMobileContainerPhone.length; i++) {
+				videoMobileContainerPhone[i].style.height = videoMobileContainerPhone[i].clientWidth * 1.79 + 'px';
+			}
+		}
+
         var animation = bodymovin.loadAnimation({
             container: document.getElementById('bm'),
             renderer: 'svg',
@@ -77,31 +96,7 @@
 		document.addEventListener('scroll', parallaxEffectScroll);
 	}
 
-	const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
-	const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
-	const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
 
-
-	if (videoContainer) {
-		for (let i = 0; i < videoContainer.length; i++) {
-			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.55 + 'px';
-			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
-		}
-		for (let i = 0; i < videoMobileContainerPhone.length; i++) {
-			videoMobileContainerPhone[i].style.height = videoMobileContainerPhone[i].clientWidth * 1.79 + 'px';
-		}
-		window.addEventListener('resize', changeSizes)
-	}
-
-	function changeSizes() {
-		for (let i = 0; i < videoContainer.length; i++) {
-			videoContainer[i].style.height = videoContainer[i].clientWidth * 0.55 + 'px';
-			videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
-		}
-		for (let i = 0; i < videoMobileContainerPhone.length; i++) {
-			videoMobileContainerPhone[i].style.height = videoMobileContainerPhone[i].clientWidth * 1.79 + 'px';
-		}
-	}
 
 // Отзывчивость горизонтального скролла меню на прокрутку (мобайл)
 	//собираем в массив все форматы
