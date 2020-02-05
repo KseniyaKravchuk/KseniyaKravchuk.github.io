@@ -1,6 +1,6 @@
 .color-heading{
-    color:
-            #000;
+    color: 
+    #000;
 }
 .px-35-important{
     padding: 0 35px !important;
@@ -44,27 +44,31 @@
     }
 }
 
-.padding-format-block {
+.padding-format-block,
+.first-padding-format-block {
     padding-top: 60px;
     padding-bottom: 60px;
 }
 
 @media (max-width: 2000px) {
-    .padding-format-block,
+    .padding-format-block {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
     .first-padding-format-block {
-        padding-top: 140px;
+        padding-top: 60px;
         padding-bottom: 60px;
     }
 }
 
 @media (max-width: 1400px) {
     .padding-format-block {
-        padding-top: 80px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 80px;
     }
     .first-padding-format-block {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 80px;
     }
 }
 
@@ -119,7 +123,7 @@
         margin-bottom: -2px;
     }
     .footer-wave {
-        margin-top: -2px;
+        margin-top: -3px;
     }
     .padding-format-block {
         padding-top: 30px;

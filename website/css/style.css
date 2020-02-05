@@ -128,7 +128,7 @@ h1, h2 {
 h1.big, h2.big {
     font-size: 72px;
     line-height: 86px;
-  }
+}
 
 h1.small, h2.small {
     font-size: 42px;
@@ -361,7 +361,7 @@ b, strong {
     h1.big, h2.big {
         font-size: 62px;
         line-height: 72px;
-      }
+    }
 
     h1.small, h2.small {
         font-size: 36px;
@@ -5946,7 +5946,7 @@ footer {
     margin-top: -220px;
     -webkit-background-clip: content-box;
     background-clip: content-box;
- }
+}
 
 .navbar-formats {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
