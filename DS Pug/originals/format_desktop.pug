@@ -1,0 +1,29 @@
+section(class='pr-20 ' + formatData.class id='#' + formatData.name)
+    .row.pt-30.align-items-center.justify-content-center
+        .col-12.col-md-6.d-flex.justify-content-center.mb-35
+            if (formatData.video)
+                .mobile-banner-container-phone
+                    img(src='i/templates/mobile_formats.png', alt='', width='100%')
+                    .video-mobile-banner-container-phone
+                        video.video-mobban-phone(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '.png', playsinline='', muted='', loop='')
+                            source(src='video/' + formatData.name + '.mp4')
+            else
+                .mobile-banner-container-phone
+                    img(src='i/templates/native.png', alt='', width='100%')
+        .col-10.col-md-5
+            h3.mb-30.color-black= formatData.title
+            p.color-black.mb-30.f-18= formatData.description
+            .row.d-flex.color-black
+                .col-md-12.col-xl-6
+                    .row.mt-20.ml-0
+                        .icon-credit-card.col-2.col-sm-1.col-lg-2.px-0
+                        .col-9
+                            h5 Модель оплаты
+                            p.f-18= formatData.payment
+                        .col-1
+                .col-md-12.col-xl-6
+                    .row.mt-20.ml-0
+                        .icon-sizes.col-2.col-sm-1.col-lg-2.px-0
+                        .col-9
+                            h5 Размер
+                            p.f-18= formatData.sizes                        .col-1

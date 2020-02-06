@@ -36,8 +36,6 @@ html(lang="en")
         script(src='js/vanillajs-scrollspy.js')
 
     body
-        .wrapper
-            .content
-                include ../modules/header
-                block content
-            include ../modules/footer
+        include ../modules/header_main
+        block content
+        include ../modules/footer

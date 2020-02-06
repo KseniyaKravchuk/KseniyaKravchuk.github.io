@@ -12569,10 +12569,6 @@ input[type=radio] + label:before {
     color: #5321da;
 }
 
-.color-lilac {
-    color: #8a00a8;
-}
-
 .color-heading {
     color: #bbb;
 }
@@ -12895,4 +12891,8 @@ input[type=radio] + label:before {
 
 .border-bottom-yellow {
     border-bottom: 2px solid #ebff00;
+}
+
+.border-bottom-transparent {
+    border-bottom: 2px solid transparent;
 }

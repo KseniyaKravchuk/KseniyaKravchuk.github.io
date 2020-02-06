@@ -1,51 +1,102 @@
-extends layout/main
+extends layout/page
 
-mixin format(formatData)
-    section(class='pr-20.pt-20.pb-20' id= formatData.name)
-        .format-container.row
-            .col-6
-            .col-6.pl-35
-                h2.mb-30.color-black= formatData.name
-        .row
-            .col-6
-                img.img_PC_phone(src='i/phone&pc.png', alt='')
-            .col-6.pl-35
-                p.color-black.mb-30= formatData.description
-                .row.d-flex.align-items-baseline.color-black
-                    .col-md-12.col-lg-6
-                        .row.mt-20.mb-20
-                            .icon-credit-card.col-lg-2.col-md-1.px-0
+mixin format_desktop(formatData)
+    section(class='pr-20 ' + formatData.class id= formatData.name)
+        .row.pt-30.align-items-center.justify-content-center
+            .col-12.col-md-6.mb-35
+                .banner-container.ml-15
+                    img(src='i/templates/mac.png', alt='', width='100%')
+                    .video-container
+                        video.video(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '_desktop.png', playsinline='', muted='', loop='')
+                            source(src='video/' + formatData.name + '_desktop.mp4')
+                .visual-phone
+                    .banner-container-phone
+                        img(src='i/templates/phone.png', alt='', width='100%')
+                        .video-container-phone
+                            video.video-phone(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '_mobile.png', playsinline='', muted='', loop='')
+                                source(src='video/' + formatData.name + '_mobile.mp4')
+            .col-10.col-md-5
+                h3.mb-30.color-black= formatData.title
+                p.color-black.mb-30.f-18= formatData.description
+                .row.d-flex.align-items-start.color-black
+                    .col-md-12.col-xl-6
+                        .row.mt-20.ml-0
+                            .icon-credit-card.col-2.col-sm-1.col-lg-2.px-0
                             .col-9
                                 h5 Модель оплаты
-                                p= formatData.payment
+                                p.f-18= formatData.payment
                             .col-1
-                        .row.mt-20.mb-20
-                            .icon-sizes.col-lg-2.col-md-1.px-0
+                        .row.mt-20.ml-0
+                            .icon-sizes.col-2.col-sm-1.col-lg-2.px-0
                             .col-9
                                 h5 Размер
-                                p= formatData.sizes
+                                p.f-18= formatData.sizes
                             .col-1
-                    .col-md-12.col-lg-6
-                        .row.mt-20.mb-20
-                            .icon-stopwatch.col-lg-2.col-md-1.px-0
+                    .col-md-12.col-xl-6
+                        .row.mt-20.ml-0
+                            .icon-stopwatch.col-2.col-sm-1.col-lg-2.px-0
                             .col-9
                                 h5 Хронометраж
-                                p= formatData.time
+                                p.f-18= formatData.time
                             .col-1
-                        .row.mt-20.mb-20
-                            .icon-settings.col-lg-2.col-md-1.px-0
+
+mixin format_mobile(formatData)
+    section(class='pr-20 ' + formatData.class id= formatData.name)
+        .row.pt-30.align-items-center.justify-content-center
+            .col-12.col-md-6.d-flex.justify-content-center.mb-35
+                if (formatData.video)
+                    .mobile-banner-container-phone
+                        img(src='i/templates/mobile_formats.png', alt='', width='100%')
+                        .video-mobile-banner-container-phone
+                            video.video-mobban-phone(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '.png', playsinline='', muted='', loop='')
+                                source(src='video/' + formatData.name + '.mp4')
+                else
+                    .mobile-banner-container-phone
+                        img(src='i/templates/native.png', alt='', width='100%')
+            .col-10.col-md-5
+                h3.mb-30.color-black= formatData.title
+                p.color-black.mb-30.f-18= formatData.description
+                .row.d-flex.color-black
+                    .col-md-12.col-xl-6
+                        .row.mt-20.ml-0
+                            .icon-credit-card.col-2.col-sm-1.col-lg-2.px-0
                             .col-9
-                                h5 Доп.инфа
-                                p= formatData.info
+                                h5 Модель оплаты
+                                p.f-18= formatData.payment
                             .col-1
+                    .col-md-12.col-xl-6
+                        .row.mt-20.ml-0
+                            .icon-sizes.col-2.col-sm-1.col-lg-2.px-0
+                            .col-9
+                                h5 Размер
+                                p.f-18= formatData.sizes
 
 block variables
     -
-        var aboutFormats = [{ name: "instream", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"},
-                            { name: "stories1", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"},
-                            { name: "stories2", description: "Привычная реклама в плеере сайта перед видеоконтентом. Привычная реклама в плеере сайта перед видеоконтентом.", payment: "CPM, CRV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд", info: "Что-то на пару строк. Дополнительная информация"}]
+        var headerMenu = { formats: 'yellow', contacts: 'transparent' }
+    -
+        var formatMenu = [{link: '#immersion', name: 'Immersion', isActive: true},
+                          {link: '#carousel', name: 'Carousel', isActive: false},
+                          {link: '#outstream', name: 'Out-stream', isActive: false},
+                          {link: '#mobile_swipe', name: 'Mobile swipe', isActive: false},
+                          {link: '#mobile_fullscreen', name: 'Mobile fullscreen', isActive: false},
+                          {link: '#mobile_native', name: 'Mobile native banner', isActive: false}]
+    -
+        var aboutFormats = [{ type: "desktop", class: "first-padding-format-block", name: "immersion", title: "Immersion", description: "Формат раскрывает преимущества видео и баннера в одном креативе. Ролик дополняется анимацией, описанием продукта и возможностью показать пользователю CTA элементы.", payment: "CPM, CPV", sizes: "На десктопе - минимум 300х160px, на мобайле минимум - 280х440px", time: "От 6 до 30 секунд"},
+                            { type: "desktop", class: "padding-format-block", name: "carousel", title: "Carousel", description: "Идеальный формат для e-commerce проектов. Расскажите о разных характеристиках вашего продукта или покажите несколько товаров в рамках единого креатива.", payment: "CPM", sizes: "Минимальный размер 300х165px", time: "От 3 до 6 секунд на одно видео"},
+                            { type: "desktop", class: "padding-format-block", name: "outstream", title: "Out-stream", description: "Все внимание на видео: ваш рекламный ролик в нативном блоке внутри контента сайта. Подходит для решения имиджевых задач.", payment: "CPM, CPV", sizes: "Минимальный размер 300х165px", time: "От 6 до 30 секунд"},
+                            { type: "mobile", class: "padding-format-block", name: "mobile_swipe", title: "Mobile Swipe", description: "Интерактивный формат, состоящий из тизера и полноэкранного баннера. Формат не раздражает пользователя и отлично подходит для спецпроектов.", payment: "CPM, CPC", sizes: "Тизер - максимум 1080х240px, расхлоп - максимум 1080х1880px", video: true},
+                            { type: "mobile", class: "padding-format-block", name: "mobile_fullscreen", title: "Mobile Fullscreen", description: "Адаптивный полноэкранный баннер. Может содержать простой креатив или сложную интерактивную механику. Обеспечивает 100% контакт с пользователем.", payment: "CPM, CPC", sizes: "Максимальный размер 1080х1880px", video: true},
+                            { type: "mobile", class: "padding-format-block", name: "mobile_native", title: "Mobile Native", description: "Формат органично встроенный в контент статьи. Может содержать слайдер с несколькими креативами.", payment: "CPM, CPC", sizes: "Максимальный размер 1080х702px", video: false}]
 
 block content
     section.formats-container.pb-50
         for i in aboutFormats
-            +format(i)
+            if (i.type === "desktop")
+                +format_desktop(i)
+            else
+                +format_mobile(i)
+    script.
+        const navbar = document.querySelector('.navbar-formats');
+        const scrollspy = new VanillaScrollspy(navbar);
+        scrollspy.init();

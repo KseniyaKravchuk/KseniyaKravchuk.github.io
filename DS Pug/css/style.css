@@ -51,14 +51,17 @@ header, section {
     top: 0;
     left: 0;
     z-index: 1000;
+    padding-top: 27px;
 }
 
 .formats-header {
     background-size: 100% 100%;
     background-image: linear-gradient(.13turn, #03256C 10%, #4C2A85 30%, #266DD3 40%, #03256C 80%);
+    padding-top: 27px;
+    padding-bottom: 27px;
 }
 
-.main-header, footer {
+.main-header, .formats-header,  footer {
     animation: flow-bg 12s ease-in infinite;
     background-size: 400% 400%;
     background-image: linear-gradient(.13turn, #03256C 10%, #4C2A85 30%, #266DD3 40%, #03256C 80%);
@@ -125,7 +128,7 @@ h1, h2 {
 h1.big, h2.big {
     font-size: 72px;
     line-height: 86px;
-  }
+}
 
 h1.small, h2.small {
     font-size: 42px;
@@ -358,7 +361,7 @@ b, strong {
     h1.big, h2.big {
         font-size: 62px;
         line-height: 72px;
-      }
+    }
 
     h1.small, h2.small {
         font-size: 36px;
@@ -439,10 +442,10 @@ b, strong {
         line-height: 36px;
     }
 
-    h3 {
-        font-size: 26px;
-        line-height: 36px;
-    }
+    /*h3 {*/
+    /*    font-size: 26px;*/
+    /*    line-height: 36px;*/
+    /*}*/
 
     .text-adaptive.f-24 {
         font-size: 20px;
@@ -5821,48 +5824,120 @@ footer {
 }
 
 .formats-container {
-    margin-top: 220px;
+    margin-top: 150px;
 }
-/*formats*/
-/*.formats-container .format-container:target {*/
-/*    margin-top: 220px;*/
-/*}*/
-/*.format-container {*/
-/*    align-items: center;*/
-/*}*/
+
 .formats-nav {
     padding: 10px 0;
     justify-content: center;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.formats-nav::-webkit-scrollbar { width: 0; }
+
+
+/* Smaller than 576px */
+@media (max-width: 991.98px) {
+    .formats-nav {
+        justify-content: start;
+    }
 }
 
 .formats-nav li {
     margin: 10px 15px;
+    display: inline-block;
+    transition: transform .5s linear;
 }
 .formats-nav a {
     color: #000000;
     padding: 10px 15px;
+    border-radius: 50px;
 }
-.img_PC_phone {
-    width: inherit;
-    margin: 10px;
+
+.visual-phone {
+    position: absolute;
+    top: 10%;
+    left: 69%;
 }
+
+.banner-container {
+    width: 88%;
+    position: relative;
+}
+
+.video-container {
+    width: 47%;
+    position: absolute;
+    top: 22%;
+    left: 25.3%;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0;
+}
+
+.banner-container-phone {
+    position: relative;
+    width: 95%;
+}
+
+.mobile-banner-container-phone {
+    width: 30%;
+    position: relative;
+}
+
+.video-container-phone {
+    width: 79%;
+    position: absolute;
+    top: 20%;
+    left: 9.8%;
+    overflow: hidden;
+}
+
+.video-mobile-banner-container-phone {
+    width: 84.2%;
+    position: absolute;
+    top: 12%;
+    left: 7.8%;
+    overflow: hidden;
+}
+
+.video-mobban-phone {
+    width: 103%;
+    position: absolute;
+    left: -1.6%;
+    top: -13%;
+
+}
+
+.video-phone {
+    width: 100%;
+    position: absolute;
+    left: 1%;
+}
+
 .icon-credit-card {
-    background: url("../i/icon-credit-card.png") 50% 0% no-repeat;
+    background: url("../i/icon-credit-card.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
 .icon-sizes {
-    background: url("../i/icon-sizes.png") 50% 0% no-repeat;
-    background-size: 70%;
+    background: url("../i/icon-sizes.png") 0% 0% no-repeat;
+    background-size: 64%;
 }
 
 .icon-stopwatch {
-    background: url("../i/icon-stopwatch.png") 50% 0% no-repeat;
+    background: url("../i/icon-stopwatch.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
 .icon-settings {
-    background: url("../i/icon-settings.png") 50% 0% no-repeat;
+    background: url("../i/icon-settings.png") 0% 0% no-repeat;
     background-size: 70%;
 }
 
@@ -5871,16 +5946,15 @@ footer {
     margin-top: -220px;
     -webkit-background-clip: content-box;
     background-clip: content-box;
- }
+}
 
 .navbar-formats {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-formats a.active {
     background: #23c8a8;
     color: #ffffff;
-
     border-radius: 50px;
 }
 
