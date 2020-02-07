@@ -3,7 +3,8 @@
     {link: 'formats.html', name: 'Форматы'},
     {link: 'contacts.html', name: 'Контакты'}]
 
-.topbar
+
+div(class= (topbar) ? "topbar" : ' ')
     // Mobile Menu
     a.open_menu.color-main.bg-light.radius_full
         i.fas.fa-bars.lh-40
@@ -31,13 +32,13 @@
                 a.color-white.link(href='index.html') DOUBLE SCREEN
 
     if (formatMenu)
-    nav.navbar-formats
-        ul.formats-nav.color-black.list-unstyled.d-flex.bg-white
-            for i in formatMenu
-                if (i.isActive)
-                    li
-                        a.active(href= i.link)= i.name
-                else
-                    li
-                        a(href= i.link)= i.name
+        nav.navbar-formats
+            ul.formats-nav.color-black.list-unstyled.d-flex.bg-white
+                for i in formatMenu
+                    if (i.isActive)
+                        li
+                            a.active(href= i.link)= i.name
+                    else
+                        li
+                            a(href= i.link)= i.name
 

@@ -103,9 +103,11 @@
 // Отзывчивость горизонтального скролла меню на прокрутку (мобайл)
 	//собираем в массив все форматы
 	var formats = [].slice.call(document.querySelectorAll('.formats-nav li'));
-	//слушаем событие скролла
-	window.addEventListener('scroll', checkPosition);
 	var formats_menu = document.querySelector('.formats-nav');
+	//слушаем событие скролла
+	if (formats_menu)
+		window.addEventListener('scroll', checkPosition);
+
 
 	function checkPosition(){
 		const activeElPosition = document.querySelector('.active').getBoundingClientRect();
