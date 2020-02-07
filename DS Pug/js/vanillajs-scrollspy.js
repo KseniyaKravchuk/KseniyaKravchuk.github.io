@@ -186,9 +186,17 @@ var VanillaScrollspy = function () {
       var links = this.menu.querySelectorAll('a[href^="#"]');
       var scrollPos = window.scrollY || document.documentElement.scrollTop;
 
+      var topbarHeight = document.querySelector('.topbar').getBoundingClientRect().height;
+      var windowHeight = window.innerHeight - topbarHeight;
+
+      // console.log(topbarHeight)
+      // console.log(window.innerHeight)
+      // console.log(windowHeight)
+
       for (i = 0; i < links.length; i += 1) {
         currLink = links[i];
         refElement = document.querySelector(currLink.getAttribute('href'));
+        // console.log(refElement)
 
         if (refElement.offsetTop - 50 <= scrollPos && refElement.offsetTop - 50 + refElement.clientHeight > scrollPos) {
           currLink.classList.add('active');
