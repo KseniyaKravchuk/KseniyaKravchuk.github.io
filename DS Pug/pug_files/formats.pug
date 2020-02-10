@@ -1,7 +1,7 @@
 extends layout/page
 
 mixin format_desktop(formatData)
-    section(class='pr-20 format-block' style='padding-bottom: 70px; padding-top: 70px;' id= formatData.name)
+    section(class='pr-20 format-box' style='padding-bottom: 70px; padding-top: 70px;' id= formatData.name)
         .row.align-items-center.justify-content-center
             .col-12.col-md-6.mb-35
                 .banner-container.ml-15
@@ -41,7 +41,7 @@ mixin format_desktop(formatData)
                             .col-1
 
 mixin format_mobile(formatData)
-    section(class='pr-20 format-block' id= formatData.name)
+    section(class='pr-20 format-box' id= formatData.name)
         .row.pt-30.align-items-center.justify-content-center
             .col-12.col-md-6.d-flex.justify-content-center.mb-35
                 if (formatData.video)

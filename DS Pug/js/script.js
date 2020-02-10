@@ -48,65 +48,68 @@
 			}
 		}
 
+        //анимация форматов на главной
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('bm'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'animation/main.json'
+        });
+
+        var storyAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('story_anim'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'animation/stories.json'
+        });
+
+        var outstreamAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('outstream_anim'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'animation/outstream.json'
+        });
+
+        var instreamAnimation = bodymovin.loadAnimation({
+            container: document.getElementById('instream_anim'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'animation/instream.json'
+        });
+
 		//паддинги у блоков форматов на странице форматов
-		var formatBoxes = [].slice.call(document.querySelectorAll('.format-block'));
-		if (formatBoxes) {
-            getPaddings();
-            window.addEventListener("resize", getPaddings);
+		var formatBoxes = [].slice.call(document.querySelectorAll('.format-box'));
+		if (formatBoxes === []) {
+            getPadding();
+            window.addEventListener("resize", getPadding);
         }
 
 
-		function getPaddings() {
-			//высота шапки
-			var topbarHeight = document.querySelector('.topbar').getBoundingClientRect().height;
-			//высота окна без высоты шапки
-			var windowHeight = window.innerHeight - topbarHeight;
-			for (var i = 0; i < formatBoxes.length; i++) {
-                formatBoxes[i].removeAttribute("style");
-				if (formatBoxes[i].getBoundingClientRect().height <= windowHeight) {
-					var padding = (windowHeight - formatBoxes[i].getBoundingClientRect().height)/2;
-                    var extraPadding = (padding < 60) ? 60 : 0;
-					formatBoxes[i].style.paddingBottom = padding + extraPadding + 'px';
-					formatBoxes[i].style.paddingTop = padding + 'px';
-				} else {
-                    formatBoxes[i].style.paddingBottom = '40px';
-                    formatBoxes[i].style.paddingTop = '40px';
+		function getPadding() {
+
+
+                //высота шапки
+                var topbarHeight = document.querySelector('.topbar').getBoundingClientRect().height;
+                //высота окна без высоты шапки
+                var windowHeight = window.innerHeight - topbarHeight;
+                for (var i = 0; i < formatBoxes.length; i++) {
+                    formatBoxes[i].removeAttribute("style");
+                    if (formatBoxes[i].getBoundingClientRect().height <= windowHeight) {
+                        var padding = (windowHeight - formatBoxes[i].getBoundingClientRect().height)/2;
+                        var extraPadding = (padding < 60) ? 60 : 0;
+                        formatBoxes[i].style.paddingBottom = padding + extraPadding + 'px';
+                        formatBoxes[i].style.paddingTop = padding + 'px';
+                    } else {
+                        formatBoxes[i].style.paddingBottom = '40px';
+                        formatBoxes[i].style.paddingTop = '40px';
+                    }
                 }
-			}
+
 		}
-
-		//анимация форматов на главной
-		var animation = bodymovin.loadAnimation({
-			container: document.getElementById('bm'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			path: 'animation/main.json'
-		});
-
-		var storyAnimation = bodymovin.loadAnimation({
-			container: document.getElementById('story_anim'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			path: 'animation/stories.json'
-		});
-
-		var outstreamAnimation = bodymovin.loadAnimation({
-			container: document.getElementById('outstream_anim'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			path: 'animation/outstream.json'
-		});
-
-		var instreamAnimation = bodymovin.loadAnimation({
-			container: document.getElementById('instream_anim'),
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			path: 'animation/instream.json'
-		});
 	});
 
 	//параллакс-эффект на главной (синий компонент Наши форматы)
