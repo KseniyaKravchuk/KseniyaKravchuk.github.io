@@ -1,8 +1,8 @@
 extends layout/page
 
 mixin format_desktop(formatData)
-    section(class='pr-20 ' + formatData.class id= formatData.name)
-        .row.pt-30.align-items-center.justify-content-center
+    section(class='pr-20 format-block ' + formatData.class id= formatData.name)
+        .row.align-items-center.justify-content-center
             .col-12.col-md-6.mb-35
                 .banner-container.ml-15
                     img(src='i/templates/mac.png', alt='', width='100%')
@@ -41,7 +41,7 @@ mixin format_desktop(formatData)
                             .col-1
 
 mixin format_mobile(formatData)
-    section(class='pr-20 ' + formatData.class id= formatData.name)
+    section(class='pr-20 format-block ' + formatData.class id= formatData.name)
         .row.pt-30.align-items-center.justify-content-center
             .col-12.col-md-6.d-flex.justify-content-center.mb-35
                 if (formatData.video)
@@ -53,7 +53,7 @@ mixin format_mobile(formatData)
                 else
                     .mobile-banner-container-phone
                         img(src='i/templates/native.png', alt='', width='100%')
-            .col-10.col-md-5
+            .col-10.col-md-5.mb-35
                 h3.mb-30.color-black= formatData.title
                 p.color-black.mb-30.f-18= formatData.description
                 .row.d-flex.color-black

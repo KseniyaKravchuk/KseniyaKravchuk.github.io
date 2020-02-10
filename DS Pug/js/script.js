@@ -48,6 +48,33 @@
 			}
 		}
 
+		//паддинги у блоков форматов на странице форматов
+		var formatBoxes = [].slice.call(document.querySelectorAll('.format-block'));
+		if (formatBoxes) {
+            getPaddings();
+            window.addEventListener("resize", getPaddings);
+        }
+
+
+		function getPaddings() {
+			//высота шапки
+			var topbarHeight = document.querySelector('.topbar').getBoundingClientRect().height;
+			//высота окна без высоты шапки
+			var windowHeight = window.innerHeight - topbarHeight;
+			for (var i = 0; i < formatBoxes.length; i++) {
+                formatBoxes[i].removeAttribute("style");
+				if (formatBoxes[i].getBoundingClientRect().height <= windowHeight) {
+					var padding = (windowHeight - formatBoxes[i].getBoundingClientRect().height)/2;
+                    var extraPadding = (padding < 60) ? 60 : 0;
+					formatBoxes[i].style.paddingBottom = padding + extraPadding + 'px';
+					formatBoxes[i].style.paddingTop = padding + 'px';
+				} else {
+                    formatBoxes[i].style.paddingBottom = '40px';
+                    formatBoxes[i].style.paddingTop = '40px';
+                }
+			}
+		}
+
 		//анимация форматов на главной
 		var animation = bodymovin.loadAnimation({
 			container: document.getElementById('bm'),
