@@ -1,19 +1,46 @@
 extends layout/page
 
+mixin question(data)
+    .row.mt-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+        .col-lg-1
+        .mb-20.col-lg-9.f-22.text-adaptive= data.question
+    .row.mb-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+        .col-lg-1
+        .col-lg-8.color-heading.text-adaptive!= data.answer
+    if (data.steps)
+        .content_20
+            .container.px-xl-0
+                .row
+                    .col-lg-1
+                    .col-lg-9
+                        for j in steps
+                            div(class= (j.pb) ? "pb-50 relative block" : "relative block")
+                                div(class= (j.line) ? "content_20_line" : " ")
+                                .bg-gray.color-heading.radius_full.w-40.h-40.f-18.medium.lh-40.text-center.number= j.step_num
+                                .ml-70.pt-10.block_inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                                    p.color-heading.text-adaptive!= j.step_text
+
 block variables
     -
         var headerMenu = { formats: 'transparent', contacts: 'transparent' }
 
     -
-        var questions = [{pb: true, question: "Что меняется?", question_num: '1', line: true, answer: "Ответ кроется в названии. В HPMD Network все рекламные форматы были заточены исключительно под мобильные устройства. В Double Screen мы создаем решения и для мобайла, и для десктопа. Подробнее о наших новых форматах вы можете почитать <a href=\"formats.html\" class=\"mt-20\">здесь</a>. В частности, теперь будет больше видеорекламы, для размещения которой вам не понадобится свой плеер на сайте. Больше форматов — больше возможностей для монетизации."},
-        {pb: true, question: "Почему мы это делаем?", question_num: '2', line: true, answer: "Мы хотим создать нечто большее, чем просто мобильную сеть. Наша цель — сформировать новый подход к медийной рекламе, в котором на первый план выйдет качество контакта пользователя с брендом. А еще нам нравится изобретать новые вовлекающие форматы. Чем больше экранов, тем больше пространства для креатива."},
-        {pb: true, question: "Что будет со старыми форматами?", question_num: '3', line: true, answer: "Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."},
-        {pb: false, question: "Что нужно сделать, чтобы подключить новые форматы?", question_num: '4', line: false, answer: "Если вы работаете по Header Bidding, вам необходимо будет установить код для десктопных форматов. Запросить код и подробную инструкцию вы можете по адресу ИНСТРУКЦИЯ. Остальным ничего делать не нужно — все произойдет само собой."}]
+        var questions = [{steps: false, question: "Что меняется?", answer: "Ответ кроется в названии. В HPMD Network все рекламные форматы были заточены исключительно под мобильные устройства. В Double Screen мы не ограничиваемся одним экраном и создаем решения и для мобайла, и для десктопа. В частности, мы делаем упор на видеорекламу и креативы с интерактивными механиками. <br> Больше форматов — больше возможностей для монетизации."},
+        {steps: false, question: "Почему мы это делаем?", answer: "Мы хотим создать нечто большее, чем просто мобильную сеть. Наша цель — сформировать новый подход к медийной рекламе, в котором на первый план выйдет качество контакта пользователя с брендом. <br> Границы между десктопом постепенно стираются. Поэтому в рамках нового продукта мы будем на постоянной основе разрабатывать вовлекающие форматы, одинаково хорошо работающие на всех типах устройств. <br> А ещё нам нравится миксовать разные механики и изобретать новое. Больше экранов — больше пространства для креатива!"},
+        {steps: false, question: "Что за новые форматы?", answer: "На данный момент мы реализовали два новых кросс-девайсных решения — Immersion и Carousel. Также теперь мы поддерживаем классические видеоформаты — Out-Stream и In-Stream. <br> Подробнее о наших новых форматах вы можете почитать <a href=\"formats.html\" class=\"mt-20\">здесь</a>."},
+        {steps: false, question: "Что будет со старыми форматами?", answer: "Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."},
+        {steps: true, question: "Что нужно сделать, чтобы подключить новые форматы?", answer: "Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."}]
+
+    -
+        var steps = [{pb: true, step_num: '1', line: true, step_text: "Напишите вашему менеджеру, что хотите подключить новые форматы."},
+        {pb: true, step_num: '2', line: true, step_text: "Уточните в письме, каким образом вы интегрированы в нашу систему — по коду или по Header Bidding."},
+        {pb: false, step_num: '3', line: false, step_text: "Установите новый код или id на мобайл и десктоп своего сайта."}]
 
     - var formatMenu = false
     - var topbar = false
 
 block content
+
     section.pt-75.pb-90.bg-light.content_4
         .container.px-xl-0.text-center
             .row.justify-content-center
@@ -22,41 +49,25 @@ block content
                     i.mx-30.fas.fa-heart.action-3.f-32(data-aos-duration='600', data-aos='fade-down', data-aos-delay='150')
                     i.mx-30.far.fa-star(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
                 .col-xl-7.col-lg-8.col-md-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
-                    h2.mt-45.small Better Landing for Your Startup
-                .mt-30.col-xl-7.col-lg-8.col-md-9.col-sm-10.f-22.color-heading.op-7.text-adaptive
+                    h2.mt-45.small Паблишерам
+                .mt-30.col-xl-7.col-lg-8.col-md-9.col-sm-10.f-22.color-heading.text-adaptive
                     span(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
-                        | We have created a new product that will help designers,
-                        | developers and companies create websites for their
-                        br
-                        |                startups quickly and easily.
+                        | С 2020 года HPMD Network трансформируется в новый продукт — Double Screen.
 
-    section.pt-100.pb-100.bg-light.content_11
+    section.pb-100.bg-light.content_11
         .container.px-xl-0
-            .row(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
-                .col-lg-1
-                .mb-20.col-lg-9.f-22.text-adaptive
-                    | A high-quality solution for those who want a beautiful startup website quickly.
+            for i in questions
+                +question(i)
+
+    section.pb-100.bg-light.content_11
+        .container.px-xl-0
             .row(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
                 .col-lg-1
-                .col-lg-8.color-heading.op-7.text-adaptive
-                    | We have created this demo version in order to show you the structure of Startup Framework. It
-                    | has some of the  components from the full version, 2 great samples (Bootstrap themes) and
-                    | documentation. You can also find 2 images of a Macbook and an iPad, which you can use in your
-                    | project. We hope you will like your first introduction to Startup Framework.
-                    | The most important part of the Startup Framework are the samples or Bootstrap themes and templates. The samples
-                    | consist of a set of few pages you can use «as is» or add new blocks from UI Kit.
-
-    section.pt-105.pb-100.bg-light.content_20
-        .container.px-xl-0
-            .row.justify-content-center
-                .col-xl-10.col-lg-11
-                    h2.small(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0') Q & A
-                    .row
-                        .mt-25.col-lg-10.inner
-                            for i in questions
-                                div(class= (i.pb) ? "pb-50 relative block" : "relative block")
-                                    div(class= (i.line) ? "content_20_line" : " ")
-                                    .bg-gray.color-heading.radius_full.w-40.h-40.f-18.medium.lh-40.text-center.number= i.question_num
-                                    .ml-70.pt-10.block_inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
-                                        .f-heading.f-18.medium= i.question
-                                        .mt-20.color-heading.text-adaptive!= i.answer
+                .col-lg-8.color-heading.text-adaptive
+                    | Если вы еще не подключены к нашей системе, напишите нам на *адрес*.
+                    br
+                    br
+                    | Наши менеджеры с радостью ответят на все вопросы, оперативно проведут проверку и интеграцию и в тот же день добавят вашу площадку в медиапланы для рекламодателей.
+                    br
+                    br
+                    | Спасибо, что работаете с нами. Дальше будет еще интересней!
