@@ -26,7 +26,9 @@
                     <div class="hpmdf-num hpmdf-num1"></div>
                 </div>
                 <div class="hpmdf-start"></div>
-                <div class="hpmdf-logo"></div>
+                <div class="hpmdf-logo">
+                    <a href="#"class="hpmdf-link2" target="_blank" onclick="parent.postMessage('banner.event.5', '*');"></a>
+                </div>
                 <div class="hpmdf-chef"></div>
                 <div class="hpmdf-pack"></div>
                 <div class="hpmdf-contest-with-chef"></div>
@@ -189,9 +191,9 @@
     }
     .hpmdf-game-screen .hpmdf-pack {
         position: absolute;
-        top: 40%;
-        left: 70%;
-        width: 23%;
+        top: 38%;
+        left: 68%;
+        width: 28%;
     }
     .hpmdf-logo {
         background-image: url('./img/sprite.png') ;
@@ -342,9 +344,9 @@
     }
     .hpmdf-pan {
         position: absolute;
-        top: 65%;
-        left: 42%;
-        width: 54%;
+        top: 69%;
+        left: 45%;
+        width: 47%;
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
         background-size: 450% 256%;
@@ -357,9 +359,9 @@
     }
     .hpmdf-pancake {
         position: absolute;
-        top: 69%;
-        left: 52%;
-        width: 37%;
+        top: 73%;
+        left: 54%;
+        width: 32%;
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
         background-size: 665% 559%;
@@ -386,6 +388,224 @@
         content: '';
         display: block;
         padding-top: 28%;
+    }
+    @-webkit-keyframes shake {
+        0% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        6.66% {
+            -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+        59.94% {
+            -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        13.32% {
+            -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+        53.28% {
+            -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+
+        19.98% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        33.3% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        46.62% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+
+        26.64% {
+            -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        39.96% {
+            -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        66.6% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        100% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+    }
+    @-moz-keyframes shake {
+        0% {
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        6.66% {
+            -moz-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+        59.94% {
+            -moz-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        13.32% {
+            -moz-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+        53.28% {
+            -moz-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+
+        19.98% {
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        33.3% {
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        46.62% {
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+
+        26.64% {
+            -moz-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        39.96% {
+            -moz-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        66.6% {
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        100% {
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+    }
+    @-o-keyframes shake {
+        0% {
+            transform: translate3d(0px, 0, 0);
+        }
+        6.66% {
+            transform: translate3d(-1px, 0, 0);
+        }
+        59.94% {
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        13.32% {
+            transform: translate3d(2px, 0, 0);
+        }
+        53.28% {
+            transform: translate3d(2px, 0, 0);
+        }
+
+        19.98% {
+            transform: translate3d(-3px, 0, 0);
+        }
+        33.3% {
+            transform: translate3d(-3px, 0, 0);
+        }
+        46.62% {
+            transform: translate3d(-3px, 0, 0);
+        }
+
+        26.64% {
+            transform: translate3d(3px, 0, 0);
+        }
+        39.96% {
+            transform: translate3d(3px, 0, 0);
+        }
+        66.6% {
+            transform: translate3d(0px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0px, 0, 0);
+        }
+    }
+    @keyframes shake {
+        0% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        6.66% {
+            -webkit-transform: translate3d(-1px, 0, 0);
+            -moz-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+        59.94% {
+            -webkit-transform: translate3d(-1px, 0, 0);
+            -moz-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        13.32% {
+            -webkit-transform: translate3d(2px, 0, 0);
+            -moz-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+        53.28% {
+            -webkit-transform: translate3d(2px, 0, 0);
+            -moz-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+
+        19.98% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        33.3% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+        46.62% {
+            -webkit-transform: translate3d(-3px, 0, 0);
+            -moz-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+        }
+
+        26.64% {
+            -webkit-transform: translate3d(3px, 0, 0);
+            -moz-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        39.96% {
+            -webkit-transform: translate3d(3px, 0, 0);
+            -moz-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+        }
+        66.6% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+        100% {
+            -webkit-transform: translate3d(0px, 0, 0);
+            -moz-transform: translate3d(0px, 0, 0);
+            transform: translate3d(0px, 0, 0);
+        }
+    }
+    .hpmdf-shake {
+        -webkit-animation: shake 1.09306s cubic-bezier(.36,.07,.19,.97) both;
+        -moz-animation: shake 1.09306s cubic-bezier(.36,.07,.19,.97) both;
+        -o-animation: shake 1.09306s cubic-bezier(.36,.07,.19,.97) both;
+        animation: shake 1.09306s cubic-bezier(.36,.07,.19,.97) both;
     }
     .hpmdf-arrow {
         position: absolute;
@@ -1040,7 +1260,8 @@
         left: 49%;
         width: 29%;
     }
-    .hpmdf-link {
+    .hpmdf-link,
+    .hpmdf-link2 {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -1159,21 +1380,13 @@
         },
         onViewportUpdate: function() {
             hpmd.data.checkOrientation();
-
-            // hpmd.data.resizeCards();
-        },
-        isPortrait: function (dimensions) {
-            if (!dimensions) {
-                // если измерения не переданы,
-                // используем текущие размеры окна
-                dimensions = {
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                };
-            }
-            // проверяем ориентацию
-            return dimensions.width < dimensions.height;
         }
+    };
+    function shakePancake(pancakeNumber) {
+        document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
+        setTimeout(function(){
+            document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
+        }, 1000)
     }
     function preloadImages(images, callback) {
         var loaded = 0, imageObjects = [];
@@ -1221,6 +1434,9 @@
                                 isStart = true;
                                 document.querySelector('.hpmdf-timer').style.opacity = "1";
                                 timer();
+                                idTimerShake = setTimeout(function(){
+                                    shakePancake(userScore + 1)
+                                }, 2000);
                                 chefCookPancakes();
                             }, 1000) //запуск игры
                         }, 1000) //появление надписи старт
@@ -1231,7 +1447,7 @@
     }
     var isStart = false;
     var userScore = 0;
-    var chefScore = 14;
+    var chefScore = 10;
     function chefCookPancakes() {
         var chefPlate = document.querySelector('.hpmdf-chef-plate');
         var j = 1;
@@ -1263,8 +1479,7 @@
             }
         }
         var idTimeout = setInterval(function(){
-            if (i === 0) {
-                document.querySelector('.hpmdf-timer').style.opacity = "0";
+            if (i === 0 || userScore === 14) {
                 clearInterval(idTimeout);
                 showFinalScreen();
             }
@@ -1286,9 +1501,11 @@
 
     }
     var counter = 1;
+    var idTimerShake = 0;
     var userPlate = document.querySelector('.hpmdf-user-plate');
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-game-screen'), {
         left: function () {
+            clearTimeout(idTimerShake);
             if (isStart) {
                 if (userScore === 0) {
                     //событие "Пользователь играет"
@@ -1305,6 +1522,9 @@
                     counter++;
                 }
             }
+            idTimerShake = setTimeout(function(){
+                shakePancake(userScore + 1)
+            }, 2000);
         }
     });
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-link'), {
