@@ -91,7 +91,6 @@
                     <div class="hpmdf-chef-plate-90"></div>
                     <div class="hpmdf-chef-plate-100"></div>
                 </div>
-
                 <div class="hpmdf-user-plate" data-user-plate="0">
                     <div class="hpmdf-user-plate-empty"></div>
                     <div class="hpmdf-user-plate-15"></div>
@@ -612,10 +611,35 @@
         top: 66%;
         left: 32%;
         width: 19%;
+        transform: rotate(10deg);
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
         background-size: 1181% 5000%;
         background-position: 61% 22%;
+        animation: arrow-shake 1.5s linear infinite;
+    }
+    @keyframes arrow-shake {
+        0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            transform-origin: 50% 150%;
+        }
+        50% {
+            -webkit-transform: rotate(-30deg);
+            -moz-transform: rotate(-30deg);
+            -o-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+            transform-origin: 50% 150%;
+        }
+        100% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            transform-origin: 50% 150%;
+        }
     }
     .hpmdf-arrow::before {
         content: '';
@@ -1385,7 +1409,7 @@
     function shakePancake(pancakeNumber) {
         document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
         setTimeout(function(){
-            document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
+            document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.remove('hpmdf-shake');
         }, 1000)
     }
     function preloadImages(images, callback) {
@@ -1434,8 +1458,8 @@
                                 isStart = true;
                                 document.querySelector('.hpmdf-timer').style.opacity = "1";
                                 timer();
-                                idTimerShake = setTimeout(function(){
-                                    shakePancake(userScore + 1)
+                                idTimerShake = setInterval(function(){
+                                    shakePancake(userScore + 1);
                                 }, 2000);
                                 chefCookPancakes();
                             }, 1000) //запуск игры
@@ -1497,15 +1521,15 @@
             finalVisual.classList.add('hpmdf-fail');
             parent.postMessage('banner.event.3', '*');
         }
+        clearInterval(idTimerShake);
         document.querySelector('.hpmdf-game-screen').style.display = 'none';
-
     }
     var counter = 1;
     var idTimerShake = 0;
     var userPlate = document.querySelector('.hpmdf-user-plate');
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-game-screen'), {
         left: function () {
-            clearTimeout(idTimerShake);
+            clearInterval(idTimerShake);
             if (isStart) {
                 if (userScore === 0) {
                     //событие "Пользователь играет"
@@ -1522,7 +1546,7 @@
                     counter++;
                 }
             }
-            idTimerShake = setTimeout(function(){
+            idTimerShake = setInterval(function(){
                 shakePancake(userScore + 1)
             }, 2000);
         }
