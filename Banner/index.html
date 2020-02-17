@@ -20,7 +20,9 @@
                 <div class="hpmdf-link" ontouchstart="parent.postMessage('banner.redirect', '*');"></div>
             </div>
             <div class="hpmdf-game-screen">
-                <div class="hpmdf-logo"></div>
+                <div class="hpmdf-logo">
+                    <a href="https://www.pechemdoma.ru" class="hpmdf-link2" target="_blank"></a>
+                </div>
                 <div class="hpmdf-chef"></div>
                 <div class="hpmdf-board">
                     <div class="hpmdf-contest-with-chef"></div>
@@ -1186,18 +1188,18 @@
     }
     .hpmdf-final-text {
         position: absolute;
-        bottom: 17%;
-        left: 15%;
-        width: 70%;
+        bottom: 19%;
+        left: 21%;
+        width: 58%;
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
-        background-size: 419.2% 2264.2%;
-        background-position: 4.7% 99.6%;
+        background-size: 353.5% 1804.5%;
+        background-position: 2.0% 98.1%;
     }
     .hpmdf-final-text::before {
         content: '';
         display: block;
-        padding-top: 16%;
+        padding-top: 16.8%;
     }
     .hpmdf-button {
         position: absolute;
@@ -1571,21 +1573,14 @@
             }
         }
     });
-    function redirect() {
-        console.log('click');
-        window.open('https://habr.com/ru/post/178611/', '_blank');
-        parent.postMessage('banner.event.5', '*');
-    }
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-link'), {
         	tap: function() {
         		parent.postMessage('banner.event.4', '*');
         	}
         });
-    document.querySelector('.hpmdf-game-screen .hpmdf-logo').addEventListener('touchstart', redirect);
     window.addEventListener('DOMContentLoaded', hpmd.data.onViewportUpdate);
     window.addEventListener('resize', hpmd.data.onViewportUpdate);
     window.addEventListener('scroll', hpmd.data.onViewportUpdate);
-    window.addEventListener('orientationchange', hpmd.data.onViewportUpdate);
     window.addEventListener('DOMContentLoaded', init);
 </script>
 </html>
