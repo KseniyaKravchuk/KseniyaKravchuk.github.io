@@ -20,9 +20,7 @@
                 <div class="hpmdf-link" ontouchstart="parent.postMessage('banner.redirect', '*');"></div>
             </div>
             <div class="hpmdf-game-screen">
-                <div class="hpmdf-logo"
-                     ontouchstart="window.open('https://habr.com/ru/post/178611/', '_blank'); parent.postMessage('banner.event.5', '*');">
-                </div>
+                <div class="hpmdf-logo"></div>
                 <div class="hpmdf-chef"></div>
                 <div class="hpmdf-board">
                     <div class="hpmdf-contest-with-chef"></div>
@@ -1549,6 +1547,7 @@
             if (userScore === 14) {
                 clearInterval(idTimeout);
                 showFinalScreen();
+                isStart = false;
             }
             if (isStart) {
                 if (userScore === 0) {
@@ -1572,12 +1571,17 @@
             }
         }
     });
+    function redirect() {
+        console.log('click');
+        window.open('https://habr.com/ru/post/178611/', '_blank');
+        parent.postMessage('banner.event.5', '*');
+    }
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-link'), {
         	tap: function() {
         		parent.postMessage('banner.event.4', '*');
         	}
         });
-
+    document.querySelector('.hpmdf-game-screen .hpmdf-logo').addEventListener('touchstart', redirect);
     window.addEventListener('DOMContentLoaded', hpmd.data.onViewportUpdate);
     window.addEventListener('resize', hpmd.data.onViewportUpdate);
     window.addEventListener('scroll', hpmd.data.onViewportUpdate);
