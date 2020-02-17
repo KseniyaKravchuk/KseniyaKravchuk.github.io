@@ -20,9 +20,6 @@
                 <div class="hpmdf-link" ontouchstart="parent.postMessage('banner.redirect', '*');"></div>
             </div>
             <div class="hpmdf-game-screen">
-
-
-
                 <div class="hpmdf-logo"
                      ontouchstart="window.open('https://habr.com/ru/post/178611/', '_blank'); parent.postMessage('banner.event.5', '*');">
                 </div>
@@ -630,7 +627,7 @@
         background-repeat: no-repeat;
         background-size: 1181% 5000%;
         background-position: 61% 22%;
-        animation: arrow-shake 1.5s linear infinite;
+        animation: arrow-shake 1.5s ease-in-out infinite;
     }
     @keyframes arrow-shake {
         0% {
@@ -641,10 +638,10 @@
             transform-origin: 50% 150%;
         }
         50% {
-            -webkit-transform: rotate(-30deg);
-            -moz-transform: rotate(-30deg);
-            -o-transform: rotate(-30deg);
-            transform: rotate(-30deg);
+            -webkit-transform: rotate(-50deg);
+            -moz-transform: rotate(-50deg);
+            -o-transform: rotate(-50deg);
+            transform: rotate(-50deg);
             transform-origin: 50% 150%;
         }
         100% {
@@ -953,7 +950,7 @@
     .hpmdf-counter {
         position: absolute;
         top: 26%;
-        left: 38%;
+        left: 29%;
         width: 12%;
     }
     .hpmdf-counter::before {
@@ -1470,7 +1467,6 @@
                                     setTimeout(function(){
                                         document.querySelector('.hpmdf-board').style.display = "none";
                                         document.querySelector('.hpmdf-swipe-pancake').style.display = "none";
-                                        document.querySelector('.hpmdf-arrow').style.display = "none";
                                         document.querySelector('.hpmdf-chef').classList.add('hpmdf-chef-animation');
                                         isStart = true;
                                         document.querySelector('.hpmdf-timer').style.opacity = "1";
@@ -1558,6 +1554,7 @@
                 if (userScore === 0) {
                     //событие "Пользователь играет"
                     parent.postMessage('banner.event.1', '*');
+                    document.querySelector('.hpmdf-arrow').style.display = "none";
                 }
                 pancakes[userScore].style.transform = 'translateX(-150%) scale(0.3)';
                 pancakes[userScore].style.opacity = '0';
@@ -1569,10 +1566,10 @@
                     userPlate.setAttribute('data-user-plate', counter);
                     counter++;
                 }
+                idTimerShake = setInterval(function(){
+                    shakePancake(userScore + 1)
+                }, 2000);
             }
-            idTimerShake = setInterval(function(){
-                shakePancake(userScore + 1)
-            }, 2000);
         }
     });
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-link'), {
