@@ -20,9 +20,8 @@
                 <div class="hpmdf-link" ontouchstart="parent.postMessage('banner.redirect', '*');"></div>
             </div>
             <div class="hpmdf-game-screen">
-                <div class="hpmdf-logo">
-                    <a href="https://www.pechemdoma.ru" class="hpmdf-link2" target="_blank"></a>
-                </div>
+                <div class="hpmdf-logo"></div>
+                <a href="https://www.pechemdoma.ru" class="hpmdf-link2" target="_blank"></a>
                 <div class="hpmdf-chef"></div>
                 <div class="hpmdf-board">
                     <div class="hpmdf-contest-with-chef"></div>
@@ -121,7 +120,6 @@
         top: 0%;
         left: 0%;
         z-index: 2147483647;
-        touch-action: none;
     }
     #hpmdf-wrapper .hpmdf-landsape {
         display: none;
@@ -1295,13 +1293,16 @@
         left: 49%;
         width: 29%;
     }
-    .hpmdf-link,
-    .hpmdf-link2 {
+    .hpmdf-link {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
+    }
+    .hpmdf-link2 {
+        display: block;
+        position: absolute;
     }
 
 </style>
@@ -1445,6 +1446,14 @@
             './img/sprite.png'
         ], start);
     }
+    function setLink() {
+        var element = document.querySelector('.hpmdf-game-screen .hpmdf-logo').getBoundingClientRect();
+        var link = document.querySelector('.hpmdf-link2');
+        link.style.width = element.width + 'px';
+        link.style.height = element.height + 'px';
+        link.style.top = element.top + 'px';
+        link.style.left = element.left + 'px';
+    }
     function start() {
         hpmd.data.popup.className = 'hpmdf-popup-steady';
         setTimeout(function () {
@@ -1454,6 +1463,7 @@
                 document.querySelector('.hpmdf-first-screen').style.opacity = '0';
                 setTimeout(function(){
                     document.querySelector('.hpmdf-first-screen').style.display = "none";
+                    setLink();
                     setTimeout(function(){
                         document.querySelector('.hpmdf-counter').setAttribute('data-num', 3);
                         document.querySelector('.hpmdf-contest-with-chef').style.display = "none";
@@ -1578,11 +1588,11 @@
         		parent.postMessage('banner.event.4', '*');
         	}
         });
-    // hpmd.data.handleSwipe(document.querySelector('.hpmdf-link2'), {
-    //     tap: function() {
-    //         parent.postMessage('banner.event.5', '*');
-    //     }
-    // });
+    hpmd.data.handleSwipe(document.querySelector('.hpmdf-link2'), {
+        tap: function() {
+            parent.postMessage('banner.event.5', '*');
+        }
+    });
     window.addEventListener('DOMContentLoaded', hpmd.data.onViewportUpdate);
     window.addEventListener('resize', hpmd.data.onViewportUpdate);
     window.addEventListener('scroll', hpmd.data.onViewportUpdate);
