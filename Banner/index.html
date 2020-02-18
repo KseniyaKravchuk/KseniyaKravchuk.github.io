@@ -1446,14 +1446,6 @@
             './img/sprite.png'
         ], start);
     }
-    function setLink() {
-        var element = document.querySelector('.hpmdf-game-screen .hpmdf-logo').getBoundingClientRect();
-        var link = document.querySelector('.hpmdf-link2');
-        link.style.width = element.width + 'px';
-        link.style.height = element.height + 'px';
-        link.style.top = element.top + 'px';
-        link.style.left = element.left + 'px';
-    }
     function start() {
         hpmd.data.popup.className = 'hpmdf-popup-steady';
         setTimeout(function () {
@@ -1463,7 +1455,6 @@
                 document.querySelector('.hpmdf-first-screen').style.opacity = '0';
                 setTimeout(function(){
                     document.querySelector('.hpmdf-first-screen').style.display = "none";
-                    setLink();
                     setTimeout(function(){
                         document.querySelector('.hpmdf-counter').setAttribute('data-num', 3);
                         document.querySelector('.hpmdf-contest-with-chef').style.display = "none";
@@ -1588,8 +1579,9 @@
         		parent.postMessage('banner.event.4', '*');
         	}
         });
-    hpmd.data.handleSwipe(document.querySelector('.hpmdf-link2'), {
+    hpmd.data.handleSwipe(document.querySelector('.hpmdf-game-screen .hpmdf-logo'), {
         tap: function() {
+            window.open('https://www.pechemdoma.ru', '_blank');
             parent.postMessage('banner.event.5', '*');
         }
     });
