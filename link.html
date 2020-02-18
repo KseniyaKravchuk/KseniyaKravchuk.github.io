@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function setLink() {
+        var element = document.querySelector('.hpmdf-game-screen .hpmdf-logo').getBoundingClientRect();
+        var link = document.querySelector('.hpmdf-link2');
+        link.style.width = element.width + 'px';
+        link.style.height = element.height + 'px';
+        link.style.top = element.top + 'px';
+        link.style.left = element.left + 'px';
+    }
+</script>
+</body>
+</html>
