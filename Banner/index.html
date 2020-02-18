@@ -17,7 +17,7 @@
                 </div>
                 <div class="hpmdf-final-text"></div>
                 <div class="hpmdf-button"></div>
-                <div class="hpmdf-link" ontouchstart="parent.postMessage('banner.redirect', '*');"></div>
+                <div class="hpmdf-link"></div>
             </div>
             <div class="hpmdf-game-screen">
                 <div class="hpmdf-logo"></div>
@@ -1575,18 +1575,18 @@
     });
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-link'), {
         	tap: function() {
+                parent.postMessage('banner.redirect', '*');
         		parent.postMessage('banner.event.4', '*');
         	}
         });
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-game-screen .hpmdf-logo'), {
         tap: function() {
-            window.open('https://www.pechemdoma.ru', '_blank');
+            parent.postMessage('banner.redirect', '*');
             parent.postMessage('banner.event.5', '*');
         }
     });
     window.addEventListener('DOMContentLoaded', hpmd.data.onViewportUpdate);
     window.addEventListener('resize', hpmd.data.onViewportUpdate);
-    window.addEventListener('scroll', hpmd.data.onViewportUpdate);
     window.addEventListener('DOMContentLoaded', init);
 </script>
 </html>
