@@ -330,7 +330,22 @@ b, strong {
 
 /* 2. Common responsive styles */
 /* Smaller than 1200px */
+@media (max-width: 2000.98px) {
+    .blog-post-font {
+        font-size: 20px;
+    }
+    .blog-post-subtitle {
+        font-size: 28px;
+    }
+}
+
 @media (max-width: 1199.98px) {
+    .blog-post-font {
+        font-size: 20px;
+    }
+    .blog-post-subtitle {
+        font-size: 32px;
+    }
     /*header[class^="pt-"], section[class^="pt-"], header[class*=" pt-"], section[class*=" pt-"] {*/
     /*    padding-top: 80px;*/
     /*}*/
@@ -380,6 +395,12 @@ b, strong {
 
 /* Smaller than 992px */
 @media (max-width: 991.98px) {
+    .blog-post-font {
+        font-size: 20px;
+    }
+    .blog-post-subtitle {
+        font-size: 26px;
+    }
     h1, h2 {
         font-size: 42px;
         line-height: 52px;
@@ -427,6 +448,12 @@ b, strong {
 
 /* Smaller than 768px */
 @media (max-width: 767.98px) {
+    .blog-post-font {
+        font-size: 20px;
+    }
+    .blog-post-subtitle {
+        font-size: 25px;
+    }
     h1, h2 {
         font-size: 32px;
         line-height: 42px;
@@ -441,11 +468,6 @@ b, strong {
         font-size: 26px;
         line-height: 36px;
     }
-
-    /*h3 {*/
-    /*    font-size: 26px;*/
-    /*    line-height: 36px;*/
-    /*}*/
 
     .text-adaptive.f-24 {
         font-size: 20px;
@@ -508,6 +530,12 @@ b, strong {
 
 /* Smaller than 576px */
 @media (max-width: 575.98px) {
+    .blog-post-font {
+        font-size: 19px;
+    }
+    .blog-post-subtitle {
+        font-size: 24px;
+    }
     h1, h2 {
         font-size: 26px;
         line-height: 36px;
@@ -5958,3 +5986,10 @@ footer {
     border-radius: 50px;
 }
 
+.blog-post-font {
+    line-height: 34px;
+}
+
+.blog-post-subtitle {
+    line-height: 42px;
+}

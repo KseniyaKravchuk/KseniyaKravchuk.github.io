@@ -3,33 +3,35 @@ extends layout/page
 mixin question(data)
     .row.mt-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
         .col-lg-1
-        .mb-20.col-lg-9.f-22.text-adaptive= data.question
+        .blog-post-font.mb-20.col-lg-10.f-22= data.question
     .row.mb-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
         .col-lg-1
-        .col-lg-8.color-heading.text-adaptive!= data.answer
+        .col-lg-10.color-heading
+            for k in data.answer
+                p.blog-post-font!= k
     if (data.steps)
         .content_20
             .container.px-xl-0
                 .row
                     .col-lg-1
-                    .col-lg-9
+                    .col-lg-10
                         for j in steps
                             div(class= (j.pb) ? "pb-50 relative block" : "relative block")
                                 div(class= (j.line) ? "content_20_line" : " ")
                                 .bg-gray.color-heading.radius_full.w-40.h-40.f-18.medium.lh-40.text-center.number= j.step_num
-                                .ml-70.pt-10.block_inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
-                                    p.color-heading.text-adaptive!= j.step_text
+                                .ml-70.block_inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                                    p.color-heading.blog-post-font!= j.step_text
 
 block variables
     -
         var headerMenu = { formats: 'transparent', contacts: 'transparent' }
 
     -
-        var questions = [{steps: false, question: "Что меняется?", answer: "Ответ кроется в названии. В HPMD Network все рекламные форматы были заточены исключительно под мобильные устройства. В Double Screen мы не ограничиваемся одним экраном и создаем решения и для мобайла, и для десктопа. В частности, мы делаем упор на видеорекламу и креативы с интерактивными механиками. <br> Больше форматов — больше возможностей для монетизации."},
-        {steps: false, question: "Почему мы это делаем?", answer: "Мы хотим создать нечто большее, чем просто мобильную сеть. Наша цель — сформировать новый подход к медийной рекламе, в котором на первый план выйдет качество контакта пользователя с брендом. <br> Границы между десктопом постепенно стираются. Поэтому в рамках нового продукта мы будем на постоянной основе разрабатывать вовлекающие форматы, одинаково хорошо работающие на всех типах устройств. <br> А ещё нам нравится миксовать разные механики и изобретать новое. Больше экранов — больше пространства для креатива!"},
-        {steps: false, question: "Что за новые форматы?", answer: "На данный момент мы реализовали два новых кросс-девайсных решения — Immersion и Carousel. Также теперь мы поддерживаем классические видеоформаты — Out-Stream и In-Stream. <br> Подробнее о наших новых форматах вы можете почитать <a href=\"formats.html\" class=\"mt-20\">здесь</a>."},
-        {steps: false, question: "Что будет со старыми форматами?", answer: "Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."},
-        {steps: true, question: "Что нужно сделать, чтобы подключить новые форматы?", answer: "Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."}]
+        var questions = [{steps: false, question: "Что меняется?", answer: ["Ответ кроется в названии. В HPMD Network все рекламные форматы были заточены исключительно под мобильные устройства. В Double Screen мы не ограничиваемся одним экраном и создаем решения и для мобайла, и для десктопа. В частности, мы делаем упор на видеорекламу и креативы с интерактивными механиками.", "Больше форматов — больше возможностей для монетизации."]},
+        {steps: false, question: "Почему мы это делаем?", answer: ["Мы хотим создать нечто большее, чем просто мобильную сеть. Наша цель — сформировать новый подход к медийной рекламе, в котором на первый план выйдет качество контакта пользователя с брендом.", "Границы между десктопом постепенно стираются. Поэтому в рамках нового продукта мы будем на постоянной основе разрабатывать вовлекающие форматы, одинаково хорошо работающие на всех типах устройств.", "А ещё нам нравится миксовать разные механики и изобретать новое. Больше экранов — больше пространства для креатива!"]},
+        {steps: false, question: "Что за новые форматы?", answer: ["На данный момент мы реализовали два новых кросс-девайсных решения — Immersion и Carousel. Также теперь мы поддерживаем классические видеоформаты — Out-Stream и In-Stream.", "Подробнее о наших новых форматах вы можете почитать <a href=\"formats.html\" class=\"mt-20\">здесь</a>."]},
+        {steps: false, question: "Что будет со старыми форматами?", answer: ["Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."]},
+        {steps: true, question: "Что нужно сделать, чтобы подключить новые форматы?", answer: ["Все форматы HPMD Network продолжат работать. Mobile Fullscreen, Mobile Native banner и Mobile Swipe мы будем предлагать рекламодателям в первую очередь."]}]
 
     -
         var steps = [{pb: true, step_num: '1', line: true, step_text: "Напишите вашему менеджеру, что хотите подключить новые форматы."},
@@ -41,19 +43,14 @@ block variables
 
 block content
 
-    section.pt-75.pb-90.bg-light.content_4
-        .container.px-xl-0.text-center
-            .row.justify-content-center
-                .col-xl-7.col-lg-8.col-md-10.f-28.icons
-                    i.mx-30.fas.fa-code(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
-                    i.mx-30.fas.fa-heart.action-3.f-32(data-aos-duration='600', data-aos='fade-down', data-aos-delay='150')
-                    i.mx-30.far.fa-star(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
-                .col-xl-7.col-lg-8.col-md-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
-                    h2.mt-45.small Паблишерам
-                .mt-30.col-xl-7.col-lg-8.col-md-9.col-sm-10.f-22.color-heading.text-adaptive
-                    span(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+    section.pt-75.pb-90.bg-light
+        .container.px-xl-0
+            .row
+                .col-lg-1
+                .col-lg-10.col-md-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
+                    h2.mt-45.mb-25.big Паблишерам
+                    span.blog-post-subtitle.color-heading(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
                         | С 2020 года HPMD Network трансформируется в новый продукт — Double Screen.
-
     section.pb-100.bg-light.content_11
         .container.px-xl-0
             for i in questions
@@ -63,11 +60,7 @@ block content
         .container.px-xl-0
             .row(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
                 .col-lg-1
-                .col-lg-8.color-heading.text-adaptive
-                    | Если вы еще не подключены к нашей системе, напишите нам на *адрес*.
-                    br
-                    br
-                    | Наши менеджеры с радостью ответят на все вопросы, оперативно проведут проверку и интеграцию и в тот же день добавят вашу площадку в медиапланы для рекламодателей.
-                    br
-                    br
-                    | Спасибо, что работаете с нами. Дальше будет еще интересней!
+                .col-lg-10.color-heading.blog-post-font
+                    p Если вы еще не подключены к нашей системе, напишите нам на *адрес*.
+                    p Наши менеджеры с радостью ответят на все вопросы, оперативно проведут проверку и интеграцию и в тот же день добавят вашу площадку в медиапланы для рекламодателей.
+                    p Спасибо, что работаете с нами. Дальше будет еще интересней!
