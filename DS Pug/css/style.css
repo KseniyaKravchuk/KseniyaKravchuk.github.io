@@ -6014,3 +6014,56 @@ footer {
 .blog-post-subtitle {
     line-height: 42px;
 }
+
+/*стили для страницы Кейсов*/
+.wrapper-case {
+    width: 100%;
+    padding-top: 69%;
+    /*height: 200px;*/
+    /*background: url('../i/img_mok/showcase_4_img_1.jpg') 50% 50% no-repeat;*/
+    /*background-size: contain;*/
+    overflow: hidden;
+    position: relative;
+}
+/*.wrapper-case::before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    padding-top: 69%;*/
+/*}*/
+.case-img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.case-board {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    /*height: 25%;*/
+    transform: translateY(100%);
+    transition: transform .3s ease-in-out;
+}
+.case-board::before {
+    content: '';
+    display: block;
+    padding-top: 17%;
+}
+.wrapper-case:hover .case-board {
+    transform: translateY(0%);
+}
+.case-name {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    color: black;
+}
+.case-text {
+    font-size: 10px;
+    margin: 0;
+    position: absolute;
+    left: 5%;
+    top: 45%;
+}

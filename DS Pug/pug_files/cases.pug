@@ -1,0 +1,48 @@
+extends layout/page
+
+mixin case(data)
+    a.mt-30.w-full.d-block.link(href= data.link)
+        .wrapper-case.radius6(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0' style='padding-top:'+ data.ratio + '%;')
+            img.radius6.case-img(src=data.img, alt='')
+            .case-board
+                span.case-name= data.name
+                p.case-text= data.description
+
+
+block variables
+    - var topbar = false
+    -
+        var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
+    -
+        var cases = [{link: '#', img: './i/img_mok/showcase_4_img_1.jpg', ratio: 65, name: 'Кейс 1', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_2.jpg', ratio: 140, name: 'Кейс 2', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_3.jpg', ratio: 140, name: 'Кейс 3', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_4.jpg', ratio: 82, name: 'Кейс 4', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_5.jpg', ratio: 69, name: 'Кейс 5', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_6.jpg', ratio: 130, name: 'Кейс 6', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_7.jpg', ratio: 62, name: 'Кейс 7', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_8.jpg', ratio: 72, name: 'Кейс 8', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_9.jpg', ratio: 119, name: 'Кейс 9', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_10.jpg', ratio: 51, name: 'Кейс 10', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+                     {link: '#', img: './i/img_mok/showcase_4_img_11.jpg', ratio: 99, name: 'Кейс 11', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'}]
+block content
+    section.pt-105.pb-100.color-header.text-center.showcase_4
+        .container.px-xl-0
+            h2.small(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0') Наши кейсы
+            .mt-15.mb-50.f-22.text-adaptive(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                | Более 3,5 тысяч рекламных кампаний мы провели с 2014 года
+            .row.align-items-stretch.justify-content-center
+                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                    +case(cases[0])
+                    +case(cases[1])
+                    +case(cases[2])
+                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                    +case(cases[3])
+                    +case(cases[4])
+                    +case(cases[5])
+                    +case(cases[6])
+                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                    +case(cases[7])
+                    +case(cases[8])
+                    +case(cases[9])
+                    +case(cases[10])
