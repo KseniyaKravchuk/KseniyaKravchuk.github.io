@@ -668,6 +668,8 @@
         top: 80%;
         left: 28%;
         width: 28%;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
         transform: rotate(10deg);
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
@@ -1483,8 +1485,6 @@
         }
     };
     function shakePancake(pancakeNumber) {
-        if (userScore === 0)
-            document.querySelector('.hpmdf-stiker').style.opacity = '0.94';
         document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
         setTimeout(function(){
             document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.remove('hpmdf-shake');
@@ -1536,6 +1536,7 @@
                                         document.querySelector('.hpmdf-start').style.opacity = "1";
                                         setTimeout(function(){
                                             document.querySelector('.hpmdf-board').style.display = "none";
+                                            document.querySelector('.hpmdf-arrow').style.opacity = "1";
                                             document.querySelector('.hpmdf-chef').classList.add('hpmdf-chef-animation');
                                             isStart = true;
                                             document.querySelector('.hpmdf-timer').style.opacity = "1";
@@ -1543,6 +1544,9 @@
                                             idTimerShake = setInterval(function(){
                                                 shakePancake(userScore + 1);
                                             }, 2000);
+                                            idTimerCTA = setInterval(function(){
+                                                document.querySelector('.hpmdf-stiker').style.opacity = '0.94';
+                                            }, 3000);
                                             chefCookPancakes();
                                         }, 1000) //удаляется белая плашка, запускается игра
                                     }, 1000) //появляется надпись старт
@@ -1608,14 +1612,19 @@
             parent.postMessage('banner.event.3', '*');
         }
         clearInterval(idTimerShake);
+        clearInterval(idTimerCTA);
+        document.querySelector('.hpmdf-stiker').style.opacity = '0';
         document.querySelector('.hpmdf-game-screen').style.display = 'none';
     }
     var counter = 1;
     var idTimerShake = 0;
+    var idTimerCTA = 0;
     var userPlate = document.querySelector('.hpmdf-user-plate');
     hpmd.data.handleSwipe(document.querySelector('.hpmdf-game-screen'), {
         left: function () {
             clearInterval(idTimerShake);
+            clearInterval(idTimerCTA);
+            document.querySelector('.hpmdf-stiker').style.opacity = '0';
             if (userScore === 14) {
                 clearInterval(idTimeout);
                 showFinalScreen();
@@ -1626,7 +1635,7 @@
                     //событие "Пользователь играет"
                     parent.postMessage('banner.event.1', '*');
                     document.querySelector('.hpmdf-arrow').style.display = "none";
-                    document.querySelector('.hpmdf-stiker').style.display = "none";
+                    document.querySelector('.hpmdf-stiker').style.opacity = "0";
                 }
                 pancakes[userScore].style.transform = 'translateX(-150%) scale(0.3)';
                 pancakes[userScore].style.opacity = '0';
@@ -1641,6 +1650,10 @@
                 idTimerShake = setInterval(function(){
                     shakePancake(userScore + 1)
                 }, 2000);
+                idTimerCTA = setInterval(function(){
+
+                    document.querySelector('.hpmdf-stiker').style.opacity = '0.94';
+                }, 3000);
             }
         }
     });
