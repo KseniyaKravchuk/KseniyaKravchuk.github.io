@@ -24,6 +24,7 @@
                 <div class="hpmdf-chef"></div>
                 <div class="hpmdf-board">
                     <div class="hpmdf-contest-with-chef"></div>
+                    <div class="hpmdf-swipe-pancakes"></div>
                     <div class="hpmdf-counter" data-num="">
                         <div class="hpmdf-num hpmdf-num3"></div>
                         <div class="hpmdf-num hpmdf-num2"></div>
@@ -31,7 +32,6 @@
                     </div>
                     <div class="hpmdf-start"></div>
                 </div>
-                <div class="hpmdf-pack"></div>
                 <div class="hpmdf-timer">
                     <div class="hpmdf-timer-numbers" data-timer-num="10">
                         <div class="hpmdf-timer-number hpmdf-timer-number10"></div>
@@ -55,7 +55,11 @@
                         <div class="hpmdf-text-second text-second3"></div>
                     </div>
                 </div>
+                <div class="hpmdf-stiker">
+                    <div class="hpmdf-CTA-swipe"></div>
+                </div>
                 <div class="hpmdf-pan"></div>
+                <div class="hpmdf-pack"></div>
                 <div class="hpmdf-pancake hpmdf-pancake1"></div>
                 <div class="hpmdf-pancake hpmdf-pancake2" style="opacity: 0;"></div>
                 <div class="hpmdf-pancake hpmdf-pancake3" style="opacity: 0;"></div>
@@ -76,7 +80,6 @@
                 <div class="hpmdf-pancake hpmdf-pancake18" style="opacity: 0;"></div>
                 <div class="hpmdf-pancake hpmdf-pancake19" style="opacity: 0;"></div>
                 <div class="hpmdf-pancake hpmdf-pancake20" style="opacity: 0;"></div>
-                <div class="hpmdf-swipe-pancake"></div>
                 <div class="hpmdf-arrow"></div>
                 <div class="hpmdf-chef-plate" data-chef-plate="0">
                     <div class="hpmdf-chef-plate-empty"></div>
@@ -120,7 +123,7 @@
         left: 0%;
         z-index: 2147483647;
     }
-    #hpmdf-wrapper .hpmdf-landsape {
+    #hpmdf-wrapper.hpmdf-landscape {
         display: none;
     }
     #hpmdf-popup {
@@ -349,6 +352,22 @@
         display: block;
         padding-top: 29.7%;
     }
+    .hpmdf-swipe-pancakes {
+        opacity: 0;
+        position: absolute;
+        top: 18%;
+        left: 9%;
+        width: 50%;
+        background-image: url(./img/sprite.png);
+        background-repeat: no-repeat;
+        background-size: 568% 1048%;
+        background-position: 97.5% 69.6%;
+    }
+    .hpmdf-swipe-pancakes::before {
+        content: '';
+        display: block;
+        padding-top: 46.5%;
+    }
     .hpmdf-pan {
         position: absolute;
         top: 69%;
@@ -363,6 +382,36 @@
         content: '';
         display: block;
         padding-top: 151%;
+    }
+    .hpmdf-stiker {
+        position: absolute;
+        top: 58%;
+        left: 12%;
+        width: 32%;
+        border-radius: 100%;
+        background-color: white;
+        opacity: 0;
+        transition: opacity .4s ease-in;
+    }
+    .hpmdf-stiker::before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+    .hpmdf-CTA-swipe {
+        position: absolute;
+        top: 37%;
+        left: 15%;
+        width: 70%;
+        background-image: url(./img/sprite.png);
+        background-repeat: no-repeat;
+        background-size: 830.9% 1846.2%;
+        background-position: 97.6% 11.6%;
+    }
+    .hpmdf-CTA-swipe::before {
+        content: '';
+        display: block;
+        padding-top: 38.6%;
     }
     .hpmdf-pancake {
         position: absolute;
@@ -616,9 +665,9 @@
     }
     .hpmdf-arrow {
         position: absolute;
-        top: 76%;
+        top: 80%;
         left: 28%;
-        width: 19%;
+        width: 28%;
         transform: rotate(10deg);
         background-image: url(./img/sprite.png);
         background-repeat: no-repeat;
@@ -1023,8 +1072,8 @@
     }
     .hpmdf-timer {
         position: absolute;
-        top: 54%;
-        left: 16%;
+        top: 52%;
+        left: 4%;
         width: 32%;
         opacity: 0;
     }
@@ -1426,11 +1475,16 @@
                 hpmd.data.wrapper.classList.remove('hpmdf-portrait');
             }
         },
+        // isPortrait: function() {
+        //     return (window.innerWidth < window.innerHeight)
+        // },
         onViewportUpdate: function() {
             hpmd.data.checkOrientation();
         }
     };
     function shakePancake(pancakeNumber) {
+        if (userScore === 0)
+            document.querySelector('.hpmdf-stiker').style.opacity = '0.94';
         document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.add('hpmdf-shake');
         setTimeout(function(){
             document.querySelector('.hpmdf-pancake' + pancakeNumber).classList.remove('hpmdf-shake');
@@ -1464,37 +1518,40 @@
             // Проявляем фуллскрин на экране.
             hpmd.data.popup.className = 'hpmdf-popup-steady hpmdf-popup-ready';
             setTimeout(function() {
-                document.querySelector('.hpmdf-first-screen').style.opacity = '0';
+                document.querySelector('.hpmdf-first-screen').style.opacity = '1';
                 setTimeout(function(){
                     document.querySelector('.hpmdf-first-screen').style.display = "none";
                     setTimeout(function(){
-                        document.querySelector('.hpmdf-counter').setAttribute('data-num', 3);
                         document.querySelector('.hpmdf-contest-with-chef').style.display = "none";
+                        document.querySelector('.hpmdf-swipe-pancakes').style.opacity = "1";
                         setTimeout(function(){
-                            document.querySelector('.hpmdf-counter').setAttribute('data-num', 2);
+                            document.querySelector('.hpmdf-counter').setAttribute('data-num', 3);
+                            document.querySelector('.hpmdf-swipe-pancakes').style.display = "none";
                             setTimeout(function(){
-                                document.querySelector('.hpmdf-counter').setAttribute('data-num', 1);
-                                setTimeout(function () {
-                                    document.querySelector('.hpmdf-counter').style.display = "none";
-                                    document.querySelector('.hpmdf-start').style.opacity = "1";
-                                    setTimeout(function(){
-                                        document.querySelector('.hpmdf-board').style.display = "none";
-                                        document.querySelector('.hpmdf-swipe-pancake').style.display = "none";
-                                        document.querySelector('.hpmdf-chef').classList.add('hpmdf-chef-animation');
-                                        isStart = true;
-                                        document.querySelector('.hpmdf-timer').style.opacity = "1";
-                                        timer();
-                                        idTimerShake = setInterval(function(){
-                                            shakePancake(userScore + 1);
-                                        }, 2000);
-                                        chefCookPancakes();
-                                    }, 1000) //запуск игры
-                                }, 1000)
-                            }, 1000)
-                        }, 1000) //появление надписи старт
-                    }, 1000) //отсчет до старта, смена 2 на 1
-                }, 1000) //отсчет до старта, смена 3 на 2
-            }, 1500) //1.5 секунды показывается первый экран
+                                document.querySelector('.hpmdf-counter').setAttribute('data-num', 2);
+                                setTimeout(function(){
+                                    document.querySelector('.hpmdf-counter').setAttribute('data-num', 1);
+                                    setTimeout(function () {
+                                        document.querySelector('.hpmdf-counter').style.display = "none";
+                                        document.querySelector('.hpmdf-start').style.opacity = "1";
+                                        setTimeout(function(){
+                                            document.querySelector('.hpmdf-board').style.display = "none";
+                                            document.querySelector('.hpmdf-chef').classList.add('hpmdf-chef-animation');
+                                            isStart = true;
+                                            document.querySelector('.hpmdf-timer').style.opacity = "1";
+                                            timer();
+                                            idTimerShake = setInterval(function(){
+                                                shakePancake(userScore + 1);
+                                            }, 2000);
+                                            chefCookPancakes();
+                                        }, 1000) //удаляется белая плашка, запускается игра
+                                    }, 1000) //появляется надпись старт
+                                }, 1000) //обратный отсчет - 1
+                            }, 1000) //обратный отсчет - 2
+                        }, 1000) //удаляется надпись Свайпай блины, появляется обратный отсчет - 3
+                    }, 1000) //появляется надпись Свайпай блины
+                }, 1000) //удаляется первый экран, соревнуйся с шефом на игровом экране
+            }, 1500) //удаляется первый экран, соревнуйся с шефом на игровом экране
         }, 100);
     }
     var isStart = false;
@@ -1569,6 +1626,7 @@
                     //событие "Пользователь играет"
                     parent.postMessage('banner.event.1', '*');
                     document.querySelector('.hpmdf-arrow').style.display = "none";
+                    document.querySelector('.hpmdf-stiker').style.display = "none";
                 }
                 pancakes[userScore].style.transform = 'translateX(-150%) scale(0.3)';
                 pancakes[userScore].style.opacity = '0';
@@ -1576,7 +1634,7 @@
                     pancakes[userScore + 1].style.opacity = '1';
                     userScore++;
                 }, 150);
-                if (userScore%2 === 1 && userScore <= 14) {
+                if (userScore%2 === 0 && userScore <= 14) {
                     userPlate.setAttribute('data-user-plate', counter);
                     counter++;
                 }
@@ -1601,5 +1659,7 @@
     window.addEventListener('DOMContentLoaded', hpmd.data.onViewportUpdate);
     window.addEventListener('resize', hpmd.data.onViewportUpdate);
     window.addEventListener('DOMContentLoaded', init);
+
+
 </script>
 </html>
