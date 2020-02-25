@@ -1,0 +1,36 @@
+extends layout/page
+
+block variables
+    - var topbar = false
+    -
+        var headerMenu = { formats: 'transparent', cases: 'transparent', contacts: 'transparent' }
+
+block content
+    section.wrapper_case_lipton.pt-75.pb-75
+        .container.px-xl-0
+            .row
+                .col-lg-1
+                .col-lg-10
+                    h2.mt-35.mb-35 Игра Lipton Arcanoid
+            .row
+                .col-lg-1
+                .col-lg-10
+                    .mt-35.mb-35.f-22.blog-post-question-font Задача
+                    p.mt-35.mb-35.color-heading.blog-post-answer-font Разработать интересную игровую механику для поддержки промо кампании
+                    .mt-35.mb-35.f-22.blog-post-question-font Идея
+                    p.mt-35.mb-35.color-heading.blog-post-answer-font Мы реализовали в баннере игру Arkanoid.
+                    p.mt-35.mb-35.color-heading.blog-post-answer-font Пользователь управлял платформой, которая должна отбивать летающий мячик, не давая ему упасть.
+                    .mt-35.mb-35.f-22.blog-post-question-font Задача
+                    p.mt-35.mb-35.color-heading.blog-post-answer-font C помощью мячика расчистить все игровое поле. В качестве препятствий использовались ягоды черники и облепихи - вкусы чая липтон. Некоторые ягоды были заморожены, по ним требовалось ударить два раза.
+            .row
+                .col-lg-3
+                .col-lg-6
+                    .video-case-container
+                        img(src='i/cases/phone.svg' width='100%')
+                        .video-case
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='i/cases/lipton/lipton_arcanoid.mp4')
+
+
+
+

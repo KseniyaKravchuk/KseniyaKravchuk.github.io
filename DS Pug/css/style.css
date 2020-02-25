@@ -5853,7 +5853,7 @@ svg {
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
 }
 .content {
     flex: 1 0 auto;
@@ -6042,7 +6042,6 @@ footer {
     bottom: 0;
     width: 100%;
     background: #fff;
-    /*height: 25%;*/
     transform: translateY(100%);
     transition: transform .3s ease-in-out;
 }
@@ -6066,4 +6065,39 @@ footer {
     position: absolute;
     left: 5%;
     top: 45%;
+}
+
+.wrapper_case_lipton {
+    background-color: rgb(129, 205, 254);
+    width: 100%;
+    background-image: url(../i/cases/lipton/bg-lipton_arcanoid.jpg);
+    background-position: 0% 101%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.video-case-container {
+    width: 60%;
+    position: relative;
+}
+
+.video-case {
+    width: 84.2%;
+    position: absolute;
+    top: 12%;
+    left: 7.8%;
+    overflow: hidden;
+}
+
+.video-case::before {
+    content: '';
+    display: block;
+    padding-top: 178%;
+}
+
+.video-case-set {
+    width: 100%;
+    position: absolute;
+    left: -1.6%;
+    top: -13%;
 }
