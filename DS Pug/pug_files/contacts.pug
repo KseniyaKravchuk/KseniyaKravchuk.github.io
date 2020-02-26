@@ -1,9 +1,9 @@
 -
     var mainMenu = [{link: 'index.html', name: 'Домой'},
     {link: 'formats.html', name: 'Форматы'},
-    {link: 'cases.html', name: 'Кейсы'},
     {link: 'contacts.html', name: 'Контакты'}]
-
+-
+    var pageData = { title: 'Контакты — Double Screen', description: 'г. Москва, ул. Ленинская Слобода, д. 19, БЦ "Омега Плаза", sales@hpmd.ru', keywords: 'Double Screen контакты, Double Screen адрес, Double Screen адрес Москва, Double Screen адрес Санкт-Петербург' }
 -
     var contacts = [{title: "Москва", text: "ул. Ленинская Слобода, 19, <br> БЦ «Омега Плаза»", link: false},
                     {title: "Санкт-Петербург", text: "наб. Обводного канала 199-201, <br> БЦ «Обводный двор»", link: false},
@@ -11,37 +11,7 @@
 
 doctype html
 html(lang='en')
-    head
-        meta(charset='utf-8')
-        title Double Screen
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(rel='icon', href='i/favicon.png', type='image/x-icon')
-        // Google Fonts
-        link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400,600,500,700,800,900|Source+Sans+Pro:100,200,300,400,500,600,700,800,900&subset=cyrillic-ext', rel='stylesheet')
-        // Bootstrap 4.3.1 CSS
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
-        // Slick 1.8.1 jQuery plugin CSS (Sliders)
-        link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
-        // Fancybox 3 jQuery plugin CSS (Open images and video in popup)
-        link(rel='stylesheet', href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css')
-        // AOS 2.3.4 jQuery plugin CSS (Animations)
-        link(href='https://unpkg.com/aos@2.3.4/dist/aos.css', rel='stylesheet')
-        // FontAwesome CSS
-        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
-        // Startup 3 CSS (Styles for all blocks)
-        link(href='css/style.css?v1.0.3', rel='stylesheet')
-        // Custom CSS
-        link(href='css/custom.css?v1.0.4', rel='stylesheet')
-        // Google Tag Manager
-        script.
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-WKSQNPZ');
-        // End Google Tag Manager
-        // jQuery 3.3.1
-        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    include ./modules/head
     body.contacts_body
         // Google Tag Manager (noscript)
         noscript
@@ -67,7 +37,6 @@ html(lang='en')
                                 a.color-white.link(href='index.html') DOUBLE SCREEN
                         .col-sm-12.col-xl-4.d-flex.justify-content-center.align-items-center
                             a.link.color-white.f-18.mx-15.border-bottom-transparent(href='formats.html') Форматы
-                            a.link.color-white.f-18.mx-15.border-bottom-transparent(href='cases.html') Кейсы
                             a.link.color-white.f-18.mx-15.border-bottom-yellow(href='contacts.html') Контакты
             .container
                 .d-flex.align-items-center.justify-content-center.flex-column
@@ -94,6 +63,8 @@ html(lang='en')
                                     .mb-10.f-14.color-white.semibold.title= j.title
                                     .color-white.mb-0!= j.text
                         .col-xl-1
+        // jQuery 3.3.1
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
         // Bootstrap 4.3.1 JS
         script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
         // Fancybox 3 jQuery plugin JS (Open images and video in popup)
