@@ -6041,7 +6041,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #fff;
+    background: #271AA8;
     transform: translateY(100%);
     transition: transform .3s ease-in-out;
 }
@@ -6057,7 +6057,7 @@ footer {
     position: absolute;
     left: 5%;
     top: 5%;
-    color: black;
+    color: #23C8A8;
 }
 .case-text {
     font-size: 10px;
@@ -6065,19 +6065,30 @@ footer {
     position: absolute;
     left: 5%;
     top: 45%;
+    color: #ffffff;
 }
 
 .wrapper_case_lipton {
+    position: relative;
     background-color: rgb(129, 205, 254);
     width: 100%;
+}
+
+.case-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url(../i/cases/lipton/bg-lipton_arcanoid.jpg);
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    filter: blur(5px);
 }
 
 .video-case-container {
-    width: 60%;
+    width: 70%;
     position: relative;
 }
 
