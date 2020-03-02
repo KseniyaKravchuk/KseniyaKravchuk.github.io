@@ -5,6 +5,8 @@
     </div>
     <div class="current_list">
       <h1>Shopping list</h1>
+      <AddNewItem
+        @add-item="addItem"/>
       <ShoppingList v-bind:items="items"
                     @remove-item="removeItem"/>
     </div>
@@ -13,6 +15,7 @@
 
 <script>
 import ShoppingList from '@/components/ShoppingList'
+import AddNewItem from '@/components/AddNewItem'
 export default {
   name: 'app',
   data() {
@@ -27,10 +30,14 @@ export default {
   methods: {
     removeItem(id) {
       this.items = this.items.filter(i => i.id !== id)
+    },
+    addItem(item) {
+      this.items.push(item)
+      window.console.log(this.items)
     }
   },
   components: {
-    ShoppingList
+    ShoppingList, AddNewItem
   }
 }
 </script>
@@ -51,5 +58,7 @@ export default {
   }
   .current_list {
     width: 60%;
+    display: flex;
+    flex-direction: column;
   }
 </style>

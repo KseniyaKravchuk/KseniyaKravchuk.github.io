@@ -2,6 +2,7 @@
     <li>
         <span v-bind:class="{done: item.completed}">
             <input type="checkbox" v-on:change="item.completed=!item.completed">
+            <strong>{{ index + 1 }}</strong>
             {{ item.name }}
         </span>
         <button v-on:click="$emit('remove-item', item.id)">Delete</button>
@@ -14,7 +15,8 @@ export default {
         item: {
             type: Object,
             require: true
-        }
+        },
+        index: Number
     }
 }
 </script>
