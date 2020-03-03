@@ -4,7 +4,7 @@ mixin case(data)
     a.mt-30.w-full.d-block.link(href= data.link)
         .wrapper-case.radius6(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0' style='padding-top:'+ data.ratio + '%;')
             img.radius6.case-img(src=data.img, alt='')
-            .case-board
+            .case-board.text-left
                 span.case-name= data.name
                 p.case-text= data.description
 
