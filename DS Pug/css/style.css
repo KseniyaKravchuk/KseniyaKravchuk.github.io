@@ -6049,7 +6049,7 @@ footer {
 .case-board::before {
     content: '';
     display: block;
-    padding-top: 25%;
+    padding-top: 22%;
 }
 .wrapper-case:hover .case-board {
     transform: translateY(0%);
@@ -6057,20 +6057,33 @@ footer {
 .wrapper-case:hover .case-img {
     transform: scale(1.1);
 }
+.wrapper-case:hover .case-filter {
+    opacity: 1;
+}
+
+.case-filter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(93, 195, 169, 0.2), rgba(93, 195, 169, 0.2));
+}
 .case-name {
     position: absolute;
-    left: 5%;
-    top: 8%;
-    font-size: 18px;
+    left: 4%;
+    top: 18%;
+    font-size: 22px;
     color: #23C8A8;
 }
 .case-text {
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     position: absolute;
-    left: 5%;
-    top: 38%;
+    left: 4%;
+    top: 50%;
     color: #ffffff;
+    opacity: 0.6;
 }
 
 .wrapper_case_lipton {
@@ -6079,13 +6092,32 @@ footer {
     width: 100%;
 }
 
-.case-bg {
+.wrapper_case_lays {
+    position: relative;
+    background-color: rgb(253, 220, 1);
+    width: 100%;
+}
+
+.case-bg-lipton {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url(../i/cases/lipton/bg-lipton_arcanoid.png);
+    background-position: 0% 101%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    filter: blur(5px);
+}
+
+.case-bg-lays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../i/cases/lays/lays_football_img.jpg);
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
