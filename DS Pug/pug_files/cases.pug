@@ -18,17 +18,12 @@ block variables
     -
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
     -
-        var cases = [{link: 'case_lipton.html', img: './i/img_mok/showcase_4_img_1.jpg', ratio: 69, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
-                     {link: 'case_lays.html', img: './i/img_mok/showcase_4_img_2.jpg', ratio: 140, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_3.jpg', ratio: 140, name: 'Кейс 3', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_4.jpg', ratio: 82, name: 'Кейс 4', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_5.jpg', ratio: 69, name: 'Кейс 5', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_6.jpg', ratio: 130, name: 'Кейс 6', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_7.jpg', ratio: 62, name: 'Кейс 7', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_8.jpg', ratio: 72, name: 'Кейс 8', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_9.jpg', ratio: 119, name: 'Кейс 9', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_10.jpg', ratio: 51, name: 'Кейс 10', description: 'Lorem ipsum dolor sit amet'},
-                     {link: '#', img: './i/img_mok/showcase_4_img_11.jpg', ratio: 99, name: 'Кейс 11', description: 'Lorem ipsum dolor sit amet'}]
+        var cases = [{link: 'case_lexus.html', img: './i/cases/preview/lexus.png', ratio: 130, name: 'Immersion Lexus', description: 'Lorem ipsum dolor sit amet'},
+                    {link: '#', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
+                     {link: 'case_lays.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
+                    {link: '#', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
+                    {link: 'case_lipton.html', img: './i/cases/preview/lipton.png', ratio: 81, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
+                     {link: '#', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
 block content
     section.pt-105.pb-100.color-header.text-center.showcase_4
         .container.px-xl-0
@@ -39,14 +34,9 @@ block content
                 .col-md-4.col-10.d-flex.flex-column.justify-content-between
                     +case(cases[0])
                     +case(cases[1])
-                    +case(cases[2])
                 .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                    +case(cases[2])
                     +case(cases[3])
+                .col-md-4.col-10.d-flex.flex-column.justify-content-between
                     +case(cases[4])
                     +case(cases[5])
-                    +case(cases[6])
-                .col-md-4.col-10.d-flex.flex-column.justify-content-between
-                    +case(cases[7])
-                    +case(cases[8])
-                    +case(cases[9])
-                    +case(cases[10])

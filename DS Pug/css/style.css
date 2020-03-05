@@ -6043,7 +6043,7 @@ footer {
     bottom: 0;
     width: 100%;
     background: #271AA8;
-    transform: translateY(100%);
+    transform: translateY(101%);
     transition: transform .3s ease-in-out;
 }
 .case-board::before {
@@ -6129,6 +6129,23 @@ footer {
     position: relative;
 }
 
+.video-case-container-desktop {
+    width: 114%;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .video-case-container-desktop > img {
+        transform: scale(1.2);
+        transform-origin: left;
+        height: auto;
+    }
+    .desktop-case {
+        justify-content: flex-start!important;
+    }
+}
+
+
 .video-case {
     width: 84.2%;
     position: absolute;
@@ -6141,6 +6158,20 @@ footer {
     content: '';
     display: block;
     padding-top: 178%;
+}
+
+.video-case-desktop {
+    width: 70%;
+    position: absolute;
+    top: 13%;
+    left: 37%;
+    overflow: hidden;
+}
+
+.video-case-desktop::before {
+    content: '';
+    display: block;
+    padding-top: 55%;
 }
 
 .video-case-set {
@@ -6166,6 +6197,27 @@ footer {
     .video-case-container {
         width: 40%;
         position: relative;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-case-container-desktop {
+        width: 90%;
+        position: relative;
+    }
+    .video-case-container-desktop > img {
+        max-width: 100%;
+        height: auto;
+    }
+    .desktop-case {
+        justify-content: center!important;
+    }
+    .video-case-desktop {
+        width: 46%;
+        position: absolute;
+        top: 20%;
+        left: 26%;
+        overflow: hidden;
     }
 }
 
