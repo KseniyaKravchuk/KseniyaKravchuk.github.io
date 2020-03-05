@@ -6015,6 +6015,21 @@ footer {
     line-height: 42px;
 }
 
+@media (max-width: 768px) {
+    .format-name-down {
+        opacity: 0;
+    }
+    .format-name-mobile-down {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .format-name-up {
+        display: none;
+    }
+}
+
 /*стили для страницы Кейсов*/
 .wrapper-case {
     width: 100%;
@@ -6025,11 +6040,7 @@ footer {
     overflow: hidden;
     position: relative;
 }
-/*.wrapper-case::before {*/
-/*    content: '';*/
-/*    display: block;*/
-/*    padding-top: 69%;*/
-/*}*/
+
 .case-img {
     width: 100%;
     position: absolute;
