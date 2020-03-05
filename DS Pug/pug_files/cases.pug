@@ -19,11 +19,11 @@ block variables
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
     -
         var cases = [{link: 'case_lexus.html', img: './i/cases/preview/lexus.png', ratio: 130, name: 'Immersion Lexus', description: 'Lorem ipsum dolor sit amet'},
-                    {link: '#', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
-                     {link: 'case_lays.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
-                    {link: '#', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
+                    {link: 'case_lays.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
                     {link: 'case_lipton.html', img: './i/cases/preview/lipton.png', ratio: 81, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
-                     {link: '#', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
+                    {link: 'case_fox.html', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
+                    {link: 'case_mitsubishi.html', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
+                     {link: 'case_columbia.html', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
 block content
     section.pt-105.pb-100.color-header.text-center.showcase_4
         .container.px-xl-0
@@ -31,12 +31,12 @@ block content
             .mt-15.mb-50.f-26.text-adaptive(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
                 | Более 3,5 тысяч рекламных кампаний мы провели с 2014 года
             .row.align-items-stretch.justify-content-center
-                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
                     +case(cases[0])
                     +case(cases[1])
-                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
                     +case(cases[2])
                     +case(cases[3])
-                .col-md-4.col-10.d-flex.flex-column.justify-content-between
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
                     +case(cases[4])
                     +case(cases[5])

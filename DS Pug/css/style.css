@@ -6068,9 +6068,9 @@ footer {
 .wrapper-case:hover .case-img {
     transform: scale(1.1);
 }
-.wrapper-case:hover .case-filter {
-    opacity: 1;
-}
+/*.wrapper-case:hover .case-filter {*/
+/*    opacity: 1;*/
+/*}*/
 
 .case-filter {
     position: absolute;
@@ -6085,7 +6085,7 @@ footer {
     left: 4%;
     top: 18%;
     font-size: 22px;
-    color: #23C8A8;
+    color: #ffffff;
 }
 .case-text {
     font-size: 16px;
@@ -6109,13 +6109,37 @@ footer {
     width: 100%;
 }
 
+.wrapper_case_columbia {
+    position: relative;
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+}
+
+.wrapper_case_lexus {
+    position: relative;
+    background-color: #1c1c1c;
+    width: 100%;
+}
+
+.wrapper_case_fox {
+    position: relative;
+    background-color: rgb(255, 200, 118);
+    width: 100%;
+}
+
+.wrapper_case_mitsubishi_ec {
+    position: relative;
+    background-color: rgb(154, 207, 225);
+    width: 100%;
+}
+
 .case-bg-lipton {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../i/cases/lipton/bg-lipton_arcanoid.png);
+    background-image: url(../i/cases/lipton/bg-lipton_arcanoid_new.jpg);
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -6129,6 +6153,58 @@ footer {
     width: 100%;
     height: 100%;
     background-image: url(../i/cases/lays/lays_football_img.jpg);
+    background-position: 0% 101%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    filter: blur(5px);
+}
+
+.case-bg-columbia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../i/cases/columbia/columbia_img.jpg);
+    background-position: 0% 101%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    filter: blur(5px);
+}
+
+.case-bg-lexus {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-image: url(../i/cases/lexus/lexus_bg.png);
+     background-position: 0% 101%;
+     background-repeat: no-repeat;
+     background-size: 100% auto;
+     filter: blur(5px);
+ }
+
+.case-bg-fox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../i/cases/gifted/gifted_img.jpg);
+    background-position: 0% 101%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    filter: blur(5px);
+}
+
+.case-bg-mitsubishi_ec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../i/cases/mitsubishi/mitsubishi_ec_img.jpg);
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -6198,7 +6274,7 @@ footer {
     left: 0;
     width: 100%;
     height: 102%;
-    background-image: url(../i/cases/lipton/Artboard.png);
+    background-image: url(../i/cases/lipton/bg-lipton_arcanoid_new.jpg);
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;

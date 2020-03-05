@@ -1,0 +1,43 @@
+extends layout/page
+
+block variables
+    - var topbar = false
+    - var wave = false
+    -
+        var pageData = { title: 'Double Screen', description: '', keywords: '' }
+    -
+        var headerMenu = { formats: 'transparent', cases: 'transparent', contacts: 'transparent' }
+
+block content
+    section.wrapper_case_mitsubishi_ec.pt-25.pb-220
+        .case-bg-mitsubishi_ec
+        .container.px-xl-0
+            .row.align-items-center
+                .col-lg-5
+                .d-flex.justify-content-center.col-lg-2.col-3.px-0
+                    img(src='i/cases/mitsubishi/logo-mitsubishi_ec.svg' style='width: 60%;')
+
+
+            .row.pb-25.pt-25.align-items-center
+                .col-lg-1
+                .col-lg-6.mb-50
+                    h2.mb-35 Баннер-витрина для кампании Mitsubishi EC
+                    .color-heading.mt-35.mb-15.f-18.semibold Задача
+                    p.color-heading.f-18 Digital-поддержка старта продаж новой модели Mitsubishi. Задача баннера - максимально показать характеристики авто и привлечь внимание пользователей.
+                    .color-heading.mt-35.mb-15.f-18.semibold Идея
+                    p.color-heading.f-18 Клиенту понравилась идея баннера-витрины, которую мы реализовали для другого проекта. Задача состояла в том, чтобы мотивировать пользователей узнать как можно больше информации о новой модели нестандартным способом.
+                    p.color-heading.f-18 Мы выбрали несколько отличительных характеристик, которые добавили в баннер с помощью pop-up (всплывающих окон).
+                    p.color-heading.f-18 На вижуал добавлены активные точки, по тапу на которые открываются заметки с характеристиками Mitsubishi EC. Чтобы пользователям было удобнее просмотреть весь контент, всплывающие окна можно листать в слайдере.
+                    .color-heading.mt-35.mb-15.f-18.semibold Результаты
+                    p.color-heading.f-18 В результате оптимизации кампании и вовлечения пользователей, мы увеличили конверсию баннера на 25%, по сравнению с бенчмарками для фулскрина.
+
+                .col-lg-5.d-flex.justify-content-center.mb-50
+                    .video-case-container
+                        img(src='i/cases/phone.svg' width='100%')
+                        .video-case
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='i/cases/mitsubishi/mitsubishi_ec.mp4')
+
+
+
+
