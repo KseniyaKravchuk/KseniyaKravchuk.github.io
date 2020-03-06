@@ -6056,12 +6056,9 @@ footer {
     background: #271AA8;
     transform: translateY(101%);
     transition: transform .3s ease-in-out;
+    padding: 10px 20px;
 }
-.case-board::before {
-    content: '';
-    display: block;
-    padding-top: 22%;
-}
+
 .wrapper-case:hover .case-board {
     transform: translateY(0%);
 }
@@ -6081,18 +6078,12 @@ footer {
     background: linear-gradient(0deg, rgba(93, 195, 169, 0.2), rgba(93, 195, 169, 0.2));
 }
 .case-name {
-    position: absolute;
-    left: 4%;
-    top: 18%;
     font-size: 22px;
     color: #ffffff;
 }
 .case-text {
     font-size: 16px;
     margin: 0;
-    position: absolute;
-    left: 4%;
-    top: 50%;
     color: #ffffff;
     opacity: 0.6;
 }
