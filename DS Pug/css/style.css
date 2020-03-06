@@ -6099,7 +6099,7 @@ footer {
 
 .case-logo {
     width: 60%;
-    height: auto;
+    padding-top: 70.8%;
 }
 
 .wrapper_case_lipton {
@@ -6289,6 +6289,16 @@ footer {
     .video-case-container {
         width: 40%;
         position: relative;
+    }
+}
+
+@media (max-width: 1200px) {
+    .video-case-desktop {
+        width: 81%;
+        position: absolute;
+        top: 15%;
+        left: 47%;
+        overflow: hidden;
     }
 }
 

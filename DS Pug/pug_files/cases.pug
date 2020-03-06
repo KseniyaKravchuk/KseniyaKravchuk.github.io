@@ -13,6 +13,7 @@ mixin case(data)
 block variables
     - var topbar = false
     - var wave = true
+    - var color_wave = 'white'
     -
         var pageData = { title: 'Double Screen', description: '', keywords: '' }
     -
@@ -27,9 +28,9 @@ block variables
 block content
     section.pt-105.pb-100.color-header.text-center.showcase_4
         .container.px-xl-0
-            h2.big(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0') Наши кейсы
-            .mt-15.mb-50.f-26.text-adaptive(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
-                | Более 3,5 тысяч рекламных кампаний мы провели с 2014 года
+            //h2.big(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0') Наши кейсы
+            //.mt-15.mb-50.f-26.text-adaptive(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+            //    | Более 3,5 тысяч рекламных кампаний мы провели с 2014 года
             .row.align-items-stretch.justify-content-center
                 .col-md-4.col-10.d-flex.flex-column.justify-content-start
                     +case(cases[0])
