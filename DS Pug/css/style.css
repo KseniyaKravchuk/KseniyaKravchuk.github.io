@@ -6097,6 +6097,11 @@ footer {
     opacity: 0.6;
 }
 
+.case-logo {
+    width: 60%;
+    height: auto;
+}
+
 .wrapper_case_lipton {
     position: relative;
     background-color: rgb(129, 205, 254);
