@@ -8,15 +8,15 @@ footer(class='pb-40 bg-dark color-white text-center footer_8 ' + footer_pt)
         .footer-menu.row.justify-content-between.align-items-baseline
             .col-md-4.d-flex.justify-content-center(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
                 .footer-logo.d-flex.justify-content-start.align-items-start.flex-column
-                    a.logo.link.color-white.mx-0(href='#') DOUBLE SCREEN
+                    a.logo.link.color-white.mx-0(href=path + 'index.html') DOUBLE SCREEN
                     .order-2.order-xl-0
                         | © 2020 Happy Monday Family
 
             .col-md-4.footer-nav(data-aos-duration='600', data-aos='fade-down', data-aos-delay='400')
                 .d-flex.justify-content-center.align-items-center
-                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.formats href='formats.html') Форматы
-                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.cases href='cases.html') Кейсы
-                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.contacts href='contacts.html') Контакты
+                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.formats href=path + 'formats.html') Форматы
+                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.cases href=path + 'cases.html') Кейсы
+                    a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.contacts href=path + 'contacts.html') Контакты
 if (form)
     .alert.alert-success.alert-dismissible.fixed-top.alert-form-success(role='alert')
         button.close(type='button', data-dismiss='alert', aria-label='Close')
