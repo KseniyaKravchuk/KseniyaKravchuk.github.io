@@ -15,7 +15,7 @@ div(class= (topbar) ? "topbar" : ' ')
         .px-40.pt-60.pb-60.text-center.inner
             for i in mainMenu
                 div
-                    a.f-heading.f-22.link.color-main.mb-20(href= i.link)= i.name
+                    a.f-heading.f-22.link.color-main.mb-20(href=path + i.link)= i.name
 
     // Menu
     header.bg-dark.formats-header.header_2
@@ -24,14 +24,14 @@ div(class= (topbar) ? "topbar" : ' ')
                 .row.justify-content-between.align-items-baseline
                     .col-md-4.d-flex.justify-content-center
                         .logo-nav.color-white
-                            a.color-white.link(href='index.html') DOUBLE SCREEN
+                            a.color-white.link(href=path + 'index.html') DOUBLE SCREEN
                     .col-sm-12.col-xl-4.d-flex.justify-content-center.align-items-center
-                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.formats href='formats.html') Форматы
-                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.cases href='cases.html') Кейсы
-                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.contacts href='contacts.html') Контакты
+                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.formats href=path + 'formats.html') Форматы
+                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.cases href=path + 'cases.html') Кейсы
+                        a(class='link color-white f-18 mx-15 border-bottom-' + headerMenu.contacts href=path + 'contacts.html') Контакты
         .d-flex.align-items-center.justify-content-center.flex-column
             .logo.color-white.d-block.d-xl-none.text-center.logo_mobile(data-aos-duration='600', data-aos='fade-down', data-aos-delay='100')
-                a.color-white.link(href='index.html') DOUBLE SCREEN
+                a.color-white.link(href=path + 'index.html') DOUBLE SCREEN
 
     if (formatMenu)
         nav.navbar-formats

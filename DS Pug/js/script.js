@@ -49,37 +49,41 @@
 		}
 
         //анимация форматов на главной
-        var animation = bodymovin.loadAnimation({
-            container: document.getElementById('bm'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'animation/main.json'
-        });
+		if (document.location.pathname === '/' || document.location.pathname.indexOf('/index.html') >= 0) {
+			var animation = bodymovin.loadAnimation({
+				container: document.getElementById('bm'),
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: 'animation/main.json'
+			});
 
-        var storyAnimation = bodymovin.loadAnimation({
-            container: document.getElementById('story_anim'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'animation/stories.json'
-        });
+			var storyAnimation = bodymovin.loadAnimation({
+				container: document.getElementById('story_anim'),
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: 'animation/stories.json'
+			});
 
-        var outstreamAnimation = bodymovin.loadAnimation({
-            container: document.getElementById('outstream_anim'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'animation/outstream.json'
-        });
+			var outstreamAnimation = bodymovin.loadAnimation({
+				container: document.getElementById('outstream_anim'),
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: 'animation/outstream.json'
+			});
 
-        var instreamAnimation = bodymovin.loadAnimation({
-            container: document.getElementById('instream_anim'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'animation/instream.json'
-        });
+			var instreamAnimation = bodymovin.loadAnimation({
+				container: document.getElementById('instream_anim'),
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: 'animation/instream.json'
+			});
+		}
+
+
 
 		//паддинги у блоков форматов на странице форматов
 		var formatBoxes = [].slice.call(document.querySelectorAll('.format-box'));

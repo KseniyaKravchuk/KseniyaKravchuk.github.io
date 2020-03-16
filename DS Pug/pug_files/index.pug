@@ -26,8 +26,10 @@ mixin rule(data)
             .color-black.op-7.text-adaptive= data.description
 
 block variables
-    -
-        var pageScripts = { lottie: true, scrollspy: false }
+    - var wave = true
+    - var path = ''
+    - var footer_pt = 'pt-70'
+
     -
         var pageData = { title: 'Double Screen — медийная реклама с фокусом на вовлеченность аудитории', description: 'Кроссплатформенное размещение интерактивных форматов на ведущих площадках. Выведите контакт пользователя с брендом на новый уровень', keywords: 'Медийная реклама, таргетированная реклама, видеореклама, интерактивная реклама, креативные форматы, нестандартная реклама, реклама на лицензионных площадках, рекламная платформа, DSP, программатик реклама' }
     -

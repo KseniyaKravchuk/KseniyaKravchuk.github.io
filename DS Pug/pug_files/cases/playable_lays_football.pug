@@ -1,0 +1,46 @@
+extends ../layout/page
+
+block variables
+    - var topbar = false
+    - var wave = false
+    - var footer_pt = 'pt-50'
+    - var path = '../'
+    -
+        var pageData = { title: 'Double Screen', description: '', keywords: '' }
+    -
+        var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
+
+block content
+    section.wrapper_case_lays.pt-80.pb-80
+        .case-bg-lays
+        .container.px-xl-0
+            //.row.align-items-center
+            //    .col-lg-5
+            //    .d-flex.justify-content-center.col-lg-2.col-3.px-0
+            //        img(src='i/cases/lays/logo-lays_football.svg' style='width: 60%;')
+
+
+            .row.pb-25.pt-25.align-items-center
+                .col-lg-1
+                .col-lg-6.mb-50
+                    h2.mb-35 Игровой баннер Lay's Football
+                    .color-heading.mt-35.mb-15.f-18.semibold Задача
+                    p.color-heading.f-18 Проведение охватной кампании “Футбольные фанаты” в период ЧМ 2018.
+                    .color-heading.mt-35.mb-15.f-18.semibold Идея
+                    p.color-heading.f-18 Клиент поставил задачу подготовить креатив, активно вовлекающий пользователей во взаимодействие. Мы предложили несколько вариантов с футбольной тематикой, в том числе, мини-игру.
+                    p.color-heading.f-18 Правила очень просты: за 15 секунд пользователь должен пробить серию пенальти. Механика игры работала по принципу одного действия, от пользователя требовалось только бить по мячу. При этом, мы добавили 2 усложняющих условия: плавающая сила удара и постоянно двигающийся вратарь.
+                    p.color-heading.f-18 На экране пользователь видел шкалу с силой удара, которая то возрастала, то убывала. Нужно было дождаться максимальной отметки и тапнуть по мячу для победного гола. Вратарь без остановки защищал ворота, поэтому не каждому пользователю удавалось с первого раза забить гол.
+                    p.color-heading.f-18 Для поддержки пользователя, периодически на экране появляются футбольные фанаты со своими фирменными кричалками.
+                    .color-heading.mt-35.mb-15.f-18.semibold Результаты
+                    p.color-heading.f-18 По результатам проведенной кампании, 76% пользователей доиграли до конца - открыли вижуал. Конверсия переходов из игры на посадочную страницу выше средней в 2 раза.
+
+                .col-lg-5.d-flex.justify-content-center.mb-50
+                    .video-case-container
+                        img(src='../i/cases/phone.svg' width='100%')
+                        .video-case
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='../i/cases/lays/lays_football.mp4')
+
+
+
+

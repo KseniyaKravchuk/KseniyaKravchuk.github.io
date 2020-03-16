@@ -4,7 +4,7 @@ head
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='keywords', content= pageData.keywords)
     meta(name='description', content= pageData.description)
-    link(rel='icon', href='i/favicon.png', type='image/x-icon')
+    link(rel='icon', href=path + 'i/favicon.png', type='image/x-icon')
     // Google Fonts
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400,600,500,700,800,900|Source+Sans+Pro:100,200,300,400,500,600,700,800,900&subset=latin', rel='stylesheet')
     // Bootstrap 4.3.1 CSS
@@ -18,9 +18,9 @@ head
     // FontAwesome CSS
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     // Startup 3 CSS (Styles for all blocks)
-    link(href='css/style.css?v1.0.3', rel='stylesheet')
+    link(href=path + 'css/style.css?v1.0.3', rel='stylesheet')
     // Custom CSS
-    link(href='css/custom.css?v1.0.4', rel='stylesheet')
+    link(href=path + 'css/custom.css?v1.0.4', rel='stylesheet')
     // Google Tag Manager
     script.
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -29,4 +29,4 @@ head
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WKSQNPZ');
     // End Google Tag Manager
-    script(src='js/vanillajs-scrollspy.js')
+    script(src=path + 'js/vanillajs-scrollspy.js')

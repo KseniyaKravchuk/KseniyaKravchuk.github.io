@@ -13,17 +13,19 @@ mixin case(data)
 block variables
     - var topbar = false
     - var wave = true
+    - var footer_pt = 'pt-70'
+    - var path = ''
     -
         var pageData = { title: 'Double Screen', description: '', keywords: '' }
     -
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
     -
-        var cases = [{link: 'case_lexus.html', img: './i/cases/preview/lexus.png', ratio: 130, name: 'Immersion Lexus', description: 'Lorem ipsum dolor sit amet'},
-                    {link: 'case_lays.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
-                    {link: 'case_lipton.html', img: './i/cases/preview/lipton.png', ratio: 81, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
-                    {link: 'case_fox.html', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
-                    {link: 'case_mitsubishi.html', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
-                     {link: 'case_columbia.html', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
+        var cases = [{link: 'cases/immersion_lexus.html', img: './i/cases/preview/lexus.png', ratio: 130, name: 'Immersion Lexus', description: 'Lorem ipsum dolor sit amet'},
+                    {link: 'cases/playable_lays_football.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
+                    {link: 'cases/lipton_arkanoid.html', img: './i/cases/preview/lipton.png', ratio: 81, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
+                    {link: 'cases/selfiebanner_gifted.html', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
+                    {link: 'cases/vitrina_mitsubishi.html', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
+                     {link: 'cases/playable_columbia.html', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
 block content
     section.pt-55.pb-100.color-header.text-center.showcase_4
         .container.px-xl-0

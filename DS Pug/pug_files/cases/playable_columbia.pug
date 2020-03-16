@@ -1,0 +1,41 @@
+extends ../layout/page
+
+block variables
+    - var topbar = false
+    - var wave = false
+    - var footer_pt = 'pt-50'
+    - var path = '../'
+    -
+        var pageData = { title: 'Double Screen', description: '', keywords: '' }
+    -
+        var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
+
+block content
+    section.wrapper_case_columbia.pt-25.pb-530
+        .case-bg-columbia
+        .container.px-xl-0
+            //.row.align-items-center
+            //    .col-lg-5
+            //    .d-flex.justify-content-center.col-lg-2.col-3.px-0
+            //        img(src='i/cases/columbia/logo-columbia.svg' style='width: 60%;')
+
+
+            .row.pb-25.pt-25.align-items-center
+                .col-lg-1
+                .col-lg-6.mb-50
+                    h2.mb-35 Игровой баннер Columbia для Sportmaster
+                    .color-heading.mt-35.mb-15.f-18.semibold Задача
+                    p.color-heading.f-18 Проведение кампании с интерактивным креативом и максимальное вовлечение пользователей во взаимодействие. Показать преимущества курток Columbia и ее теплые характеристики
+                    .color-heading.mt-35.mb-15.f-18.semibold Идея игровой механики
+                    p.color-heading.f-18 Оценив задачу и рекламную стратегию клиента, мы предложили игровую механику с Call to action: «Отбери куртку у медведя!». Идея: белый медведь обитает в зоне вечного холода. Для него актуально быть всегда защищенным от мороза и куртки Columbia помогут ему сохранять тепло везде. Мы предложили пользователям померяться силами с медведем в стиле народной забавы — перетягивание каната. В игре мы намеренно убрали возможность победить медведя, а на кей-вижуал вывели текст: «Купи себе Columbia в Sportmaster».
+
+                .col-lg-5.d-flex.justify-content-center.mb-50
+                    .video-case-container
+                        img(src='../i/cases/phone.svg' width='100%')
+                        .video-case
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='../i/cases/columbia/columbia.mp4')
+
+
+
+

@@ -6139,7 +6139,7 @@ footer {
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .case-bg-lays {
@@ -6152,7 +6152,7 @@ footer {
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .case-bg-columbia {
@@ -6165,7 +6165,7 @@ footer {
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .case-bg-lexus {
@@ -6178,7 +6178,7 @@ footer {
      background-position: 0% 101%;
      background-repeat: no-repeat;
      background-size: 100% auto;
-     filter: blur(5px);
+     /*filter: blur(5px);*/
  }
 
 .case-bg-fox {
@@ -6191,7 +6191,7 @@ footer {
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .case-bg-mitsubishi_ec {
@@ -6204,7 +6204,7 @@ footer {
     background-position: 0% 101%;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .video-case-container {
@@ -6228,6 +6228,14 @@ footer {
     }
 }
 
+@media (max-width: 1400px) {
+    .video-case-container-desktop > img {
+        transform: scale(1);
+        transform-origin: left;
+        height: auto;
+    }
+
+}
 
 .video-case {
     width: 84.2%;
@@ -6283,12 +6291,43 @@ footer {
     }
 }
 
+@media (max-width: 1400px) {
+    .video-case-desktop {
+        width: 57%;
+        position: absolute;
+        top: 19%;
+        left: 32%;
+        overflow: hidden;
+    }
+}
+
 @media (max-width: 1200px) {
     .video-case-desktop {
-        width: 81%;
+        width: 32%;
         position: absolute;
-        top: 15%;
-        left: 47%;
+        top: 19%;
+        left: 18%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 1200px) {
+    .video-case-container-desktop {
+        width: 70%;
+        position: relative;
+    }
+    .video-case-container-desktop > img {
+        max-width: 100%;
+        height: auto;
+    }
+    .desktop-case {
+        justify-content: center!important;
+    }
+    .video-case-desktop {
+        width: 46%;
+        position: absolute;
+        top: 20%;
+        left: 26%;
         overflow: hidden;
     }
 }
@@ -6324,10 +6363,16 @@ footer {
     .wrapper_case_lipton {
         padding-bottom: 100px!important;
     }
+    .wrapper_case_mitsubishi_ec {
+        padding-bottom: 300px!important;
+    }
 }
 
 @media (max-width: 576px) {
     .wrapper_case_lipton {
         padding-bottom: 40px!important;
+    }
+    .wrapper_case_mitsubishi_ec {
+        padding-bottom: 200px!important;
     }
 }
