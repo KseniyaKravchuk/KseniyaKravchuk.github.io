@@ -11,13 +11,13 @@ block variables
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
 
 block content
-    section.wrapper_case_lays.pt-80.pb-80
+    section.wrapper_case_lays.pt-25.pb-80
         .case-bg-lays
         .container.px-xl-0
-            //.row.align-items-center
-            //    .col-lg-5
-            //    .d-flex.justify-content-center.col-lg-2.col-3.px-0
-            //        img(src='i/cases/lays/logo-lays_football.svg' style='width: 60%;')
+            .row.align-items-center.pt-25.pb-20
+                .col-xl-1
+                .d-flex.justify-content-start.col-lg-2
+                    a(href='../cases.html' class='icon-back')
 
 
             .row.pb-25.pt-25.align-items-center
@@ -36,7 +36,7 @@ block content
 
                 .col-lg-5.d-flex.justify-content-center.mb-50
                     .video-case-container
-                        img(src='../i/cases/phone.svg' width='100%')
+                        img(src='../i/templates/mobile.png' width='100%')
                         .video-case
                             video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
                                 source(src='../i/cases/lays/lays_football.mp4')
