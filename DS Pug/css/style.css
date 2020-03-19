@@ -6414,16 +6414,24 @@ footer {
     }
 }
 .icon-back {
+    margin-top: 15px;
     transform: scale(1.5);
     transform-origin: 0 0;
-    width: 80px;
-    background-color: #525252;
+    width: 80.278px;
+    height: 12.592px;
     -webkit-mask-image: url(../i/arrow-back.svg);
     mask-image: url(../i/arrow-back.svg);
 }
 
-.icon-back::before {
-    content: '';
-    display: block;
-    padding-top: 15%;
+.icon-back-grey {
+    background-color: #525252;
+}
+
+.icon-back-white {
+    background-color: #ffffff;
+}
+
+.button-back {
+    height: 50px;
+    width: 150px;
 }
