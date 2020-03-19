@@ -1,0 +1,44 @@
+extends layout/page
+
+mixin case(data)
+    a.mt-30.w-full.d-block.link(href= data.link)
+        .wrapper-case.radius6(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0' style='padding-top:'+ data.ratio + '%;')
+            img.radius6.case-img(src=data.img, alt='')
+            .case-filter(style='padding-top:'+ data.ratio + '%;')
+            .case-board.text-left
+                span.case-name!= data.name
+                p.case-text= data.description
+
+
+block variables
+    - var topbar = false
+    - var wave = true
+    - var footer_pt = 'pt-70'
+    - var path = ''
+    -
+        var pageData = { title: 'Double Screen', description: '', keywords: '' }
+    -
+        var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
+    -
+        var cases = [{link: 'cases/immersion_lexus.html', img: './i/cases/preview/lexus.png', ratio: 130, name: 'Immersion Lexus', description: 'Интерактивный видеобаннер'},
+                    {link: 'cases/playable_lays_football.html', img: './i/cases/preview/lays.png', ratio: 81, name: 'Lay\'s football', description: 'Игровой мобильный баннер'},
+                    {link: 'cases/lipton_arkanoid.html', img: './i/cases/preview/lipton.png', ratio: 81, name: 'Lipton Arkanoid', description: 'Игровой мобильный баннер'},
+                    {link: 'cases/selfiebanner_gifted.html', img: './i/cases/preview/fox.png', ratio: 81, name: 'Gifted', description: 'Скан и селфи баннер'},
+                    {link: 'cases/vitrina_mitsubishi.html', img: './i/cases/preview/mitsubishi.png', ratio: 71.6, name: 'Mitsubishi EC', description: 'Баннер-витрина'},
+                     {link: 'cases/playable_columbia.html', img: './i/cases/preview/columbia.png', ratio: 118.9, name: 'Columbia', description: 'Игровой мобильный баннер'}]
+block content
+    section.pt-55.pb-100.color-header.text-center.showcase_4
+        .container.px-xl-0
+            //h2.big(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0') Наши кейсы
+            //.mt-15.mb-50.f-26.text-adaptive(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+            //    | Более 3,5 тысяч рекламных кампаний мы провели с 2014 года
+            .row.align-items-stretch.justify-content-center
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
+                    +case(cases[0])
+                    +case(cases[1])
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
+                    +case(cases[2])
+                    +case(cases[3])
+                .col-md-4.col-10.d-flex.flex-column.justify-content-start
+                    +case(cases[4])
+                    +case(cases[5])

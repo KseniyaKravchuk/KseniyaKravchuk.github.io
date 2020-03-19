@@ -1,0 +1,85 @@
+- var path = ''
+-
+    var mainMenu = [{link: 'index.html', name: 'Домой'},
+    {link: 'formats.html', name: 'Форматы'},
+    {link: 'cases.html', name: 'Кейсы'},
+    {link: 'contacts.html', name: 'Контакты'}]
+-
+    var pageData = { title: 'Контакты — Double Screen', description: 'г. Москва, ул. Ленинская Слобода, д. 19, БЦ "Омега Плаза", sales@hpmd.ru', keywords: 'Double Screen контакты, Double Screen адрес, Double Screen адрес Москва, Double Screen адрес Санкт-Петербург' }
+-
+    var contacts = [{title: "Москва", text: "ул. Ленинская Слобода, 19, <br> БЦ «Омега Плаза»", link: false},
+                    {title: "Санкт-Петербург", text: "наб. Обводного канала 199-201, <br> БЦ «Обводный двор»", link: false},
+                    {title: "media@hpmd.ru", text: "По вопросам подключения площадок и издательских домов", link: true}]
+
+doctype html
+html(lang='en')
+    include ./modules/head
+    body.contacts_body
+        // Google Tag Manager (noscript)
+        noscript
+            iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-WKSQNPZ', height='0', width='0', style='display:none;visibility:hidden')
+        // End Google Tag Manager (noscript)
+        // Navigation Mobile type 2
+        a.open_menu.color-main.bg-light.radius_full
+            i.fas.fa-bars.lh-40
+        .navigation_mobile.bg-light.type2
+            a.close_menu.color-main
+                i.fas.fa-times
+            .px-40.pt-60.pb-60.text-center.inner
+                for i in mainMenu
+                    div
+                        a.f-heading.f-22.link.color-main.mb-20(href= i.link)= i.name
+
+        header.pt-220.header_2.contacts-header
+            nav.header_menu_2.transparent.pt-30.pb-30
+                .container.px-xl-0
+                    .row.justify-content-between.align-items-baseline
+                        .col-md-4.d-flex.justify-content-center
+                            .logo-nav
+                                a.color-white.link(href='index.html') DOUBLE SCREEN
+                        .col-sm-12.col-xl-4.d-flex.justify-content-center.align-items-center
+                            a.link.color-white.f-18.mx-15.border-bottom-transparent(href='formats.html') Форматы
+                            a.link.color-white.f-18.mx-15.border-bottom-transparent(href='cases.html') Кейсы
+                            a.link.color-white.f-18.mx-15.border-bottom-yellow(href='contacts.html') Контакты
+            .container
+                .d-flex.align-items-center.justify-content-center.flex-column
+                    .mb-105.mt-5.logo.color-white.d-block.d-xl-none.text-center.logo_mobile(data-aos-duration='600', data-aos='fade-down', data-aos-delay='100')
+                        a.link.color-white(href='index.html') DOUBLE SCREEN
+                    h2.color-white.text-center(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                        | По любым вопросам
+                        br
+                        |  пишите на почту
+                        div
+                            a.mt-10.color-mint.link.action-2(href='mailto:sales@hpmd.ru') sales@hpmd.ru
+            section.pt-100.pb-40.text-center
+                .container.px-xl-0
+                    .row.justify-content-center
+                        .col-xl-1
+                        for j in contacts
+                            if (j.link)
+                                .col-xl-3.col-md-4.col-8.mt-50.text-left(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
+                                    .mb-10.f-14.color-white.semibold.title
+                                        a.link.color-white(href='mailto:'+j.title)= j.title
+                                    .color-white.mb-0!= j.text
+                            else
+                                .col-xl-3.col-md-4.col-8.mt-50.text-left(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                                    .mb-10.f-14.color-white.semibold.title= j.title
+                                    .color-white.mb-0!= j.text
+                        .col-xl-1
+        // jQuery 3.3.1
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+        // Bootstrap 4.3.1 JS
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
+        // Fancybox 3 jQuery plugin JS (Open images and video in popup)
+        script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')
+        // Google maps JS API
+        script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U')
+        // Slick 1.8.1 jQuery plugin JS (Sliders)
+        script(type='text/javascript', src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+        // AOS 2.3.4 jQuery plugin JS (Animations)
+        script(src='https://unpkg.com/aos@2.3.4/dist/aos.js')
+        // Maskedinput jQuery plugin JS (Masks for input fields)
+        script(src='js/jquery.maskedinput.min.js')
+        // Startup 3 JS (Custom js for all blocks)
+        script(src='js/script.js')
+        script(src='js/lottie.min.js')

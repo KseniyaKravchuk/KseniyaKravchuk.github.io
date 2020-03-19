@@ -1,0 +1,16 @@
+section(class='pt-95 pb-90 content_26 ' + data.class)
+    .container.px-xl-0
+        .row.justify-content-center
+            .col-xl-10.col-lg-11
+                .row.flex-row.justify-content-center
+                    .col-md-5.mb-3.mb-md-0
+                        div(class='format-part' id='#' + data.animationId data-aos-duration='600', data-aos='fade-down', data-aos-delay='300' )
+                    .col-md-1
+                    .col-md-5.d-flex.align-items-center
+                        .mt-15.inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                            h2.f-40.color-mint.text-adaptive= data.title
+                            .mt-15.mb-20.f-20.color-white.text-adaptive= data.description
+
+                            a.pb-5.a-btn.sm.more.color-white.f-16.border-bottom-yellow(href= data.link)
+                                span.mr-10 Подробнее
+                                i.fas.fa-arrow-right.lh-36.f-14

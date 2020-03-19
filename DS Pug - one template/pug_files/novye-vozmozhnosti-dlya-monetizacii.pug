@@ -1,0 +1,69 @@
+extends layout/page
+
+mixin question(data)
+    .row.mt-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+        .col-lg-1
+        .blog-post-question-font.mb-20.col-lg-10.f-22= data.question
+    .row.mb-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+        .col-lg-1
+        .col-lg-10.color-heading
+            if (data.answer)
+                for k in data.answer
+                    p.blog-post-answer-font!= k
+    if (data.steps)
+        .content_20
+            .container.px-xl-0
+                .row
+                    .col-lg-1
+                    .col-lg-10
+                        for j in steps
+                            div(class= (j.pb) ? "pb-50 relative block" : "relative block")
+                                div(class= (j.line) ? "content_20_line" : " ")
+                                .bg-gray.color-heading.radius_full.w-40.h-40.f-18.medium.lh-40.text-center.number= j.step_num
+                                .ml-70.block_inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                                    p.color-heading.blog-post-answer-font!= j.step_text
+
+block variables
+    - var footer_pt = 'pt-70'
+    - var path = ''
+    -
+        var pageData = { title: 'Новые возможности для монетизации с Happy Monday Family: отвечаем на главные вопросы — Double Screen', description: 'С 2020 года HPMD Network трансформируется в новый продукт — Double Screen. На этой странице мы собрали всю необходимую информацию для наших партнеров.', keywords: ' ' }
+    -
+        var headerMenu = { formats: 'transparent', contacts: 'transparent' }
+
+    -
+        var questions = [{steps: false, question: "Что меняется?", answer: ["Ответ кроется в названии. В HPMD Network все рекламные форматы были заточены исключительно под мобильные устройства. В Double Screen мы не ограничиваемся одним экраном и создаем решения и для мобайла, и для десктопа. В частности, мы делаем упор на видеорекламу и креативы с интерактивными механиками.", "Больше форматов — больше возможностей для монетизации."]},
+        {steps: false, question: "Почему мы это делаем?", answer: ["Мы хотим создать нечто большее, чем просто мобильную сеть. Наша цель — сформировать новый подход к медийной рекламе, в котором на первый план выйдет качество контакта пользователя с брендом.", "Границы между десктопом и мобайлом постепенно стираются. Поэтому в рамках нового продукта мы будем на постоянной основе разрабатывать вовлекающие форматы, одинаково хорошо работающие на всех типах устройств.", "А ещё нам нравится миксовать разные механики и изобретать новое. Больше экранов — больше пространства для креатива!"]},
+        {steps: false, question: "Какие новые форматы мы предлагаем?", answer: ["На данный момент мы реализовали два новых кросс-девайсных решения — Immersion и Carousel. Также теперь мы поддерживаем классические видеоформаты — Out-Stream и In-Stream.", "Подробнее о наших новых форматах вы можете почитать <a href=\"formats.html\" target=\"_blanc\" class=\"mt-20\">здесь</a>."]},
+        {steps: false, question: "Что будет со старыми форматами?", answer: ["Все форматы HPMD Network продолжат работать. Самые востребованные — Mobile Fullscreen, Mobile Native banner и Mobile Swipe — мы будем предлагать рекламодателям в первую очередь."]},
+        {steps: true, question: "Как подключить новые форматы?"}]
+
+    -
+        var steps = [{pb: true, step_num: '1', line: true, step_text: "Напишите вашему менеджеру, что хотите подключить новые форматы. Если вы не знаете, к кому обратиться, напишите нам на <a class=\"link\" href=\"mailto:media@hpmd.ru\">media@hpmd.ru</a>."},
+        {pb: true, step_num: '2', line: true, step_text: "Уточните в письме, каким образом вы интегрированы в нашу систему — по коду или по Header Bidding."},
+        {pb: false, step_num: '3', line: false, step_text: "Установите новый код или id на мобайл и десктоп своего сайта."}]
+
+    - var formatMenu = false
+    - var topbar = false
+
+block content
+
+    section.pt-75.pb-90.bg-light
+        .container.px-xl-0
+            .row
+                .col-lg-1
+                .col-lg-10.col-md-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
+                    h2.mt-45.mb-25 Новые возможности для монетизации с Happy Monday Family: отвечаем на главные вопросы
+                    span.blog-post-subtitle.color-heading(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                        | С 2020 года HPMD Network трансформируется в новый продукт — Double Screen. На этой странице мы собрали всю необходимую информацию для наших партнеров.
+    section.pb-100.bg-light.content_11
+        .container.px-xl-0
+            for i in questions
+                +question(i)
+
+    section.pb-100.bg-light.content_11
+        .container.px-xl-0
+            .row(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                .col-lg-1
+                .col-lg-10.color-heading.blog-post-answer-font
+                    p Спасибо, что работаете с нами. Дальше будет еще интересней!

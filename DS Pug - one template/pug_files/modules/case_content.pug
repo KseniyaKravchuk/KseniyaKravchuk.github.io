@@ -1,0 +1,35 @@
+section(class='wrapper_case_' + caseData.nameEng + ' pt-' + caseData.pt + ' pb-' + caseData.pb)
+    div(class='case-bg-' + caseData.nameEng)
+    .container.px-xl-0
+        .row.align-items-center.pt-25.pb-20
+            .col-xl-1
+            .d-flex.justify-content-start.col-lg-2
+                a(href='../cases.html' class='button-back')
+                    div(class='icon-back icon-back-' + caseData.backButton)
+
+
+        div(class='row pb-25 pt-25 align-items-' + ((caseData.caseType === 'desktop') ? 'center' : 'start'))
+            div(class= (caseData.caseType === 'desktop' ? 'col-xl-1' : 'col-lg-1'))
+            div(class='mb-50 ' + (caseData.caseType  === 'desktop' ? 'col-xl-6' : 'col-lg-6'))
+                h2(class='mb-35 color-' + caseData.nameColor)!= caseData.nameRus
+                for value, i in caseData.aboutCase
+                    if (i%2 === 0)
+                        div(class='mt-35 mb-15 f-18 semibold color-' + caseData.textColor)!= value
+                    if (i%2 === 1)
+                        for k in value
+                            p(class='f-18 color-' + caseData.textColor)!= k
+
+            if (caseData.caseType  === 'desktop')
+                .col-xl-5.d-flex.mb-50.desktop-case
+                    .video-case-container-desktop
+                        img(src='../i/templates/mac.png')
+                        .video-case-desktop
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='../i/cases/' + caseData.nameEng + '/' + caseData.nameEng + '.mp4')
+            else
+                .col-lg-5.d-flex.justify-content-center.mb-50
+                    .video-case-container
+                        img(src='../i/templates/mobile.png' width='100%')
+                        .video-case
+                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
+                                source(src='../i/cases/' + caseData.nameEng + '/' + caseData.nameEng + '.mp4')

@@ -1,0 +1,45 @@
+-
+    var mainMenu = [{link: 'index.html', name: 'Домой'},
+    {link: 'formats.html', name: 'Форматы'},
+    {link: 'cases.html', name: 'Кейсы'},
+    {link: 'contacts.html', name: 'Контакты'}]
+
+a.open_menu.color-main.bg-light.radius_full
+    i.fas.fa-bars.lh-40
+.navigation_mobile.bg-light.type2
+    a.close_menu.color-main
+        i.fas.fa-times
+    .px-40.pt-60.pb-60.text-center.inner
+        for i in mainMenu
+            div
+                a.f-heading.f-22.link.color-main.mb-20(href= i.link)= i.name
+
+header.pt-190.pb-120.bg-dark.main-header.header_2
+    nav.header_menu_2.transparent.pb-30
+        .container.px-xl-0
+            .row.justify-content-between.align-items-baseline
+                .col-md-4.d-flex.justify-content-center(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                    .logo-nav.color-white DOUBLE SCREEN
+                .col-sm-12.col-xl-4.d-flex.justify-content-center.align-items-center(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                    a.link.color-white.f-18.mx-15(href='formats.html') Форматы
+                    a.link.color-white.f-18.mx-15(href='cases.html') Кейсы
+                    a.link.color-white.f-18.mx-15(href='contacts.html') Контакты
+    .container
+        .d-flex.align-items-center.justify-content-center.flex-column
+            .mb-3.mt-5.logo.color-white.d-block.d-xl-none.text-center.logo_mobile(data-aos-duration='600', data-aos='fade-down', data-aos-delay='100')
+                | DOUBLE SCREEN
+            h1.big.text-center.color-white.w-100-percent(data-aos-duration='600', data-aos='fade-down', data-aos-delay='200')
+                | Реклама с фокусом на 
+                br
+                | вовлеченность аудитории
+            .mw-620.mx-auto.mt-35.f-22.color-white.text-center.w-100-percent.br-hide
+                span(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                    | Кроссплатформенное размещение
+                    br
+                    |  интерактивных форматов
+            span(data-aos-duration='500', data-aos='fade-down', data-aos-delay='500')
+                a.mt-50.btn.lg.action-2(href='#contact_form') Связаться с нами
+    .header-wave
+        svg(width='1440px', height='25px', viewBox='0 0 1440 25', preserveAspectRatio='none')
+            g#h-wave(data-svg-origin='0 0', style='')
+                path(fill='white', d='M 0 12.5 q 360 -25 720 0 t 720 0 t 720 0 t 720 0 t 720 0 t 720 0 V 0 H 0 V 12.5')

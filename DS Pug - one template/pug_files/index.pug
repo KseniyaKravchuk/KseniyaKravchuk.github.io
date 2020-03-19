@@ -1,0 +1,178 @@
+extends layout/main
+
+mixin format(data)
+    section(class='pt-95 pb-90 content_26 ' + data.class)
+        .container.px-xl-0
+            .row.justify-content-center
+                .col-xl-10.col-lg-11
+                    div(class="row justify-content-center flex-row" + data.position)
+                        .col-md-5.mb-3.mb-md-0
+                            div(class='format-part' id= data.animationId data-aos-duration='600', data-aos='fade-down', data-aos-delay='300' )
+                        .col-md-1
+                        .col-md-5.d-flex.align-items-center
+                            .mt-15.inner(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                                h2(class="f-40 text-adaptive color-" + data.titleColor)= data.title
+                                .mt-15.mb-20.f-20.color-white.text-adaptive= data.description
+
+                                a.pb-5.a-btn.sm.more.color-white.f-16.border-bottom-yellow(href= data.link)
+                                    span.mr-10 Подробнее
+                                    i.fas.fa-arrow-right.lh-36.f-14
+
+mixin rule(data)
+    .mb-40.col-md-12.col-lg-5.d-flex.align-items-baseline.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+        .inner
+            div(class="rule-icon mb-20 mt-20 " + data.icon)
+            .mb-10.f-20.bold.title= data.title
+            .color-black.op-7.text-adaptive= data.description
+
+block variables
+    - var wave = true
+    - var path = ''
+    - var footer_pt = 'pt-70'
+
+    -
+        var pageData = { title: 'Double Screen — медийная реклама с фокусом на вовлеченность аудитории', description: 'Кроссплатформенное размещение интерактивных форматов на ведущих площадках. Выведите контакт пользователя с брендом на новый уровень', keywords: 'Медийная реклама, таргетированная реклама, видеореклама, интерактивная реклама, креативные форматы, нестандартная реклама, реклама на лицензионных площадках, рекламная платформа, DSP, программатик реклама' }
+    -
+        var formats = [{class: "bg-blue", position: '', animationId: "story_anim", title: "Interactive ads", titleColor: 'mint', description: "Кросс-платформенные и мобильные форматы, в которых сочетаются видео, графика и интерактивные механики.", link: "formats.html"},
+                    {class: "bg-purple", position: '-reverse', animationId: "outstream_anim", title: "Out-Stream", titleColor: 'yellow', description: "Видеореклама в нативном блоке внутри контента сайта для решения имиджевых задач.", link: "formats.html"},
+                    {class: "bg-mint", position: '', animationId: "instream_anim", title: "In-Stream", titleColor: 'blue', description: "Классика видеорекламы.\n" + "Привычные прероллы и мидроллы на лицензионных площадках.", link: "formats.html"}]
+    -
+        var inventory = [{name: "IndependentMedia", delay: "0"},
+                        {name: "Rambler", delay: "150"},
+                        {name: "Shkulev", delay: "300"},
+                        {name: "SportExpress", delay: "450"},
+                        {name: "VGTRK", delay: "600"}]
+    -
+        var rules = [{title: "Любим пользователей", icon: "rule-1", description: "Для нас красота имеет значение. Мы убеждены, что только качественный контент и безупречный дизайн способны вызвать искренний интерес аудитории."},
+                    {title: "Заботимся о бренде", icon: "rule-2", description: "Мы знаем, как важен контекст.\n"+"Поэтому сотрудничаем только с проверенными площадками и размещаем рекламу в безопасном окружении."},
+                    {title: "Воплощаем лучшие идеи", icon: "rule-3", description: "Всегда ищем новые решения и тщательно тестируем их, чтобы предлагать рынку только эффективные и актуальные форматы."}]
+    -
+        var parallaxItems = [{position: "back", icon: "star", speed: "10"},
+                            {position: "back", icon: "dot3", speed: "10"},
+                            {position: "back", icon: "dot2", speed: "10"},
+                            {position: "back", icon: "dot", speed: "10"},
+                            {position: "back", icon: "circle", speed: "10"},
+                            {position: "back", icon: "cross", speed: "10"},
+                            {position: "back", icon: "envelop2", speed: "25"},
+                            {position: "back", icon: "envelop", speed: "25"},
+                            {position: "back", icon: "playButton2", speed: "25"},
+                            {position: "back", icon: "playButton", speed: "25"},
+                            {position: "middle", icon: "context", speed: "40"},
+                            {position: "front", icon: "stories", speed: "60"}]
+    -
+        var clients = [{client: "audi", delay: "0"},
+                     {client: "Boss", delay: "150"},
+                     {client: "CK", delay: "300"},
+                     {client: "DG", delay: "450"},
+                     {client: "Gucci", delay: "600"},
+                     {client: "HM", delay: "750"},
+                     {client: "BMW", delay: "900"},
+                     {client: "Jaguar", delay: "1050"},
+                     {client: "lexus", delay: "1050"},
+                     {client: "Mercedes", delay: "1050"},
+                     {client: "Pantene", delay: "1050"},
+                     {client: "Samsung", delay: "1050"}]
+
+    - var form = true
+
+    -
+        var headerMenu = { formats: 'transparent', contacts: 'transparent' }
+
+block content
+    //Шапка форматов
+    section.pt-60.pb-80.bg-light.content_2
+        .container.px-xl-0.text-center
+            .row.mb-20.px-20.d-flex.justify-content-center
+                #bm.col-lg-6.col-md-8.call-to-action-header.px-0
+            .row.justify-content-center
+                .col-xl-8.col-lg-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                    h2
+                        | Форматы, с которыми хочется&nbsp;
+                        span.gradient-text взаимодействовать
+                .col-xl-7.col-lg-9.col-md-10(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                    .mt-35.f-22.medium.color-black.text-adaptive
+                        | Мы объединили технологии и креатив на одной платформе, чтобы вывести контакт пользователя с брендом
+                        | на новый уровень.
+    //Коротко о форматах
+    for i in formats
+        +format(i)
+    //Прямой доступ к премиальному рекламному инвентарю
+    section.pt-80.bg-light.content_28
+        .container.px-xl-0.text-center
+            .row.justify-content-center
+                .col-lg-9(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                    h2.mb-45.small.color-black Прямой доступ к премиальному рекламному инвентарю
+            .row.align-items-center.justify-content-center.no-gutters
+                for j in inventory
+                    .col-md-2.col-sm-4.col-6.mb-30(data-aos-duration='600', data-aos='fade-down', data-aos-delay=j.delay)
+                        img(src='i/inventory/' + j.name + '.png', alt='')
+    //Наши принципы
+    section.pt-50.bg-light.color-black.feature_8
+        .container.px-xl-0
+            .row
+                .col-md-5.col-lg-4.d-flex.align-items-center.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
+                    h2.mb-30.small.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                        | Принципы
+                        br
+                        |                     нашей работы
+                .col-md-1.col-lg-1
+                .col-md-6.col-lg-7.d-flex.align-items-baseline.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                    .row.w-100-percent
+                        +rule(rules[0])
+                        .col-lg-2
+                        +rule(rules[1])
+                        +rule(rules[2])
+                        .col-lg-2
+                        .col-md-12.col-lg-5.d-flex.aos-init.aos-animate.pt-60(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                            .inner
+                                .key-idea.aos-init.aos-animate
+                                    | Мы верим, что интерактивная реклама может притягивать взгляды.
+    //Наши форматы
+    section.pt-80.pb-80.bg-light.call_to_action_15
+        .container.px-xl-0
+            .row.justify-content-center
+                .col-xl-10.col-lg-10
+                    .px-40.pt-40.pb-35.radius20.bg-blue.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                        .row.justify-content-center
+                            .col-12.col-lg-5.col-md-6.mb-40
+                                h2.mt-10.mb-25.small.color-yellow.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                                    | Наши форматы
+                                .mt-10.mb-30.color-white.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='500')
+                                    | Интерактивные мобильные и десктопные форматы для решения разных маркетинговых задач.
+                                a.pb-5.a-btn.sm.color-white.more.f-16.border-bottom-yellow.aos-init.aos-animate(href='formats.html', data-aos-duration='600', data-aos='fade-down', data-aos-delay='700')
+                                    span.mr-10
+                                        | Узнать больше
+                                    i.fas.fa-arrow-right.lh-36.f-14
+                            .col-md-1
+                            .parallax-container.col-7.col-lg-5.col-md-5.d-flex.justify-content-center.align-items-center.aos-init.aos-animate(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                                .parallax-box
+                                    for k in parallaxItems
+                                        div(class="parallax-item parallax-" + k.icon + " " + k.position data-speed=k.speed)
+    //Наши клиенты
+    section.pb-50.bg-light.text-center.content_30
+        .container.px-xl-0
+            .row.justify-content-center
+                h2.col-lg-9.mb-50.small.color-black(data-aos-duration='600', data-aos='fade-down', data-aos-delay='0')
+                    | Наши клиенты
+            .row.justify-content-center
+                for n in clients
+                    .mb-30.col-lg-3.col-md-5.col-6(data-aos-duration='600', data-aos='fade-down', data-aos-delay=n.delay)
+                        .d-flex.justify-content-center.align-items-center.block.h-160.mw-270.mx-auto.radius10
+                            img.img-fluid(src='i/clients/'+ n.client +'.svg', alt='')
+    //Форма обратной связи
+    section#contact_form.pb-90.bg-light.text-center.contact_2
+        .container.px-xl-0
+            form(action='form-handler.php', method='post')
+                .row.justify-content-center
+                    .col-xl-6.col-lg-8.col-md-10
+                        h2.mb-40.small.color-black(data-aos-duration='600', data-aos='fade-down', data-aos-delay='300')
+                            | Связаться с нами
+                        div(data-aos-duration='600', data-aos='fade-down', data-aos-delay='600')
+                            textarea.mb-30.input.w-full.lg.radius10.border-heading.focus-action-1.color-heading.placeholder-heading.text-left(name='message', placeholder='Ваше сообщение', required='')
+                    .col-12
+                    .col-xl-4.col-lg-5.col-md-6.col-sm-7(data-aos-duration='600', data-aos='fade-down', data-aos-delay='900')
+                        input.mb-30.input.w-full.lg.border-heading.focus-action-1.color-heading.placeholder-heading.text-center.text-sm-left(type='email', name='email', placeholder='Ваш e-mail', required='')
+                    .col-xl-2.col-lg-3.col-md-4.col-sm-5(data-aos-duration='600', data-aos='fade-down', data-aos-delay='1200')
+                        button.mb-30.btn.lg.w-full.action-1.px-35-important Отправить
+
+
