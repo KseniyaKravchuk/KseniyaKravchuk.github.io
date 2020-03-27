@@ -29,9 +29,21 @@
 		waveAnimation();
 
 		//тут задаются размеры видео контейнеров
-		function getSize(containers, value) {
+		// function getSize(containers, value) {
+		// 	for (let i = 0; i < containers.length; i++) {
+		// 		containers[i].style.height = containers[i].clientWidth * value + 'px';
+		// 	}
+		// }
+
+		function getSize(containers) {
 			for (let i = 0; i < containers.length; i++) {
-				containers[i].style.height = containers[i].clientWidth * value + 'px';
+				if (containers[i].className === 'video-container') {
+					containers[i].style.height = containers[i].clientWidth * 0.55 + 'px';
+				} else if (containers[i].className === 'video-container-phone') {
+					containers[i].style.height = containers[i].clientWidth * 1.6 + 'px';
+				} else if (containers[i].className === 'video-mobile-banner-container-phone') {
+					containers[i].style.height = containers[i].clientWidth * 1.79 + 'px';
+				}
 			}
 		}
 
@@ -39,12 +51,11 @@
 			const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
 			const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
 			const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
-			console.log(videoContainer)
-			console.log(videoContainerPhone)
-			console.log(videoMobileContainerPhone)
-			getSize(videoContainer, 0.55);
-			getSize(videoContainerPhone, 1.6);
-			getSize(videoMobileContainerPhone, 1.79);
+			const containers = videoContainer.concat(videoContainerPhone, videoMobileContainerPhone);
+			console.log(containers)
+			getSize(containers);
+			// getSize(videoContainerPhone, 1.6);
+			// getSize(videoMobileContainerPhone, 1.79);
 		}
 
 		getVideoContainer();
