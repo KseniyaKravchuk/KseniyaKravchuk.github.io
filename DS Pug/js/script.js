@@ -38,11 +38,17 @@
 		function getSize(containers) {
 			for (let i = 0; i < containers.length; i++) {
 				if (containers[i].classList[0] === 'video-container') {
+					console.log(containers[i].clientWidth)
 					containers[i].style.height = containers[i].clientWidth * 0.55 + 'px';
+					console.log(containers[i].style.height)
 				} else if (containers[i].classList[0] === 'video-container-phone') {
+					console.log(containers[i].clientWidth)
 					containers[i].style.height = containers[i].clientWidth * 1.6 + 'px';
+					console.log(containers[i].style.height)
 				} else if (containers[i].classList[0] === 'video-mobile-banner-container-phone') {
+					console.log(containers[i].clientWidth)
 					containers[i].style.height = containers[i].clientWidth * 1.79 + 'px';
+					console.log(containers[i].style.height)
 				}
 			}
 		}
