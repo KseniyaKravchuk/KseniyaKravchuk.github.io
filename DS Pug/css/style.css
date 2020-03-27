@@ -5904,10 +5904,10 @@ footer {
 }
 
 .visual-phone {
-    width: 30%;
     position: absolute;
     top: 10%;
     left: 69%;
+    width: 30%;
 }
 
 .banner-container {
