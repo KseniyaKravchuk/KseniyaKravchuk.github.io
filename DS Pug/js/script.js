@@ -37,21 +37,22 @@
 
 		function getSize(containers) {
 			for (let i = 0; i < containers.length; i++) {
-				if (containers[i].className === 'video-container') {
+				if (containers[i].classList[0] === 'video-container') {
 					containers[i].style.height = containers[i].clientWidth * 0.55 + 'px';
-				} else if (containers[i].className === 'video-container-phone') {
+				} else if (containers[i].classList[0] === 'video-container-phone') {
 					containers[i].style.height = containers[i].clientWidth * 1.6 + 'px';
-				} else if (containers[i].className === 'video-mobile-banner-container-phone') {
+				} else if (containers[i].classList[0] === 'video-mobile-banner-container-phone') {
 					containers[i].style.height = containers[i].clientWidth * 1.79 + 'px';
 				}
 			}
 		}
 
 		function getVideoContainer() {
-			const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
-			const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
-			const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
-			const containers = videoContainer.concat(videoContainerPhone, videoMobileContainerPhone);
+			// const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
+			// const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
+			// const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
+			const containers = [].slice.call(document.querySelectorAll('.video-wrapper'));
+
 			console.log(containers)
 			getSize(containers);
 			// getSize(videoContainerPhone, 1.6);

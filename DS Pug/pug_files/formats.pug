@@ -8,13 +8,13 @@ mixin format_desktop(formatData)
             .col-12.col-md-6.mb-35
                 .banner-container.ml-15
                     img(src='i/templates/mac.png', alt='', width='100%')
-                    .video-container
+                    .video-container.video-wrapper
                         video.video(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '_desktop.png', playsinline='', muted='', loop='')
                             source(src='video/' + formatData.name + '_desktop.mp4')
                 .visual-phone
                     .banner-container-phone
                         img(src='i/templates/phone.png', alt='', width='100%')
-                        .video-container-phone
+                        .video-container-phone.video-wrapper
                             video.video-phone(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '_mobile.png', playsinline='', muted='', loop='')
                                 source(src='video/' + formatData.name + '_mobile.mp4')
             .col-10.col-md-5
@@ -51,7 +51,7 @@ mixin format_mobile(formatData)
                 if (formatData.video)
                     .mobile-banner-container-phone
                         img(src='i/templates/mobile.png', alt='', width='100%')
-                        .video-mobile-banner-container-phone
+                        .video-mobile-banner-container-phone.video-wrapper
                             video.video-mobban-phone(autoplay='autoplay', poster='i/video_covers/' + formatData.name + '.png', playsinline='', muted='', loop='')
                                 source(src='video/' + formatData.name + '.mp4')
                 else
