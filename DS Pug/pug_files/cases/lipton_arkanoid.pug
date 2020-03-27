@@ -1,4 +1,4 @@
-extends ../layout/page
+extends ../layout/case_page
 
 block variables
     - var topbar = false
@@ -9,36 +9,9 @@ block variables
         var pageData = { title: 'Double Screen', description: '', keywords: '' }
     -
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
+    -
+        var caseData = {nameEng: 'lipton', nameRus: 'Игра Lipton Arkanoid', caseType: 'mobile', pt: '25', pb: '260', backButton: '#525252', aboutCase: ['Задача', ['Разработать интересную игровую механику для поддержки промо кампании'], 'Идея', ['Мы реализовали в баннере игру Arkanoid.', 'Пользователь управлял платформой, которая должна отбивать летающий мячик, не давая ему упасть.'], 'Механика', ['Цель - с помощью мячика расчистить все игровое поле. В качестве препятствий использовались ягоды черники и облепихи - вкусы чая липтон. Некоторые ягоды были заморожены, по ним требовалось ударить два раза.']], nameColor: 'main', textColor: 'heading'}
 
-block content
-    section.wrapper_case_lipton.pt-25.pb-260
-        .case-bg-lipton
-        .container.px-xl-0
-            .row.align-items-center.pt-25.pb-20
-                .col-xl-1
-                .d-flex.justify-content-start.col-lg-2
-                    a(href='../cases.html' class='button-back')
-                        .icon-back.icon-back-grey
-
-
-            .row.pb-25.pt-25.align-items-start
-                .col-lg-1
-                .col-lg-6.mb-50
-                    h2.mb-35 Игра Lipton Arkanoid
-                    .color-heading.mt-35.mb-15.f-18.semibold Задача
-                    p.color-heading.f-18 Разработать интересную игровую механику для поддержки промо кампании
-                    .color-heading.mt-35.mb-15.f-18.semibold Идея
-                    p.color-heading.f-18 Мы реализовали в баннере игру Arkanoid.
-                    p.color-heading.f-18 Пользователь управлял платформой, которая должна отбивать летающий мячик, не давая ему упасть.
-                    .color-heading.mt-35.mb-15.f-18.semibold Механика
-                    p.color-heading.f-18 Цель - с помощью мячика расчистить все игровое поле. В качестве препятствий использовались ягоды черники и облепихи - вкусы чая липтон. Некоторые ягоды были заморожены, по ним требовалось ударить два раза.
-
-                .col-lg-5.d-flex.justify-content-center.mb-50
-                    .video-case-container
-                        img(src='../i/templates/mobile.png' width='100%')
-                        .video-case
-                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
-                                source(src='../i/cases/lipton/lipton_arcanoid.mp4')
 
 
 

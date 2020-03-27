@@ -33,7 +33,7 @@
 		const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
 		const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
 
-		if (videoContainer) {
+		if (videoContainer && videoContainerPhone) {
 			changeSizes()
 			window.addEventListener('resize', changeSizes)
 		}

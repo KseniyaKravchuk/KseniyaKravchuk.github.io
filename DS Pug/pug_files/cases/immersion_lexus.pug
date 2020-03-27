@@ -1,4 +1,4 @@
-extends ../layout/page
+extends ../layout/case_page
 
 block variables
     - var topbar = false
@@ -9,35 +9,8 @@ block variables
         var pageData = { title: 'Double Screen', description: '', keywords: '' }
     -
         var headerMenu = { formats: 'transparent', cases: 'yellow', contacts: 'transparent' }
-
-block content
-    section.wrapper_case_lexus.pt-25.pb-80
-        .case-bg-lexus
-        .container.px-xl-0
-            .row.align-items-center.pt-25.pb-20
-                .col-xl-1
-                .d-flex.justify-content-start.col-lg-2
-                    a(href='../cases.html' class='button-back')
-                        .icon-back.icon-back-white
-
-
-            .row.pb-25.pt-25.align-items-center
-                .col-xl-1
-                .col-xl-6.mb-50
-                    h2.mb-35.color-white Immersion Lexus
-                    .color-white.mt-35.mb-15.f-18.semibold Задача
-                    p.color-white.f-18 Рассказать потенциальным клиентам о предновогодних предложениях.
-                    .color-white.mt-35.mb-15.f-18.semibold Идея
-                    p.color-white.f-18 Lexus — клиент, который активно тестирует нестандартные решения и подходы. Поэтому мы предложили выйти с новым для рынка форматом Immersion в сезон, когда выделиться среди конкурентов — особенно важно.
-                    .color-white.mt-35.mb-15.f-18.semibold Результат
-                    p.color-white.f-18 Средняя длительность сеанса при переходе на сайт бренда в десктопе и мобайле оказалась выше средних показателей по кампании на 30%, при этом глубина просмотра — на уровне с другими видеоформатами.
-
-                .col-xl-5.d-flex.mb-50.desktop-case
-                    .video-case-container-desktop
-                        img(src='../i/templates/mac.png')
-                        .video-case-desktop
-                            video.video-case-set(autoplay='autoplay', playsinline='', muted='', loop='')
-                                source(src='../i/cases/lexus/lexus.mp4')
+    -
+        var caseData = {nameEng: 'lexus', nameRus: 'Immersion Lexus', caseType: 'desktop', pt: '25', pb: '80', backButton: '#ffffff', aboutCase: ['Задача', ['Рассказать потенциальным клиентам о предновогодних предложениях.'], 'Идея', ['Lexus — клиент, который активно тестирует нестандартные решения и подходы. Поэтому мы предложили выйти с новым для рынка форматом Immersion в сезон, когда выделиться среди конкурентов — особенно важно.'],'Результат',['Средняя длительность сеанса при переходе на сайт бренда в десктопе и мобайле оказалась выше средних показателей по кампании на 30%, при этом глубина просмотра — на уровне с другими видеоформатами.']], nameColor: 'white', textColor: 'white'}
 
 
 

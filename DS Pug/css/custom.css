@@ -33,7 +33,19 @@
     height: 100%;
     background: transparent !important;
 }
-@supports (background-clip: text) or (-webkit-background-clip: text) {
+
+@supports (-webkit-background-clip: text) {
+    .gradient-text {
+        animation: flow 30s ease-in-out infinite;
+        background: linear-gradient(45deg, #2c1aa7 10%, #f2cd11 15%, #ff7800 25%, #c6270a 45%, #d800ff 75%, #2c1aa7 95%);
+        background-size: 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@supports (background-clip: text) {
     .gradient-text {
         animation: flow 30s ease-in-out infinite;
         background: linear-gradient(45deg, #2c1aa7 10%, #f2cd11 15%, #ff7800 25%, #c6270a 45%, #d800ff 75%, #2c1aa7 95%);

@@ -1,0 +1,1 @@
+.float-block{display:flex;flex-direction:column;flex-grow:1;text-align:center;font-size:0;width:inherit;transform:translateZ(0)}.float-block .top-ad{min-height:100vh}.float-block .top-ad:last-child{min-height:0;flex-grow:1}.float-block .top-ad__wrapper{position:-webkit-sticky;position:sticky;top:110px}
