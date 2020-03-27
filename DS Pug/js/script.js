@@ -29,24 +29,29 @@
 		waveAnimation();
 
 		//тут задаются размеры видео контейнеров
-		const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
-		const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
-		const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
-
-		if (videoContainer && videoContainerPhone) {
-			changeSizes()
-			window.addEventListener('resize', changeSizes)
-		}
-
-		function changeSizes() {
-			for (let i = 0; i < videoContainer.length; i++) {
-				videoContainer[i].style.height = videoContainer[i].clientWidth * 0.55 + 'px';
-				videoContainerPhone[i].style.height = videoContainerPhone[i].clientWidth * 1.6 + 'px';
-			}
-			for (let i = 0; i < videoMobileContainerPhone.length; i++) {
-				videoMobileContainerPhone[i].style.height = videoMobileContainerPhone[i].clientWidth * 1.79 + 'px';
+		function getSize(containers, value) {
+			for (let i = 0; i < containers.length; i++) {
+				containers[i].style.height = containers[i].clientWidth * value + 'px';
 			}
 		}
+
+		function getVideoContainer() {
+			const videoContainer = [].slice.call(document.querySelectorAll('.video-container'));
+			const videoContainerPhone = [].slice.call(document.querySelectorAll('.video-container-phone'));
+			const videoMobileContainerPhone = [].slice.call(document.querySelectorAll('.video-mobile-banner-container-phone'));
+			console.log(videoContainer)
+			console.log(videoContainerPhone)
+			console.log(videoMobileContainerPhone)
+			getSize(videoContainer, 0.55);
+			getSize(videoContainerPhone, 1.6);
+			getSize(videoMobileContainerPhone, 1.79);
+		}
+
+		getVideoContainer();
+		window.addEventListener('resize', getVideoContainer);
+
+
+
 
         //анимация форматов на главной
 		if (document.location.pathname === '/' || document.location.pathname.indexOf('/index.html') >= 0) {
