@@ -1,0 +1,23 @@
+{
+    "language": "ru",
+    "format": "native",
+    "subformat": "scroller",
+    "targeting": {
+        "device_type": [],
+        "os": [
+            {
+                "os": "iOS",
+                "major": null,
+                "minor": null,
+                "revision": null
+            },
+            {
+                "os": "Android",
+                "major": null,
+                "minor": null,
+                "revision": null
+            }
+        ]
+    },
+    "events": []
+}

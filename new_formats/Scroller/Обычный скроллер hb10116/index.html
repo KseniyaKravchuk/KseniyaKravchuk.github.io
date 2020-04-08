@@ -1,0 +1,503 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><script type="text/javascript" src="./system/hpmd.js"></script></head><body data-format="nativescroller" data-lang="ru" data-sys-format="native" data-sys-subformat="scroller">
+
+<!-- == HTML =========================================================================================== -->
+<section>
+		
+		<!-- Нативное окно.
+		     Этот элемент задает размкр видимой области баннера. -->
+		<div class="hpmdn-wrapper">
+			<!-- Этот элемент выступает в качестве маски и ограничивает область видимости основного креатива -->
+			<div class="hpmdn-mask">
+				<!-- Фон-подложка выполняет фукцию background-а баннера.
+				 	 Размер этого элемента равен размеру экрана устройства по высоте минус высота плавубщей шапки сайта (если она есть) и размеру контейнера по ширене -->
+				<div class="hpmdn-scroller">
+					<!-- TODO: сюда добавляются элементы фона-подложки -->
+					<!-- <img src="./banner/img/portrait.jpg" alt="example"> -->
+					<!-- Элемент-пример. Назначьте ему новые стили, или удалите из кода и замените
+							новыми. -->
+					<div class="hpmdn-visual"></div>
+				</div>
+				<!-- Логотип-пример. Назначьте ему новые стили, или удалите из кода и замените
+						новыми. -->
+				<div class="hpmdn-logo"></div>
+				<!-- TODO: сюда добавляются все элементы баннера внутри видимой зоны -->
+			</div>
+		</div>
+</section>
+<!-- /HTML -->
+
+<!-- == CSS ============================================================================================ -->
+<style>
+				/* Нативное окно */
+				.hpmdn-wrapper {
+					/* Создаем возможность позиционировать дочерние элементы
+					 * относительно поля баннера */
+					position: relative;
+					/* Растягиваем на всю ширину контейнера: */
+					width: 100%;
+				}
+				
+				/* Анимация фона подложки при изменения высоты экрана */
+				.hpmdn-scroller {
+					-webkit-transition: height .3s;
+					-ms-transition: height .3s;
+					-o-transition: height .3s;
+					transition: height .3s;
+				}
+				
+				/* Высота обертки в ландшафтной ориентации */
+				.hpmdn-wrapper {
+					/* Высота = 45% ширины баннера */
+					top: 0;
+					padding-top: 45%;
+					overflow: hidden;
+		
+					/*clip: rect(auto,auto,auto,auto);*/
+					/*-webkit-clip-path: inset(0px 0px 0px 0px);
+					        clip-path: inset(0px 0px 0px 0px);*/
+				}
+				.hpmdn-mask {
+					/* Задаем позицию маске */
+					position: absolute;
+					top: 0;
+					left: 0;
+					/* Ограничиваем область видимости. Работает только на ios */
+					overflow: hidden;
+					width: 100%;
+					/* Bugfix для Android */
+					z-index: 1;
+					clip: rect(auto,auto,auto,auto);
+				}
+				/* Скрываем фон подложку в ландшафтной ориентации, так как весь креатив находится в нативном окне */
+				.hpmdn-scroller {
+					/* Задаем фиксированное позиционирование
+					 * и прибиваем элемент к нижниму левому углу */
+					position: fixed;
+					left: 0;
+					bottom: 0;
+					/* Фоновая картинка */
+					background: url(./banner/img/portrait.jpg) 50% 50% no-repeat;
+					/* Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока */
+					background-size: cover;
+					/* Отключаем обработку тапов по элементу.
+					   Это дает нам горантию того, что невидимая часть scroller-а не будет реагировать на действия пользователя.*/
+					pointer-events: none;
+					box-sizing: content-box !important;
+					/* Bugfix для IOs. Включаем GPU acceleration */
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+		
+					   -moz-transform: translateZ(0);
+					-webkit-transform: translateZ(0);
+					    -ms-transform: translateZ(0);
+					     -o-transform: translateZ(0);
+					        transform: translateZ(0);
+				}
+		
+				/* СТИЛИ-ПРИМЕРЫ
+				 *
+				 * Отредактируйте их в соответствии с вашими потребностями,
+				 * или удалите и замените новыми.
+				 */
+				/* Основной визуал (лого, надпись, декорации)*/
+				.hpmdn-visual {
+					position: absolute;
+					top: 25%;
+					left: 10%;
+					width: 80%;
+					height: 50%;
+					background: url(./banner/img/visual.png) 50% 50% no-repeat;
+					background-size: contain;
+				}
+			
+				/* Стили для логотипа */
+				.hpmdn-logo {
+					position: absolute;
+					top: 0%;
+					right: 0%;
+					width: 10%;
+					height: 0%;
+					padding-bottom: 10%;
+					background: url(./banner/img/logo.png) 0% 40% no-repeat;
+					background-size: 90% auto;
+				}
+</style>
+<!-- /CSS -->
+
+<!-- == JS ============================================================================================= -->
+<script>_hpmd.testBanner(function () {
+				// Сохраняем ссылку на контейнер баннера
+				var container = hpmd.getContainer();
+				// Устанавливаем необходимые для контейнера стили.
+				container.style.position = 'relative';
+				container.style.overflow = 'hidden';
+				container.style.zIndex = '1';
+				// Сохраняем ссылку на нативное окно
+				var wrapper = container.querySelector('.hpmdn-wrapper');
+				// Сохраняем ссылку на фон-подложку
+				var scroller = container.querySelector('.hpmdn-scroller');
+				// Сохраняем ссылку на маску
+				var mask = container.querySelector('.hpmdn-mask');
+				
+				// Определяем ОС
+				isIOs = function () {
+					return hpmd.getSegment("os") == "iOS";
+				};
+				
+				// На Android не работет overflow: hidden Для фиксированных элеметов
+				// Добавляем свойство clip на слой-маску
+				// if (!isIOs()) {
+					// mask.style.webkitClip = 'rect(auto, auto, auto, auto)';
+					// mask.style.clip = 'rect(auto, auto, auto, auto)';
+				// };
+		
+				// wrapper.style.webkitClip = 'inset(0px 0px 0px 0px)';
+				// wrapper.style.clip       = 'inset(0px 0px 0px 0px)';
+				
+				/**
+				 * Совместимая с vendor-префиксами ссылка на функцию
+				 * requestAnimationFrame()
+				 *
+				 * @var Function
+				 */
+				var animationFrame = function (callback) {
+					(
+						window.requestAnimationFrame ||
+						window.webkitRequestAnimationFrame ||
+						window.msRequestAnimationFrame ||
+						window.mozRequestAnimationFrame ||
+						function (handler) {
+							setTimeout(handler, 13);
+						}
+					)(callback);
+				};
+				
+				
+				/**
+				 * Управляется ли устройство iOS
+				 * 
+				 * @return bool
+				 */
+				hpmd.data.isIOs = function () {
+					return hpmd.getSegment("os") == "iOS";
+				}
+				
+				/**
+				 * Управляется ли устройство Android
+				 * 
+				 * @return bool
+				 */
+				hpmd.data.isAndroid = function () {
+					return hpmd.getSegment("os") == "Android";
+				}
+				
+				/**
+				 * Управляется ли устройство Windows Phone
+				 * 
+				 * @return bool
+				 */
+				hpmd.data.isWP = function () {
+					return hpmd.getSegment("os") == "Windows";
+				}
+				
+				/**
+				 * Определяет направление свайпа по смещению
+				 * точки прикосновения
+				 * 
+				 * Смещение вправо и вниз ― положительное,
+				 * влево и вверх ― отрицательное.
+				 * 
+				 * @param number deltax Смещение в пикселях по горизонтали вправо
+				 * @param number deltay Смещение в пикселях по вертикали вниз
+				 * 
+				 * @return string "tap", "left", "right", "up", "down"
+				 */
+				hpmd.data.calcSwipeDirection = function (deltax, deltay) {
+					if (deltax == 0) {
+						if (deltay == 0) {
+							// смещения нет, произошел тап
+							return "tap";
+						} else {
+							// смещение есть, зададим deltay равным единице,
+							// чтобы избежать деления на ноль
+							deltay = 1;
+						}
+					}
+					if (Math.abs(deltax) < 10 && Math.abs(deltay) < 10) {
+						// смещение меньше 10 пикселей, произошел тап
+						return "tap";
+					}
+					if (Math.abs(deltay / deltax) > .5) {
+						// наклон кривой к горизонтали больше 45°,
+						// это вертикальный свайп,
+						if (deltay < 0) {
+							// смещение вверх
+							return "up";
+						} else {
+							// смещение вниз
+							return "down";
+						}
+					} else {
+						// наклон кривой к горизонтали меньше 45°,
+						// это горизонтальный свайп,
+						if (deltax < 0) {
+							// смещение влево
+							return "left";
+						} else {
+							// смещение вправо
+							return "right";
+						}
+					}
+				}
+				
+				/**
+				 * Регистрирует обработчик события
+				 * 
+				 * @param DOMElement element DOM-элемент
+				 * @param string event Название события (напр., "touchstart"))
+				 * @param Function handler Обработчик события
+				 */
+				hpmd.data.attachHandler = function (element, event, handler) {
+					if (hpmd.data.isWP()) {
+						switch (event) {
+							case "touchstart":
+								hpmd.data.attachHandler(element, 'MSPointerDown', handler);
+								hpmd.data.attachHandler(element, 'pointerdown', handler);
+								break;
+							case "touchmove":
+								hpmd.data.attachHandler(element, 'MSPointerMove', handler);
+								hpmd.data.attachHandler(element, 'pointermove', handler);
+								break;
+							case "touchend":
+								hpmd.data.attachHandler(element, 'MSPointerUp', handler);
+								hpmd.data.attachHandler(element, 'pointerup', handler);
+								break;
+							case "touchcancel":
+								hpmd.data.attachHandler(element, 'MSPointerCancel', handler);
+								hpmd.data.attachHandler(element, 'pointercancel', handler);
+								break;
+						}
+					}
+					
+					element.addEventListener(event, handler, false);
+				}
+				/**
+				 * Удаляет обработчик события
+				 * 
+				 * @param DOMElement element DOM-элемент
+				 * @param string event Название события (напр., "touchstart"))
+				 * @param Function handler Обработчик события
+				 */
+				hpmd.data.detachHandler = function (element, event, handler) {
+					if (hpmd.data.isWP()) {
+						switch (event) {
+							case "touchstart":
+								hpmd.data.detachHandler(element, 'MSPointerDown', handler);
+								hpmd.data.detachHandler(element, 'pointerdown', handler);
+								break;
+							case "touchmove":
+								hpmd.data.detachHandler(element, 'MSPointerMove', handler);
+								hpmd.data.detachHandler(element, 'pointermove', handler);
+								break;
+							case "touchend":
+								hpmd.data.detachHandler(element, 'MSPointerUp', handler);
+								hpmd.data.detachHandler(element, 'pointerup', handler);
+								break;
+							case "touchcancel":
+								hpmd.data.detachHandler(element, 'MSPointerCancel', handler);
+								hpmd.data.detachHandler(element, 'pointercancel', handler);
+								break;
+						}
+					}
+					
+					element.removeEventListener(event, handler, false);
+				}
+				/**
+				 * Обрабатывает жесты пользователя
+				 * 
+				 * Эта функция служит для обработки свайпов в четырех направлениях
+				 * (влево, вправо, вверх, вниз) и «тапа» по любому элементу.
+				 * 
+				 * В качестве первого аргумента передается DOM-элемент;
+				 * в качестве второго аргумента передается объект, содержащий
+				 * некоторые (или все) из следующих ключей:
+				 * - left
+				 * - right
+				 * - down
+				 * - up
+				 * - tap
+				 * 
+				 * Значения ключей должны быть функциями.
+				 * 
+				 * При обнаружении свайпа в определенном направлении вызывается
+				 * соответствующая функция; в качестве аргументов ей передается
+				 * экземпляр события touchend и ссылка на исходный DOM-элемент.
+				 * 
+				 * Например:
+				 * hpmd.data.handleSwipe(document.getElementById('hpmd-my-node'), {
+				 *    up: function () {
+				 *       alert("Swipe up!");
+				 *    },
+				 *    down: function () {
+				 *       alert("Swipe down!");
+				 *    },
+				 *    tap: function (event, element) {
+				 *       alert("Tapped on " + element + "!");
+				 *    },
+				 * });
+				 * 
+				 * @param DOMElement element
+				 * @param object handlers
+				 */
+				hpmd.data.handleSwipe = function(element, handlers) {
+					var x, y;
+					
+					hpmd.data.attachHandler(element, 'touchstart', function (event) {
+						var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+						
+						x = touch.pageX;
+						y = touch.pageY;
+					});
+					hpmd.data.attachHandler(element, 'touchend', function (event) {
+						var touch = !!event.changedTouches ? event.changedTouches[0] : event;
+						var direction = hpmd.data.calcSwipeDirection(touch.pageX - x, touch.pageY - y);
+						if (!!handlers[direction]) {
+							handlers[direction](event, element);
+						}
+					});
+				}
+		
+				hpmd.data.handleClick = function(element, handler) {
+					element.addEventListener('click', handler, false);
+				}
+				
+				/**
+				 * Список DOM-элементов, принадлежащих баннеру
+				 * 
+				 * @var object of DOMElement
+				 */
+				hpmd.data.nodes = {};
+				
+				/**
+				 * Обрабатывает DOM-элемент, принадлежащий баннеру.
+				 * 
+				 * Если ID имеет префикс "hpmd-", сохраняет ссылку на элемент в объекте
+				 * hpmd.data.nodes для быстрого доступа; ключом является ID элемента без префикса.
+				 * 
+				 * Элементы с классом "hpmd-teaser" считаются тизерами; им присваиваются
+				 * необходимые обработчики ошибок.
+				 * 
+				 * После завершения функция рекурсивно обрабатывает все дочерние элементы.
+				 * 
+				 * @param DOMElement node
+				 */
+				hpmd.data.processNode = function (node) {
+					// Проверяем ID.
+					var attribute;
+					var idPrefix;
+				
+					if (!!node.getAttribute && !!(attribute = node.getAttribute('id')) && !!(idPrefix = attribute.match(/hpmd[a-z]*[-]/gi))) {
+						
+						idPrefix = idPrefix[0];
+				
+						// Нашли префикс "hpmdn-", сохраняем на будущее.
+						hpmd.data.nodes[attribute.substring(idPrefix.length, 1000)] = node;
+					}
+					
+					// Обрабатываем дочерние элементы.
+					for (var i = 0; i < node.children.length; i++) {
+						hpmd.data.processNode(node.children[i]);
+					}
+				};
+				/**
+				 * Полностью убирает все элементы баннера со страницы.
+				 */
+				hpmd.data.destroy = function () {
+					/* Отключите здесь любые обработчики событий,
+						* которые были включены при запуске или в процессе
+						* работы баннера.
+						*/
+					
+					// Удаляем все HTML-элементы баннера.
+					for (var k in hpmd.data.nodes) {
+						if (hpmd.data.nodes.hasOwnProperty(k)) {
+							try {
+								hpmd.data.nodes[k].parentNode.removeChild(hpmd.data.nodes[k]);
+							} catch (e) {}
+						}
+					}
+				};
+				/**
+				 * Закрывает баннер
+				 */
+				hpmd.data.closeBanner = function () {
+					// $(Полностью убираем баннер со страницы.|Completely removing the ad from the page.)
+					setTimeout(hpmd.data.destroy, 300);
+				}
+				
+				/**
+				 * Экспортируем функцию hpmd.data.onViewportUpdate()
+				 *
+				 * В нативных форматах система вызывает эту функцию автоматически.
+				 */
+				
+				hpmd.data.onViewportUpdate = function () {
+					setScrollerSize();
+					var width = mask.offsetWidth;
+					mask.style.height = width * 0.45 + 'px';
+				};
+				
+				/* В этих переменных мы храним последнюю зарегестрированную высоту экрана */
+				var lastHeight = 0, height = window.innerHeight, rect;
+				
+				/* Функция обновления размеров фона-подложки */
+				var setScrollerSize = function () {
+					// Задаем размеры скроллера
+					// Если высота изменилась
+					if (lastHeight != window.innerHeight) {
+				
+						// Регестрируем новую высоту экрана
+						height = window.innerHeight;
+						lastHeight = height;
+						// Обновляем ширину баннера
+						scroller.style.width = container.clientWidth + "px";
+						// Обновляем высоту баннера
+						// hpmd.scroller.headerHeight() - системная функция.
+						// Она возвращает высоту фиксированного хедера на странице, если он есть
+						console.log(hpmd.scroller.headerHeight())
+						scroller.style.height = (height - hpmd.scroller.headerHeight()) + "px";
+						// Устанавливаем отступ слева
+						if (!!container) {
+							rect = container.getBoundingClientRect();
+							scroller.style.left = rect.left + 'px';
+						}
+					}
+				};
+				
+				// Проверяем обновление размеров экрана каждые 100 мсек
+				setInterval( function() {
+					hpmd.data.onViewportUpdate();
+				}, 100);
+		
+				/**
+				 * Ожидаем появления баннера на экране
+				 *
+				 * Код нативных баннеров запускается при загрузке страницы, но начинают работать
+				 * они только тогда, когда появятся на экране после скролла пользователя. Переданный
+				 * функции hpmd.ready() обработчик будет вызван, когда баннер должен начать работу.
+				 */
+				// hpmd.ready(function () {
+					hpmd.data.processNode(container.parentNode);
+					// Баннер появился на экране
+					
+					/* При "тапе" на баннер открываем ссылку и закрываем баннер */
+					hpmd.data.handleClick(wrapper, function() {
+						hpmd.data.closeBanner();
+						hpmd.link();
+					});
+				// });
+});</script>
+<!-- /JS -->
+<!-- =================================================================================================== -->
+
+</body></html>

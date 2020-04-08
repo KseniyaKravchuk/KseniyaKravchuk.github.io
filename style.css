@@ -1,0 +1,31 @@
+body {
+    background: #FFEC73;
+    padding-left: 40px;
+    font-family: 'Cabin', sans-serif;
+    letter-spacing: 1px;
+    /*display: flex;*/
+    font-size: 19px;
+    width: 70%;
+    min-width: 700px;
+    margin: 40px auto;
+}
+body div {
+    margin-right: 60px;
+}
+ol li {
+    line-height: 40px;
+}
+.row {
+    display: flex;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: grey;
+}

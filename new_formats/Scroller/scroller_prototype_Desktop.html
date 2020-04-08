@@ -15,16 +15,6 @@
         obcaecati porro vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
         nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
         obcaecati porro vero?</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
-        nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
-        obcaecati porro vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
-        nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
-        obcaecati porro vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
-        nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
-        obcaecati porro vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
-        nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
-        obcaecati porro vero?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
         nesciunt perspiciatis praesentium rem soluta. At cupiditate deserunt eligendi facilis magnam nostrum
         obcaecati porro vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ducimus ea iste laborum minima nemo
@@ -235,29 +225,6 @@
         onViewportUpdate();
     }, 100);
 
-    var startParam = {
-      offset: window.pageYOffset,
-      pageHeight: window.innerHeight
-    }
-
-    function setTransform(elem, value) {
-        elem.style.msTransform = value;
-        elem.style.webkitTransform = value;
-        elem.style.MozTransform = value;
-        elem.style.OTransform = value;
-        elem.style.transform = value;
-    }
-
-    function scrollerHandler() {
-        if (window.pageYOffset + window.innerHeight > elements.wrapper.getBoundingClientRect().top + elements.scrollerParts[0].getBoundingClientRect().height) {
-          var offset = (startParam.offset - window.pageYOffset) / startParam.pageHeight * 100;
-          // elements.scroller.style.bottom = offset + '%';
-        }
-
-        // setTransform(elements.scroller,  'translate3d(0%, ' + ( 100 * -percent) + '%, 0)');
-
-
-    }
 
 
 
@@ -265,8 +232,6 @@
 
       getElements()
       getContainerSize()
-      window.addEventListener('scroll', scrollerHandler);
-      scrollerHandler();
     })
 
 

@@ -1,0 +1,10 @@
+{
+    "language": "ru",
+    "format": "native",
+    "subformat": "scroller",
+    "targeting": {
+        "device_type": [],
+        "os": []
+    },
+    "events": []
+}
