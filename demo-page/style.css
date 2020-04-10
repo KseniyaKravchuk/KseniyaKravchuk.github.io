@@ -292,3 +292,33 @@ footer ul > li {
     margin-left: 94px;
     cursor: pointer;
 }
+
+
+@media (max-width: 576px) {
+
+.content-box {
+    flex-direction: column;
+}
+    .content {
+        width: 100%;
+    }
+    header .header-menu {
+        display: none;
+    }
+    header .img-box {
+        display: none;
+    }
+    .heading {
+        width: 100%;
+    }
+    .main-content {
+        width: 90%;
+    }
+    .side-bar {
+        width: 90%;
+    }
+    footer > ul {
+        flex-direction: column;
+    }
+
+}
