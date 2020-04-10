@@ -101,5 +101,14 @@
         </nav>
     </footer>
     <script>var hpmd=[];(function(a,d,b){b=d.createElement(a);b.async=1;b.src="https://banner-dev.hpmdnetwork.ru/client/50.min.js";a=d.getElementsByTagName(a)[0];a.parentNode.insertBefore(b,a)})("script",document);</script>
+    <script>
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.body.classList.add('hpmdf-mobile')
+        document.body.classList.remove('hpmdf-desktop')
+      } else {
+        document.body.classList.remove('hpmdf-mobile')
+        document.body.classList.add('hpmdf-desktop')
+      }
+    </script>
 </body>
 </html>
