@@ -92,7 +92,7 @@ header ul > li {
 
 }
 
-.heading .h1 {
+.heading .article-name {
     margin: 15px 0 45px 0;
     font-size: 36px;
     line-height: 42px;
@@ -247,6 +247,10 @@ header ul > li {
     background-size: contain;
 }
 
+.comment-userdata {
+    display: flex;
+}
+
 .comment-username {
     margin-left: 6px;
     font-size: 10px;
@@ -297,12 +301,15 @@ footer {}
 }
 
 footer ul > li {
-    margin-left: 94px;
     cursor: pointer;
 }
 
 .main-menu {
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    width: 100%;
 }
 
 .nested-menu {
@@ -334,7 +341,7 @@ footer ul > li {
     width: 100%;
 }
 
-.hpmdf-mobile .heading .h1 {
+.hpmdf-mobile .heading .article-name {
     width: 90%;
     margin-left: 5%;
     font-size: 45px;
@@ -420,4 +427,120 @@ footer ul > li {
 .hpmdf-mobile .footer-menu {
     font-size: 25px;
     line-height: 35px;
+}
+
+@media (max-width: 1080px) {
+    .comment-userdata {
+        flex-direction: column;
+    }
+    .comment-icon {
+        width: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-box {
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    header .header-menu {
+        display: none;
+    }
+
+    header .img-box {
+        display: none;
+    }
+
+    .topic {
+        margin-left: 5%;
+    }
+
+    .heading {
+        width: 100%;
+    }
+
+    .heading .article-name {
+        width: 90%;
+        margin-left: 5%;
+
+    }
+
+    .heading-pic-box {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    footer > ul {
+        flex-direction: column;
+    }
+
+    .side-bar {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0 auto;
+        padding-left: 0;
+        width: 90%;
+    }
+
+    .side-bar-best > span {
+        font-size: 25px;
+    }
+
+    .side-bar-pic1,
+    .side-bar-pic2,
+    .side-bar-pic3 {
+        background-size: contain;
+    }
+
+    .side-bar-pic1::after,
+    .side-bar-pic2::after,
+    .side-bar-pic3::after {
+        content: '';
+        display: block;
+        padding-top: 50%;
+    }
+
+    .main-content > p {
+        width: 90%;
+        margin: 5% auto;
+    }
+
+    .read-more {
+        margin: 50px auto;
+        box-sizing: border-box;
+        width: 90%;
+    }
+
+    .comment-userdata {
+        flex-direction: row;
+    }
+
+    .nested-menu {
+        display: flex;
+        flex-wrap: wrap;
+        text-transform: none;
+    }
+
+    .nested-menu > li {
+        margin: 2% 3% 2% 0;
+    }
+
+   .main-menu {
+        flex-direction: column;
+        width: 84%;
+        margin: 0 auto;
+    }
+    footer ul > li {
+        margin-left: 0;
+        margin-bottom: 3%;
+    }
+
 }
