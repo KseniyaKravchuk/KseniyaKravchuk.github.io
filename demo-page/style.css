@@ -355,10 +355,6 @@ footer ul > li {
     width: 100%;
 }
 
-.hpmdf-mobile .side-bar {
-    width: 90%;
-}
-
 .hpmdf-mobile footer > ul {
     flex-direction: column;
 }
@@ -368,6 +364,11 @@ footer ul > li {
     flex-direction: column-reverse;
     margin: 0 auto;
     padding-left: 0;
+    width: 90%;
+}
+
+.hpmdf-mobile .side-bar-best > span {
+    font-size: 25px;
 }
 
 .hpmdf-mobile .main-content > p {
