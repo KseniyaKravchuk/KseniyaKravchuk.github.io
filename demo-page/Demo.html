@@ -26,7 +26,7 @@
     <div class="content">
         <div class="heading">
             <div class="topic">новости</div>
-            <h1>Различный солитон — актуальная национальная задача</h1>
+            <div class="h1">Различный солитон — актуальная национальная задача</div>
             <div class="heading-pic"></div>
             <div class="heading-pic-box">
                 <div class="heading-pic-favorite"></div>
@@ -92,10 +92,30 @@
     <footer>
         <div class="footer-line"></div>
         <nav class="footer-menu">
-            <ul>
-                <li>информация</li>
-                <li>подписка</li>
-                <li>приложения</li>
+            <ul class="main-menu">
+                <li>информация
+                    <ul class="nested-menu">
+                        <li>Реклама</li>
+                        <li>Редакция</li>
+                        <li>Контакты</li>
+                        <li>Блог</li>
+                        <li>О проекте</li>
+                    </ul>
+                </li>
+                <li>подписка
+                    <ul class="nested-menu">
+                        <li>Facebook</li>
+                        <li>ВКонтакте</li>
+                        <li>Telegram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </li>
+                <li>приложения
+                    <ul class="nested-menu">
+                        <li>iOS</li>
+                        <li>Android</li>
+                    </ul>
+                </li>
                 <li>правила</li>
             </ul>
         </nav>
@@ -104,10 +124,8 @@
     <script>
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         document.body.classList.add('hpmdf-mobile')
-        document.body.classList.remove('hpmdf-desktop')
       } else {
         document.body.classList.remove('hpmdf-mobile')
-        document.body.classList.add('hpmdf-desktop')
       }
     </script>
 </body>

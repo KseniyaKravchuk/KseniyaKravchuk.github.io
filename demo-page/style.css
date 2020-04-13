@@ -92,8 +92,10 @@ header ul > li {
 
 }
 
-.heading h1 {
+.heading .h1 {
     margin: 15px 0 45px 0;
+    font-size: 36px;
+    line-height: 42px;
 }
 
 .heading-pic {
@@ -115,18 +117,23 @@ header ul > li {
 
 .heading-pic-favorite {
     margin: 0 15px 0 0;
-    width: 30px;
-    height: 30px;
+    width: 5%;
     background: url("img/favorite.png") 50% 50% no-repeat;
     background-size: contain;
 }
 
 .heading-pic-heart {
     margin: 0 15px 0 0;
-    width: 30px;
-    height: 30px;
+    width: 5%;
     background: url("img/heart.png") 50% 50% no-repeat;
     background-size: contain;
+}
+
+.heading-pic-favorite::after,
+.heading-pic-heart::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
 
 .content-box {
@@ -157,7 +164,7 @@ header ul > li {
 }
 
 .read-more > p {
-    margin-top: 15px;
+    margin-top: 3%;
     font-size: 20px;
     line-height: 32px;
 }
@@ -166,6 +173,8 @@ header ul > li {
     width: 30%;
     box-sizing: border-box;
     padding-left: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .side-bar-best {
@@ -176,7 +185,7 @@ header ul > li {
     display: block;
     font-size: 23px;
     line-height: 27px;
-    margin-bottom: 17px;
+    padding-bottom: 17px;
     box-sizing: border-box;
 }
 
@@ -210,6 +219,7 @@ header ul > li {
 }
 
 .comments-heading {
+    box-sizing: border-box;
     font-size: 22px;
     line-height: 27px;
     padding-bottom: 18px;
@@ -218,10 +228,11 @@ header ul > li {
 
 .comment {
     width: 85%;
-    margin: 9px auto;
+    margin: 6% auto;
     border-bottom: 1px solid #E7E7E7;
     /*margin-top: 18px;*/
     padding-bottom: 15px;
+
 }
 
 .comment-heading {
@@ -258,7 +269,7 @@ header ul > li {
 .comment > p {
     font-size: 14px;
     line-height: 17px;
-    margin: 6px 0 8px 0;
+    margin: 3% 0 3% 0;
 }
 
 .comment > span {
@@ -266,10 +277,7 @@ header ul > li {
     line-height: 12px;
 }
 
-footer {
-    height: 92px;
-    background: #222222;
-}
+footer {}
 
 .footer-line {
     height: 15px;
@@ -278,14 +286,14 @@ footer {
 }
 
 .footer-menu {
+    padding: 5% 0;
     display: flex;
     align-items: center;
     font-size: 11px;
     line-height: 13px;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
     color: #FFFFFF;
-    height: 100%;
+    background: #222222;
 }
 
 footer ul > li {
@@ -293,31 +301,122 @@ footer ul > li {
     cursor: pointer;
 }
 
+.main-menu {
+    text-transform: uppercase;
+}
 
+.nested-menu {
+    display: none;
+}
 
-    .hpmdf-mobile .content-box {
-        flex-direction: column;
-    }
-    .hpmdf-mobile .content {
-        width: 100%;
-    }
-    .hpmdf-mobile header .header-menu {
-        display: none;
-    }
-    .hpmdf-mobile header .img-box {
-        display: none;
-    }
-    .hpmdf-mobile .heading {
-        width: 100%;
-    }
-    .hpmdf-mobile .main-content {
-        width: 90%;
-    }
-    .hpmdf-mobile .side-bar {
-        width: 90%;
-    }
-    .hpmdf-mobile footer > ul {
-        flex-direction: column;
-    }
+.hpmdf-mobile .content-box {
+    flex-direction: column;
+}
 
+.hpmdf-mobile .content {
+    width: 100%;
+}
 
+.hpmdf-mobile header .header-menu {
+    display: none;
+}
+
+.hpmdf-mobile header .img-box {
+    display: none;
+}
+
+.hpmdf-mobile .topic {
+    margin-left: 5%;
+    font-size: 25px;
+}
+
+.hpmdf-mobile .heading {
+    width: 100%;
+}
+
+.hpmdf-mobile .heading .h1 {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 45px;
+
+}
+
+.hpmdf-mobile .heading-pic-box {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.hpmdf-mobile .heading-pic-favorite,
+.hpmdf-mobile .heading-pic-heart {
+    width: 7%;
+}
+
+.hpmdf-mobile .main-content {
+    width: 100%;
+}
+
+.hpmdf-mobile .side-bar {
+    width: 90%;
+}
+
+.hpmdf-mobile footer > ul {
+    flex-direction: column;
+}
+
+.hpmdf-mobile .side-bar {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+.hpmdf-mobile .main-content > p {
+    width: 90%;
+    margin: 5% auto;
+}
+
+.hpmdf-mobile .read-more {
+    margin: 50px auto;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.hpmdf-mobile .comments-heading {
+    font-size: 25px;
+}
+
+.hpmdf-mobile .comment-username {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.hpmdf-mobile .comment-time {
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.hpmdf-mobile .nested-menu {
+    display: flex;
+    flex-wrap: wrap;
+    text-transform: none;
+}
+
+.hpmdf-mobile .nested-menu > li {
+    margin: 2% 3% 2% 0;
+}
+
+.hpmdf-mobile .main-menu {
+    flex-direction: column;
+    width: 84%;
+    margin: 0 auto;
+}
+
+.hpmdf-mobile footer ul > li {
+    margin-left: 0;
+    margin-bottom: 3%;
+}
+
+.hpmdf-mobile .footer-menu {
+    font-size: 25px;
+    line-height: 35px;
+}
