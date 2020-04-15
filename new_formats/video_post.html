@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+
+    <div class='hpmdn-wrapper'>
+        <div class='hpmdn-post-header'>
+            <p>Всем здравствуйте!</p>
+            Всем здравствуйте!
+        </div>
+        <div class='video'>
+            <video id="video" src="../img_video/Video1.mp4" autoplay="autoplay" preload="auto" loop="loop" muted="muted"></video>
+        </div>
+        <div class='hpmdn-post-footer'>
+            До свидания!
+        </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut urna vitae lectus pretium dictum id et urna. Aliquam elementum eget lorem sed volutpat. Cras ultricies interdum nulla sed venenatis. Ut non ante odio. Nam cursus dapibus dui eget suscipit. Cras eu arcu faucibus nibh maximus porta. Cras venenatis nulla nec velit bibendum, sed hendrerit nisl blandit. Sed porttitor orci id enim pellentesque, vitae posuere sapien aliquet. Morbi vitae mi vel ex pulvinar volutpat. Proin facilisis mi et nisi efficitur eleifend. Proin porta ex eu nisi molestie sodales. In sapien metus, gravida ut eros nec, pretium commodo tortor. Nam rutrum sed orci ac pharetra. Aenean sit amet ullamcorper felis. Sed id velit vitae eros fringilla tincidunt quis quis diam.</p>
+
+
+    <style>
+        html {
+            width: 100%;
+        }
+        body {
+            width: 80%;
+            margin: 0 auto;
+            font: normal 14px sans-serif;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+      const getContainerSize = function() {
+        const bannerContainer = document.getElementsByClassName('banner-container')[0];
+        if (bannerContainer) {
+          const widthElem = parseInt(getComputedStyle(document.body, null).width);
+          bannerContainer.style.width = widthElem + 'px';
+          bannerContainer.style.height = widthElem*0.5625 + 'px';
+        }
+      };
+
+    </script>
+</body>
+</html>

@@ -14,14 +14,6 @@
     <input id="toggle" type="checkbox">
     <label for="toggle"  class="wrapper-buttons">
         <div class="circle"></div>
-        <div class="icons icon_mobile">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 height="24"
-                 viewBox="0 0 24 24"
-                 width="24">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-        </div>
         <div class="icons icon_desktop">
             <svg xmlns="http://www.w3.org/2000/svg"
                  height="24"
@@ -29,6 +21,14 @@
                  width="24">
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+        </div>
+        <div class="icons icon_mobile">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 width="24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
         </div>
     </label>
 </div>
@@ -47,7 +47,6 @@
         #frame {
             width: 100vw;
             height: 100vh;
-            opacity: 0;
             position: absolute;
         }
         .phone-container {
@@ -58,6 +57,7 @@
             left: 39%;
             width: auto;
             z-index: 3;
+            opacity: 0;
         }
         #frame_phone {
             position: absolute;
@@ -72,7 +72,7 @@
         }
         .wrapper-buttons {
             display: flex;
-            background-color: #0E518A;
+            background-color: #20229E;
             flex-direction: column;
             width: 60px;
             height: 110px;
@@ -102,19 +102,19 @@
             z-index: 2;
         }
 
-        label .icon_desktop > svg {
+        label .icon_mobile > svg {
             fill : #ffffff;
         }
 
-        label .icon_mobile > svg {
-            fill : #0E518A;
-        }
-
-        input[type="checkbox"]:checked + label .icon_desktop > svg {
-            fill : #0E518A;
+        label .icon_desktop > svg {
+            fill : #20229E;
         }
 
         input[type="checkbox"]:checked + label .icon_mobile > svg {
+            fill : #20229E;
+        }
+
+        input[type="checkbox"]:checked + label .icon_desktop > svg {
             fill : #ffffff;
         }
 
@@ -157,13 +157,13 @@
           console.log(element)
           console.log(element.checked)
           if (element.checked) {
-            iframeDesktop.style.opacity = '0';
-            mobile.style.opacity = '1';
-            mobile.style.zIndex = '3';
-          } else {
             iframeDesktop.style.opacity = '1';
             mobile.style.opacity = '0';
             mobile.style.zIndex = '0';
+          } else {
+            iframeDesktop.style.opacity = '0';
+            mobile.style.opacity = '1';
+            mobile.style.zIndex = '3';
           }
         }
 
