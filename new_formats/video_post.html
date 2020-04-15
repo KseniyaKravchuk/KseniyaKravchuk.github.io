@@ -11,6 +11,7 @@
 
     <div class='hpmdn-wrapper'>
         <div class='hpmdn-post-header'>
+            <div class="hpmdn-logo"></div>
             <p>Всем здравствуйте!</p>
             Всем здравствуйте!
         </div>
@@ -37,6 +38,19 @@
         video {
             width: 100%;
             height: 100%;
+        }
+        .hpmdn-wrapper {
+            border: 1px solid gray;
+        }
+        .hpmdn-logo {
+            width: 10%;
+            background: url("../img_video/logo.png") 50% 50% no-repeat;
+            background-size: contain;
+        }
+        .hpmdn-logo::after {
+            content: '';
+            display: block;
+            padding-top: 45%;
         }
     </style>
 

@@ -5,12 +5,12 @@
     <title>Demo</title>
 </head>
 <body>
-<div class="phone-container">
-    <img src="img/mobile.png" alt="" height="100%">
-    <iframe id="frame_phone" src="Demo.html" frameborder="0"></iframe>
+<div id="container" class="desktop-container">
+    <img src="img/mobile.png" alt="" height="100%" >
+    <iframe id="frame" class="frame-desktop" src="Demo.html" frameborder="0"></iframe>
 </div>
-<iframe id='frame' src="Demo.html" frameborder="0"></iframe>
-<div>
+<!--<iframe class='desktop-frame' src="Demo.html" frameborder="0"></iframe>-->
+<div class="toggle-container">
     <input id="toggle" type="checkbox">
     <label for="toggle"  class="wrapper-buttons">
         <div class="circle"></div>
@@ -44,9 +44,9 @@
             width: 100vw;
             height: 100vh;
         }
-        #frame {
-            width: 100vw;
-            height: 100vh;
+        .frame-desktop {
+            width: 100vw!important;
+            height: 100vh!important;
             position: absolute;
         }
         .phone-container {
@@ -57,15 +57,22 @@
             left: 39%;
             width: auto;
             z-index: 3;
-            opacity: 0;
         }
-        #frame_phone {
+        .desktop-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .desktop-container > img {
+            display: none;
+        }
+        .frame-phone {
             position: absolute;
             top: -24%;
             left: -36.31%;
-            width: 171.6%;
             transform: scale(0.5);
-            opacity: 0;
         }
         #toggle {
             display: none;
@@ -110,6 +117,7 @@
             fill : #20229E;
         }
 
+        /*input:checked, когда выбран mobile*/
         input[type="checkbox"]:checked + label .icon_mobile > svg {
             fill : #20229E;
         }
@@ -140,34 +148,62 @@
             animation: .2s toggler-off linear forwards;
         }
     </style>
+
+    <script>var _top;try{if(top.document)_top=top;}catch(e){_top=window;}_top.hpmd=_top.hpmd||[];(function(l,a,d,b){if(d.querySelector('script[src=\''+l+'\']'))return;b=d.createElement(a);b.async=1;b.src=l;a=d.querySelector(a);a.parentNode.insertBefore(b,a)})('//banner-dev.hpmdnetwork.ru/client/50.min.js','script',_top.document);</script>
     <script>
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.querySelector('.toggle-container').style.display = 'none';
+      }
+
         const element = document.querySelector('input[type=checkbox]');
-        const iframeDesktop = document.getElementById('frame');
-        const iframePhone = document.getElementById('frame_phone');
+        const container = document.getElementById('container');
+        const iframe = document.getElementById('frame');
         const toggle = document.querySelector('.wrapper-buttons');
         const mobile = document.querySelector('.phone-container');
 
-        window.addEventListener('load', function(){
-          const width = iframePhone.getBoundingClientRect().width;
-          iframePhone.style.height = width * 1.76 * 2 + 'px';
-          iframePhone.style.opacity = '1';
-        });
+        const getQueryParams = ( params, url ) => {
+          let href = url;
+          //this expression is to get the query strings
+          let reg = new RegExp( '[?&]' + params + '=([^&#]*)', 'i' );
+          let queryString = reg.exec(href);
+          return queryString ? queryString[1] : null;
+        };
+
+        //getQueryParams('data','http://another-example.com?example=something&data=13');
+
+        // window.addEventListener('load', function(){
+        //   const width = iframePhone.getBoundingClientRect().width;
+        //   iframePhone.style.height = width * 1.76 * 2 + 'px';
+        //   iframePhone.style.opacity = '1';
+        // });
+
+        function getSizes() {
+          const phoneContainerWidth = document.querySelector('.phone-container').getBoundingClientRect().width;
+          console.log(phoneContainerWidth)
+          const frameWidth = phoneContainerWidth * 1.716;
+          iframe.style.width = frameWidth + 'px';
+          iframe.style.height = frameWidth * 1.76 + 'px';
+        }
 
         function getPage() {
           console.log(element)
           console.log(element.checked)
           if (element.checked) {
-            iframeDesktop.style.opacity = '1';
-            mobile.style.opacity = '0';
-            mobile.style.zIndex = '0';
+            container.classList.remove('phone-container');
+            container.classList.add('desktop-container');
+            iframe.classList.remove('frame-phone')
+            iframe.classList.add('frame-desktop')
           } else {
-            iframeDesktop.style.opacity = '0';
-            mobile.style.opacity = '1';
-            mobile.style.zIndex = '3';
+            container.classList.add('phone-container');
+            container.classList.remove('desktop-container');
+            iframe.classList.add('frame-phone')
+            iframe.classList.remove('frame-desktop');
+            getSizes()
           }
         }
 
         toggle.addEventListener('click', function(){
+          console.log('click')
           getPage();
         });
         window.addEventListener('resize', function(){
