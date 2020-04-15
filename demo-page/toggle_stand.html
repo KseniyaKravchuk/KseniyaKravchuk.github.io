@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<div class="phone-container">
+    <img src="img/mobile.png" alt="" height="100%">
+    <iframe id="frame_phone" src="Demo.html" frameborder="0"></iframe>
+</div>
+<iframe id='frame' src="Demo.html" frameborder="0"></iframe>
+<div>
+    <input id="toggle" type="checkbox">
+    <label for="toggle"  class="wrapper-buttons">
+        <div class="circle"></div>
+        <div class="icons icon_mobile">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 width="24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+        </div>
+        <div class="icons icon_desktop">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 width="24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+        </div>
+    </label>
+</div>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        #frame {
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            position: absolute;
+        }
+        .phone-container {
+            height: 80vh;
+            display: inline-block;
+            position: absolute;
+            top: 10%;
+            left: 39%;
+            width: auto;
+            z-index: 3;
+        }
+        #frame_phone {
+            position: absolute;
+            top: -24%;
+            left: -36.31%;
+            width: 171.6%;
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        #toggle {
+            display: none;
+        }
+        .wrapper-buttons {
+            display: flex;
+            background-color: #0E518A;
+            flex-direction: column;
+            width: 60px;
+            height: 110px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 2%;
+            top: 45%;
+            border-radius: 30px;
+        }
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            background-color: #ffffff;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        .icons {
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        label .icon_desktop > svg {
+            fill : #ffffff;
+        }
+
+        label .icon_mobile > svg {
+            fill : #0E518A;
+        }
+
+        input[type="checkbox"]:checked + label .icon_desktop > svg {
+            fill : #0E518A;
+        }
+
+        input[type="checkbox"]:checked + label .icon_mobile > svg {
+            fill : #ffffff;
+        }
+
+        @keyframes toggler-on {
+            0% { top: 5px }
+            20% { top: 10px; height: 65px}
+            80% { top: 40px; height: 65px }
+            100% { top: 55px; height: 50px }
+        }
+
+        @keyframes toggler-off {
+            0% { top: 55px; height: 50px }
+            20% { top: 40px; height: 65px }
+            80% { top: 10px; height: 65px}
+            100% { top: 5px }
+        }
+
+
+        input[type="checkbox"]:checked + label > .circle {
+            animation: .2s toggler-on linear forwards;
+        }
+        input[type="checkbox"] + label > .circle {
+            animation: .2s toggler-off linear forwards;
+        }
+    </style>
+    <script>
+        const element = document.querySelector('input[type=checkbox]');
+        const iframeDesktop = document.getElementById('frame');
+        const iframePhone = document.getElementById('frame_phone');
+        const toggle = document.querySelector('.wrapper-buttons');
+        const mobile = document.querySelector('.phone-container');
+
+        window.addEventListener('load', function(){
+          const width = iframePhone.getBoundingClientRect().width;
+          iframePhone.style.height = width * 1.76 * 2 + 'px';
+          iframePhone.style.opacity = '1';
+        });
+
+        function getPage() {
+          console.log(element)
+          console.log(element.checked)
+          if (element.checked) {
+            iframeDesktop.style.opacity = '0';
+            mobile.style.opacity = '1';
+            mobile.style.zIndex = '3';
+          } else {
+            iframeDesktop.style.opacity = '1';
+            mobile.style.opacity = '0';
+            mobile.style.zIndex = '0';
+          }
+        }
+
+        toggle.addEventListener('click', function(){
+          getPage();
+        });
+        window.addEventListener('resize', function(){
+
+        })
+
+    </script>
+</body>
+</html>
