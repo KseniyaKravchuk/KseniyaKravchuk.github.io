@@ -45,6 +45,9 @@
     body {
         width: 100vw;
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .frame-desktop {
@@ -57,8 +60,6 @@
         height: 80vh;
         display: inline-block;
         position: absolute;
-        top: 10%;
-        left: 39%;
         width: auto;
         z-index: 3;
     }
@@ -181,27 +182,45 @@
     input[type="checkbox"] + label > .circle {
         animation: .2s toggler-off linear forwards;
     }
+
+    @media (max-width: 450px) {
+        .phone-container {
+            height: 70vh;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .phone-container {
+            height: 60vh;
+        }
+    }
+
+    @media (max-width: 350px) {
+        .phone-container {
+            height: 50vh;
+        }
+    }
 </style>
 
 <script>
-    var _top;
-    try {
-      if (top.document) _top = top;
-    } catch (e) {
-      _top = window;
-    }
-    _top.hpmd = _top.hpmd || [];
-    (function (l, a, d, b) {
-      if (d.querySelector('script[src=\'' + l + '\']')) return;
-      b = d.createElement(a);
-      b.async = 1;
-      b.src = l;
-      a = d.querySelector(a);
-      a.parentNode.insertBefore(b, a)
-    })('//banner-dev.hpmdnetwork.ru/client/50.min.js', 'script', _top.document);
+  var _top;
+  try {
+    if (top.document) _top = top;
+  } catch (e) {
+    _top = window;
+  }
+  _top.hpmd = _top.hpmd || [];
+  (function (l, a, d, b) {
+    if (d.querySelector('script[src=\'' + l + '\']')) return;
+    b = d.createElement(a);
+    b.async = 1;
+    b.src = l;
+    a = d.querySelector(a);
+    a.parentNode.insertBefore(b, a)
+  })('//banner-dev.hpmdnetwork.ru/client/50.min.js', 'script', _top.document);
 </script>
 <script>
-    console.log('HI')
+  console.log('HI')
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.querySelector('.toggle-container').style.display = 'none';
   }
@@ -214,24 +233,25 @@
     mobile: undefined
   };
 
-    window.addEventListener('DOMContentLoaded', function () {
-      getElements();
-      const demoHash = getQueryParams('hpmd_demo', window.location.href) ? getQueryParams('hpmd_demo', window.location.href) : getHash('hpmd_demo', window.location.href)
-      elements.iframe.src = (demoHash) ? 'Demo.html?hpmd_demo=' + demoHash : 'Demo.html';
+  window.addEventListener('DOMContentLoaded', function () {
+    getElements();
+    const demoHash = getQueryParams('hpmd_demo', window.location.href) ? getQueryParams('hpmd_demo', window.location.href) : getHash('hpmd_demo', window.location.href)
+    elements.iframe.src = (demoHash) ? 'Demo.html?hpmd_demo=' + demoHash : 'Demo.html';
 
-      if (getQueryParams('view_type', window.location.href) === 'mobile') {
-        elements.checkbox.checked = true;
+    if (getQueryParams('view_type', window.location.href) === 'mobile') {
+      elements.checkbox.checked = true;
+      getPage();
+    }
+
+    elements.toggle.addEventListener('click', function () {
+      console.log('click')
+      setTimeout(function () {
+        let url = getURL();
+        window.history.pushState(null, document.title, url.search);
         getPage();
-      }
-
-      elements.toggle.addEventListener('click', function () {
-        console.log('click')
-        setTimeout(function() {
-          getURL();
-          getPage();
-        }, 100)
-      });
+      }, 100)
     });
+  });
 
   const getQueryParams = (params, url) => {
     let href = url;
@@ -253,10 +273,12 @@
 
 
   function getSizes() {
-    const phoneContainerWidth = document.querySelector('.phone-container').getBoundingClientRect().width;
-    const frameWidth = phoneContainerWidth * 1.716;
-    elements.iframe.style.width = frameWidth + 'px';
-    elements.iframe.style.height = frameWidth * 1.76 + 'px';
+    if (document.querySelector('.phone-container')) {
+      const phoneContainerWidth = document.querySelector('.phone-container').getBoundingClientRect().width;
+      const frameWidth = phoneContainerWidth * 1.716;
+      elements.iframe.style.width = frameWidth + 'px';
+      elements.iframe.style.height = frameWidth * 1.76 + 'px';
+    }
   }
 
   function getURL() {
@@ -266,7 +288,8 @@
     } else {
       url.searchParams.set('view_type', 'desktop')
     }
-    window.location.href = url;
+    return url;
+    // window.location.href = url;
   }
 
   function getPage() {
@@ -295,9 +318,8 @@
 
 
   window.addEventListener('resize', function () {
-
+    getSizes()
   })
-
 
 
 </script>
