@@ -274,6 +274,7 @@
 
   function getSizes() {
     if (document.querySelector('.phone-container')) {
+
       const phoneContainerWidth = document.querySelector('.phone-container').getBoundingClientRect().width;
       const frameWidth = phoneContainerWidth * 1.716;
       elements.iframe.style.width = frameWidth + 'px';
