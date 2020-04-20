@@ -76,7 +76,7 @@ header ul > li {
 }
 
 .heading {
-    width: 70%;
+    width: 100%;
 }
 
 .topic {
@@ -115,6 +115,11 @@ header ul > li {
     display: flex;
 }
 
+.heading-pic-box > img {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
 .heading-pic-favorite {
     margin: 0 15px 0 0;
     width: 5%;
@@ -129,11 +134,16 @@ header ul > li {
     background-size: contain;
 }
 
-.heading-pic-favorite::after,
+.heading-pic-favorite::after{
+    content: '';
+    display: block;
+    padding-top: 116.7%;
+}
+
 .heading-pic-heart::after {
     content: '';
     display: block;
-    padding-top: 100%;
+    padding-top: 80%;
 }
 
 .content-box {
@@ -175,6 +185,11 @@ header ul > li {
     padding-left: 40px;
     display: flex;
     flex-direction: column;
+}
+
+.side-bar-sticky {
+    position: sticky;
+    top: 5%;
 }
 
 .side-bar-best {
@@ -489,6 +504,8 @@ footer ul > li {
         padding-left: 0;
         width: 90%;
     }
+
+
 
     .side-bar-best > span {
         font-size: 25px;
