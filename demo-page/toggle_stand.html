@@ -220,10 +220,14 @@
   })('//banner-dev.hpmdnetwork.ru/client/50.min.js', 'script', _top.document);
 </script>
 <script>
+  let url = new URL(window.location.href);
+  url.searchParams.delete('view_type');
+  console.log(url)
+
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     let url = new URL(window.location.href);
     url.searchParams.delete('view_type');
-    window.location.reload()
+    window.location.href = url.href;
     document.querySelector('.toggle-container').style.display = 'none';
   }
 
