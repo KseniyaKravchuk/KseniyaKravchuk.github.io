@@ -223,7 +223,7 @@
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     let url = new URL(window.location.href);
     url.searchParams.delete('view_type');
-    // window.location.href = url;
+    window.location.reload()
     document.querySelector('.toggle-container').style.display = 'none';
   }
 
