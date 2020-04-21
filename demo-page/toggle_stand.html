@@ -275,13 +275,10 @@
 
 
   function getSizes() {
-    if (document.querySelector('.phone-container')) {
-
-      const phoneContainerWidth = document.querySelector('.phone-container').getBoundingClientRect().width;
-      const frameWidth = phoneContainerWidth * 1.716;
-      elements.iframe.style.width = frameWidth + 'px';
-      elements.iframe.style.height = frameWidth * 1.76 + 'px';
-    }
+    const phoneContainerHeight = document.querySelector('.phone-container').getBoundingClientRect().height;
+      const frameHeight = phoneContainerHeight * 1.473;
+      elements.iframe.style.width = frameHeight / 1.76 + 'px';
+      elements.iframe.style.height = frameHeight + 'px';
   }
 
   function getURL() {
@@ -292,22 +289,20 @@
       url.searchParams.set('view_type', 'desktop')
     }
     return url;
-    // window.location.href = url;
   }
 
   function getPage() {
     if (elements.checkbox.checked) {
       elements.container.classList.add('phone-container');
       elements.container.classList.remove('desktop-container');
-      elements.iframe.classList.add('frame-phone')
+      elements.iframe.classList.add('frame-phone');
       elements.iframe.classList.remove('frame-desktop');
       getSizes()
     } else {
       elements.container.classList.remove('phone-container');
       elements.container.classList.add('desktop-container');
-      elements.iframe.classList.remove('frame-phone')
+      elements.iframe.classList.remove('frame-phone');
       elements.iframe.classList.add('frame-desktop')
-
     }
   }
 
