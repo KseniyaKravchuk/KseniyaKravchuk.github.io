@@ -220,14 +220,6 @@
   })('//banner-dev.hpmdnetwork.ru/client/50.min.js', 'script', _top.document);
 </script>
 <script>
-  let url = new URL(window.location.href);
-  console.log(url)
-  url.searchParams.delete('view_type');
-  console.log(url)
-  console.log(url.href)
-  console.log(url.search)
-  window.history.pushState(null, document.title, url.search);
-
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     let url = new URL(window.location.href);
     url.searchParams.delete('view_type');
