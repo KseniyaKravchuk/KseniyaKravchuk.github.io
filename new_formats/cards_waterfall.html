@@ -12,6 +12,10 @@
 
     <div class='hpmdn-wrapper'>
         <div class="hpmdn-cards">
+            <div class="hpmdn-nav">
+                <div class="hpmdn-prev"></div>
+                <div class="hpmdn-next"></div>
+            </div>
             <div class="hpmdn-card hpmdn-card1">
                 <div class="hpmdn-card-img hpmdn-card-img-pic1"></div>
                 <div class="hpmdn-card-content">
@@ -76,6 +80,9 @@
         font: normal 14px sans-serif;
         display: flex;
     }
+    .hpmdn-wrapper {
+        overflow: hidden;
+    }
     .hpmdn-main {
         width: 70%;
         margin-right: 30px;
@@ -90,6 +97,31 @@
         height: 100%;
         margin: 0 auto;
     }
+    .hpmdn-nav {
+        position: absolute;
+        right: -25%;
+        top: 40%;
+        display: flex;
+        flex-direction: column;
+        width: 60px;
+        height: 110px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hpmdn-prev {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        background: #0cb3ee url("img/keyboard_arrow_up-24px.svg") 50% 50% no-repeat;
+        background-size: contain;
+    }
+    .hpmdn-next {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        background: #0cb3ee url("img/keyboard_arrow_down-24px.svg") 50% 50% no-repeat;
+        background-size: contain;
+    }
     .hpmdn-card {
         width: 100%;
         display: flex;
@@ -101,6 +133,12 @@
         position: absolute;
         background-color: #fff;
         box-sizing: border-box;
+        opacity: 1;
+        -webkit-transition: all .5s linear;
+        -moz-transition: all  .5s linear;
+        -ms-transition: all  .5s linear;
+        -o-transition: all  .5s linear;
+        transition: all  .5s linear;
     }
     .hpmdn-card-img-pic1 {
          width: 30%;
@@ -137,13 +175,22 @@
 <script>
     let elements = {
       wrapper: undefined,
-      cards: undefined
-    }
+      cards: undefined,
+      cards_original: undefined,
+      prev_button: undefined,
+      next_button: undefined
+    };
+
+    let cardsData = [];
 
     const getElements = function() {
       elements.wrapper = document.querySelector('.hpmdn-wrapper');
       elements.cards = [].slice.call(document.querySelectorAll('.hpmdn-card'));
+      elements.cards_original = [].slice.call(document.querySelectorAll('.hpmdn-card'));
+      elements.prev_button = document.querySelector('.hpmdn-prev');
+      elements.next_button = document.querySelector('.hpmdn-next');
     };
+
     window.addEventListener('DOMContentLoaded', function(){
       getElements();
 
@@ -163,8 +210,38 @@
         elements.cards[i].style.transform = 'scale(' + (1  - 0.05 * i) + ')';
         elements.cards[i].style.zIndex = elements.cards.length - i;
         elements.cards[i].style.top = topForCards * (elements.cards.length - i) + 'px';
+        let cardData = {
+          height: cardWidth * 0.5625 + 'px',
+          transform: 'scale(' + (1  - 0.05 * i) + ')',
+          zIndex: elements.cards.length - i,
+          top: topForCards * (elements.cards.length - i) + 'px',
+          opacity: 1
+        }
+        cardsData.push(cardData)
       }
-      console.log(elements.cards)
+
+      let currentCard = 0;
+      const getCards = function() {
+        for (let i = currentCard; i < elements.cards.length; i++) {
+          elements.cards[i].style.height = cardsData[i - currentCard].height;
+          elements.cards[i].style.transform = cardsData[i - currentCard].transform;
+          elements.cards[i].style.zIndex = cardsData[i - currentCard].zIndex;
+          elements.cards[i].style.top = cardsData[i - currentCard].top;
+          elements.cards[i].style.opacity = cardsData[i - currentCard].opacity;
+        }
+      }
+
+      elements.prev_button.addEventListener('click', function(){
+        currentCard--;
+        getCards();
+      })
+      elements.next_button.addEventListener('click', function(){
+        console.log('click')
+        elements.cards[currentCard].style.opacity = '0';
+        elements.cards[currentCard].style.top = '100%';
+        currentCard++;
+        getCards();
+      })
     })
 </script>
 </body>
