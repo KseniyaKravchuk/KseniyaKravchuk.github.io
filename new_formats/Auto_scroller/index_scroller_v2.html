@@ -21,18 +21,16 @@
                 <div class="hpmdn-mask">
                     <div class="hpmdn-scroller">
                         <div class="hpmdn-scroller-background"></div>
-                        <div class="hpmdn-scroller-wrapper">
-                            <div class="hpmdn-banner-wrapper">
-                                <div class="hpmdn-banner-container">
-                                    <div class="hpmdn-text-box">
-                                        <div class="hpmdn-logo"></div>
-                                        <div class="hpmdn-main-text"></div>
-                                        <div class="hpmdn-text"></div>
-                                    </div>
-                                    <div class="hpmdn-mask-auto"></div>
-                                    <div class="hpmdn-auto">
-                                        <div class="hpmdn-wheel"></div>
-                                    </div>
+                        <div class="hpmdn-banner-wrapper">
+                            <div class="hpmdn-banner-container">
+                                <div class="hpmdn-text-box">
+                                    <div class="hpmdn-logo"></div>
+                                    <div class="hpmdn-main-text"></div>
+                                    <div class="hpmdn-text"></div>
+                                </div>
+                                <div class="hpmdn-mask-auto"></div>
+                                <div class="hpmdn-auto">
+                                    <div class="hpmdn-wheel"></div>
                                 </div>
                             </div>
                         </div>
@@ -94,14 +92,7 @@
             background: url("./img/bg-1.jpg") 50% 50% no-repeat;
             background-size: cover;
         }
-        .hpmdn-scroller-wrapper {
-            position: fixed;
-            left: 0;
-            top: 100%;
-            width: 100%;
-            height: 100vh;
-            background-color: transparent;
-        }
+
         .hpmdn-banner-wrapper {
             position: absolute;
             top: 0;
@@ -283,7 +274,6 @@
           scroller: undefined,
           mask: undefined,
           scrollerBG: undefined,
-          scrollerBanner: undefined,
           bannerWrapper: undefined
         };
         let leftPosition;
@@ -294,7 +284,6 @@
           elements.bannerWrapper = document.querySelector('.hpmdn-banner-wrapper');
           elements.scroller = document.querySelector('.hpmdn-scroller');
           elements.scrollerBG = document.querySelector('.hpmdn-scroller-background');
-          elements.scrollerBanner = document.querySelector('.hpmdn-scroller-wrapper');
           elements.mask = elements.wrapper.querySelector('.hpmdn-mask');
         };
 
@@ -333,6 +322,10 @@
             elements.bannerWrapper.style.width = widthElem + 'px';
             elements.bannerWrapper.style.height = widthElem * 0.5625 + 'px';
             elements.bannerWrapper.style.left = leftPosition + 'px';
+            if (!visibleMask()) {
+              elements.bannerWrapper.style.top = window.innerHeight + 'px';
+            }
+
 
             // const smallPartHeight = (elements.scroller.getBoundingClientRect().height - widthElem * 0.5625) / 2;
             // indentSize = smallPartHeight;
@@ -370,18 +363,31 @@
 
         let offset = 0;
         let moveBanner = 0;
+        function visibleMask() {
+          return window.innerHeight > elements.mask.getBoundingClientRect().top
+        }
+
         function scrollerHandler() {
           const maskRect = elements.mask.getBoundingClientRect();
-          const bannerRect = elements.container.getBoundingClientRect();
+          const bannerRect = elements.bannerWrapper.getBoundingClientRect();
           const div = (window.innerHeight + bannerRect.height) / (window.innerHeight - maskRect.height);
+            // console.log(div)
+          //window.innerHeight + bannerRect.height - расстояние, которое проходит KV
+          //window.innerHeight - maskRect.height - расстояние, которое проходит mask
+          if (maskRect.bottom <= window.innerHeight && maskRect.top >= 0) {
+            let top = maskRect.top / ((window.innerHeight - maskRect.height) / 100);
+            let topForKV = (window.innerHeight + bannerRect.height) - ((window.innerHeight + bannerRect.height) / 100 * top);
 
-         if (maskRect.top + maskRect.height <= window.innerHeight && maskRect.top > 0) {
-            let offsetForMask = (maskRect.top - offset);
-            console.log(offsetForMask)
-            let offsetForBanner = offsetForMask * div;
-            moveBanner += offsetForBanner;
-            elements.scrollerBanner.style.transform = 'translateY(' + (moveBanner) + 'px)';
+
+
+
+            elements.bannerWrapper.style.transform = 'translateY(' + -(topForKV) + 'px)';
+          } else {
+            // console.log('Hi')
           }
+
+         // if (bannerRect.bottom >= maskRect.top && bannerRect.top <= maskRect.bottom) {
+         //  }
 
          // if (maskRect.top + maskRect.height > window.innerHeight) {
          //   elements.scrollerBanner.style.transform = 'translateY(0px)';
@@ -415,10 +421,9 @@
 
         window.addEventListener('DOMContentLoaded', function() {
             getElements();
-            console.log(elements.mask)
             getContainerSize();
-            // window.addEventListener('scroll', scrollerHandler);
-            // scrollerHandler();
+            window.addEventListener('scroll', scrollerHandler);
+            scrollerHandler();
             // let intervalId = setInterval(function(){
             //   elements.auto.classList.toggle('hpmdn-active')
             // }, 1000)
