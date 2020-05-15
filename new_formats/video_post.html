@@ -169,8 +169,11 @@
         };
 
         window.addEventListener('DOMContentLoaded', function(){
-          getElements();
-          getContainerSize();
+          const video = document.querySelector('#video');
+          video.addEventListener('canplay', function(){
+            getElements();
+            getContainerSize();
+          })
         });
 
         window.addEventListener('resize', function(){
