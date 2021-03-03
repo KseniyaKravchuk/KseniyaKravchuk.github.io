@@ -25,7 +25,7 @@
     "gulp-uglify-es": "^2.0.0",
     "gulp-uglifycss": "^1.1.0",
     "gulp-version-number": "^0.2.4",
-    "pug": "^2.0.4"
+    "pug": "^3.0.1"
   },
   "devDependencies": {
     "gulp-purgecss": "^2.1.0"
